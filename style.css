@@ -1,14 +1,14 @@
 :root {
-	--font-color: #424242;
-	--link-color: #0072AB;
-	--bg-color: rgb(231, 231, 231);
-	--bgimg: url(bgimg/dust_scratches.png);
-	--headerimg: url(bgimg/sakura.png);
+	--font-color: rgb(255, 255, 255);
+	--link-color: #B78780;
+	--bg-color: rgb(61, 61, 61);
+	--bgimg: url(bgimg/stardust_@2X.png);
+	--headerimg: url(bgimg/stars-blue-bg.gif);
 }
 
 [data-theme="dark"] {
 	--font-color: rgb(255, 255, 255);
-	--link-color: #98e67e;
+	--link-color: #B78780;
 	--bg-color: rgb(61, 61, 61);
 	--bgimg: url(bgimg/stardust_@2X.png);
 	--headerimg: url(bgimg/stars-blue-bg.gif);
