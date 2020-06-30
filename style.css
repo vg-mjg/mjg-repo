@@ -1,8 +1,8 @@
 :root {
 	--font-color: rgb(255, 255, 255);
-	--link-color: #ebc182;
-	--bg-color: rgb(61, 61, 61);
-	--bgimg: url(bgimg/low_contrast_linen.png);
+	--link-color: #63db61;
+	--bg-color: #75A973;
+	--bgimg: url(bgimg/stardust_@2X.png);
 	--headerimg: url(bgimg/stars-blue-bg.gif);
 }
 
@@ -74,6 +74,7 @@ html {
 body {
 	font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 	color: var(--font-color);
+	/*background-color: var(--bg-color);*/
 	background-image: var(--bgimg);
 	line-height: 1.6;
 	margin-left: 0px;
