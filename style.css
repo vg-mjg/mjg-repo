@@ -1,6 +1,6 @@
 :root {
 	--font-color: rgb(231, 231, 231);
-	--link-color: #78cf77;
+	--link-color: #57a856;
 	--bg-color: #75A973;
 	--bgimg: url(bgimg/stardust_@2X.png);
 	--headerimg: url(bgimg/stars-blue-bg.gif);
@@ -234,7 +234,7 @@ blockquote blockquote {
 	float: left;
 	text-align: center;
 	background-color: #333333;
-	color: #739272;
+	color: var(--link-color);
 	padding-top: 20px;
 	padding-bottom: 20px;
 	font-weight: bold;
