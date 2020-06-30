@@ -1,6 +1,6 @@
 :root {
-	--font-color: rgb(255, 255, 255);
-	--link-color: #63db61;
+	--font-color: rgb(231, 231, 231);
+	--link-color: #78cf77;
 	--bg-color: #75A973;
 	--bgimg: url(bgimg/stardust_@2X.png);
 	--headerimg: url(bgimg/stars-blue-bg.gif);
@@ -234,15 +234,13 @@ blockquote blockquote {
 	float: left;
 	text-align: center;
 	background-color: #333333;
-	color: #E3E3E3;
+	color: #739272;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	font-weight: bold;
 	word-wrap: break-word;
 }
-.gcse-searchbox-only {
 
-}
 #top {
 	margin-top: -20px;
 	background-image: var(--headerimg);
@@ -260,7 +258,7 @@ blockquote blockquote {
 
 #mainnav a:hover   , #mainnav a:active  ,#mainnav a:focus, #mainnav a.thispage{
 	text-decoration: none;
-	background-color: #949494;
+	background-color: #1d1d1d;
 }
 #mainart {
 	margin-top: 0;
