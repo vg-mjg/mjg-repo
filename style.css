@@ -1,19 +1,10 @@
 :root {
 	--font-color: rgb(255, 255, 255);
-	--link-color: #B78780;
+	--link-color: #5A6E81;
 	--bg-color: rgb(61, 61, 61);
 	--bgimg: url(bgimg/stardust_@2X.png);
 	--headerimg: url(bgimg/stars-blue-bg.gif);
 }
-
-[data-theme="dark"] {
-	--font-color: rgb(255, 255, 255);
-	--link-color: #B78780;
-	--bg-color: rgb(61, 61, 61);
-	--bgimg: url(bgimg/stardust_@2X.png);
-	--headerimg: url(bgimg/stars-blue-bg.gif);
-}
-
 
 @font-face {
     font-family: 'Open Sans';
