@@ -1,0 +1,286 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mahjong Live Pastebin</title>
+<link href="../style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+
+<div id="wrapper">
+<header id="top">
+  <figure style="text-align: center; color: rgba(51,51,51,1);"><a href="riichi.html">	</a>  </figure>
+    <center>
+      <p><span style="font-size: 4rem;"><strong>Mahjong Live Pastebin</strong></span><br>
+      <a href="https://pastebin.com/rLTVrQC7">Pastebin Source<br>
+      </a><span class="smaller">plus new additions by me. Please help add stuff here by posting interesting mahjong stuff at the thread.</span><br>
+      </p>
+    </center>
+<nav id="mainnav">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../guides.html" class="thispage">Guides</a></li>
+        <li><a href="../comicsoc.html">Comics/OC</a></li>
+        <li><a href="../tourneys.html">Tourneys</a></li>
+        <li><a href="../resources.html">Resources</a></li>
+      </ul>
+  </nav>
+    
+  </header>
+<div id="mainart">
+  <p><a href="#watm"><strong>What exactly is Mahjong?</strong></a><br>
+    <strong><a href="#howplay">How do I play? What are the rules?</a></strong><br>
+    <strong><a href="#straten">Strategy and News</a></strong><br>
+    <strong><a href="#wherep">Where to play the game solo and practice?</a></strong><br>
+    <strong><a href="#wherepo">Where to play the game online?</a></strong><br>
+    <strong><a href="#irl">Where to play the game in real life?</a></strong><br>
+    <strong><a href="#count">Counting Points</a></strong><br>
+    <strong><a href="#media">Media about Mahjong</a></strong><br>
+    <strong><a href="#otherl">Other links</a></strong><br>
+    <strong><a href="#faq">FAQ</a></strong><br>
+    <strong><a href="#contact">Contact</a></strong></p>
+  <p><br>
+  </p>
+  <h1 id="watm">What exactly is Mahjong?</h1>
+  <p>Mahjong is a   tile-based game most similar to a cross between Gin Rummy and Poker.  It   was originally created in China, but the popularity spread quickly, and   nearly every single area in Asia has its own variant. </p>
+  <p>This pastebin is focused solely on the Japanese variation, most commonly known as "Riichi" or "Reach" Mahjong.</p>
+  <blockquote>
+    <p>Contact information is down below.  If there is a mistake in this guide, feel free to contact the email.  The author is not always present in the Mahjong threads.</p>
+    </blockquote>
+  <p>I don't know if the anon still lurks the threads, <s>probably not</s> he does.   New additions can be added through the feedback system at the very   bottom of the main page, or just posting it in the thread really.</p>
+  <p>&nbsp;</p>
+  <h1 id="howplay">How do I play?  What are the rules?</h1>
+  <p>Here was some various links to the rules.</p>
+  <p><strong><a href="https://mahjong.guide/a-beginners-guide-to-riichi-mahjong/">A Beginner's Guide to Riichi Mahjong</a></strong></p>
+  <p>A   web guide to learning Riichi Mahjong.  Includes handy links and   pictures as well.  Generally an all around good resource.  It is not   fully comprehensive, though, and is essentially a very brief "how to   play video games/online".  Once you brush up over those, if you find   your knowledge lacking, or you really really like the game, you should   definitely read up on the other rulesets there.</p>
+  <hr>
+  <p><strong><a href="https://mjg-repo.neocities.org/pastebin/how-to-play-video-game-mahjong.html">Fast and dirty guide to playing video game Mahjong from a /v/-anon</a></strong></p>
+  <p>This   is an incredibly short read and should teach you just enough to be a   threat to someone while playing in a video game version, such as in   Yakuza.  You shouldn't rely on this as there is a lot, lot more to   learn, but this isn't bad for a fast method.</p>
+  <hr>
+  <p><strong><a href="https://www.youtube.com/watch?v=lZxwAxlqexY&list=PLPBLBlC-7G3s92GyGOprSmZ1mqgh0U0DI">Riichi Mahjong Guide (Video)</a></strong></p>
+  <p>Video   series teaching the basics of Mahjong.  The author of the videos also   has more advanced videos as well, talking about things like defense.</p>
+  <hr>
+  <p><a href="http://arcturus.su/wiki/Main_Page"><strong>Japanese Mahjong Wiki</strong></a> (new)</p>
+  <p>A very in-dept and robust wiki about mahjong, covering a lot from <a href="http://arcturus.su/wiki/List_of_terminology_by_alphabetical_order">Japanese terms</a> used in the game to every specific rules you might encounter.</p>
+  <hr>
+  <p><a href="http://mahjong-europe.org/portal/"><strong>European Mahjong Association (EMA)</strong></a></p>
+  <p>The   EMA is the official tournament rules for Riichi Mahjong in the Europe   area.  They also tend to be the most popular ruleset to reference when   people translate the game due to various factors.  The rules here are   more focused on tournament play, and thus will skip over various rules   that you may see in other games.</p>
+  <hr>
+  <p><a href="https://worldriichi.org/"><strong>World Riichi Competition (WRC)</strong></a></p>
+  <p>The   WRC is an attempt to standardize the English-speaker rules for Riichi   Mahjong in tournament settings.  It is not usually as popular as EMA,   but will sometimes be referenced.  The rules here are more focused on   tournament play, and thus will skip over various rules that you may see   in other games.</p>
+  <hr>
+  <p><a href="http://ooyamaneko.net/mahjong/rratw/index.php"><strong>Riichi Rules around the World</strong></a></p>
+  <p>This   is a chart of all of the various different Riichi leagues and their   viewpoints on the many optional rule points.  This is meant for more   advanced players who just want a quick list of differences between their   chosen variant versus other official leagues.  Please note, even if you   are advanced, it is still best to view the most updated rules before   playing.</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <h1 id="straten">Strategy and News</h1>
+  <p>Once you learn the rules, here are some good resources to start you on the battle to become a better player</p>
+  <p><a href="https://dainachiba.github.io/RiichiBooks/index.html"><strong>Daina Chiba's Riichi Book 1</strong></a></p>
+  <p>Most   high rank players agree that this should take you to a stable   competitive level known as "Tokujou", a higher ranked table in the   browser client Tenhou.  There currently is no Book 2.</p>
+  <p><a href="https://mjg-repo.neocities.org/books/rb1.html">Read online</a></p>
+  <hr>
+  <p><strong><a href="https://osamuko.com/">Osamuko's Mahjong Blog</a></strong></p>
+  <p>This   is a great site for news, articles, and other Mahjong related reading   material.  It has more than just strategy, but a lot of high level   players will contribute to here.</p>
+  <hr>
+  <p><strong><a href="https://riichireporter.com/">Riichi Reporter</a></strong></p>
+  <p>Various   articles about the growing English Riichi scene.  Also has various   articles relating to tile-buying and playing in parlors.</p>
+  <hr>
+  <p><a href="http://justanotherjapanesemahjongblog.blogspot.com"><strong>Just another Japanese Mahjong blog</strong></a></p>
+  <p>Exactly what the label on the tin says.  Has a lot of defense articles and strategy.</p>
+  <hr>
+  <p><a href="https://mahjong.guide"><strong>Mahjong Guide</strong></a></p>
+  <p>True   to its name, it has more than just a beginner's guide.  It also   features other, more full-fledged guides and additionally has articles   about fundamentals and strategy.</p>
+  <hr>
+  <p><a href="https://www.youtube.com/watch?v=mKEOEWEc5JE"><strong>Secrets of Iishanten that increases your hand's win rate (Video)</strong></a></p>
+  <p>A   Japanese youtube video (thankfully with English subtitles) teaching the   importance of iishanten (one tile away from ready) and many other   things related to it.</p>
+  <hr>
+  <p><a href="https://pathofhouou.blogspot.com/"><strong>The Hopeless Girl on the Path of Houou</strong></a></p>
+  <p>A   blog of a tenhou player to the highest ranked room of the game. Has a   lot of interesting and more advanced articles on mahjong strategies, as   well as resources and tools.</p>
+  <hr>
+  <p><strong><a href="https://files.catbox.moe/chwp6q.pdf">Riichi Mahjong Strategy</a></strong></p>
+  <p>A   book by Fukuchi Makoto and constantly translated by a kind anon. The   book is heavily focused on tile efficiency, with a highly digital   (analytical) way of thinking. All of the later material about push-fold   judgment and discard reading is based on good tile efficiency.</p>
+  <p><a href="https://mjg-repo.neocities.org/books/rms.html">Read online</a></p>
+  <p>&nbsp;</p>
+  <p>If you have any more articles, sites, or guides you would like to suggest, feel free to contact the author down at the bottom.</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <h1 id="wherep">Where to play the game solo and practice?</h1>
+  <h2>Browser</h2>
+  <p><a href="http://www.gamedesign.jp/flash/mahjong/mahjong_e.html"><strong>"That flash game"</strong></a></p>
+  <p>Best place to practice for beginners.  Very simple.  Has a list of Yaku on the page as well.</p>
+  <hr>
+  <p><a href="http://www.gamedesign.jp/flash/bamboo/bamboo.html"><strong>Bamboo</strong></a></p>
+  <p>This   is a single-suit variant.  This will give your brain a very intense   workout.  Definitely not recommended for beginners still learning the   game, but included for advanced players looking to become better.</p>
+  <hr>
+  <p><a href="https://euophrys.itch.io/mahjong-efficiency-trainer"><strong>Efficiency trainer</strong></a></p>
+  <p>A   simple app to help you work on your efficiency in discards.  The app is   simplistic and doesn't take a holistic view of the table.  Rather, it   merely measures how efficient your discard is by how many tiles it   believes would improve your hand to tenpai, and nothing else.  You have   great efficiency if you can consistently score 95% or higher on this   over several attempts.</p>
+  <hr>
+  <p><a href="https://mahjong.org/training/training_002/"><strong>Chinitsu Wait Trainer</strong></a> (new) </p>
+  <p>Similar   to Bamboo listed above, but the page is entirely in Japanese. Just   follow the guide written by an anon below and you'll be fine.</p>
+  <p>Blue   button generates new hand and orange button shows answers. Top left   determines number of tiles: either 7, 10, or 13. Below that is sorted or   unsorted (sorted by default). Top right determines the suit (manzu by   default) </p>
+  <hr>
+  <h2>PC</h2>
+  <p><a href="https://store.steampowered.com/app/338060/Mahjong_Pretty_Girls_Battle/"><strong>Mahjong Pretty Girls Battle</strong></a></p>
+  <p>Don't   laugh.  While the prettyness of the girls is debatable, as well as the   translation choices, this is a full Mahjong variant and a good way to   practice.  Comes with a billion rules which can be adjusted as well.</p>
+  <hr>
+  <p><a href="https://store.steampowered.com/app/791500/Mahjong_Riichi_Multiplayer/"><strong>Mahjong Riichi Multiplayer</strong></a></p>
+  <p>Mentioned   only for completeness sake, it had a big ambition, but was rather   buggy, of low quality, and has no players for online.  The tutorial   included in it was so-so.  However, it seems to have had several updates   that reportedly fixed many bugs.  Not sure if recommended or not.</p>
+  <hr>
+  <p><a href="http://www.unbalance.co.jp/honkaku/smahjong3d/"><strong>Saikyo no Mahjong 3D</strong></a></p>
+  <p>A   very cute but effective solo game for the PC that will run on toasters.    You can select the different AI who will operate slightly differently.    There IS an English version available to download SOMEWHERE, but it's   patched, pirated, and easy to find.  Downloading the old 2007 software   would be illegal, anon.</p>
+  <hr>
+  <p><a href="https://store.steampowered.com/app/912370/Mahjong_Club/"><strong>Mahjong Club</strong></a> (new) </p>
+  <p>It's   Saki the PC game, complete with interhigh tournaments, superpowers and   cute girls. The superpowers can be turned off to make it a completely   normal mahjong game, thankfully. It's the nicest looking (not the tiles,   those are ugly) single-player pc game in steam out there.</p>
+  <hr>
+  <h2>Nintendo Switch</h2>
+  <p><a href="https://www.nintendo.com/games/detail/japanese-mah-jongg-switch"><strong>Japanese Mah Jongg</strong></a></p>
+  <p>While   they use the very questionable choice of the American variant's   spelling, Japanese Mah Jongg is Riichi Mahjong, and while very simple   and barebones, is an excellent way to practice against computers. </p>
+  <p>Additionally,   it features a two-player split screen mode, with amusing and cute   instructions to cut out a piece of cardboard to prevent screen-looking.</p>
+  <hr>
+  <h2>PS4</h2>
+  <p><strong>Yakuza 0</strong></p>
+  <p>The   English version of Yakuza 0 retains it's Mahjong side game that used to   be taken out in previous editions of the series.  It is a likely place   where some new comers may join in from.  The rest of the game has little   to do with Mahjong, though it does come recommended.</p>
+  <hr>
+  <h2>Android </h2>
+  <p><a href="https://play.google.com/store/apps/details?id=com.ishihata_tech.android.mj2&hl=en_US"><strong>Maujong!</strong></a></p>
+  <p>Very simple, free, in english, and has bots.  Supposedly is efficient on the battery.  Somewhat small though.</p>
+  <hr>
+  <p><a href="https://play.google.com/store/apps/details?id=jp.co.hangame.s_mahjong"><strong>麻雀 天極牌 (Mahjong Tenkyokupai)</strong></a></p>
+  <p>Really   fun multiplayer mahjong that has offline and online, as well as a   special 2 player mode where you can connect online with one other person   and the other two positions are filled with bots.  However, despite   being offered on the English play store, the game is fully 100% in   Japanese, and there seem to be no English guides.</p>
+  <hr>
+  <p><a href="https://play.google.com/store/apps/details?id=com.kemonomahjong.app&hl=en_US"><strong>Kemono Mahjong</strong></a> (new) </p>
+  <p>If   the furry aesthetics doesn't make you do a 180 degree turn, or if   you're a dirty Wanjirou main, then the app is not that bad. It's <strong>not free</strong> and there's no working apk floating around, so only mentioned for   completeness' sake. Don't get it unless you're desperate for mahjong   action and furshit.</p>
+  <p>If you have any recommendations for games, feel free to contact the author down at the bottom.</p>
+  <p>  </p>
+  <p>&nbsp;</p>
+  <h1 id="wherepo">Where to play the game online? </h1>
+<p><a href="https://mahjongsoul.game.yo-star.com/"><strong>Mahjong Soul</strong></a></p>
+  <p>Japanese rooms: <a href="https://game.mahjongsoul.com/" target="_blank">https://game.mahjongsoul.com/</a></p>
+  <p>A   Chinese-made Riichi Mahjong game that recently came out for English and   Japanese as well.  The interface is fairly stylish, the music is pretty   good, and it allows you to spam emotes from kawaii waifus.  There is a   gacha game attached to it so you can change out the waifus and their   outfits, but everything relating to Mahjong itself is free and is   working fairly well.</p>
+  <p>For those wondering, the game   seems to be set up so that China and English versions play together in   the beginner rooms, while Japanese play separate.  After you rank up to   the Gold room or higher, all nations play together.</p>
+  <p>There is an app version available for Android and iOS, if you're into that.</p>
+  <hr>
+  <p><a href="https://tenhou.net/"><strong>Tenhou</strong></a></p>
+  <p>This   is generally where most of the serious players tend to wind up.  There   is a "Tenhou English UI" extension that can be installed for <a href="https://chrome.google.com/webstore/detail/tenhou-english-ui/cbomnmkpjmleifejmnjhfnfnpiileiin?hl=en">Chrome</a> and <a href="https://addons.mozilla.org/en-US/firefox/addon/tenhou-english/">Firefox</a>.    The English UI only works for the HTML5 version of the game which can   be found at tenhou.net/3/.  A guide for the general interface and rules   can be found here: <a href="http://arcturus.su/wiki/Tenhou.net" target="_blank">http://arcturus.su/wiki/Tenhou.net</a></p>
+  <p>Most   of the English speaking communities have agreed to use a specific room   for friendly games.  If you wish to play with other English speakers,   you can go to lobby 7447: <a href="https://tenhou.net/3/?L7447" target="_blank">https://tenhou.net/3/?L7447</a></p>
+  <hr>
+  <p><strong>SegaMJ.net</strong></p>
+  <p>Also   a flashy game made by Sega.  Requires a client install.  Also has a   phone version, but may require side-loading an app.  Game is fully in   Japanese.  Guide for install here: <a href="https://sites.google.com/site/mjnetguide/" target="_blank">https://sites.google.com/site/mjnetguide/
+    <hr>
+  </a></p>
+  <p><strong>Janryuumon - DEFUNCT</strong></p>
+  <p>An   old client-based online app.  It was free-to-play, but then turned into   pay-to-play during an update and almost all of the playerbase dried up   overnight.  Only mentioning because the P2P version can still be found   in a search for Mahjong.  DO NOT RECOMMEND.</p>
+  <p> </p>
+  <p>&nbsp;</p>
+  <h1 id="irl">Where to play the game in real life?</h1>
+  <p><a href="https://www.nariichi.org/clubs-in-north-america/"><strong>Clubs in North America</strong></a></p>
+  <p>A   link to most of the major Japanese Mahjong clubs for North America.    This list is probably not fully complete, so you can always Google your   town name + Mahjong for any results.  Be sure to also check out any   hobby or board game stores in your local area.  If there aren't any   groups looking, it probably wouldn't be hard to start one up.</p>
+  <hr>
+  <p><strong><a href="https://www.google.com/maps/d/viewer?mid=1f1LC7j8_BfJDNcVvJ7PyxrJKqBo&z=4&ll=45.9178095706337%2C18.928606804296805">Mahjong Clubs Around the World</a></strong></p>
+  <p>This   is a link to the list of clubs world wide.  Which includes Europe and   some parts of Asia, as well as the little lone club that exists in   Sydney, Australia.  Gambatte, Australia-kouhai.</p>
+  <hr>
+  <p><a href="https://riichireporter.com/parlor-abroad/"><strong>A Parlor Abroad</strong></a></p>
+  <p>Japan   has parlors where you can go in and play pickup games of Mahjong, but   the Japanese are not foreigner/otaku friendly.  Be sure to read the   above link for more information, and in fact you should probably spend   at least 16 hours researching before heading in.</p>
+  <hr>
+  <p><strong><a href="https://www.google.com/maps/d/viewer?hl=en&mid=1DJozCri0vrRV0ymJzaBP_6EyTXGcurZd&ll=-7.969955302522683%2C135.70368195455126&z=2">/mjg/ players map</a></strong></p>
+  <p>A   map of the /mjg/ anons in the thread. Not a very extensive list, and   some of them aren't accurate locations (like that one penguin), but if   you're very desperate for a mahjong buddy then try looking for an anon   near your area. But most likely you won't find one due to fear of   stabbings. </p>
+  <p>To add yourself to the map,<a href="https://forms.gle/93fannww9A9YGG7p9"> fill out this google form</a>.</p>
+  <p> </p>
+  <p>&nbsp;</p>
+  <h1 id="count">Counting Points</h1>
+  <p>This   is one of the more tedious parts of mahjong. Of course counting points   is automatically done for you in video games, but it's still an   essential thing to learn for players wanting to get into the game   seriously. Not only does it help you save face in irl games, you can   also calculate what kind of hand you must get for that comeback. <a href="https://dainachiba.github.io/RiichiBooks/"><strong>Riichi Book 1</strong></a> has a good section on scoring techniques so go check that out first.</p>
+  <p><a href="http://arcturus.su/wiki/Japanese_mahjong_scoring_rules"><strong>Japanese Mahjong Scoring Rules</strong></a></p>
+  <p>The Japanese Mahjong Wiki has a good guide on scoring. Below is the translated cheat sheet from the page. </p>
+  <p><img src="https://files.catbox.moe/yd7l93.png" alt="" width="100%" ></p>
+  <p><a href="https://pathofhouou.blogspot.com/2019/05/training-tool-maru-jan-score-trainer.html">
+    <hr>
+    <strong>Maru-Jan Score Trainer</strong></a></p>
+  <p>A   more interactive way to learn scoring. The software in in Japanese and   it only works for Windows, but the guide is very thorough in teaching   you how to set it up.</p>
+  <hr>
+  <p><a href="https://play.google.com/store/apps/details?id=ric.ov.RiichiCalc"><strong>Riichi Calc</strong></a></p>
+  <p>A   nifty android app to quickly calculate the score of your hands. Very   useful if you aren't that keen in scoring and memorization bums you out.</p>
+  <hr>
+  <p><a href="https://mahjong.horneds.com/"><strong>Mahjong Scores Trainer by Horneds</strong></a></p>
+  <p>Looks pretty but accordingly has some issues and shouldn't be trusted blindly. </p>
+  <p> </p>
+  <p>&nbsp;</p>
+  <h1 id="media">Media about Mahjong</h1>
+  <h2><a name="anime"></a>Anime</h2>
+  <ul>
+    <li>Legend of Akagi: The Genius who Descended into Darkness</li>
+    <li>Saki</li>
+    <li>Legendary Gambler Tetsuya</li>
+  </ul>
+  <h2><a name="manga"></a>Manga</h2>
+  <ul>
+    <li>Legend of Akagi: The Genius who Descended into Darkness (the Anime ends at around Chapter 220)</li>
+    <li>Saki</li>
+    <li>Tetsunaki no Kirinji</li>
+    <li>Ten</li>
+    <li>Aki (Biographical story about a female professional Mahjong player by the same name)</li>
+  </ul>
+  <p> </p>
+  <p>&nbsp;</p>
+  <h1 id="otherl">Other links</h1>
+  <p>Things that do not fit into the categories above can go here.</p>
+  <p><a href="https://www.youtube.com/watch?v=uFgmQ0yaaBQ"><strong>The Tibet Mahjong Teaching method</strong></a></p>
+  <p>This   is a method to teach new players how to play Mahjong.  It has wildly   successful results reported by the LAPOM who go and teach Mahjong at   many anime cons, as well as reports from other people around the world,   this author included.  The link above is a very brief tutorial, but   there are longer videos on the subject available (<a href="https://www.youtube.com/watch?v=T6hETFh6Xlg">Part 1</a>, <a href="https://www.youtube.com/watch?v=MROMbRY1tjQ">Part 2</a>).</p>
+  <hr>
+  <p><a href="https://mjg-repo.neocities.org/pastebin/No%20Fu%20Mahjong%20Teaching%20Method.html"><strong>No Fu Mahjong Teaching Method</strong></a></p>
+  <p>From the writer of Hatkagi comes a mahjong teaching method that   alledgedly "works great even on kids at the park". A slow crawl approach   to teaching the game.</p>
+  <hr>
+  <p><strong>Regular Expression</strong></p>
+  <p>/mah.*jong|riichi/i</p>
+  <p>You're   addicted, right?  You want ALL of the Mahjong threads now?  Put in that   regular expression into the filter rules and set it to "top".  Anything   with the word Mahjong or Riichi in it should float to the top.</p>
+  <hr>
+  <p><a href="https://abema.tv/now-on-air/mahjong"><strong>Abema live Mahjong Matches</strong></a></p>
+  <p>Every   so often, they will stream live Mahjong games from professionals in   Japan.  According to some users, you need to have Japanese VPNs to   actually watch this.  Also please note that this is all in Japanese, so   you should be able to understand Japanese Mahjong terms at bare minimum   to really follow along.</p>
+  <p> </p>
+  <p>&nbsp;</p>
+  <h1 id="faq">FAQ</h1>
+  <p>"I'm in tenpai, and my opponent discarded my winning tile, but I couldn't win.  Why not?"</p>
+  <blockquote>
+    <p><a href="https://en.wikipedia.org/wiki/Japanese_Mahjong#Sacred_discard" target="_blank">https://en.wikipedia.org/wiki/Japanese_Mahjong#Sacred_discard</a></p>
+  </blockquote>
+  <p>"I'm in tenpai, and I'm definitely NOT in furiten, and I cannot win even if I draw the tile myself.  What happened?"</p>
+  <blockquote>
+    <p>In all variations of Japanese Mahjong, you MUST have at least 1 yaku in your hand in order to go out.    </p>
+  </blockquote>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <h1 id="contact">Contact</h1>
+  <blockquote>
+    <p>If something needs to be updated, I occasionally grace the /jp/ threads and will probably scroll through it at some point, but if you for some reason need to contact me, you can riichi me at kaitengiri@gmail.com ​ I remembered the joke that time, Anon.
+    </p>
+    </blockquote>
+  <p>This anon hasn't been around for a long time. Any new additions   can be given through the site feedback or just talking about it in the <a href="https://boards.4channel.org/vg/catalog#s=mjg">thread.</a></p>
+</div>
+<p>&nbsp;</p>
+</div>
+</body>
+</html>
