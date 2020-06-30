@@ -1,9 +1,10 @@
 :root {
-	--font-color: rgb(231, 231, 231);
-	--link-color: #57a856;
-	--bg-color: #75A973;
-	--bgimg: url(bgimg/stardust_@2X.png);
-	--headerimg: url(bgimg/stars-blue-bg.gif);
+	--font-color: #424242;
+	--link-color: #0072AB;
+	--sec-color: rgb(255, 255, 255);
+	--bg-color: rgb(231, 231, 231);
+	--bgimg: url(bgimg/dust_scratches.png);
+	--headerimg: url(bgimg/sakura.png);
 }
 
 @font-face {
@@ -234,7 +235,7 @@ blockquote blockquote {
 	float: left;
 	text-align: center;
 	background-color: #333333;
-	color: var(--link-color);
+	color: var(--sec-color);
 	padding-top: 20px;
 	padding-bottom: 20px;
 	font-weight: bold;
