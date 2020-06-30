@@ -1,16 +1,13 @@
 .theme-switch-wrapper {
-    display: flex;
+   
     align-items: center;
     
-    em {
-      margin-left: 10px;
-      font-size: 1rem;
-    }
+
   }
   .theme-switch {
-    display: inline-block;
-    height: 34px;
-    position: relative;
+
+  
+  
     width: 60px;
   }
   
@@ -48,9 +45,7 @@
     transform: translateX(26px);
   }
   
-  .slider.round {
-    border-radius: 34px;
-  }
+
   
   .slider.round:before {
     border-radius: 50%;
