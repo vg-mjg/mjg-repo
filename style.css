@@ -3,13 +3,15 @@
 	--link-color: #0072AB;
 	--bg-color: rgb(231, 231, 231);
 	--bgimg: url(bgimg/dust_scratches.png);
+	--headerimg: url(bgimg/sakura.png);
 }
 
 [data-theme="dark"] {
-	--font-color: rgb(235, 235, 235);
-	--link-color: #688160;
+	--font-color: rgb(255, 255, 255);
+	--link-color: #98e67e;
 	--bg-color: rgb(61, 61, 61);
-	--bgimg: url(bgimg/ep_naturalblack.png);
+	--bgimg: url(bgimg/stardust_@2X.png);
+	--headerimg: url(bgimg/stars-blue-bg.gif);
 }
 
 
@@ -251,7 +253,7 @@ blockquote blockquote {
 }
 #top {
 	margin-top: -20px;
-	background-image: url(bgimg/sakura.png);
+	background-image: var(--headerimg);
 
 
 }
