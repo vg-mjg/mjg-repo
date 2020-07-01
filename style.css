@@ -1,12 +1,12 @@
 :root {
 	--font-color: #424242;
 	--link-color: #0072AB;
-	--head-color: #6cbfc5;
-	--headl-color: #7ed37c;
+	--head-color: #3a3a3a;
+	--headl-color: #b3641a;
 	--sec-color: rgb(255, 255, 255);
 	--bg-color: rgb(231, 231, 231);
 	--bgimg: url(bgimg/dust_scratches.png);
-	--headerimg: url(bgimg/random_grey_variations.png);
+	--headerimg: url(bgimg/sun-pattern-blue.png);
 }
 
 @font-face {
@@ -333,9 +333,7 @@ blockquote blockquote {
 	text-align: center;
 }
 
-.smaller {
 
-}
 
 #tourtable th            {
 	text-align: center;
