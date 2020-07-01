@@ -6,6 +6,16 @@
 <link href="style.css" rel="stylesheet" type="text/css">
  <script src="banner.js"></script> 
  <script type="text/javascript" src="banner2.js"></script>
+
+ <script type="text/javascript" src="minecookie.js"></script>
+
+<script type="text/javascript">
+    // When "Start Game" is clicked, launch the main "minecore" file.
+    function gameStart() {
+        setCookie("referrer",document.referrer);
+        window.open('minecore.html','minesweeper','toolbar=0,directories=0,menubar=0,scrollbars=0,resizable=1,width=1,height=1,dependent=0,status=0'); }
+</script>
+
 </head>
 
 <body onLoad="pickimg()">
@@ -271,6 +281,27 @@ function topFunction() {
   </div>
 </div>
 </div>
+
+
+<center>
+  
+<form name="introForm" action="ignore">
+  <p align="center">
+      <input type="button" value="Play Minesweeper" style="font-size:large; background-color:rgb(129, 192, 104);" onclick="gameStart();" />
+  </p>
+</form>
+<h2>Fuck embeds</h2>
+</center>
+
+
+<div id="chatte"><h2>Chat with your retarded ass friends</h2>
+<!-- begin wwww.htmlcommentbox.com -->
+<div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
+<link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+<script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%245HH.m00auqeLeQ4.Dxl9v0"+"&opts=16862&num=10&ts=1593587000392");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+<!-- end www.htmlcommentbox.com -->
+</div>
+
 
 <footer id="foote">
   <small>
