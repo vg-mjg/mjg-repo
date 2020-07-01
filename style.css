@@ -1,10 +1,12 @@
 :root {
 	--font-color: #424242;
 	--link-color: #0072AB;
+	--head-color: #6cbfc5;
+	--headl-color: #7ed37c;
 	--sec-color: rgb(255, 255, 255);
 	--bg-color: rgb(231, 231, 231);
 	--bgimg: url(bgimg/dust_scratches.png);
-	--headerimg: url(bgimg/cloudy-day.png);
+	--headerimg: url(bgimg/random_grey_variations.png);
 }
 
 @font-face {
@@ -223,6 +225,16 @@ blockquote {
 blockquote blockquote {
     padding-right: 0;
 }
+
+#top {
+	margin-top: -20px;
+	background-image: var(--headerimg);
+	color: var(--head-color);
+}
+#top a {
+	color: var(--headl-color);
+}
+
 #mainnav ul {
 	list-style-type: none;
 	margin-top: 0px;
@@ -246,12 +258,7 @@ blockquote blockquote {
 	word-wrap: break-word;
 }
 
-#top {
-	margin-top: -20px;
-	background-image: var(--headerimg);
 
-
-}
 
 
 
