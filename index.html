@@ -284,13 +284,28 @@ function topFunction() {
 
 
 <center>
-  
-<form name="introForm" action="ignore">
-  <p align="center">
-      <input type="button" value="Play Minesweeper" style="font-size:large; background-color:rgb(129, 192, 104);" onclick="gameStart();" />
-  </p>
-</form>
-<h2>Fuck embeds</h2>
+  <h2>Minesweeper</h2>
+  <small>
+  Select difficulty:
+  <select id="menu" name="menu" onchange="menu()">
+    <option value="easy">Easy</option>
+    <option value="medium">Medium</option>
+    <option value="hard">Hard</option>
+    <option value="custom">Custom</option>
+  </select><br>
+  Columns: <input id="cols" name="cols" type="text" size="2" disabled>
+  Rows: <input id="rows" name="rows" type="text" size="2" disabled>
+  Mines: <input id="mines" name="mines" type="text" size="2" disabled>
+  <br>
+  <p>Left click:<br>
+
+      * Within the grid it reveals a square.<br>
+      * Otherwise starts a new game. <br>
+
+  Right click marks a square within the grid.</p>
+  <button onclick="start(document.getElementById('menu'))">Start Game</button><br>
+  <a href="https://github.com/aymanbagabas/jsminesweeper">Source</a>
+</small>
 </center>
 
 
@@ -312,7 +327,7 @@ function topFunction() {
         <a href="http://users3.smartgb.com/g/g.php?a=s&i=g36-30197-38">Site Feedback</a>
   &nbsp;&nbsp;&nbsp;&nbsp;
         <a href="mailto:mjgrepositorie@tfwno.gf">mjgrepositorie@tfwno.gf</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/sharmayu/mjg-repo/issues">Report issues</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="vn.html">...</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.youtube.com/playlist?list=PLtr6dm-5JNnfByH8uNRAOGlXVvcH-Fvo4">Music Playlist</a><small>&nbsp;&nbsp;&nbsp;&nbsp;</small><a href="repobanners.html">Repo Banners</a><small>&nbsp;&nbsp;&nbsp;&nbsp;</small><a href="index_old.html">Old</a><small>&nbsp;&nbsp;&nbsp;&nbsp;</small><a href="mp3.html">mp3player</a></p>
-      <p>Browse the internet in a well-lit room or risk destroying your eyes<br>
+      <p>Lesbians aren't real<br>
         <br>
       </p>
   </center>
@@ -320,4 +335,55 @@ function topFunction() {
 </footer>
 
 </body>
+<script src="jsminesweeper.js"></script>
+<script language="JavaScript">
+var gamewindow;
+  function menu() {
+      var elem = document.getElementById('menu');
+      if (elem.options[elem.selectedIndex].value == "custom") {
+          document.getElementById("cols").disabled = false;
+          document.getElementById("rows").disabled = false;
+          document.getElementById("mines").disabled = false;
+      } else {
+          document.getElementById("cols").disabled = true;
+          document.getElementById("rows").disabled = true;
+          document.getElementById("mines").disabled = true;
+      }
+  }
+  function start(elem) {
+      var cols = 0;
+      var rows = 0;
+      var mines = 0;
+      var d = elem.options[elem.selectedIndex].value;
+      switch(d) {
+          case "easy":
+              cols = rows = 9; mines = 11;
+              break;
+          case "medium":
+              cols = rows = 16; mines = 40;
+              break;
+          case "hard":
+              cols = 16; rows = 30; mines = 99;
+              break;
+          default:
+              cols = document.getElementById("cols").value;
+              rows = document.getElementById("rows").value;
+              mines = document.getElementById("mines").value;
+      }
+      width = (30*cols) + 20;
+      height = (30*rows) + 80;
+      windowFeatures = 'toolbar=no, location=no, directories=no, status=no, menubar=no, titlebar=no, scrollbars=no, resizable=no, ';
+      page = "<!DOCTYPE html><html><head><script src='jsminesweeper.js'></sc"+"ript><meta charset='UTF-8' />"
+      + "<meta name='viewport' content='width=device-width' /><title>JSMinesweeper</title><style>body{margin:0;padding:0;overflow-x:hidden;overflow-y:hidden;}canvas{background:grey;}</style></head>"
+      + "<body><canvas id='jsminesweeper' width='"+ width +"' height='"+ height +"' ></canvas></body>"
+  + "<script>function start() { init(); jsminesweeper("+cols+","+rows+","+mines+"); }; window.onload = start();</sc"+"ript></html>";
+  if (gamewindow) {
+    gamewindow.close();
+  }
+      gamewindow = window.open('', "JSMinesweeper", windowFeatures + "width="+(width)+", height="+(height));
+  gamewindow.document.write(page);
+  gamewindow.document.close();
+      gamewindow.focus();
+  }
+</script>
 </html>
