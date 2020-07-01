@@ -3,7 +3,7 @@
 	--link-color: #0072AB;
 	--sec-color: rgb(255, 255, 255);
 	--bg-color: rgb(231, 231, 231);
-	--bgimg: url(bgimg/linedpaper.png);
+	--bgimg: url(bgimg/dust_scratches.png);
 	--headerimg: url(bgimg/cloudy-day.png);
 }
 
@@ -214,7 +214,7 @@ hr {
 blockquote {
     border-left: 4px solid #dfe2e5;
     padding: 0 15px;
-    color: rgb(236, 236, 236);
+    color: var(--font-color);
 }
 blockquote blockquote {
     padding-right: 0;
