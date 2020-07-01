@@ -6,16 +6,6 @@
 <link href="style.css" rel="stylesheet" type="text/css">
  <script src="banner.js"></script> 
  <script type="text/javascript" src="banner2.js"></script>
-
- <script type="text/javascript" src="minecookie.js"></script>
-
-<script type="text/javascript">
-    // When "Start Game" is clicked, launch the main "minecore" file.
-    function gameStart() {
-        setCookie("referrer",document.referrer);
-        window.open('minecore.html','minesweeper','toolbar=0,directories=0,menubar=0,scrollbars=0,resizable=1,width=1,height=1,dependent=0,status=0'); }
-</script>
-
 </head>
 
 <body onLoad="pickimg()">
@@ -39,7 +29,7 @@
 
       <span style="position: relative; top: -20px;">
       <p><span style="font-size: 3rem;"><strong>/mjg/ Repository</strong></span><br>
-        <span style="font-size: 1.5rem;"><strong>青い空 Edition</strong></span><br>
+        <span style="font-size: 1.5rem;"><strong>トイレー Edition</strong></span><br>
         <span style="text-align: center">a repository of mahjong stuff from the <a href="https://boards.4channel.org/vg/catalog#s=mjg">/mjg/</a> threads</span>    </p>
 
       </span>
@@ -282,48 +272,6 @@ function topFunction() {
 </div>
 </div>
 
-
-<center>
-  <h2>Minesweeper</h2>
-  <small>
-  Select difficulty:
-  <select id="menu" name="menu" onchange="menu()">
-    <option value="easy">Easy</option>
-    <option value="medium">Medium</option>
-    <option value="hard">Hard</option>
-    <option value="custom">Custom</option>
-  </select><br>
-  Columns: <input id="cols" name="cols" type="text" size="2" disabled>
-  Rows: <input id="rows" name="rows" type="text" size="2" disabled>
-  Mines: <input id="mines" name="mines" type="text" size="2" disabled>
-  <br>
-  <p>Left click:<br>
-
-      * Within the grid it reveals a square.<br>
-      * Otherwise starts a new game. <br>
-
-  Right click marks a square within the grid.</p>
-  <button onclick="start(document.getElementById('menu'))">Start Game</button><br>
-  <a href="https://github.com/aymanbagabas/jsminesweeper">Source</a>
-</small>
-</center>
-
-<center>
-<h2>Mahjong Soul</h2>
-<div id="chatte">
-  <script src="https://cdn.htmlgames.com/embed.js?game=DailyMahjongg&amp;&amp;bgcolor=white"></script>
-  </div>
-  
-</center>
-<div id="chatte"><h2>Chat with your retarded ass friends</h2>
-<!-- begin wwww.htmlcommentbox.com -->
-<div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
-<link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
-<script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%245HH.m00auqeLeQ4.Dxl9v0"+"&opts=16862&num=10&ts=1593587000392");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
-<!-- end www.htmlcommentbox.com -->
-</div>
-
-
 <footer id="foote">
   <small>
     <center>
@@ -339,57 +287,5 @@ function topFunction() {
   </center>
   </small>
 </footer>
-
 </body>
-<script src="jsminesweeper.js"></script>
-<script language="JavaScript">
-var gamewindow;
-  function menu() {
-      var elem = document.getElementById('menu');
-      if (elem.options[elem.selectedIndex].value == "custom") {
-          document.getElementById("cols").disabled = false;
-          document.getElementById("rows").disabled = false;
-          document.getElementById("mines").disabled = false;
-      } else {
-          document.getElementById("cols").disabled = true;
-          document.getElementById("rows").disabled = true;
-          document.getElementById("mines").disabled = true;
-      }
-  }
-  function start(elem) {
-      var cols = 0;
-      var rows = 0;
-      var mines = 0;
-      var d = elem.options[elem.selectedIndex].value;
-      switch(d) {
-          case "easy":
-              cols = rows = 9; mines = 11;
-              break;
-          case "medium":
-              cols = rows = 16; mines = 40;
-              break;
-          case "hard":
-              cols = 16; rows = 30; mines = 99;
-              break;
-          default:
-              cols = document.getElementById("cols").value;
-              rows = document.getElementById("rows").value;
-              mines = document.getElementById("mines").value;
-      }
-      width = (30*cols) + 20;
-      height = (30*rows) + 80;
-      windowFeatures = 'toolbar=no, location=no, directories=no, status=no, menubar=no, titlebar=no, scrollbars=no, resizable=no, ';
-      page = "<!DOCTYPE html><html><head><script src='jsminesweeper.js'></sc"+"ript><meta charset='UTF-8' />"
-      + "<meta name='viewport' content='width=device-width' /><title>JSMinesweeper</title><style>body{margin:0;padding:0;overflow-x:hidden;overflow-y:hidden;}canvas{background:grey;}</style></head>"
-      + "<body><canvas id='jsminesweeper' width='"+ width +"' height='"+ height +"' ></canvas></body>"
-  + "<script>function start() { init(); jsminesweeper("+cols+","+rows+","+mines+"); }; window.onload = start();</sc"+"ript></html>";
-  if (gamewindow) {
-    gamewindow.close();
-  }
-      gamewindow = window.open('', "JSMinesweeper", windowFeatures + "width="+(width)+", height="+(height));
-  gamewindow.document.write(page);
-  gamewindow.document.close();
-      gamewindow.focus();
-  }
-</script>
 </html>
