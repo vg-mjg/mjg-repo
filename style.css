@@ -9,9 +9,9 @@
 	--sec-color: rgb(255, 255, 255);
 	--bg-color: rgb(231, 231, 231);
 	--bgimg: url(bgimg/dust_scratches.png);
-	--bg-repeat: no-repeat;
+	--bg-repeat: no-repeat
 	--bg-attach: fixed;
-	--bg-zize: 100%;
+	--bg-zize: cover;
 	--headerimg: url(headers/island.jpg);
 }
 [data-theme="dark"] {
@@ -27,7 +27,7 @@
 	--bgimg: url(bgimg/black_linen_v2_lighter.png);
 	--bg-repeat: no-repeat;
 	--bg-attach: fixed;
-	--bg-zize: 100%;
+	--bg-zize: cover;
 	--headerimg: url(headers/city.jpg);
 }
 .shado{
