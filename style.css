@@ -31,7 +31,7 @@
 	--headerimg: url(headers/city.jpg);
 }
 .shado{
-	text-shadow: 1px 1px var(--head-shado)
+	text-shadow: 2px 2px var(--head-shado)
 }
 @font-face {
     font-family: 'Open Sans';
