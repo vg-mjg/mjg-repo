@@ -2,13 +2,28 @@
 	--font-color: #424242;
 	--link-color: #0072AB;
 	--head-color: #3a3a3a;
-	--headl-color: #b3641a;
+	--headl-color: #306f99;
 	--sec-color: rgb(255, 255, 255);
 	--bg-color: rgb(231, 231, 231);
 	--bgimg: url(bgimg/dust_scratches.png);
-	--headerimg: url(bgimg/sun-pattern-blue.png);
+	--bg-repeat: ;
+	--bg-attach: ;
+	--bg-zize: ;
+	--headerimg: url(bgimg/pixel-heart-pink.png);
 }
-
+[data-theme="dark"] {
+	--font-color: rgb(235, 235, 235);
+	--link-color: #7fb95b;
+	--head-color: #cfcfcf;
+	--headl-color: #e48383;
+	--sec-color: rgb(255, 255, 255);
+	--bg-color: #3d3d3d;
+	--bgimg: url(bgimg/black_linen_v2_lighter.png);
+	--bg-repeat: no-repeat;
+	--bg-attach: fixed;
+	--bg-zize: cover;
+	--headerimg: url(bgimg/city.jpg);
+}
 @font-face {
     font-family: 'Open Sans';
     font-style: normal;
@@ -229,6 +244,9 @@ blockquote blockquote {
 #top {
 	margin-top: -20px;
 	background-image: var(--headerimg);
+	background-repeat: var(--bg-repeat);
+	background-attachment: var(--bg-attach);
+	background-size: var(--bg-zize);
 	color: var(--head-color);
 }
 #top a {

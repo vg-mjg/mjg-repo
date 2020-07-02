@@ -6,16 +6,14 @@
 <link href="style.css" rel="stylesheet" type="text/css">
  <script src="banner.js"></script> 
  <script type="text/javascript" src="banner2.js"></script>
+ <link href="darkbutton.css" rel="stylesheet" type="text/css">
+ <script src="darkmode.js"></script>
 </head>
 
 <body onLoad="pickimg()">
-
-
  <header id="top">
-   
   <!--<br><center><img src="banners/ngmi.png" height="150" alt=""/>
   <br>i just wanted to make one anon happy</center>-->
-  
    <div id="headerban">
   <center>
     
@@ -29,11 +27,11 @@
 
       <span style="position: relative; top: -20px;">
       <p><span style="font-size: 3rem;"><strong>/mjg/ Repository</strong></span><br>
-        <span style="font-size: 1.5rem;"><strong>青い太陽 Edition</strong></span><br>
+        <span style="font-size: 1.5rem;"><strong>ドキドキ Edition</strong></span><br>
         <span style="text-align: center">a repository of mahjong stuff from the <a href="https://boards.4channel.org/vg/catalog#s=mjg">/mjg/</a> threads</span>    </p>
-
       </span>
     </center>
+    
 <nav id="mainnav">
       <ul>
         <li><a href="#" class="thispage">Home</a></li>
@@ -43,9 +41,15 @@
         <li><a href="resources.html">Resources</a></li>
       </ul>
     </nav>
-    
+   
   </header>
-
+  <div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+  </label>
+  &nbsp;おやすみ
+  </div>
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 <script>
 //Get the button
@@ -86,7 +90,7 @@ function topFunction() {
 
   <!-- end of freefind search box html -->
 </center>
- 
+
 <center>
   <center>
 
