@@ -2,27 +2,36 @@
 	--font-color: #424242;
 	--link-color: #0072AB;
 	--head-color: #3a3a3a;
-	--headl-color: #306f99;
+	--head-shado: #ffffff;
+	--headl-color: #000000;
+	--navcol: #333333;
+	--navsel: #1d1d1d;
 	--sec-color: rgb(255, 255, 255);
 	--bg-color: rgb(231, 231, 231);
 	--bgimg: url(bgimg/dust_scratches.png);
-	--bg-repeat: ;
-	--bg-attach: ;
-	--bg-zize: ;
-	--headerimg: url(bgimg/pixel-heart-pink.png);
+	--bg-repeat: no-repeat;
+	--bg-attach: fixed;
+	--bg-zize: 100%;
+	--headerimg: url(headers/island.jpg);
 }
 [data-theme="dark"] {
-	--font-color: rgb(235, 235, 235);
-	--link-color: #7fb95b;
+	--font-color: #d9d9d9;
+	--link-color: #3599f1;
 	--head-color: #cfcfcf;
+	--head-shado: #202020;
 	--headl-color: #e48383;
+	--navcol: #1d1d1d;
+	--navsel: #515c74;
 	--sec-color: rgb(255, 255, 255);
 	--bg-color: #3d3d3d;
 	--bgimg: url(bgimg/black_linen_v2_lighter.png);
 	--bg-repeat: no-repeat;
 	--bg-attach: fixed;
-	--bg-zize: cover;
-	--headerimg: url(bgimg/city.jpg);
+	--bg-zize: 100%;
+	--headerimg: url(headers/city.jpg);
+}
+.shado{
+	text-shadow: 1px 1px var(--head-shado)
 }
 @font-face {
     font-family: 'Open Sans';
@@ -203,12 +212,12 @@ h6 {
 
 
 #wrapper footer {
-	background-color: #333333;
+	background-color: var(--navcol);
 	color: #D7D7D7;
 	width: 100%;
 }
 #foote {
-	background-color: #333333;
+	background-color: var(--navcol);
 	color: #E8E8E8;
 	margin-bottom: -20px;
 }
@@ -268,7 +277,7 @@ blockquote blockquote {
 	display: block;
 	float: left;
 	text-align: center;
-	background-color: #333333;
+	background-color: var(--navcol);
 	color: var(--sec-color);
 	padding-top: 20px;
 	padding-bottom: 20px;
@@ -288,7 +297,7 @@ blockquote blockquote {
 
 #mainnav a:hover   , #mainnav a:active  ,#mainnav a:focus, #mainnav a.thispage{
 	text-decoration: none;
-	background-color: #1d1d1d;
+	background-color: var(--navsel);
 }
 #mainart {
 	margin-top: 0;
