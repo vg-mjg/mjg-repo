@@ -13,6 +13,8 @@
 	 , "repobanner/11.png"
 	 , "repobanner/12.png"
 	 , "repobanner/13.png"
+	 , "repobanner/14.png"
+	 , "repobanner/15.png"
 	 
   ];
   function getImageTag() {
