@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>404</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+<link href="darkbutton.css" rel="stylesheet" type="text/css">
+<script src="darkmode.js"></script>
+</head>
+
+<body>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+<div id="wrapper">
+<header id="top">
+<nav id="mainnav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="guides.html" class="thispage">Guides</a></li>
+        <li><a href="comicsoc.html">Comics/OC</a></li>
+        <li><a href="tourneys.html">Tourneys</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+  </nav>
+    
+  </header>
+  <div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+  </label>
+  &nbsp;おやすみ
+  </div>
+<div id="mainart">
+    <center>
+        <img src="gifs/momo.png" height="250px"><br>
+        "Onee-sama... where is this...?"<br>
+        <strong><span style="font-size: 5rem;">404</span></strong><br>
+        Page not found
+    </center>
+</div>
+</div>
+</body>
+</html>
