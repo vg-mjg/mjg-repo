@@ -223,6 +223,19 @@ header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Aria
 
  .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
 </style>
+<script>
+document.addEventListener('keydown', (event) => {
+  const keyName = event.key;
+
+  if (keyName === 'ArrowRight') {
+    window.location.href = "p6.html";
+    }
+  if (keyName === 'ArrowLeft') {
+    window.location.href = "p4.html";
+  }
+}, false);
+</script>
+
 </head>
 <body class='typora-export os-windows' >
 <div  id='write'  class = 'is-node'>
