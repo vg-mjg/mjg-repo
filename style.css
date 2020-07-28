@@ -378,6 +378,9 @@ blockquote blockquote {
 	vertical-align: top;
 	text-align: center;
 }
+#indextab hr{
+	width: 50%;
+}
 
 
 #octable {
