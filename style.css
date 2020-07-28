@@ -373,7 +373,8 @@ blockquote blockquote {
 }
 #indextab td, #indextab th {
 	width: 33% ;
-	padding: 8px;
+	padding: 10px;
+
 	border: 2px solid #ABABAB;
 	vertical-align: top;
 	text-align: center;
@@ -692,9 +693,9 @@ blockquote blockquote {
 }
 
 #modtablein td, #modtablein th {
-	width: 50% ;
+	width: 33% ;
 	vertical-align: top;
-	border: 1px solid #ABABAB;
+	border: 1px solid #ababab00;
 	padding: 8px;
 	text-align: left;
 }
