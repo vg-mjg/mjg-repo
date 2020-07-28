@@ -699,6 +699,21 @@ blockquote blockquote {
 	text-align: center;
 }
 
+#timetab {
+	border-collapse: collapse;
+	width: 80%;
+	text-align: center;
+}
+
+#timetab td, #timetab th {
+	vertical-align: top;
+	border: 1px solid #ABABAB;
+	padding: 8px;
+}
+#timetab th {
+	text-align: center;
+}
+
 .darkbody {
 	font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 	color: rgb(235, 235, 235);
