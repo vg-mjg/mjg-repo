@@ -15,7 +15,7 @@
 	 , "repobanner/13.png"
 	 , "repobanner/14.png"
 	 , "repobanner/15.png"
-	 
+	 , "repobanner/16.png"
   ];
   function getImageTag() {
     var img = '<img src=\"';
