@@ -12,7 +12,8 @@
 	--bg-repeat: no-repeat;
 	/*--bg-attach: fixed;*/
 	--bg-zize: cover;
-	--headerimg: url(headers/ikimashou_morn.jpg);
+/*	--headerimg: url(headers/ikimashou_morn.jpg);*/
+    --headerimg: url(headers/hatback.jpg);
 }
 [data-theme="dark"] {
 	--font-color: #d9d9d9;
