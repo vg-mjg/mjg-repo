@@ -36,33 +36,6 @@
 }
 
 
-@font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Open Sans Regular'),url('./github/400.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'Open Sans';
-    font-style: italic;
-    font-weight: normal;
-    src: local('Open Sans Italic'),url('./github/400i.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: bold;
-    src: local('Open Sans Bold'),url('./github/700.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'Open Sans';
-    font-style: italic;
-    font-weight: bold;
-    src: local('Open Sans Bold Italic'),url('./github/700i.woff') format('woff');
-}
 #yonchan {
 	border-style: dashed;
 	border-width: thin;
@@ -81,6 +54,26 @@
 	background-image: url(bgimg/choco.png);
 }
 #yonchan a {
+	color: #85D2FF;
+}
+#yonchan2 {
+	margin-top: -20px;
+	border-width: thin;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+
+	/* margin-bottom: 20px; */
+	color: #E5E5E5;
+	text-align: center;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	word-wrap: break-word;
+	background-image: url(bgimg/choco.png);
+}
+#yonchan2 a {
 	color: #85D2FF;
 }
 .notcenter {
@@ -291,6 +284,9 @@ blockquote blockquote {
 
 
 
+/* #mainnav{
+	margin-bottom: -20px;
+} */
 
 #mainnav:after {
 	content: "";
@@ -510,6 +506,19 @@ blockquote blockquote {
   display: table;
   clear: both;
 }
+.columncat {
+	float: left;
+	width: 33%;
+	padding: 20px;
+  
+  }
+  
+  /* Clear floats after the columns */
+  .rowcat:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
 /* Create two equal columns that floats next to each other */
 .columnt {
 	float: left;
@@ -731,3 +740,12 @@ blockquote blockquote {
 	border-width: thin;
 
 }
+
+.spoiler{ 
+	color: black; 
+	background-color:black;
+  }
+  
+.spoiler:hover{
+	color: white;
+	}
