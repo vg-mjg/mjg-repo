@@ -751,7 +751,7 @@ blockquote blockquote {
 }
 .cannounce {
 	float: left;
-		width: 50%;
+		width: 33%;
 }
 /* Clear floats after the columns */
 .rannounce:after {
