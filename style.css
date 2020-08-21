@@ -748,4 +748,14 @@ blockquote blockquote {
   
 .spoiler:hover{
 	color: white;
-	}
+}
+.cannounce {
+	float: left;
+		width: 50%;
+}
+/* Clear floats after the columns */
+.rannounce:after {
+	content: "";
+	display: table;
+	clear: both;
+}
