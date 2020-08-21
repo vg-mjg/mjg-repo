@@ -9,6 +9,7 @@
 	--sec-color: rgb(255, 255, 255);
 	--bg-color: rgb(231, 231, 231);
 	--bgimg: url(bgimg/dust_scratches.png);
+	--bgimgann: url(bgimg/sakura.png);
 	--bg-repeat: no-repeat;
 	/*--bg-attach: fixed;*/
 	--bg-zize: cover;
@@ -26,6 +27,7 @@
 	--sec-color: rgb(255, 255, 255);
 	--bg-color: #3d3d3d;
 	--bgimg: url(bgimg/black_linen_v2_lighter.png);
+	--bgimgann: url(bgimg/choco.png);
 	--bg-repeat: no-repeat;
 	/*--bg-attach: fixed;*/
 	--bg-zize: cover;
@@ -59,23 +61,21 @@
 #yonchan2 {
 	margin-top: -20px;
 	border-width: thin;
-	padding-left: 0px;
-	padding-right: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
 	padding-top: 0px;
-	padding-bottom: 0px;
+	padding-bottom: 5px;
 
 	/* margin-bottom: 20px; */
-	color: #E5E5E5;
+
 	text-align: center;
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
 	word-wrap: break-word;
-	background-image: url(bgimg/choco.png);
+	background-image: var(--bgimgann);
 }
-#yonchan2 a {
-	color: #85D2FF;
-}
+
 .notcenter {
 	text-align: left;
 }
