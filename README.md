@@ -1,12 +1,19 @@
-maajan repo for the maajan general
+# [/mjg/ Repository](https://repo.riichi.moe)
 
-[repo.riichi.moe](https://repo.riichi.moe)
+maajan repo for the maajan general. Pls apply as repoanons, thanks.
 
-something wrong with it, submit it in issues or in the [site feedback](https://repo.riichi.moe/feedback.html)
+something wrong with repo? submit it in issues or in the [site feedback](https://repo.riichi.moe/feedback.html)
 
-If you want your own article, push it and i'll take it like a sanbaiman during my dealer turn
+If you want your own article, push it or ask me to make you a collaborator. I don't care how shady you are. It's probably the only way to change the repo properly without a tourney win.
 
-if you want to change something I don't like, challenge me in a friendly. i'll probably decline but if you offer me cute meido pics i'll probably accept
+# To Do
 
-<s>Mahjong sucks.</s>
-No u.
+## Index
+- Trim News and Updates/Rename it
+- Clean and revamp Announcements sectopm (add banners?) 
+
+## Resources
+- Add banners for the h-games
+
+## F2P Guide
+- Update the dammed character bond requirements, and make it 3 columns.
