@@ -6,7 +6,9 @@ something wrong with repo? submit it in issues or in the [site feedback](https:/
 
 If you want your own article, push it or ask me to make you a collaborator. I don't care how shady you are. It's probably the only way to change the repo properly without a tourney win.
 
+
 # To Do
+I'll do this... soon...
 
 ## Index
 - Trim News and Updates/Rename it
@@ -14,6 +16,9 @@ If you want your own article, push it or ask me to make you a collaborator. I do
 
 ## Resources
 - Add banners for the h-games
+
+## OCs
+- Add Doraichihimo special episode 4. [image](https://files.catbox.moe/ht5nv9.jpg)
 
 ## F2P Guide
 - Update the dammed character bond requirements, and make it 3 columns.
