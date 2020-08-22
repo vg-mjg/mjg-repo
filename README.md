@@ -12,13 +12,14 @@ I'll do this... soon...
 
 ## Index
 - Trim News and Updates/Rename it
-- Clean and revamp Announcements sectopm (add banners?) 
+- Clean and revamp Announcements section (add banners?) 
 
 ## Resources
 - Add banners for the h-games
 
 ## OCs
-- Add Doraichihimo special episode 4. [image](https://files.catbox.moe/ht5nv9.jpg)
+- Add Doraichihimon special episode 4. [image](https://files.catbox.moe/ht5nv9.jpg)
+- Fix and clean up OC pages...
 
 ## F2P Guide
 - Update the dammed character bond requirements, and make it 3 columns.
