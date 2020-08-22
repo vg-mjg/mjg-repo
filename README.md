@@ -18,7 +18,6 @@ I'll do this... soon...
 - Add banners for the h-games
 
 ## OCs
-- Add Doraichihimon special episode 4. [image](https://files.catbox.moe/ht5nv9.jpg)
 - Fix and clean up OC pages...
 
 ## F2P Guide
