@@ -764,8 +764,8 @@ blockquote blockquote {
 /*COLLAPSE PART STARTS HERE*/
 /*style for the collapse button*/
 .collapsible {
-  background-color: #eee;
-  color: #444;
+  background-color: var(--navcol);
+  color: var(--sec-color);
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -777,7 +777,7 @@ blockquote blockquote {
 
 /* Add a background color to the button if it is clicked on, and when you move the mouse over it (hover) */
 .active, .collapsible:hover {
-  background-color: #ccc;
+  background-color: var(--navsel);
 }
 
 /* Style the collapsible content.*/
@@ -792,7 +792,7 @@ blockquote blockquote {
 .collapsible:after {
  content: '\02795'; /* means + */
  font-size: 13px;
- color: white;
+ color: var(--sec-color);
  float: right;
  margin-left: 5px;
 }
