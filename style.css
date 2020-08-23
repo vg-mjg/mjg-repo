@@ -715,9 +715,8 @@ blockquote blockquote {
 }
 
 #quickfx{
-	margin: 5%;
-	margin-top: -5%;
-	margin-bottom: -5%;
+	padding-right: 20px;
+	padding-left: 20px;
 }
 
 #anntablein {
