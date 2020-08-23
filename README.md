@@ -10,7 +10,6 @@ If you want your own article, push it or ask me to make you a collaborator. I do
 # To Do
 
 ## General
-- Collapsable tables on Resources, OCs and Tourneys so the pages won't be cluttered
 
 ## Index
 - Trim News and Updates/Rename it
@@ -23,7 +22,6 @@ If you want your own article, push it or ask me to make you a collaborator. I do
 - Fix and clean up OC pages...
 
 ## TOURNEYS
-- Separate /v/idya mahjong tourney by year
 
 ## F2P Guide
 - Update the dammed character bond requirements, and make it 3 columns.

@@ -642,8 +642,8 @@ blockquote blockquote {
 	height: 250px;
 	overflow: scroll;
 	overflow-x: hidden;
-	width: 600px;
-	border-top: thin solid #949494;
+	width: 100%;
+	
 	border-bottom: thin solid #949494;
 }
 #flower2 {
@@ -710,6 +710,23 @@ blockquote blockquote {
 	text-align: left;
 }
 #modtablein th {
+	text-align: center;
+}
+
+#anntablein {
+	border-collapse: collapse;
+	width: 100%;
+	text-align: center;
+}
+
+#anntablein td, #anntablein th {
+	width: 33% ;
+	vertical-align: top;
+	border: 1px solid #ababab00;
+	padding: 8px;
+	text-align: center;
+}
+#anntablein th {
 	text-align: center;
 }
 
@@ -801,3 +818,96 @@ blockquote blockquote {
  content: "\2796"; /* means - */
 }
 /*COLLAPSE PART ENDS HERE*/
+
+
+
+
+
+/* Multicollapse Levels Drifting*/
+.ac-label {
+	font-weight: 700;
+	position: relative;
+	padding: .5em 1em;
+	margin-bottom: .5em;
+	display: block;
+	cursor: pointer;
+	color:white;
+	background-color: var(--navcol);
+	transition: background-color .15s ease-in-out;
+  }
+  
+  .ac-input:checked + label, .ac-label:hover {
+	background-color: var(--navsel);
+	color:var(--font-color);
+  }
+  
+  .ac-label:after, .ac-input:checked + .ac-label:after {
+	content: "+";
+	position: absolute;
+	display: block;
+	right: 0;
+	top: 0;
+	width: 2em;
+	height: 100%;
+	line-height: 2.25em;
+	text-align: center;
+	color:var(--font-color);
+	background-color: var(--navsel);
+	transition: background-color .15s ease-in-out;
+  }
+  
+  .ac-label:hover:after, .ac-input:checked + .ac-label:after {
+	background-color: var(--navcol);
+  }
+  
+  .ac-input:checked + .ac-label:after {
+	content: "-";
+  }
+  
+  .ac-input {
+	display: none;
+  }
+
+  
+  .ac-text, .ac-sub-text {
+	opacity: 0;
+	height: 0;
+	color:var(--font-color);
+	margin-bottom: .5em;
+	transition: opacity .5s ease-in-out;
+	overflow: hidden;
+  }
+  
+  .ac-input:checked ~ .ac-text, .ac-sub .ac-input:checked ~ .ac-sub-text { 
+	opacity: 1;
+	height: auto;
+  }
+  
+  
+  .ac-sub .ac-label {
+	background: none;
+	font-weight: 600;
+	padding: .5em 2em;
+	margin-bottom: 0;
+	color:var(--font-color);
+  }
+  
+  .ac-sub .ac-label:checked {
+	background: none;
+	border-bottom: 1px solid var(--sec-color);
+  }
+  
+  .ac-sub .ac-label:after, .ac-sub .ac-input:checked + .ac-label:after {
+	left: 0;
+	background: none;
+  }
+  
+  .ac-sub .ac-input:checked + label, .ac-sub .ac-label:hover {
+	background: none;
+  }
+  
+  .ac-sub-text {
+	padding: 0 1em 0 2em;
+  }
+  
+  
