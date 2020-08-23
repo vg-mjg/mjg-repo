@@ -700,6 +700,7 @@ blockquote blockquote {
 	border-collapse: collapse;
 	width: 100%;
 	text-align: left;
+
 }
 
 #modtablein td, #modtablein th {
@@ -711,6 +712,12 @@ blockquote blockquote {
 }
 #modtablein th {
 	text-align: center;
+}
+
+#quickfx{
+	margin: 5%;
+	margin-top: -5%;
+	margin-bottom: -5%;
 }
 
 #anntablein {
