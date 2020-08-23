@@ -81,8 +81,8 @@
 }
 
 
-.consol { 
-	font-family: Consolas,monaco,monospace; 
+.consol {
+	font-family: Consolas,monaco,monospace;
 }
 
 /*------------------------------------*/
@@ -312,7 +312,7 @@ blockquote blockquote {
 	margin-bottom: 5%;
 	margin-top: 5%;
 	text-align: left;
-	
+
 }
 
 
@@ -510,9 +510,9 @@ blockquote blockquote {
 	float: left;
 	width: 33%;
 	padding: 20px;
-  
+
   }
-  
+
   /* Clear floats after the columns */
   .rowcat:after {
 	content: "";
@@ -524,15 +524,15 @@ blockquote blockquote {
 	float: left;
 	padding: 5px;
   }
-  
+
   .leftt {
 	width: 70%;
   }
-  
+
   .rightt {
 	width: 30%;
   }
-  
+
   /* Clear floats after the columns */
   .rowt:after {
 	content: "";
@@ -611,7 +611,7 @@ blockquote blockquote {
 
 .panel {
   padding: 0 18px;
- 
+
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
@@ -662,7 +662,7 @@ blockquote blockquote {
 #announce {
 	width: 60%;
 	text-align: center;
-	
+
 	left: auto;
 	right: auto;
 	margin-left: auto;
@@ -741,11 +741,11 @@ blockquote blockquote {
 
 }
 
-.spoiler{ 
-	color: black; 
+.spoiler{
+	color: black;
 	background-color:black;
   }
-  
+
 .spoiler:hover{
 	color: white;
 }
@@ -759,3 +759,45 @@ blockquote blockquote {
 	display: table;
 	clear: both;
 }
+
+
+/*COLLAPSE PART STARTS HERE*/
+/*style for the collapse button*/
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on, and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Style the collapsible content.*/
+.content {
+  padding: 0 18px;
+  /* background-color: white; */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.collapsible:after {
+ content: '\02795'; /* means + */
+ font-size: 13px;
+ color: white;
+ float: right;
+ margin-left: 5px;
+}
+
+.active:after {
+ content: "\2796"; /* means - */
+}
+/*COLLAPSE PART ENDS HERE*/

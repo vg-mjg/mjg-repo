@@ -11,6 +11,7 @@
 
 <body>
 
+
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 <script>
 //Get the button
@@ -63,7 +64,7 @@ function topFunction() {
         <li><a href="tourneys.html">Tourneys</a></li>
       </ul>
     </nav>
-    
+
   </header>
   <div class="theme-switch-wrapper">
     <label class="theme-switch" for="checkbox">
@@ -72,28 +73,9 @@ function topFunction() {
   </label>
   &nbsp;おやすみ
   </div>
-<div id="mainart">
-  <br>
-  <b><a href="#crt">Clients Resources and Tools</a></b><br>
-    <small>
-      &emsp;&emsp;<a href="#majsoulr">Mahjong Soul</a><br>
-      &emsp;&emsp;<a href="#10hoer">Tenhou</a><br>
-      &emsp;&emsp;<a href="#himemaj">Hime</a><br>
-      &emsp;&emsp;<a href="#gameothers">Others</a><br>
-    </small>
-  <b><a href="#bmo">Books, Movies and Other Media</a></b><br>
-    <small>
-      &emsp;&emsp;<a href="#bookz">Books</a><br>
-      &emsp;&emsp;<a href="#movienight">Movie nights</a><br>
-      &emsp;&emsp;<a href="#obskiur">Obscure Mahjong Media</a><br>
-    </small>
-  <b><a href="#mjgpr">/mjg/ Projects</a></b><br>
-  <b><a href="#mogd">Mahjong Games Download</a></b><br>
-    <small>
-      &emsp;&emsp;<a href="#majgames">Games</a><br>
-      &emsp;&emsp;<a href="#luvnodocchi">H-Games (jp)</a><br>
-    </small>
 
+<button type="button" class="collapsible">Clients Resources and Tools</button>
+<div class="content">
   <p>&nbsp;</p>
   <h1 id="crt">Clients Resources and Tools</h1>
   <div style="overflow-x:auto;">
@@ -209,8 +191,11 @@ function topFunction() {
       </tbody>
     </table>
   </div>
-<p>&nbsp;</p>
-<br>
+</div>
+<!-- <p>&nbsp;</p>
+<br> -->
+<button type="button" class="collapsible">Books, Movies and Other Media</button>
+<div class="content">
 <h1 id="bmo">Books, Movies and Other Media</h1>
 <div style="overflow-x:auto;">
   <table width="100%" border="1" id="modtable">
@@ -420,8 +405,11 @@ function topFunction() {
     </tbody>
   </table>
 </div>
-<p>&nbsp;</p>
-<br>
+</div>
+<!-- <p>&nbsp;</p>
+<br> -->
+<button type="button" class="collapsible">/mjg/ Projects</button>
+<div class="content">
 <h1 id="mjgpr">/mjg/ Projects</h1>
 <div style="overflow-x:auto;">
   <table width="100%" border="1" id="modtable">
@@ -460,7 +448,7 @@ function topFunction() {
       <th scope="row"><h2>/mjg/ sings Nantoka Nare</h2>
         <p><img src="banners/nantoka.png" width="350" height="88" alt=""/></p></th>
       <td align="left"><p>Pure unadultarated autism. </p><hr>
-        <p controls>        
+        <p controls>
         <audio controls>
           <source src="https://files.catbox.moe/e0pgky.mp3" type="audio/mp3">
         </audio></td>
@@ -488,8 +476,11 @@ function topFunction() {
     </tbody>
   </table>
 </div>
-<p>&nbsp;</p>
-<br>
+</div>
+<!-- <p>&nbsp;</p>
+<br> -->
+<button type="button" class="collapsible">Mahjong Games Download</button>
+<div class="content">
 <h1 id="mogd">Mahjong Games Download</h1>
 <div style="overflow-x:auto;">
   <table width="100%" border="1" id="modtable">
@@ -556,6 +547,7 @@ function topFunction() {
       </td>
     </tr>
     <tr>
+
       <th scope="row"><h2 id="sacrifice">Sacrifice ~Sutehai no Yukue~</h2>SACRIFICE ～捨牌の行方～<br><a href="https://vndb.org/v4405">vndb</a> / <a href="https://tsubasa-space.blogspot.com/2010/07/sacrifice.html">tsubasa-space</a>
         </th>
       <td align="left">
@@ -599,9 +591,18 @@ function topFunction() {
     </tbody>
   </table>
 </div>
+</div>
 <p>&nbsp;</p>
 </div>
 </div>
 <br>
+
+
+
+
+
+<script src="collapse.js"></script>
+
+
 </body>
 </html>
