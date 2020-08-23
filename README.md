@@ -8,7 +8,9 @@ If you want your own article, push it or ask me to make you a collaborator. I do
 
 
 # To Do
-I'll do this... soon...
+
+## General
+- Collapsable tables on Resources, OCs and Tourneys so the pages won't be cluttered
 
 ## Index
 - Trim News and Updates/Rename it
@@ -20,5 +22,15 @@ I'll do this... soon...
 ## OCs
 - Fix and clean up OC pages...
 
+## TOURNEYS
+- Separate /v/idya mahjong tourney by year
+
 ## F2P Guide
 - Update the dammed character bond requirements, and make it 3 columns.
+
+## Others/High Concept stuff
+- animate the animated gifs and make them run around the page, visibility be fucked
+- Radio for the music list, where everyone can submit their own (which can also be used in tourneys)
+- Comic reader for the ocs, and not just contained on their separate page. Not like mangadex, fuck their reader, but like kissmanga ;_;
+- RB1 HTML version, for real this time
+- RB1 vn...
