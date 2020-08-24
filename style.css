@@ -921,4 +921,5 @@ blockquote blockquote {
 .autoscroll {
 	overflow: auto;
 	height: 250px;
+	border-bottom: thin solid #949494;
   }
