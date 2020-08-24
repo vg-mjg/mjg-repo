@@ -158,7 +158,10 @@ time_is_widget.init({UTC_za00:{template:"DATE, TIME", date_format:"dayname, mont
     <!-- Tourneys -->
     <td>
       <span style="font-size: 1.5rem;"><b>Tourneys</b></span><hr>
-          --
+          <div class="autoscroll">
+            <!-- Entries for tourneys go here. -->
+            --
+          </div>
     </td>
 
     <!-- Updates -->
@@ -302,14 +305,20 @@ time_is_widget.init({UTC_za00:{template:"DATE, TIME", date_format:"dayname, mont
     </td>
 
     <!-- Events -->
-    <td>
-      <span style="font-size: 1.5rem;"><b>Events</b></span><hr>
-          <b>Chiori Dice Event and Hat Rerun + Swimsuit</b><br>
-          <small>
-            <em>Event Period: 8/19 - 9/3, 8:59pm UTC</em><br>
-            Complete objectives to get dice rolls, use dice rolls to get rewards and Hat tickets for completing laps on the gameboard. Redeem Hat Tickets for Hat, Swimsuit, and LNs/Spheres
-          </small>
-    </td>
+    
+      <td>
+        <span style="font-size: 1.5rem;"><b>Events</b></span><hr>
+        <div class="autoscroll">
+          <!-- Entries for events go down here, not outside the div -->
+          <img src="banners/events banner/chiori.jpg" width="100%">
+              <b>Chiori Dice Event and Hat Rerun + Swimsuit</b><br>
+              <small>
+                <em>Event Period: 8/19 - 9/3, 8:59pm UTC</em><br>
+                Complete objectives to get dice rolls, use dice rolls to get rewards and Hat tickets for completing laps on the gameboard. Redeem Hat Tickets for Hat, Swimsuit, and LNs/Spheres
+              </small>
+        </div>
+      </td>
+    
   </tr>
 </table>
   

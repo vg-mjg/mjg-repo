@@ -917,3 +917,8 @@ blockquote blockquote {
   }
   
   
+/* for the overflow scrollable banners */
+.autoscroll {
+	overflow: auto;
+	height: 250px;
+  }
