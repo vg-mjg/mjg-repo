@@ -213,6 +213,20 @@ a:hover{
     font-size: small;
 }
 
+#lortable {
+	width: 100%;
+    text-align: left;
+    table-layout: fixed;
+    padding-left: 5px;
+    border-left: 5px solid var(--accsel-color);
+    
+}
+#lortable td{
+    font-weight: 500;
+    width: 50%;
+    line-height: 1.6;
+}
+
 
 ul{
     list-style-type: disc;
@@ -290,4 +304,9 @@ li{
   #navbar td{
     width: 25% ;
     vertical-align: top;
+  }
+
+  #myDIV{
+      display: none;
+      text-align: center;
   }
