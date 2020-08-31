@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>A Story About Mahjong</title>
+<link href="style_lib.css" rel="stylesheet" type="text/css">
+<script> 
+    function scrollToTop() { 
+        window.scrollTo(0, 0); 
+    } 
+</script> 
+</head>
+<body>
+ 
+
+<center>
+    <strong><span style="font-size: 2.5rem;">A Story About Mahjong</span></strong><br>
+    
+    <small></small>
+    <!-- 
+        ../ocs.html#comic-series
+        #oneshots-and-shorts
+        #videos
+        #music
+        #visual-novels
+        #webnovels
+        #others
+     -->
+    <br>
+    <a href="../ocs.html#oneshots-and-shorts">Back to OCs</a><br>
+    <a href="../index.html">Back to Home</a><br><br>
+</center>
+<hr>
+
+
+        <div class="tab" id="flower2">
+         <button class="tablinks" onclick="openCity(event, '1');scrollToTop()" id="t1">1</button>
+     
+        
+         
+        </div>
+
+
+
+<!-- this is the fucking worst solution for 2 columns with one div with position fixed. kill me. -->
+ <div class="row">
+    <div class="column left">
+
+            
+        <div id="1" class="tabcontent">
+
+            <img src="https://i.imgur.com/fDo3Bsr.jpg">
+           <br>
+            <br>
+        </div>
+     
+    <!-- div ending of left columns -->
+    </div>
+
+    
+  <div class="column right">
+    &nbsp;
+
+
+
+<!-- div endings for the 2 column rows -->
+</div>
+</div>
+
+
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+//without reference links, just link to first item
+document.getElementById("t1").click();
+
+// Check where you came from and focuses on that tab
+
+var url = document.location.toString();
+    if (url.match('#game-resources-tools')) {
+        document.getElementById("tgrt").click();
+    } 
+    if (url.match('#majsoulp-mods')) {
+        document.getElementById("tmpm").click();
+    } 
+    if (url.match('#mahj-strat')) {
+        document.getElementById("tmsgb").click();
+    } 
+    if (url.match('#gen-guide')) {
+        document.getElementById("tgg").click();
+    } 
+    if (url.match('#movs')) {
+        document.getElementById("tmom").click();
+    } 
+    if (url.match('#proj')) {
+        document.getElementById("tmp").click();
+    } 
+    if (url.match('#luvnodocchi')) {
+        document.getElementById("togd").click();
+    } 
+</script>
+
+   
+</body>
+</html> 
