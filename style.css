@@ -1,117 +1,33 @@
-:root {
-	--font-color: #424242;
-	--link-color: #0072AB;
-	--head-color: #3a3a3a;
-	--head-shado: #ffffff;
-	--headl-color: #0072AB;
-	--navcol: #333333;
-	--navsel: #949494;
-	--sec-color: rgb(255, 255, 255);
-	--bg-color: rgb(231, 231, 231);
-	--bgimg: url(bgimg/dust_scratches.png);
-	--bgimgann: url(bgimg/sakura.png);
-	--bg-repeat: no-repeat;
-	/*--bg-attach: fixed;*/
-	--bg-zize: cover;
-/*	--headerimg: url(headers/ikimashou_morn.jpg);*/
-    --headerimg: url(headers/hatback.jpg);
+/* Default Colors for stuff - Use for future themes. I doubt anyone is retarded enough to 
+ask for a DAY MODE. */
+:root{
+    --bgpaper: url(background/bgdark.png);
+    --font-color: #d9d9d9;
+    --link-color: #8dcfea;
+
+    --acc-color: #485058;
+    --accsel-color: #729eac;
 }
-[data-theme="dark"] {
-	--font-color: #d9d9d9;
-	--link-color: #3599f1;
-	--head-color: #cfcfcf;
-	--head-shado: #202020;
-	--headl-color: #e48383;
-	--navcol: #1d1d1d;
-	--navsel: #515c74;
-	--sec-color: rgb(255, 255, 255);
-	--bg-color: #3d3d3d;
-	--bgimg: url(bgimg/black_linen_v2_lighter.png);
-	--bgimgann: url(bgimg/choco.png);
-	--bg-repeat: no-repeat;
-	/*--bg-attach: fixed;*/
-	--bg-zize: cover;
-	--headerimg: url(headers/ikimashou.jpg);
-}
-.shado{
-	text-shadow: 2px 2px var(--head-shado);
+
+/* I don't know what these do but they /do/ something */
+@import "compass/css3";
+* {
+    box-sizing: border-box;
 }
 
 
-#yonchan {
-	border-style: dashed;
-	border-width: thin;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	color: #E5E5E5;
-	text-align: center;
-	width: 70%;
-	margin-left: auto;
-	margin-right: auto;
-	word-wrap: break-word;
-	background-image: url(bgimg/choco.png);
-}
-#yonchan a {
-	color: #85D2FF;
-}
-#yonchan2 {
-	margin-top: -20px;
-	border-width: thin;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 0px;
-	padding-bottom: 5px;
-
-	/* margin-bottom: 20px; */
-
-	text-align: center;
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	word-wrap: break-word;
-	background-image: var(--bgimgann);
-}
-
-.notcenter {
-	text-align: left;
-}
-
-
-.consol {
-	font-family: Consolas,monaco,monospace;
-}
-
-/*------------------------------------*/
-
-
-
-html {
-    font-size: 16px;
+html{
     scroll-behavior: smooth;
 }
 
-body {
-	font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-	color: var(--font-color);
-	/*background-color: var(--bg-color);*/
-	background-image: var(--bgimg);
-	line-height: 1.6;
-	margin-left: 0px;
-	margin-right: 0px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	border-width: thin;
 
+body{
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-image: var(--bgpaper);
+    color: var(--font-color);
+    line-height: 1.2;
 }
 
-/*------------------------------------*/
-
-
-/*------------------------------------*/
 
 a {
 	color: var(--link-color);
@@ -121,516 +37,45 @@ a:hover{
 	text-decoration: underline;
 	text-align: right;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    position: relative;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    line-height: 1.4;
-    cursor: text;
-}
-h1 {
-	padding-bottom: .3em;
-	font-size: 2.25em;
-	line-height: 1.2;
-	border-bottom-style: none;
-	text-align: center;
-
-}
-#starthere {
-	border-style: double;
-	border-width: medium;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
 
 
-#learnplay {
-	border-style: double;
-	border-width: medium;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-#morelearn {
-	border-style: double;
-	border-width: medium;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-#majirl   {
-	border-style: double;
-	border-width: medium;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-h3 {
-    font-size: 1.5em;
-    line-height: 1.43;
-}
-h4 {
-    font-size: 1.25em;
-}
-h5 {
-    font-size: 1em;
-}
-h6 {
-   font-size: 1em;
-    color: #777;
-}
-
-
-#chatte{
-	margin-left: 10%;
-	margin-right: 10%;
-
-}
-
-
-#wrapper footer {
-	background-color: var(--navcol);
-	color: #D7D7D7;
-	width: 100%;
-}
-#foote {
-	background-color: var(--navcol);
-	color: #E8E8E8;
-	margin-bottom: -20px;
-}
-
-#foote a {
-	color: #E8E8E8;
-}
-hr {
-	border-style: dashed;
-	border-width: 0.1px 0.1px thin;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-#updates hr {
-	border-style: dashed;
-	width: 30%;
-	text-align: center;
-	padding-bottom: 0px;
-	padding-top: 0px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-}
-
-blockquote {
-    border-left: 4px solid #dfe2e5;
-    padding: 0 15px;
-    color: var(--font-color);
-}
-blockquote blockquote {
-    padding-right: 0;
-}
-
-#top {
-	margin-top: -20px;
-	background-image: var(--headerimg);
-	background-repeat: var(--bg-repeat);
-	background-attachment: var(--bg-attach);
-	background-size: var(--bg-zize);
-	color: var(--head-color);
-}
-#top a {
-	color: var(--headl-color);
-}
-
-#mainnav ul {
-	list-style-type: none;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-left: 0px;
-	padding-top: 0px;
-	padding-right: 0px;
-	padding-bottom: 0px;
-	padding-left: 0px;
-}
-#mainnav a {
-	width: 20%;
-	display: block;
-	float: left;
-	text-align: center;
-	background-color: var(--navcol);
-	color: var(--sec-color);
-	padding-top: 20px;
-	padding-bottom: 20px;
-	font-weight: bold;
-	word-wrap: break-word;
-}
-
-
-
-
-/* #mainnav{
-	margin-bottom: -20px;
-} */
-
-#mainnav:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-
-#mainnav a:hover   , #mainnav a:active  ,#mainnav a:focus, #mainnav a.thispage{
-	text-decoration: none;
-	background-color: var(--navsel);
-}
-#mainart {
-	margin-top: 0;
-	margin-bottom: auto;
-	width: 80%;
-	margin-left: auto;
-	margin-right: auto;
-
-}
-#mainartoc {
-	margin-left: 10%;
-	margin-right: 10%;
-	margin-bottom: 5%;
-	margin-top: 5%;
-	text-align: left;
-
-}
-
-
-#updates {
-	text-align: left;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 50px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	margin-top: 5px;
-	list-style-position: inside;
-	width: 90%;
-	font-size: small;
-
-}
-
-
-#top figure img {
-	margin-top: 20px;
-
-}
-#mainnav {
-	margin-top: 0px;
-
-
-
-
-}
-.centered {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 500px;
-}
-#tourtable {
-	border-collapse: collapse;
-	width: 100%;
-	text-align: center;
-}
-#tourtable td, #tourtable th {
-	padding: 8px;
-	border: 1px solid #ABABAB;
-	text-align: center;
-}
-
-#indextab th            {
-	text-align: center;
-}
-
-#indextab {
-	border-collapse: collapse;
-	width: 100%;
-	text-align: center;
-}
-#indextab td, #indextab th {
-	width: 33% ;
-	padding: 10px;
-
-	border: 2px solid #ABABAB;
-	vertical-align: top;
-	text-align: center;
-}
-#indextab hr{
-	width: 50%;
-}
-
-
-#octable {
-	border-collapse: collapse;
-	width: 100%;
-}
-#octable td, #octable th {
-	padding: 8px;
-	border: 1px solid #ABABAB;
-}
-#octable2 {
-	border-collapse: collapse;
-	width: 100%;
-}
-#octable2 td, #octable2 th {
-	padding: 8px;
-	border: 1px solid #ABABAB;
-}
-#octable3 {
-	border-collapse: collapse;
-	width: 100%;
-}
-#octable3 td, #octable3 th {
-	padding: 8px;
-	border: 1px solid #ABABAB;
-}
-#octable4 {
-	border-collapse: collapse;
-	width: 100%;
-}
-#octable4 td, #octable4 th {
-	padding: 8px;
-	border: 1px solid #ABABAB;
-}
-.topper {
-	display: block;
-	text-align: center;
-}
-
-#octable5 , #octable6{
-	border-collapse: collapse;
-	width: 100%;
-}
-#octable5 td, #octable5 th {
-	padding: 8px;
-	border: 1px solid #ABABAB;
-}
-#octable6 td, #octable6 th {
-	padding: 8px;
-	border: 1px solid #ABABAB;
-}
-#octable th  , #octable2 th, #octabl3 th, #octable4 th, #octable5 th, #octable6 th{
-	text-align: center;
-}
-
-
-#myBtn {
-	display: none;
-	position: fixed;
-	bottom: 20px;
-	right: 30px;
-	z-index: 99;
-	font-size: 18px;
-	border: none;
-	outline: none;
-	background-color: #6E6E6E;
-	color: white;
-	cursor: pointer;
-	padding: 15px;
-	border-radius: 4px;
-}
-
-#myBtn:hover {
-  background-color: #555;
-}
-.boxer {
-	border-style: double;
-	border-width: medium;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-.strikethru {
-	text-decoration: line-through;
-}
-#headerban {
-	padding-top: 20px;
-	margin-top: 20px;
-
-}
-.notopspace {
-	padding-top: 0px;
-	top: -100px;
-}
-* {
-  box-sizing: border-box;
-}
-#shamiko {
-	margin-left: auto;
-	margin-right: auto;
-	left: auto;
-	right: auto;
-	text-align: center;
-}
-
-
-
-
-
-
-/* Create two equal columns that floats next to each other */
+/* 2 Columns for the Index */
 .column {
-  float: left;
-  width: 50%;
-  padding: 20px;
-
-}
-
-/* Clear floats after the columns */
+    float: left;
+    padding: 10px;
+} 
+.left {
+    width: 60%;
+} 
+.right {
+    width: 40%;
+} 
 .row:after {
-  content: "";
-  display: table;
-  clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
-.columncat {
-	float: left;
-	width: 33%;
-	padding: 20px;
 
-  }
 
-  /* Clear floats after the columns */
-  .rowcat:after {
-	content: "";
-	display: table;
-	clear: both;
-  }
-/* Create two equal columns that floats next to each other */
-.columnt {
-	float: left;
-	padding: 5px;
-  }
-
-  .leftt {
-	width: 70%;
-  }
-
-  .rightt {
-	width: 30%;
-  }
-
-  /* Clear floats after the columns */
-  .rowt:after {
-	content: "";
-	display: table;
-	clear: both;
-  }
-
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column {
+/* For the Updates List */
+#flower {
+	height: 100%;
+	overflow: scroll;
+	overflow-x: hidden;
     width: 100%;
-  }
+    padding-left: 20px;
 }
-
-
-/**--------------------------------------------------TEST**/
-#myInput {
-
-  width: 100%; /* Full-width */
-  font-size: 16px; /* Increase font-size */
-  padding: 12px 20px 12px 40px; /* Add some padding */
-  border: 1px solid #ddd; /* Add a grey border */
-  margin-bottom: 12px; /* Add some space below the input */
-}
-
-#myTable {
-  border-collapse: collapse; /* Collapse borders */
-  width: 100%; /* Full-width */
-  border: 1px solid #ddd; /* Add a grey border */
-  font-size: 18px; /* Increase font-size */
-}
-
-#myTable th, #myTable td {
-  text-align: left; /* Left-align text */
-  padding: 12px; /* Add padding */
-}
-
-#myTable tr {
-  /* Add a bottom border to all table rows */
-  border-bottom: 1px solid #ddd;
-}
-
-#myTable tr.header, #myTable tr:hover {
-  /* Add a grey background color to the table header and on hover */
-  background-color: var(--navsel);
-}
-
-.accordion {
-	color: #444;
-	cursor: pointer;
-	padding: 18px;
-	width: 100%;
-	border: none;
-	text-align: left;
-	outline: none;
-	font-size: 15px;
-	transition: 0.4s;
-	background-image: url(bgimg/kindajean.png);
-}
-
-.active, .accordion:hover {
-  background-color: #ccc;
-}
-
-.accordion:after {
-  content: '\002B';
-  color: #777;
-  font-weight: bold;
-  float: right;
-  margin-left: 5px;
-}
-
-.active:after {
-  content: "\2212";
-}
-
-.panel {
-  padding: 0 18px;
-
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-}
-
-/**-------------test styles**/
-
-
-#updates ul {
+#flower ul {
 	list-style-type: none;
 	padding: 0;
 	margin-bottom: 10px;
 }
-#updates li {
-	margin: 5px;
+#flower li {
+    margin: 5px;
+    padding-bottom: 5px;
 
 }
-
-#updates li:before {
+#flower li:before {
 	content: '>';
 	margin-left: -20px;
 	margin-right: 10px;
@@ -638,288 +83,167 @@ blockquote blockquote {
 	font-weight: bolder;
 }
 
-#flower {
-	height: 250px;
-	overflow: scroll;
-	overflow-x: hidden;
-	width: 100%;
-	
-	border-bottom: thin solid #949494;
-}
-#flower2 {
-	height: 225px;
-	overflow: scroll;
-	overflow-x: hidden;
-	width: 90%;
-	margin-left: auto;
-	margin-right: auto;
-	border-top-width: thin;
-	border-top-style: none;
-	border-bottom-width: thin;
-	border-bottom-style: none;
-}
 
-#announce {
-	width: 60%;
-	text-align: center;
-
-	left: auto;
-	right: auto;
-	margin-left: auto;
-	border-width: thin;
-
-	padding-left: 0px;
-	margin-right: auto;
-
-	/* background-color: #b6d7a8; */
-	background-image: url(bgimg/choco.png);
-	/* font-size: small; */
-	color: rgb(255, 255, 255);
-}
-#announce a  {
-	color: rgba(146,215,255,1.00);
-}
-
-#modtable {
-	border-collapse: collapse;
-	width: 100%;
-	text-align: left;
-}
-
-#modtable td, #modtable th {
-	border: 1px solid #ABABAB;
-	padding: 8px;
-	text-align: left;
-}
-#modtable th {
-	text-align: center;
-}
-
-
-#modtablein {
-	border-collapse: collapse;
-	width: 100%;
-	text-align: left;
-
-}
-
-#modtablein td, #modtablein th {
-	width: 33% ;
-	vertical-align: top;
-	border: 1px solid #ababab00;
-	padding: 8px;
-	text-align: left;
-}
-#modtablein th {
-	text-align: center;
-}
-
-#quickfx{
-	padding-right: 20px;
-	padding-left: 20px;
-}
-
-#anntablein {
-	border-collapse: collapse;
-	width: 100%;
-	text-align: center;
-}
-
-#anntablein td, #anntablein th {
-	width: 33% ;
-	vertical-align: top;
-	border: 1px solid #ababab00;
-	padding: 8px;
-	text-align: center;
-}
-#anntablein th {
-	text-align: center;
-}
-
-#timetab {
-	border-collapse: collapse;
-	width: 80%;
-	text-align: center;
-}
-
-#timetab td, #timetab th {
-	vertical-align: top;
-	border: 1px solid #ABABAB;
-	padding: 8px;
-}
-#timetab th {
-	text-align: center;
-}
-
-.darkbody {
-	font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-	color: rgb(235, 235, 235);
-	background-image: url(bgimg/pink_dust.png);
-	line-height: 1.6;
-	margin-left: 0px;
-	margin-right: 0px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	border-width: thin;
-
-}
-
-.spoiler{
-	color: black;
-	background-color:black;
-  }
-
-.spoiler:hover{
-	color: white;
-}
-.cannounce {
-	float: left;
-		width: 33%;
-}
-/* Clear floats after the columns */
-.rannounce:after {
-	content: "";
-	display: table;
-	clear: both;
-}
-
-
-/*COLLAPSE PART STARTS HERE*/
-/*style for the collapse button*/
-.collapsible {
-  background-color: var(--navcol);
-  color: var(--sec-color);
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: center;
-  outline: none;
-  font-size: 15px;
-}
-
-/* Add a background color to the button if it is clicked on, and when you move the mouse over it (hover) */
-.active, .collapsible:hover {
-  background-color: var(--navsel);
-}
-
-/* Style the collapsible content.*/
-.content {
-  padding: 0 18px;
-  /* background-color: white; */
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-}
-
-.collapsible:after {
- content: '\02795'; /* means + */
- font-size: 13px;
- color: var(--sec-color);
- float: right;
- margin-left: 5px;
-}
-
-.active:after {
- content: "\2796"; /* means - */
-}
-/*COLLAPSE PART ENDS HERE*/
-
-
-
-
-
-/* Multicollapse Levels Drifting*/
+/* Collapsible div and some other stuff I'll probably forget later on*/
 .ac-label {
-	font-weight: 700;
-	position: relative;
-	padding: .5em 1em;
-	margin-bottom: .5em;
-	display: block;
-	cursor: pointer;
-	color:white;
-	background-color: var(--navcol);
-	transition: background-color .15s ease-in-out;
-  }
-  
-  .ac-input:checked + label, .ac-label:hover {
-	background-color: var(--navsel);
-	color:var(--font-color);
-  }
-  
-  .ac-label:after, .ac-input:checked + .ac-label:after {
-	content: "+";
-	position: absolute;
-	display: block;
-	right: 0;
-	top: 0;
-	width: 2em;
-	height: 100%;
-	line-height: 2.25em;
-	text-align: center;
-	color:var(--font-color);
-	background-color: var(--navsel);
-	transition: background-color .15s ease-in-out;
-  }
-  
-  .ac-label:hover:after, .ac-input:checked + .ac-label:after {
-	background-color: var(--navcol);
-  }
-  
-  .ac-input:checked + .ac-label:after {
-	content: "-";
-  }
-  
-  .ac-input {
-	display: none;
-  }
-
-  
-  .ac-text, .ac-sub-text {
-	opacity: 0;
-	height: 0;
-	color:var(--font-color);
-	margin-bottom: .5em;
-	transition: opacity .5s ease-in-out;
-	overflow: hidden;
-  }
-  
-  .ac-input:checked ~ .ac-text, .ac-sub .ac-input:checked ~ .ac-sub-text { 
-	opacity: 1;
-	height: auto;
-  }
-  
-  
-  .ac-sub .ac-label {
-	background: none;
-	font-weight: 600;
-	padding: .5em 2em;
-	margin-bottom: 0;
-	color:var(--font-color);
-  }
-  
-  .ac-sub .ac-label:checked {
-	background: none;
-	border-bottom: 1px solid var(--sec-color);
-  }
-  
-  .ac-sub .ac-label:after, .ac-sub .ac-input:checked + .ac-label:after {
-	left: 0;
-	background: none;
-  }
-  
+    font-weight: 700;
+    position: relative;
+    padding: .5em 1em;
+    margin-bottom: .5em;
+    display: block;
+    cursor: pointer;
+    background-color: var(--acc-color);
+    text-align: center;
+    transition: background-color .15s ease-in-out;
+} 
+.ac-input:checked + label, .ac-label:hover {
+    background-color: var(--accsel-color);
+} 
+.ac-label:after, .ac-input:checked + .ac-label:after {
+    content: "+";
+    position: absolute;
+    display: block;
+    right: 0;
+    top: 0;
+    width: 2em;
+    height: 100%;
+    line-height: 2.25em;
+    text-align: center;
+    border-width: thin;
+    transition: background-color .15s ease-in-out;
+    background-color: #363e4e;  
+}
+.ac-label:hover:after, .ac-input:checked + .ac-label:after {
+    background-color: #657596;
+}  
+.ac-input:checked + .ac-label:after {
+    content: "-";
+}
+.ac-input {
+    display: none;
+}
+.ac-text, .ac-sub-text {
+    opacity: 0;
+    height: 0;
+    margin-bottom: .5em;
+    transition: opacity .5s ease-in-out;
+    overflow: hidden;
+} 
+.ac-input:checked ~ .ac-text, .ac-sub .ac-input:checked ~ .ac-sub-text { 
+    opacity: 1;
+    height: auto;
+}
+.ac-sub .ac-label {
+    background: none;
+    font-weight: 600;
+    padding: .5em 2em;
+    margin-bottom: 0;
+}
+.ac-sub .ac-label:checked {
+    background: none;
+    border-bottom: 1px solid whitesmoke;
+}
+.ac-sub .ac-label:after, .ac-sub .ac-input:checked + .ac-label:after {
+    left: 0;
+    background: none;
+}
   .ac-sub .ac-input:checked + label, .ac-sub .ac-label:hover {
-	background: none;
-  }
-  
-  .ac-sub-text {
-	padding: 0 1em 0 2em;
-  }
-  
-  
-/* for the overflow scrollable banners */
-.autoscroll {
-	overflow: auto;
-	height: 250px;
-	border-bottom: thin solid #949494;
-  }
+    background: none;
+}
+.ac-sub-text {
+    padding: 0 1em 0 2em;
+}
+.nolink a, .nolink a:hover {
+    position: relative;
+    text-align: center;
+    padding: inherit;
+    text-decoration: inherit;
+    color:inherit
+}
+.ac-linker {
+    font-weight: 700;
+    position: relative;
+    padding: .5em 1em;
+    margin-bottom: .5em;
+    display: block;
+    cursor: pointer;
+    background-color: var(--acc-color);
+    transition: background-color .15s ease-in-out;
+} 
+.ac-linker:hover {
+    background-color: var(--accsel-color);
+} 
+.ac-linker:after {
+    content: ">";
+    position: absolute;
+    display: block;
+    right: 0;
+    top: 0;
+    width: 2em;
+    height: 100%;
+    line-height: 2.25em;
+    text-align: center;
+    border-width: thin;
+    transition: background-color .15s ease-in-out;
+    background-color: #363e4e;  
+}
+.ac-linker:hover:after {
+    background-color: #657596;
+}
+
+
+
+
+/* Misc. Stuff, I dunno where to put them so here they are */
+#left-text {
+    text-align: left;
+}
+
+
+/* Quick Links */
+#modtablein {
+	width: 100%;
+    text-align: left;
+    table-layout: fixed ;
+}
+#modtablein td{
+    width: 50% ;
+}
+
+
+ul{
+    list-style-type: disc;
+    padding-left: 30px;
+}
+li{
+    padding-bottom: 5px;
+}
+
+
+/* Where to Play? Tabs */
+.tab {
+    overflow: hidden;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: black;
+}
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 33%;
+}
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: var(--accsel-color);
+}
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid rgb(0, 0, 0);
+    border-top: none;
+}
