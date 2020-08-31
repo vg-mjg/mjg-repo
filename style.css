@@ -91,7 +91,7 @@ a:hover{
     font-weight: 700;
     font-size: larger;
     position: relative;
-    padding: 1em 1em;
+    padding: .5em 1em;
     margin-bottom: .5em;
     display: block;
     cursor: pointer;
@@ -176,6 +176,11 @@ a:hover{
 .ac-linker:hover {
     background-color: var(--accsel-color);
 } 
+
+.ac-linker button.active {
+    background-color: #ccc;
+  }
+
 .ac-linker:after {
 
     position: absolute;
@@ -191,6 +196,44 @@ a:hover{
 
 }
 
+
+
+/* navlinks */
+/* Style the tab */
+.tab {
+    overflow: hidden;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+      width: 100%;
+    font-weight: 700;
+    font-size: larger;
+    position: relative;
+    padding: 1em 1em;
+    margin-bottom: .5em;
+    display: block;
+    cursor: pointer;
+    background-color: var(--acc-color);
+    border: none;
+    color: var(--font-color);
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: var(--accsel-color);
+  }
+  
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: var(--accsel-color);
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    border-top: none;
+  }
 
 
 
@@ -210,20 +253,16 @@ a:hover{
 }
 #modtablein td{
     width: 50% ;
-    font-size: small;
+
 }
 
+
 #lortable {
-	width: 100%;
     text-align: left;
-    table-layout: fixed;
     padding-left: 5px;
     border-left: 5px solid var(--accsel-color);
-    
-}
-#lortable td{
     font-weight: 500;
-    width: 50%;
+    white-space: nowrap;
     line-height: 1.6;
 }
 
@@ -238,13 +277,13 @@ li{
 
 
 /* Where to Play? Tabs */
-.tab {
+.rtab {
     overflow: hidden;
     border: 1px solid rgb(0, 0, 0);
     background-color: black;
 }
 /* Style the buttons inside the tab */
-.tab button {
+.rtab button {
     background-color: inherit;
     float: left;
     border: none;
@@ -254,11 +293,11 @@ li{
     width: 33%;
 }
 /* Create an active/current tablink class */
-.tab button.active {
+.rtab button.active {
     background-color: var(--accsel-color);
 }
 /* Style the tab content */
-.tabcontent {
+.rtabcontent {
     display: none;
     padding: 6px 12px;
     border: 1px solid rgb(0, 0, 0);
@@ -306,7 +345,16 @@ li{
     vertical-align: top;
   }
 
-  #myDIV{
+  #lordiv{
       display: none;
       text-align: center;
   }
+  #ocdiv{
+    display: none;
+    text-align: center;
+}
+
+#cont{
+    width: 800px;
+    margin: 0 auto;
+}
