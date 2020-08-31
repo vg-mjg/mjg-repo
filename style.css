@@ -6,6 +6,7 @@ ask for a DAY MODE. */
     --link-color: #8dcfea;
 
     --acc-color: #485058;
+    --acc-color-darker: #35393d;
     --accsel-color: #729eac;
 }
 
@@ -59,11 +60,12 @@ a:hover{
 
 /* For the Updates List */
 #flower {
-	height: 100%;
+	height: 250px;
 	overflow: scroll;
 	overflow-x: hidden;
     width: 100%;
     padding-left: 20px;
+    text-align: left;
 }
 #flower ul {
 	list-style-type: none;
@@ -87,8 +89,9 @@ a:hover{
 /* Collapsible div and some other stuff I'll probably forget later on*/
 .ac-label {
     font-weight: 700;
+    font-size: larger;
     position: relative;
-    padding: .5em 1em;
+    padding: 1em 1em;
     margin-bottom: .5em;
     display: block;
     cursor: pointer;
@@ -100,7 +103,7 @@ a:hover{
     background-color: var(--accsel-color);
 } 
 .ac-label:after, .ac-input:checked + .ac-label:after {
-    content: "+";
+    content: "";
     position: absolute;
     display: block;
     right: 0;
@@ -111,11 +114,9 @@ a:hover{
     text-align: center;
     border-width: thin;
     transition: background-color .15s ease-in-out;
-    background-color: #363e4e;  
+
 }
-.ac-label:hover:after, .ac-input:checked + .ac-label:after {
-    background-color: #657596;
-}  
+
 .ac-input:checked + .ac-label:after {
     content: "-";
 }
@@ -123,6 +124,7 @@ a:hover{
     display: none;
 }
 .ac-text, .ac-sub-text {
+    font-size: large;
     opacity: 0;
     height: 0;
     margin-bottom: .5em;
@@ -162,8 +164,9 @@ a:hover{
 }
 .ac-linker {
     font-weight: 700;
+    font-size: larger;
     position: relative;
-    padding: .5em 1em;
+    padding: 1em 1em;
     margin-bottom: .5em;
     display: block;
     cursor: pointer;
@@ -174,7 +177,7 @@ a:hover{
     background-color: var(--accsel-color);
 } 
 .ac-linker:after {
-    content: ">";
+
     position: absolute;
     display: block;
     right: 0;
@@ -185,11 +188,9 @@ a:hover{
     text-align: center;
     border-width: thin;
     transition: background-color .15s ease-in-out;
-    background-color: #363e4e;  
+
 }
-.ac-linker:hover:after {
-    background-color: #657596;
-}
+
 
 
 
@@ -204,10 +205,12 @@ a:hover{
 #modtablein {
 	width: 100%;
     text-align: left;
-    table-layout: fixed ;
+    table-layout: fixed;
+    
 }
 #modtablein td{
     width: 50% ;
+    font-size: small;
 }
 
 
@@ -247,3 +250,44 @@ li{
     border: 1px solid rgb(0, 0, 0);
     border-top: none;
 }
+
+
+
+#anntablein {
+	border-collapse: collapse;
+
+    
+    margin: 0 auto;
+}
+
+#anntablein td, #anntablein th {
+	width: 33% ;
+	vertical-align: top;
+	border: 1px solid #ababab00;
+	padding: 8px;
+	text-align: center;
+}
+#anntablein th {
+	text-align: center;
+}
+
+/* for the overflow scrollable banners */
+.autoscroll {
+	overflow: auto;
+	height: 250px;
+    border-bottom: thin solid #949494;
+    text-align: center;
+  }
+
+
+
+  #navbar{
+    table-layout: fixed ;
+    width: 100% ;
+    background-color: var(--acc-color-darker);
+
+  }
+  #navbar td{
+    width: 25% ;
+    vertical-align: top;
+  }
