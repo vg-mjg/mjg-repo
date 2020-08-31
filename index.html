@@ -9,6 +9,16 @@
         <title>/mjg/ Repository</title>
         <link href="style.css" rel="stylesheet" type="text/css">
         <script src="banner.js"></script> 
+        <script>
+          function myFunction() {
+            var x = document.getElementById("myDIV");
+            if (x.style.display === "block") {
+              x.style.display = "none";
+            } else {
+              x.style.display = "block";
+            }
+          }
+          </script>
     </head>
     <body>
 
@@ -48,25 +58,48 @@
     <table id="navbar">
       <tr>
         <td><div class="nolink"><a href="guides/newfren-readme.html"><label class="ac-linker">Newfriend Readme</label></a><article class="ac-text"></article></div></td>
-        <td><div class="ac">
-          <input class="ac-input" id="ac-lor" name="ac-lor" type="checkbox" />
-          <label class="ac-label" for="ac-lor">Library of Resources</label>   
-              <article class="ac-text"> 
-                    <ul>
-                      <li><a href="library.html#game-resources-tools">Game Resources and Tools</a></li>
-                      <li><a href="library.html#mahj-strat">Mahjong Strategy Guides and Books</a></li>
-                      <li><a href="library.html#gen-guide">General Guides</a></li>
-                      <li><a href="library.html#majsoulp-mods">Majsoul Plus Mods</a></li>
-                      <li><a href="library.html#movs">Movies and Other Media</a></li>
-                      <li><a href="library.html#proj">/mjg/ Projects</a></li>
-                      <li><a href="library.html#luvnodocchi">Offline Game Downloads</a></li>
-                    </ul>
-              </article><!--/ac-text-->    
-        </div><!--/ac--></td>
+        <td><div class="nolink"><a href="#" onclick="myFunction()"><label class="ac-linker">Library of Resources</label></a><article class="ac-text"></article></div></td>
         <td><div class="nolink"><a href="ocs.html"><label class="ac-linker">Comics and OCs</label></a><article class="ac-text"></article></div></td>
         <td> <div class="nolink"><a href="tourneys.html"><label class="ac-linker">/mjg/ Tourneys</label></a><article class="ac-text"></article></div></td>
       </tr>
+      <tr>
+        <td></td>
+        <td colspan="2">
+          <div id="myDIV">
+            <table id="lortable">
+              <tr>
+                <td>
+                  <a href="library.html#game-resources-tools">Game Resources and Tools</a><br>
+                  <a href="library.html#mahj-strat">Mahjong Strategy Guides and Books</a><br>
+                  <a href="library.html#gen-guide">General Guides</a>
+                  <a href="library.html#majsoulp-mods">Majsoul Plus Mods</a><br>
+
+                </td>
+
+                <td>
+                  
+                  <a href="library.html#movs">Movies and Other Media</a><br>
+                  <a href="library.html#proj">/mjg/ Projects</a><br>
+                  <a href="library.html#luvnodocchi">Offline Game Downloads</a>
+                </td>
+              </tr>
+            </table>
+
+
+
+
+            </div>
+        </td>
+      </tr>
     </table>
+
+
+    
+    
+    
+    
+    
+
 
 
   <br>
