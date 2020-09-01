@@ -2,10 +2,23 @@
     --bgpaper: url(../background/bgdark.png);
     --font-color: #d9d9d9;
     --link-color: #8dcfea;
-
     --acc-color: #485058;
+    --acc-color-darker: #35393d;
+    --navlink-color: #d9d9d9;
     --accsel-color: #729eac;
-}
+    --tab-color: #485058;
+  }
+  
+  [data-theme="dark"] {
+    --bgpaper: url(../background/dust_scratches.png);
+    --font-color: #424242;
+    --link-color: #0072AB;
+    --acc-color: #333333;
+    --acc-color-darker: #d8d8d8;
+    --navlink-color: #d9d9d9;
+    --accsel-color: #6d6d6d;
+    --tab-color: #bfe7bb;
+  }
 
 
 
