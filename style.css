@@ -28,7 +28,7 @@ ask for a DAY MODE. */
     --accsel-color: #6d6d6d;
     --header-img: url(headers/hatback.jpg);
     --bg-repeat: no-repeat;
-	/*--bg-attach: fixed;*/
+	/* --bg-attach: fixed; */
     --bg-zize: cover;
     --head-color: #3a3a3a;
     --head-shado: #ffffff;
@@ -407,9 +407,9 @@ header {
     margin-right: 0%;
     margin-left: 0;
     background-image: var(--header-img);
-    background-repeat: var(--bg-repeat);
-	background-attachment: var(--bg-attach);
-	background-size: var(--bg-zize);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
 	color: var(--head-color);
 }
 
