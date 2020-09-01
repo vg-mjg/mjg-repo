@@ -23,7 +23,7 @@ ask for a DAY MODE. */
     --font-color: #424242;
     --link-color: #0072AB;
     --acc-color: #333333;
-    --acc-color-darker: #d8d8d8;
+    --acc-color-darker: #242424;
     --navlink-color: #d9d9d9;
     --accsel-color: #6d6d6d;
     --header-img: url(headers/hatback.jpg);
@@ -32,6 +32,7 @@ ask for a DAY MODE. */
     --bg-zize: cover;
     --head-color: #3a3a3a;
     --head-shado: #ffffff;
+
 }
 
 
@@ -274,6 +275,10 @@ a:hover{
   .tabcontent {
     display: none;
     border-top: none;
+  }
+
+  .tabcontent a{
+    color: var(--navlink-color);
   }
 
 
