@@ -2,6 +2,14 @@
 <head>
 <title>Library of Resources</title>
 <link href="style_lib.css" rel="stylesheet" type="text/css">
+<script src="darkie.js"></script> 
+        <link href="darkbutton.css" rel="stylesheet" type="text/css">
+
+        <script> 
+            function scrollToTop() { 
+                window.scrollTo(0, 0); 
+            } 
+        </script>
 </head>
 <body>
  
@@ -11,17 +19,24 @@
     <small><em>"The greatest mahjong players rely on 3 things: otherworldly luck, unfathomable skill, and a cute anime girl table mat."</em></small><br>
     <a href="index.html">Back to Home</a><br><br>
 </center>
+<div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+  </label>
+  &nbsp;おはよう
+  </div> 
 <hr>
 
 
         <div class="tab">
-         <button class="tablinks" onclick="openCity(event, 'grt')" id="tgrt">Game Resources and Tools</button>
-         <button class="tablinks" onclick="openCity(event, 'msgb')" id="tmsgb">Mahjong Strategy Guides and Books</button>
-         <button class="tablinks" onclick="openCity(event, 'gg')" id="tgg">General Guides</button>
-         <button class="tablinks" onclick="openCity(event, 'mpm')" id="tmpm">Majsoul Plus Mods</button>
-         <button class="tablinks" onclick="openCity(event, 'mom')" id="tmom">Movies and Other Media</button>
-         <button class="tablinks" onclick="openCity(event, 'mp')" id="tmp">/mjg/ Projects</button>
-         <button class="tablinks" onclick="openCity(event, 'ogd')" id="togd">Offline Game Downloads</button>
+         <button class="tablinks" onclick="openCity(event, 'grt');scrollToTop()" id="tgrt">Game Resources and Tools</button>
+         <button class="tablinks" onclick="openCity(event, 'msgb');scrollToTop()" id="tmsgb">Mahjong Strategy Guides and Books</button>
+         <button class="tablinks" onclick="openCity(event, 'gg');scrollToTop()" id="tgg">General Guides</button>
+         <button class="tablinks" onclick="openCity(event, 'mpm');scrollToTop()" id="tmpm">Majsoul Plus Mods</button>
+         <button class="tablinks" onclick="openCity(event, 'mom');scrollToTop()" id="tmom">Movies and Other Media</button>
+         <button class="tablinks" onclick="openCity(event, 'mp');scrollToTop()" id="tmp">/mjg/ Projects</button>
+         <button class="tablinks" onclick="openCity(event, 'ogd');scrollToTop()" id="togd">Offline Game Downloads</button>
         </div>
 
 
@@ -95,7 +110,7 @@
     ############################
  -->
         <tr>
-          <th colspan="3" style="background-color: #485058;">Mahjong Soul</th>
+          <th colspan="3" style="background-color: var(--tab-color);">Mahjong Soul</th>
         </tr>
         <tr>
             <th id="#game-resources-tools-majsoul" scope="row">Mahjong Soul Game Files</th>
@@ -169,7 +184,7 @@
     ############################
  -->
         <tr>
-            <th id="game-resources-tools-tenhou" colspan="3" style="background-color: #485058;">Tenhou</th>
+            <th id="game-resources-tools-tenhou" colspan="3" style="background-color: var(--tab-color);">Tenhou</th>
         </tr>
         <tr>
             <th>Minhou<br>(aka Tenhou+)</th>
@@ -189,7 +204,7 @@
     ############################
  -->
         <tr>
-            <th id="game-resources-tools-hime" colspan="3" style="background-color: #485058;">Hime Mahjong</th>
+            <th id="game-resources-tools-hime" colspan="3" style="background-color: var(--tab-color);">Hime Mahjong</th>
         </tr>
         <tr>
             <th>Hime Mahjong Game Files</th>
@@ -206,7 +221,7 @@
     ############################
  -->
         <tr>
-            <th id="game-resources-tools-others" colspan="3" style="background-color: #485058;">Others</th>
+            <th id="game-resources-tools-others" colspan="3" style="background-color: var(--tab-color);">Others</th>
         </tr>
         <tr>
             <th>Himejanki (6699) <span class="spoiler">;_;</span> Game files</th>
@@ -248,7 +263,7 @@
     ############################
  -->
         <tr>
-            <th id="majsoulp-mods-ut" colspan="3" style="background-color: #485058;">Utilities</th>
+            <th id="majsoulp-mods-ut" colspan="3" style="background-color: var(--tab-color);">Utilities</th>
         </tr>
         <tr>
             <th>Change buttons</th>
@@ -300,7 +315,7 @@
     ############################
  -->
         <tr>
-            <th id="majsoulp-mods-thm" colspan="3" style="background-color: #485058;">Theming</th>
+            <th id="majsoulp-mods-thm" colspan="3" style="background-color: var(--tab-color);">Theming</th>
         </tr>
         <tr>
             <th>Umineko (Sound Effects)</th>
@@ -387,7 +402,7 @@
     ############################
  -->
         <tr>
-            <th id="majsoulp-mods-chr" colspan="3" style="background-color: #485058;">Character Swaps</th>
+            <th id="majsoulp-mods-chr" colspan="3" style="background-color: var(--tab-color);">Character Swaps</th>
         </tr>
         <tr>
             <th>Akagi Shigeru Mahjong Demon</th>
@@ -453,7 +468,7 @@
     ############################
  -->
         <tr>
-            <th id="majsoulp-mods-emo" colspan="3" style="background-color: #485058;">Emotes</th>
+            <th id="majsoulp-mods-emo" colspan="3" style="background-color: var(--tab-color);">Emotes</th>
         </tr>
         <tr>
             <th>Emote alter mod</th>
@@ -488,7 +503,7 @@
     ############################
  -->
         <tr>
-            <th id="majsoulp-mods-tb" colspan="3" style="background-color: #485058;">Tilebacks</th>
+            <th id="majsoulp-mods-tb" colspan="3" style="background-color: var(--tab-color);">Tilebacks</th>
         </tr>
         <tr>
             <th>Light Blue Tilebacks</th>
@@ -560,7 +575,7 @@ MSGB Books
 ############################
 -->
     <tr>
-        <th id="mahj-strat-book" colspan="3" style="background-color: #485058;">Books</th>
+        <th id="mahj-strat-book" colspan="3" style="background-color: var(--tab-color);">Books</th>
     </tr>
     <tr>
         <th>Daina Chiba's Riichi Book 1</th>
@@ -637,7 +652,7 @@ MSGB Books (Japanese)
 ############################
 -->
     <tr>
-        <th id="mahj-strat-bookjp" colspan="3" style="background-color: #485058;">Books (Japanese)</th>
+        <th id="mahj-strat-bookjp" colspan="3" style="background-color: var(--tab-color);">Books (Japanese)</th>
     </tr>
     <tr>
         <th>Mahjong Books Dump</th>
@@ -788,7 +803,7 @@ MSGB Articles
 ############################
 -->
     <tr>
-        <th id="mahj-strat-artchan" colspan="3" style="background-color: #485058;">Articles</th>
+        <th id="mahj-strat-artchan" colspan="3" style="background-color: var(--tab-color);">Articles</th>
     </tr>
     <tr>
         <th>How to play Video Game Mahjong</th>
@@ -838,7 +853,7 @@ MSGB Videos
 ############################
 -->
     <tr>
-        <th id="mahj-strat-vid" colspan="3" style="background-color: #485058;">Videos</th>
+        <th id="mahj-strat-vid" colspan="3" style="background-color: var(--tab-color);">Videos</th>
     </tr>
     <tr>
         <th>Secrets of Iishanten that increases your hand's win rate</th>
@@ -852,7 +867,7 @@ MSGB WWYD Practice
 ############################
 -->
     <tr>
-        <th id="mahj-strat-wwyd" colspan="3" style="background-color: #485058;">WWYD Practice</th>
+        <th id="mahj-strat-wwyd" colspan="3" style="background-color: var(--tab-color);">WWYD Practice</th>
     </tr>
     <tr>
         <th>50 Shades of Mahjong: WWYDs for Pre-intermediate Players</th>
@@ -900,7 +915,7 @@ GG Mahjong
 ############################
 -->
         <tr>
-            <th id="gen-guide-maj" colspan="3" style="background-color: #485058;">Mahjong</th>
+            <th id="gen-guide-maj" colspan="3" style="background-color: var(--tab-color);">Mahjong</th>
         </tr>
         <tr>
             <th>Mahjong Live Pastebin</th>
@@ -924,7 +939,7 @@ GG Mahjong Soul
 ############################
 -->
         <tr>
-            <th id="gen-guide-majsoul" colspan="3" style="background-color: #485058;">Mahjong Soul</th>
+            <th id="gen-guide-majsoul" colspan="3" style="background-color: var(--tab-color);">Mahjong Soul</th>
         </tr>
         <tr>
             <th>Introduction to Mahjong Soul</th>
@@ -952,7 +967,7 @@ GG IRL Mahjong
 ############################
 -->
         <tr>
-            <th id="gen-guide-irl" colspan="3" style="background-color: #485058;">IRL Mahjong</th>
+            <th id="gen-guide-irl" colspan="3" style="background-color: var(--tab-color);">IRL Mahjong</th>
         </tr>
         <tr>
             <th>Mahjong Equipment Buying Guide</th>
@@ -976,7 +991,7 @@ GG Others
 ############################
 -->
         <tr>
-            <th id="gen-guide-others" colspan="3" style="background-color: #485058;">Others</th>
+            <th id="gen-guide-others" colspan="3" style="background-color: var(--tab-color);">Others</th>
         </tr>
         <tr>
             <th>Download Abema VODs</th>
@@ -1015,7 +1030,7 @@ MOM Movie Nights
 ############################
 -->
         <tr>
-            <th id="movs-mn" colspan="3" style="background-color: #485058;">Movie Nights</th>
+            <th id="movs-mn" colspan="3" style="background-color: var(--tab-color);">Movie Nights</th>
         </tr>
         <tr>
             <th>Strip Mahjong</th>
@@ -1059,7 +1074,7 @@ MOM Mahjong Media
 ############################
 -->
         <tr>
-            <th id="movs-mm" colspan="3" style="background-color: #485058;">Mahjong Media</th>
+            <th id="movs-mm" colspan="3" style="background-color: var(--tab-color);">Mahjong Media</th>
         </tr>
         <tr>
             <th>Old Akagi Movies</th>
@@ -1195,7 +1210,7 @@ OGD Games
 ############################
 -->
         <tr>
-            <th id="luvnodocchi-games" colspan="3" style="background-color: #485058;">Games</th>
+            <th id="luvnodocchi-games" colspan="3" style="background-color: var(--tab-color);">Games</th>
         </tr>
         <tr>
             <th>Touhou Unreal Mahjong<br><small><a href="https://en.touhouwiki.net/wiki/Touhou_Unreal_Mahjong">wiki</a> / <a href="https://www.dna-softwares.com/thmj/index.html">official site</a></small></th>
@@ -1213,7 +1228,7 @@ OGD H-Games
 ############################
 -->
         <tr>
-            <th id="luvnodocchi-h" colspan="3" style="background-color: #485058;">H-Games</th>
+            <th id="luvnodocchi-h" colspan="3" style="background-color: var(--tab-color);">H-Games</th>
         </tr>
         <tr>
             <th>Saki Datsumono Jan<br><small>咲だつもの雀<br><a href="https://vndb.org/v11238">vndb</a></small></th>

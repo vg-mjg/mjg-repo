@@ -2,6 +2,15 @@
 <head>
 <title>Tourneys</title>
 <link href="style_lib.css" rel="stylesheet" type="text/css">
+<script src="darkie.js"></script> 
+        <link href="darkbutton.css" rel="stylesheet" type="text/css">
+
+        <script> 
+            function scrollToTop() { 
+                window.scrollTo(0, 0); 
+            } 
+        </script>
+
 </head>
 <body>
  
@@ -11,15 +20,22 @@
     <small><em>"I wanna be the very best, that no one ever was."</em></small><br>
     <a href="index.html">Back to Home</a><br><br>
 </center>
+<div class="theme-switch-wrapper">
+  <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox" />
+      <div class="slider round"></div>
+</label>
+&nbsp;おはよう
+</div> 
 <hr>
 
 
         <div class="tab">
-         <button class="tablinks" onclick="openCity(event, 'vmt')" id="tvmt">/v/idya Mahjong Tourneys</button>
-         <button class="tablinks" onclick="openCity(event, 'ml')" id="tml">/mjg/ League</button>
-         <button class="tablinks" onclick="openCity(event, 'tt')" id="ttt">Team Tourneys</button>
-         <button class="tablinks" onclick="openCity(event, 'dt')" id="tdt">Doubles Tourney</button>
-         <button class="tablinks" onclick="openCity(event, 'oth')" id="toth">Others</button>
+         <button class="tablinks" onclick="openCity(event, 'vmt');scrollToTop()" id="tvmt">/v/idya Mahjong Tourneys</button>
+         <button class="tablinks" onclick="openCity(event, 'ml');scrollToTop()" id="tml">/mjg/ League</button>
+         <button class="tablinks" onclick="openCity(event, 'tt');scrollToTop()" id="ttt">Team Tourneys</button>
+         <button class="tablinks" onclick="openCity(event, 'dt');scrollToTop()" id="tdt">Doubles Tourney</button>
+         <button class="tablinks" onclick="openCity(event, 'oth');scrollToTop()" id="toth">Others</button>
         </div>
 
 
@@ -65,7 +81,7 @@
     ############################
  -->
         <tr>
-          <th colspan="3" style="background-color: #485058;">2020</th>
+          <th colspan="3" style="background-color: var(--tab-color);">2020</th>
         </tr>
         <tr>
         <th scope="row"><h2 id="11tour">11th /V/idya Riichi Mahjong Tournament </h2>
@@ -146,7 +162,7 @@
     ############################
  -->
         <tr>
-            <th colspan="3" style="background-color: #485058;">2019</th>
+            <th colspan="3" style="background-color: var(--tab-color);">2019</th>
           </tr>
           <tr>
           <th scope="row"><h2>7th /v/idya Mahjong Tourney</h2>

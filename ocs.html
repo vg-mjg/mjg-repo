@@ -2,6 +2,14 @@
 <head>
 <title>OCs</title>
 <link href="style_lib.css" rel="stylesheet" type="text/css">
+<script src="darkie.js"></script> 
+        <link href="darkbutton.css" rel="stylesheet" type="text/css">
+
+        <script> 
+            function scrollToTop() { 
+                window.scrollTo(0, 0); 
+            } 
+        </script>
 </head>
 <body>
  
@@ -11,17 +19,24 @@
     <small><em>"Look at this cute Ichihime picture."</em></small><br>
     <a href="index.html">Back to Home</a><br><br>
 </center>
+<div class="theme-switch-wrapper">
+  <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox" />
+      <div class="slider round"></div>
+</label>
+&nbsp;おはよう
+</div> 
 <hr>
 
 
         <div class="tab">
-         <button class="tablinks" onclick="openCity(event, 'cs')" id="tcs">Comic Series</button>
-         <button class="tablinks" onclick="openCity(event, 'oss')" id="toss">One Shots and Shorts</button>
-         <button class="tablinks" onclick="openCity(event, 'vi')" id="tvi">Videos</button>
-         <button class="tablinks" onclick="openCity(event, 'mu')" id="tmu">Music</button>
-         <button class="tablinks" onclick="openCity(event, 'vn')" id="tvn">Visual Novels</button>
-         <button class="tablinks" onclick="openCity(event, 'we')" id="twe">Webnovels</button>
-         <button class="tablinks" onclick="openCity(event, 'oth')" id="toth">Others</button>
+         <button class="tablinks" onclick="openCity(event, 'cs');scrollToTop()" id="tcs">Comic Series</button>
+         <button class="tablinks" onclick="openCity(event, 'oss');scrollToTop()" id="toss">One Shots and Shorts</button>
+         <button class="tablinks" onclick="openCity(event, 'vi');scrollToTop()" id="tvi">Videos</button>
+         <button class="tablinks" onclick="openCity(event, 'mu');scrollToTop()" id="tmu">Music</button>
+         <button class="tablinks" onclick="openCity(event, 'vn');scrollToTop()" id="tvn">Visual Novels</button>
+         <button class="tablinks" onclick="openCity(event, 'we');scrollToTop()" id="twe">Webnovels</button>
+         <button class="tablinks" onclick="openCity(event, 'oth');scrollToTop()" id="toth">Others</button>
         </div>
 
 

@@ -1,14 +1,36 @@
 /* Default Colors for stuff - Use for future themes. I doubt anyone is retarded enough to 
 ask for a DAY MODE. */
+/* Oh no.... */
+
 :root{
     --bgpaper: url(background/bgdark.png);
     --font-color: #d9d9d9;
     --link-color: #8dcfea;
-
     --acc-color: #485058;
     --acc-color-darker: #35393d;
+    --navlink-color: #d9d9d9;
     --accsel-color: #729eac;
 }
+
+[data-theme="dark"] {
+    --bgpaper: url(background/dust_scratches.png);
+    --font-color: #424242;
+    --link-color: #0072AB;
+    --acc-color: #333333;
+    --acc-color-darker: #d8d8d8;
+    --navlink-color: #d9d9d9;
+    --accsel-color: #6d6d6d;
+}
+
+
+
+
+
+
+
+
+
+
 
 /* I don't know what these do but they /do/ something */
 @import "compass/css3";
@@ -98,6 +120,7 @@ a:hover{
     background-color: var(--acc-color);
     text-align: center;
     transition: background-color .15s ease-in-out;
+    color: var(--navlink-color);
 } 
 .ac-input:checked + label, .ac-label:hover {
     background-color: var(--accsel-color);
@@ -172,6 +195,7 @@ a:hover{
     cursor: pointer;
     background-color: var(--acc-color);
     transition: background-color .15s ease-in-out;
+    color: var(--navlink-color);
 } 
 .ac-linker:hover {
     background-color: var(--accsel-color);
@@ -216,7 +240,7 @@ a:hover{
     cursor: pointer;
     background-color: var(--acc-color);
     border: none;
-    color: var(--font-color);
+    color: var(--navlink-color);
   }
   
   /* Change background color of buttons on hover */
