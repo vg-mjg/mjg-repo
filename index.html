@@ -27,7 +27,7 @@
 
 
     </head>
-    <body>
+    <body onLoad="pickimg()">
 
       
 
@@ -35,9 +35,9 @@
   
           <!-- REPO BANNER AND NAME O -->
           <center>
-              <script type="text/javascript">
-                  document.write(getImageTag());
-                </script>
+            <a title="Click to change" onClick="pickimg();return false;">
+              <IMG SRC="" name="randimg" border=0>
+        </a>
                 <br><br>
                 <audio controls>
                   <source src="https://files.catbox.moe/ffxwi0.mp3" type="audio/mp3">
