@@ -62,7 +62,9 @@ body{
     color: var(--font-color);
     line-height: 1.2;
     margin-left: 0px;
-	margin-right: 0px;
+    margin-right: 0px;
+    margin-top: 0%;
+    
 
 }
 
@@ -400,6 +402,7 @@ li{
 
 
 header {
+    padding-top: 10px;
     width: 100%;
     margin-right: 0%;
     margin-left: 0;
