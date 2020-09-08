@@ -245,6 +245,10 @@ a:hover{
 .tab {
     overflow: hidden;
   }
+
+.tab a{
+    text-decoration: none;
+}
   
   /* Style the buttons inside the tab */
   .tab button {
