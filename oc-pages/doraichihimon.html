@@ -78,6 +78,7 @@
          <button class="tablinks" onclick="openCity(event, '32');scrollToTop()">32</button>
          <button class="tablinks" onclick="openCity(event, 'sp4');scrollToTop()">sp4</button>
          <button class="tablinks" onclick="openCity(event, '33');scrollToTop()" id="t33">33</button>
+         <button class="tablinks" onclick="openCity(event, '34');scrollToTop()" id="t34">34</button>
 
         
          
@@ -400,6 +401,14 @@
            <br>
             <br>
         </div>
+
+        <div id="34" class="tabcontent">
+            <h3>Episode 34</h3>
+
+            <img src="https://i.imgur.com/elpfw2F.jpg" width="70%">
+           <br>
+            <br>
+        </div>
      
     <!-- div ending of left columns -->
     </div>
@@ -439,6 +448,9 @@ document.getElementById("t1").click();
 var url = document.location.toString();
     if (url.match('#33')) {
         document.getElementById("t33").click();
+    } 
+    if (url.match('#34')) {
+        document.getElementById("t34").click();
     } 
     if (url.match('#majsoulp-mods')) {
         document.getElementById("tmpm").click();
