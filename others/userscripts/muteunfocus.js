@@ -9,22 +9,32 @@
 // @description   mutes audio while the game is not focused
 // ==/UserScript==
 
-const soundOptions = ['audio','music','lizhi','yuyin','teshuyuyin'];
+// Mute sounds if window lost focus
+const soundOptions = ['audio', 'music', 'lizhi', 'yuyin', 'teshuyuyin'];
 var soundSettings = {};
-var waitaudiomutemod = setInterval(function() {
-if (view && view.AudioMgr) {
-document.body.onfocus = () => {
-	Object.entries(soundSettings).forEach(([k, v]) => {
-		view.AudioMgr[k] = v;
-		});
-}
-document.body.onblur = () => {
-	soundOptions.forEach((n) => {
-		soundSettings[n+'Muted'] = view.AudioMgr[n+'Muted'];
-		});
-	soundOptions.forEach((n) => {
-		view.AudioMgr[n+'Muted'] = true;
-		});
-}
-clearInterval(waitaudiomutemod);
-}}, 1000);
+var waitaudiomod = setInterval(function() {
+    if (view && view.AudioMgr) {
+		unMute = function() {
+			if (old = window.localStorage.getItem('soundSettings'))
+				soundSettings = JSON.parse(old);
+            Object.entries(soundSettings).forEach(([k, v]) => {
+                view.AudioMgr[k] = v;
+            });
+		}
+		unMute();
+        document.body.onfocus = () => {
+			unMute();
+        }
+        document.body.onblur = () => {
+            soundOptions.forEach((n) => {
+                soundSettings[n + 'Volume'] = view.AudioMgr[n + 'Volume'];
+                soundSettings[n + 'Muted'] = view.AudioMgr[n + 'Muted'];
+				window.localStorage.setItem('soundSettings',JSON.stringify(soundSettings));
+            });
+            soundOptions.forEach((n) => {
+                view.AudioMgr[n + 'Muted'] = true;
+            });
+        }
+        clearInterval(waitaudiomod);
+    }
+}, 1000);
