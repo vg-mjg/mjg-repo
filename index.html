@@ -12,8 +12,7 @@
         <script src="darkie.js"></script> 
         <link href="darkbutton.css" rel="stylesheet" type="text/css">
 
-        <!-- Uhh, i forgot what's this for -->
-        <!-- It's for collapse tables -->
+        <!-- collapse tables -->
         <script>
           function myFunction() {
             var x = document.getElementById("lordiv");
@@ -24,6 +23,22 @@
             }
           }
           </script>
+        <!-- opening navbar sections -->
+        <script>
+            function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+            }
+        </script>
 
 
     </head>
@@ -150,38 +165,7 @@
   
     </div>
     
-    <script>
-    function openCity(evt, cityName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(cityName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
-    </script>
-       
-    
-    <script>
-    function openCity(evt, cityName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-      }
-      document.getElementById(cityName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
-    </script>
+
   
           </center>
 
@@ -353,15 +337,6 @@
                       <li><a href="https://pastebin.com/397NkfA5"><strong>Voice Lines Translations</strong></a> <em>(resources)</em><br><small>A pastebin of the translated voicelines.</small></li>  
 
                       <li><a href="https://files.catbox.moe/of6y26.mspr"><strong>Change Buttons Mod Update 2</strong></a> <em>(majsoul+ mod)</em><br><small>Another shadow update broke this mod again, now it's fixed.</small></li> 
-
-                      <li><strong><a href="https://files.catbox.moe/pef5h9.7z">Updated Majsoul Emotes<br></a><a href="https://files.catbox.moe/biv3lf.7z">Character Voices</a><br><a href="https://files.catbox.moe/as46ti.7z">Character Portraits</a><br><a href="https://files.catbox.moe/yyhzlj.7z">Loading Sprites</a></strong> <em>(resources)</em><br>
-                      <small>Now with the moonrabbit, gyaru and the guy</small></li>   
-
-                      <li><a href="others/cat gallery.html"><strong>/mjg/ draws cat</strong></a> <em>(oc)</em><br><small>A gallery of anons cutely trying their best to draw the cat</small></li>  
-
-                      <li><a href="https://files.catbox.moe/wpv6r1.pdf"><strong>72 Pieces of Mahjong Wisdom</strong></a> <em>(guide)</em><br><small>A list of useful tips by the "Secrets of iishanten" guy. Translated into english</small>.</li> 
-
-                      <li><a href="tourneys.html"><strong>11th /v/idya Mahjong Tourney</strong></a> <em>(tourney)</em><br><small>Hatbros of the world, unite! Repo is ours now.....</small></li>
                   </ul>
             </div>
 
@@ -370,7 +345,7 @@
 
 <!-- 
   ####################### Events
-   -->
+    -->
             <td>
               <strong><span style="font-size:1.5rem">Event</span></strong>
               <div class="autoscroll">
@@ -388,11 +363,9 @@
             </tr>
             </table>
         
-        
-        
-        
         <br>
          
+        <!-- Clients section -->
 
               <div id="cont">
                 
@@ -579,16 +552,7 @@
 
         </small></center>
 
-            
-
-        
-
-
-
-
-            <!-- QUICKLINKS -->
-            
-            
+    
      
     </body>
 </html>
