@@ -1,0 +1,181 @@
+<html>
+<head>
+<title>So this is what "tile efficiency" meant!</title>
+<link href="style_lib.css" rel="stylesheet" type="text/css">
+<script src="../darkie.js"></script> 
+<link href="../darkbutton.css" rel="stylesheet" type="text/css">
+<script> 
+    function scrollToTop() { 
+        window.scrollTo(0, 0); 
+    } 
+</script> 
+</head>
+<body>
+ 
+
+<center>
+    <strong><span style="font-size: 2.5rem;">So this is what "tile efficiency" meant!</span></strong><br>
+    
+    <small></small>
+    <!-- 
+        ../ocs.html#comic-series
+        #oneshots-and-shorts
+        #videos
+        #music
+        #visual-novels
+        #webnovels
+        #others
+     -->
+    <br>
+    <a href="../ocs.html#comic-series">Back to OCs</a><br>
+    <a href="../index.html">Back to Home</a><br><br>
+</center>
+<div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+  </label>
+  &nbsp;おはよう
+  </div> 
+<hr>
+
+
+        <div class="tab" id="flower2">
+         <button class="tablinks" onclick="openCity(event, '1');scrollToTop()" id="t1">1</button>
+         <button class="tablinks" onclick="openCity(event, '2');scrollToTop()">2</button>
+         <button class="tablinks" onclick="openCity(event, '3');scrollToTop()">3</button>
+         <button class="tablinks" onclick="openCity(event, '4');scrollToTop()">4</button>
+         <button class="tablinks" onclick="openCity(event, '5');scrollToTop()">5</button>
+         <button class="tablinks" onclick="openCity(event, '6');scrollToTop()">6</button>
+         <button class="tablinks" onclick="openCity(event, '7');scrollToTop()">7</button>
+     
+        
+         
+        </div>
+
+
+
+<!-- this is the fucking worst solution for 2 columns with one div with position fixed. kill me. -->
+ <div class="row">
+    <div class="column left">
+
+            
+        <div id="1" class="tabcontent">
+            <h3>Chapter 1</h3>
+
+            <img src="https://raw.githubusercontent.com/watterle/4koma-mahjong/main/1.png" width="70%">
+           <br>
+            <br>
+        </div>
+
+        <div id="2" class="tabcontent">
+            <h3>Chapter 2</h3>
+
+            <img src="https://raw.githubusercontent.com/watterle/4koma-mahjong/main/2.png" width="70%">
+           <br>
+            <br>
+        </div>
+
+        <div id="3" class="tabcontent">
+            <h3>Chapter 3</h3>
+
+            <img src="https://raw.githubusercontent.com/watterle/4koma-mahjong/main/3.png" width="70%">
+           <br>
+            <br>
+        </div>
+
+        <div id="4" class="tabcontent">
+            <h3>Chapter 4</h3>
+
+            <img src="https://raw.githubusercontent.com/watterle/4koma-mahjong/main/4.png" width="70%">
+           <br>
+            <br>
+        </div>
+
+        <div id="5" class="tabcontent">
+            <h3>Chapter 5</h3>
+
+            <img src="https://raw.githubusercontent.com/watterle/4koma-mahjong/main/5.png" width="70%">
+           <br>
+            <br>
+        </div>
+
+        <div id="6" class="tabcontent">
+            <h3>Chapter 6</h3>
+
+            <img src="https://raw.githubusercontent.com/watterle/4koma-mahjong/main/6.png" width="70%">
+           <br>
+            <br>
+        </div>
+
+        <div id="7" class="tabcontent">
+            <h3>Chapter 7</h3>
+
+            <img src="https://raw.githubusercontent.com/watterle/4koma-mahjong/main/7.png" width="70%">
+           <br>
+            <br>
+        </div>
+
+     
+    <!-- div ending of left columns -->
+    </div>
+
+    
+  <div class="column right">
+    &nbsp;
+
+
+
+<!-- div endings for the 2 column rows -->
+</div>
+</div>
+
+
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+//without reference links, just link to first item
+document.getElementById("t1").click();
+
+// Check where you came from and focuses on that tab
+
+var url = document.location.toString();
+    if (url.match('#game-resources-tools')) {
+        document.getElementById("tgrt").click();
+    } 
+    if (url.match('#majsoulp-mods')) {
+        document.getElementById("tmpm").click();
+    } 
+    if (url.match('#mahj-strat')) {
+        document.getElementById("tmsgb").click();
+    } 
+    if (url.match('#gen-guide')) {
+        document.getElementById("tgg").click();
+    } 
+    if (url.match('#movs')) {
+        document.getElementById("tmom").click();
+    } 
+    if (url.match('#proj')) {
+        document.getElementById("tmp").click();
+    } 
+    if (url.match('#luvnodocchi')) {
+        document.getElementById("togd").click();
+    } 
+</script>
+
+   
+</body>
+</html> 
