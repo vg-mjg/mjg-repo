@@ -8,4 +8,4 @@ If you want your own article, you found something mahjong related, you made some
 
 
 # To Do
-- RB1 vn...
+- RB1 vn (never ever)  
