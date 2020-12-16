@@ -426,3 +426,11 @@ header {
 .shado{
 	text-shadow: 2px 2px var(--head-shado);
 }
+
+img.sticky {
+
+    position: fixed;
+right: 0px;
+bottom: 0px;
+    width: 120px;
+  }
