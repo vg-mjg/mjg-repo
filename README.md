@@ -1,6 +1,6 @@
 # [/mjg/ Repository](https://repo.riichi.moe)
 
-maajan repo for the maajan general. Pls apply as repoanons, thanks.
+maajan repo for the maajan general. Pls apply as repoanons, thanks. No seriously, everybody is dead, help is needed.
 
 something wrong with repo? submit it in issues or in the [site feedback](https://repo.riichi.moe/feed.html)
 
