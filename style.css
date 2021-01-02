@@ -1,4 +1,4 @@
-/* Default Colors for stuff - Use for future themes. I doubt anyone is retarded enough to 
+/* Default Colors for stuff - Use for future themes. I doubt anyone is retarded enough to
 ask for a DAY MODE. */
 /* Oh no.... */
 
@@ -65,7 +65,7 @@ body{
     margin-left: 0px;
     margin-right: 0px;
     margin-top: 0%;
-    
+
 
 }
 
@@ -84,13 +84,13 @@ a:hover{
 .column {
     float: left;
     padding: 10px;
-} 
+}
 .left {
     width: 60%;
-} 
+}
 .right {
     width: 40%;
-} 
+}
 .row:after {
     content: "";
     display: table;
@@ -139,10 +139,10 @@ a:hover{
     text-align: center;
     transition: background-color .15s ease-in-out;
     color: var(--navlink-color);
-} 
+}
 .ac-input:checked + label, .ac-label:hover {
     background-color: var(--accsel-color);
-} 
+}
 .ac-label:after, .ac-input:checked + .ac-label:after {
     content: "";
     position: absolute;
@@ -171,8 +171,8 @@ a:hover{
     margin-bottom: .5em;
     transition: opacity .5s ease-in-out;
     overflow: hidden;
-} 
-.ac-input:checked ~ .ac-text, .ac-sub .ac-input:checked ~ .ac-sub-text { 
+}
+.ac-input:checked ~ .ac-text, .ac-sub .ac-input:checked ~ .ac-sub-text {
     opacity: 1;
     height: auto;
 }
@@ -214,10 +214,10 @@ a:hover{
     background-color: var(--acc-color);
     transition: background-color .15s ease-in-out;
     color: var(--navlink-color);
-} 
+}
 .ac-linker:hover {
     background-color: var(--accsel-color);
-} 
+}
 
 .ac-linker button.active {
     background-color: #ccc;
@@ -249,7 +249,7 @@ a:hover{
 .tab a{
     text-decoration: none;
 }
-  
+
   /* Style the buttons inside the tab */
   .tab button {
       width: 100%;
@@ -264,17 +264,17 @@ a:hover{
     border: none;
     color: var(--navlink-color);
   }
-  
+
   /* Change background color of buttons on hover */
   .tab button:hover {
     background-color: var(--accsel-color);
   }
-  
+
   /* Create an active/current tablink class */
   .tab button.active {
     background-color: var(--accsel-color);
   }
-  
+
   /* Style the tab content */
   .tabcontent {
     display: none;
@@ -299,7 +299,7 @@ a:hover{
 	width: 100%;
     text-align: left;
     table-layout: fixed;
-    
+
 }
 #modtablein td{
     width: 50% ;
@@ -359,7 +359,7 @@ li{
 #anntablein {
 	border-collapse: collapse;
 
-    
+
     margin: 0 auto;
 }
 
