@@ -1,31 +1,32 @@
+<!DOCTYPE html>
 <!--
   ###########
   ctrf + f [jump Updates] to jump to updates
  -->
-
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>/mjg/ Repository</title>
-        <link href="style.css" rel="stylesheet" type="text/css">
-        <script src="banner.js"></script>
-        <script src="darkie.js"></script>
-        <link href="darkbutton.css" rel="stylesheet" type="text/css">
 
-        <!-- collapse tables -->
-        <script>
-          function myFunction() {
+<head>
+    <meta charset="utf-8">
+    <title>/mjg/ Repository</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="banner.js"></script>
+    <script src="darkie.js"></script>
+    <link href="darkbutton.css" rel="stylesheet" type="text/css">
+
+    <!-- collapse tables -->
+    <script>
+        function myFunction() {
             var x = document.getElementById("lordiv");
             if (x.style.display === "block") {
-              x.style.display = "none";
+                x.style.display = "none";
             } else {
-              x.style.display = "block";
+                x.style.display = "block";
             }
-          }
-          </script>
-        <!-- opening navbar sections -->
-        <script>
-            function openCity(evt, cityName) {
+        }
+    </script>
+    <!-- opening navbar sections -->
+    <script>
+        function openCity(evt, cityName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
@@ -37,40 +38,43 @@
             }
             document.getElementById(cityName).style.display = "block";
             evt.currentTarget.className += " active";
-            }
-        </script>
+        }
+    </script>
 
 
 
 
-    </head>
-    <body onLoad="pickimg()">
+</head>
+
+<body onload="pickimg()">
 
 
 
-<header>
+    <header>
 
-          <!-- REPO BANNER AND NAME O -->
-          <center>
-            <a title="Click to change" onClick="pickimg();return false;">
-              <IMG SRC="" name="randimg" border=0>
-        </a>
-                <br>
-                <audio controls>
-                  <source src="audio/dorma.mp3" type="audio/mp3">
-              </audio><br><div class="shado">do not sleep into that all last</div>
-                <div class="shado">
-                  <span style="font-size: 3rem;"><strong>/mjg/ Repository</strong></span><br>
+        <!-- REPO BANNER AND NAME O -->
+        <center>
+            <a title="Click to change" onclick="pickimg();return false;">
+                <img src="" name="randimg" border=0>
+            </a>
+            <br>
+            <audio controls>
+                <source src="audio/dorma.mp3" type="audio/mp3">
+            </audio><br>
+            <div class="shado">do not sleep into that all last</div>
+            <div class="shado">
+                <span style="font-size: 3rem;"><strong>/mjg/ Repository</strong></span><br>
                 a repository of mahjong stuff from the <a href="https://boards.4channel.org/vg/catalog#s=mjg">/mjg/</a> threads
 
                 <br>
                 <div class="theme-switch-wrapper">
-                  <label class="theme-switch" for="checkbox">
-                      <input type="checkbox" id="checkbox" />
-                      <div class="slider round"></div>
-                </label>
-                &nbsp;おはよう
-                </div> </div>
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round"></div>
+                    </label>
+                    &nbsp;おはよう
+                </div>
+            </div>
 
 
 
@@ -78,133 +82,142 @@
 
 
 
-              <!-- start of freefind search box html -->
-        <form style="margin:0px; margin-top:4px;" action="https://search.freefind.com/find.html" method="get" accept-charset="utf-8" target="_self">
-          <input type="hidden" name="si" value="41040027">
-          <input type="hidden" name="pid" value="r">
-          <input type="hidden" name="n" value="0">
-          <input type="hidden" name="_charset_" value="">
-          <input type="hidden" name="bcd" value="&#247;">
-          <input type="text" name="query" size="50">
-          <input type="submit" value="search repo">
-          </form>
-      <!-- end of freefind search box html -->
+            <!-- start of freefind search box html -->
+            <form style="margin:0px; margin-top:4px;" action="https://search.freefind.com/find.html" method="get" accept-charset="utf-8" target="_self">
+                <input type="hidden" name="si" value="41040027">
+                <input type="hidden" name="pid" value="r">
+                <input type="hidden" name="n" value="0">
+                <input type="hidden" name="_charset_" value="">
+                <input type="hidden" name="bcd" value="&#247;">
+                <input type="text" name="query" size="50">
+                <input type="submit" value="search repo">
+            </form>
+            <!-- end of freefind search box html -->
 
 
-          <br>
-        </header>
-        <a href="audio/kaan.mp3"><img class="sticky" src="hatt.png" alt="Avatar"></a>
-      <!--
+            <br>
+        </center>
+    </header>
+    <a href="audio/kaan.mp3"><img class="sticky" src="hatt.png" alt="Avatar"></a>
+    <!--
         ############################# Navbar (I just wanna play miagete goran fd already....)
        -->
+    <center>
+        <div>
+            <table id="navbar">
+                <tr>
+                    <td>
+                        <div class="tab"><a href="guides/newfren-readme.html"><button class="tablinks">Newfriend Readme</button></a></div>
+                    </td>
+                    <td>
+                        <div class="tab"><button class="tablinks" onclick="openCity(event, 'nlor')">Library of Resources</button></div>
+                    </td>
+                    <td>
+                        <div class="tab"><button class="tablinks" onclick="openCity(event, 'ncao')">Comics and OCs</button></div>
+                    </td>
+                    <td>
+                        <div class="tab"><button class="tablinks" onclick="openCity(event, 'Tokyo')">/mjg/ Tourneys</button></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="2">
+                        <div id="nlor" class="tabcontent">
 
-      <table id="navbar">
-        <tr>
-          <td><div class="tab"><a href="guides/newfren-readme.html"><button class="tablinks">Newfriend Readme</button></a></div></td>
-          <td><div class="tab"><button class="tablinks" onclick="openCity(event, 'nlor')">Library of Resources</button></div></td>
-          <td><div class="tab"><button class="tablinks" onclick="openCity(event, 'ncao')">Comics and OCs</button></div></td>
-          <td><div class="tab"><button class="tablinks" onclick="openCity(event, 'Tokyo')">/mjg/ Tourneys</button></div></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td colspan="2">
-            <div id="nlor" class="tabcontent">
+                            <div id="lortable">
+                                <a href="library.html#game-resources-tools">Game Resources and Tools</a><br>
+                                <a href="library.html#mahj-strat">Mahjong Strategy Guides and Books</a><br>
+                                <a href="library.html#gen-guide">General Guides</a><br>
+                                <a href="library.html#majsoulp-mods">Majsoul Plus Mods</a><br>
+                                <a href="library.html#movs">Movies and Other Media</a><br>
+                                <a href="library.html#proj">/mjg/ Projects</a><br>
+                                <a href="library.html#luvnodocchi">Offline Game Downloads</a>
+                            </div>
 
-                    <div id="lortable">
-                      <a href="library.html#game-resources-tools">Game Resources and Tools</a><br>
-                      <a href="library.html#mahj-strat">Mahjong Strategy Guides and Books</a><br>
-                      <a href="library.html#gen-guide">General Guides</a><br>
-                      <a href="library.html#majsoulp-mods">Majsoul Plus Mods</a><br>
-                      <a href="library.html#movs">Movies and Other Media</a><br>
-                      <a href="library.html#proj">/mjg/ Projects</a><br>
-                      <a href="library.html#luvnodocchi">Offline Game Downloads</a>
-                    </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td colspan="2">
+                        <div id="ncao" class="tabcontent">
 
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2"></td>
-          <td colspan="2">
-            <div id="ncao" class="tabcontent">
+                            <div id="lortable">
+                                <a href="https://mjg.booru.org/index.php">/mjg/ Booru</a><br>
+                                <a href="ocs.html#comic-series">Comic Series</a><br>
+                                <a href="ocs.html#oneshots-and-shorts">One Shots and Shorts</a><br>
+                                <a href="ocs.html#video">Videos</a><br>
+                                <a href="ocs.html#music">Music</a><br>
+                                <a href="ocs.html#visual-novels">Visual Novels</a><br>
+                                <a href="ocs.html#webnovels">Webnovels</a><br>
+                                <a href="ocs.html#others">Others</a><br>
+                            </div>
 
-                    <div id="lortable">
-                      <a href="https://mjg.booru.org/index.php">/mjg/ Booru</a><br>
-                      <a href="ocs.html#comic-series">Comic Series</a><br>
-                      <a href="ocs.html#oneshots-and-shorts">One Shots and Shorts</a><br>
-                      <a href="ocs.html#video">Videos</a><br>
-                      <a href="ocs.html#music">Music</a><br>
-                      <a href="ocs.html#visual-novels">Visual Novels</a><br>
-                      <a href="ocs.html#webnovels">Webnovels</a><br>
-                      <a href="ocs.html#others">Others</a><br>
-                    </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                    <td>
+                        <div id="Tokyo" class="tabcontent">
+                            <div id="lortable">
+                                <a href="tourneys.html#vidya">/v/idya Mahjong Tourneys</a><br>
+                                <a href="tourneys.html#league">/mjg/ League</a><br>
+                                <a href="tourneys.html#team">Team Tourneys</a><br>
+                                <a href="tourneys.html#doubles">Double Tourneys</a><br>
+                                <a href="tourneys.html#others">Others</a><br>
+                                <a href="https://riichi.moe/">Standings site</a><br>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
 
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="3"></td>
-          <td>
-            <div id="Tokyo" class="tabcontent">
-              <div id="lortable">
-                 <a href="tourneys.html#vidya">/v/idya Mahjong Tourneys</a><br>
-                 <a href="tourneys.html#league">/mjg/ League</a><br>
-                 <a href="tourneys.html#team">Team Tourneys</a><br>
-                 <a href="tourneys.html#doubles">Double Tourneys</a><br>
-                 <a href="tourneys.html#others">Others</a><br>
-                 <a href="https://riichi.moe/">Standings site</a><br>
-              </div>
-            </div>
-          </td>
-        </tr>
-      </table>
+        </div>
+    </center>
 
-    </div>
-          </center>
+    <br>
+    <center>
+        <!-- Time -->
 
-  <br>
-  <center>
-    <!-- Time -->
-
-      <a href="https://time.is/UTC" id="time_is_link" rel="nofollow"></a>
-      <span id="UTC_za00"></span>
-      <script src="//widget.time.is/en_gb.js"></script>
+        <a href="https://time.is/UTC" id="time_is_link" rel="nofollow"></a>
+        <span id="UTC_za00"></span>
+        <script src="//widget.time.is/en_gb.js"></script>
         <script>
-          time_is_widget.init({UTC_za00:{template:"DATE, TIME", date_format:"dayname, monthname dnum"}});
+            time_is_widget.init({
+                UTC_za00: {
+                    template: "DATE, TIME",
+                    date_format: "dayname, monthname dnum"
+                }
+            });
         </script> UTC <br>
 
-        </center>
+    </center>
 
 
 
 
-        <table id="anntablein">
-          <tr>
-<!--
+    <table id="anntablein">
+        <tr>
+            <!--
   ####################### ANNOUNCEMENT BANNER
    -->
             <td>
                 <strong><span style="font-size:1.5rem"><img src="gifs/hat.png" height="75px" alt="">Tourneys</span></strong>
-                  <div class="autoscroll">
+                <div class="autoscroll">
                     Maybe mid-March?
                     <!-- Entries for tourneys go here.
-
-
                      <h2> 2nd /mjg/ Saki tourney </h2>
                      <p>"the collab actually released!" edition </p>
-
                     <small>
                     <em>
                         <p>lobby ID: 236728 </p>
-
                           <p>        Qualifications: period:<br>
                             From 3-2-2021 9 P.M. UTC  until 10-2-2021 9 P.M. UTC<br>
                             2 hours windows starting at: <br>
                             2:00 6:00  10:00  14:00  18:00  22:00</p>
-
                     <p>        Finals period:<br>
                           ???<br></p>
-
                         </em>
                     </small>
                     <a href="https://docs.google.com/spreadsheets/d/1HWQ04My4s48JYI36-UtsL15YvAbfeuNbodZEInMBZVo/edit#gid=0">Full details PDF</a><br>
@@ -212,128 +225,127 @@
   -->
 
 
-                  </div>
+                </div>
             </td>
             <!--
   ####################### [jump Updates]
-
    -->
             <td>
-              <strong><span style="font-size:1.5rem"><img src="gifs/sharpandpretty.gif" height="75px" alt=""> Updates</span></strong>
-              <div id="flower">
-                <ul>
-                  <li><a href="https://www.youtube.com/watch?v=48m1B_pi21I"><strong>Playing Mahjong with Dignity by Kosho Tsuchida-Pro </strong></a> <em>(video)</em><br>
-                  <small>Tsuchida Kosho-pro held a two-hour lecture for English-language players, held online on Zoom, translated live in subtitles. He chose to speak about two topics dear to him: chiitoitsu, and "paipinkao" - playing mahjong with dignity.</small></li>
+                <strong><span style="font-size:1.5rem"><img src="gifs/sharpandpretty.gif" height="75px" alt=""> Updates</span></strong>
+                <div id="flower">
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=48m1B_pi21I"><strong>Playing Mahjong with Dignity by Kosho Tsuchida-Pro </strong></a> <em>(video)</em><br>
+                            <small>Tsuchida Kosho-pro held a two-hour lecture for English-language players, held online on Zoom, translated live in subtitles. He chose to speak about two topics dear to him: chiitoitsu, and "paipinkao" - playing mahjong with dignity.</small></li>
 
-                  <li><a href="https://www.youtube.com/watch?v=fxEUZcccx-s"><strong>Catfood Bowl 2 /mjg/ Commentary</strong></a> <em>(video)</em><br>
-                  <small>Watch our /mjg/ reps fight against the rigging of the catfood official 2nd tourney, from the perspective of /mjg/ and not those faggots from the official stream.</small></li>
+                        <li><a href="https://www.youtube.com/watch?v=fxEUZcccx-s"><strong>Catfood Bowl 2 /mjg/ Commentary</strong></a> <em>(video)</em><br>
+                            <small>Watch our /mjg/ reps fight against the rigging of the catfood official 2nd tourney, from the perspective of /mjg/ and not those faggots from the official stream.</small></li>
 
-                  <li><a href="https://files.catbox.moe/leoich.mp4"><strong>Mikovideo</strong></a> <em>(video)</em><br>
-                  <small>This one weird mikovideo.</small></li>
-
-
-                  <li><a href="https://files.catbox.moe/ox6lac.mspe"><strong>Titles visible cross-server mod</strong></a> <em>(majsoul plus mod)</em><br>
-                  <small>Makes titles from other servers visible (as long as they exist on the current server).</small></li>
-
-                  <li><a href="https://files.catbox.moe/uypxd7.mspe"><strong>Friendly Uncle  mod</strong></a> <em>(majsoul plus mod)</em><br>
-                  <small>Use the log viewer to send messages and friend requests to unsuspecting anons. A bit creepy if you ask me.</small></li>
-
-                  <li><a href="https://files.catbox.moe/frhq6s.mspe"><strong>Anti region lock mod</strong></a> <em>(majsoul plus mod)</em><br>
-                  <small>Region lock? It's just 1 variable on client to disable and get full saki collab outside burgerland too.</small></li>
-
-                  <li><a href="https://files.catbox.moe/qu1vxj.mspr"><strong>buttons mod</strong></a> <em>(majsoul plus mod)</em><br>
-                  <small>Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively. Updated again.</small></li>
-
-                  <li><a href="https://youtu.be/povvMEtyzbo?list=PLEAV_Z2MBt0y1rAadqGKn2flmqExB2rK4"><strong>【JPML】 Play Like a Pro with Jenn & Garthe </strong></a> <em>(video)</em><br>
-                  <small>Videos in english with wwyd explained by various pros (Sasaki, Fujisaki, Takizawa, and some other JPML ones). Riichi book 1 level.</small></li>
-
-                  <li><a href="https://files.catbox.moe/ekaelc.ass"><strong>Super Zugan ep6 subs</strong></a> <em>(movies)</em><br>
-                  <small>Subtitles for episode 6 of Super Zugan! The RAWs can be found <a href="https://drive.google.com/drive/folders/1exsutVDi0VFq8_jpIV2O6FRrRD0T_AwJ?usp=sharing">here</a>, or in the movies section. Also shown in 6th movie night.</small></li>
-
-                  <li><a href="https://files.catbox.moe/4rlh6v.mspe"><strong>Anti AFK mod</strong></a> <em>(majsoul plus mod)</em><br>
-                  <small>Stop mjs from kicking you out, by faking some mouse activity.</small></li>
-
-                  <li><a href="https://sukebei.nyaa.si/view/3213231"><strong>Super Real Mahjong 2-7 compilation for PC </strong></a> <em>(games)</em><br>
-                  <small>Some single player mahjong game? Includes a anime OVA.</small></li>
-
-                  <li><a href="https://files.catbox.moe/qsbcg8.mspe"><strong>Save logs mod | Updated</strong></a> <em>(majsoul plus mod)</em><br>
-                  <small>Save your logs by pressing 's' while looking at one. The format is .json formatted as tenhou.net/6/ does, so you can use the output as input for akochan reviewer.</small></li>
-
-                  <li><a href="https://mega.nz/file/RFhWmJaA#bKOSQW8KR7ykjs1w29PwUVB7vk_-P9vqggP0YciJ9Vk"><strong>Strip mahjong subs</strong></a> <em>(movies)</em><br>
-                  <small>Subtitles for prison episode of strip mahjong series! The RAWs can be found <a href="https://mega.nz/file/ZIhQnLoB#XGv8MKDkUptVNbtAXp83MXaeNhx--krLc5uPTdknJXA">here</a>, or in the movies section</small></li>
-
-		              <li><a href="https://files.catbox.moe/e5ipjy.webm"><strong>/mjg/ peanuts</strong></a> <em>(OC)</em><br>
-                  <small>Meanwhile on /mjg/...</small></li>
-
-	                 <li><a href="https://files.catbox.moe/q3z4tb.ass"><strong>Super Zugan ep5 subs</strong></a> <em>(movies)</em><br>
-                    <small>Subtitles for episode 5 of Super Zugan! The RAWs can be found <a href="https://drive.google.com/drive/folders/1exsutVDi0VFq8_jpIV2O6FRrRD0T_AwJ?usp=sharing">here</a>, or in the movies section</small></li>
-
-                    <li><a href="https://files.catbox.moe/wmvzp8.webm"><strong>/mjg/ draws with flet</strong></a> <em>(ocs)</em><br>
-                    <small>/mjg/ draws with flet and other nips.</small></li>
-
-                    <li><a href="https://files.catbox.moe/9csg7w.mspr"><strong>buttons mod</strong></a> <em>(majsoul plus mod)</em><br>
-                    <small>Updated for the new mjs version. Get your free sex button here.</small></li>
-
-                    <li><a href="https://files.catbox.moe/q7iqhu.mspe"><strong>Save logs mod</strong></a> <em>(majsoul plus mod)</em><br>
-                    <small>Save your logs by pressing 's' while looking at one. The format is .json formatted as tenhou.net/6/ does, so you can use the output as input for akochan reviewer.</small></li>
-
-                  <li><a href="oc-pages/mikorise.html#newage"><strong>Miko Uprising: New Age</strong></a> <em>(webcomic)</em><br>
-                    <small>Miko is back with a vengeance!</small></li>
-
-                  <li><a href="https://maajantanoshii.neocities.org/ranking.html"><strong>Majsoul Character Ranking</strong></a> <em>(site)</em><br>
-                    <small>Rank the majsoul girls to find out how much you love your favorite!</small></li>
-
-                  <li><a href="oc-pages/hat-gallery.html"><strong>Hat Gallery</strong></a> <em>(ocs)</em><br>
-                    <small>/mjg/ draws hats</small></li>
-
-	                 <li><a href="https://files.catbox.moe/5uhqpd.ass"><strong>Super Zugan ep2 subs</strong></a> <em>(movies)</em><br>
-                    <small>Subtitles (stolen from the movie night stream with asynch audio) for episode 2 of Super Zugan! The RAWs can be found <a href="https://drive.google.com/drive/folders/1exsutVDi0VFq8_jpIV2O6FRrRD0T_AwJ?usp=sharing">here</a>, or in the movies section</small></li>
+                        <li><a href="https://files.catbox.moe/leoich.mp4"><strong>Mikovideo</strong></a> <em>(video)</em><br>
+                            <small>This one weird mikovideo.</small></li>
 
 
-                    <li><a href="https://files.catbox.moe/5uhqpd.ass"><strong>Super Zugan ep4 subs</strong></a> <em>(movies)</em><br>
-                    <small>Subtitles for episode 4 of Super Zugan! The RAWs can be found <a href="https://drive.google.com/drive/folders/1exsutVDi0VFq8_jpIV2O6FRrRD0T_AwJ?usp=sharing">here</a>, or in the movies section</small></li>
+                        <li><a href="https://files.catbox.moe/ox6lac.mspe"><strong>Titles visible cross-server mod</strong></a> <em>(majsoul plus mod)</em><br>
+                            <small>Makes titles from other servers visible (as long as they exist on the current server).</small></li>
+
+                        <li><a href="https://files.catbox.moe/uypxd7.mspe"><strong>Friendly Uncle mod</strong></a> <em>(majsoul plus mod)</em><br>
+                            <small>Use the log viewer to send messages and friend requests to unsuspecting anons. A bit creepy if you ask me.</small></li>
+
+                        <li><a href="https://files.catbox.moe/frhq6s.mspe"><strong>Anti region lock mod</strong></a> <em>(majsoul plus mod)</em><br>
+                            <small>Region lock? It's just 1 variable on client to disable and get full saki collab outside burgerland too.</small></li>
+
+                        <li><a href="https://files.catbox.moe/qu1vxj.mspr"><strong>buttons mod</strong></a> <em>(majsoul plus mod)</em><br>
+                            <small>Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively. Updated again.</small></li>
+
+                        <li><a href="https://youtu.be/povvMEtyzbo?list=PLEAV_Z2MBt0y1rAadqGKn2flmqExB2rK4"><strong>【JPML】 Play Like a Pro with Jenn & Garthe </strong></a> <em>(video)</em><br>
+                            <small>Videos in english with wwyd explained by various pros (Sasaki, Fujisaki, Takizawa, and some other JPML ones). Riichi book 1 level.</small></li>
+
+                        <li><a href="https://files.catbox.moe/ekaelc.ass"><strong>Super Zugan ep6 subs</strong></a> <em>(movies)</em><br>
+                            <small>Subtitles for episode 6 of Super Zugan! The RAWs can be found <a href="https://drive.google.com/drive/folders/1exsutVDi0VFq8_jpIV2O6FRrRD0T_AwJ?usp=sharing">here</a>, or in the movies section. Also shown in 6th movie night.</small></li>
+
+                        <li><a href="https://files.catbox.moe/4rlh6v.mspe"><strong>Anti AFK mod</strong></a> <em>(majsoul plus mod)</em><br>
+                            <small>Stop mjs from kicking you out, by faking some mouse activity.</small></li>
+
+                        <li><a href="https://sukebei.nyaa.si/view/3213231"><strong>Super Real Mahjong 2-7 compilation for PC </strong></a> <em>(games)</em><br>
+                            <small>Some single player mahjong game? Includes a anime OVA.</small></li>
+
+                        <li><a href="https://files.catbox.moe/qsbcg8.mspe"><strong>Save logs mod | Updated</strong></a> <em>(majsoul plus mod)</em><br>
+                            <small>Save your logs by pressing 's' while looking at one. The format is .json formatted as tenhou.net/6/ does, so you can use the output as input for akochan reviewer.</small></li>
+
+                        <li><a href="https://mega.nz/file/RFhWmJaA#bKOSQW8KR7ykjs1w29PwUVB7vk_-P9vqggP0YciJ9Vk"><strong>Strip mahjong subs</strong></a> <em>(movies)</em><br>
+                            <small>Subtitles for prison episode of strip mahjong series! The RAWs can be found <a href="https://mega.nz/file/ZIhQnLoB#XGv8MKDkUptVNbtAXp83MXaeNhx--krLc5uPTdknJXA">here</a>, or in the movies section</small></li>
+
+                        <li><a href="https://files.catbox.moe/e5ipjy.webm"><strong>/mjg/ peanuts</strong></a> <em>(OC)</em><br>
+                            <small>Meanwhile on /mjg/...</small></li>
+
+                        <li><a href="https://files.catbox.moe/q3z4tb.ass"><strong>Super Zugan ep5 subs</strong></a> <em>(movies)</em><br>
+                            <small>Subtitles for episode 5 of Super Zugan! The RAWs can be found <a href="https://drive.google.com/drive/folders/1exsutVDi0VFq8_jpIV2O6FRrRD0T_AwJ?usp=sharing">here</a>, or in the movies section</small></li>
+
+                        <li><a href="https://files.catbox.moe/wmvzp8.webm"><strong>/mjg/ draws with flet</strong></a> <em>(ocs)</em><br>
+                            <small>/mjg/ draws with flet and other nips.</small></li>
+
+                        <li><a href="https://files.catbox.moe/9csg7w.mspr"><strong>buttons mod</strong></a> <em>(majsoul plus mod)</em><br>
+                            <small>Updated for the new mjs version. Get your free sex button here.</small></li>
+
+                        <li><a href="https://files.catbox.moe/q7iqhu.mspe"><strong>Save logs mod</strong></a> <em>(majsoul plus mod)</em><br>
+                            <small>Save your logs by pressing 's' while looking at one. The format is .json formatted as tenhou.net/6/ does, so you can use the output as input for akochan reviewer.</small></li>
+
+                        <li><a href="oc-pages/mikorise.html#newage"><strong>Miko Uprising: New Age</strong></a> <em>(webcomic)</em><br>
+                            <small>Miko is back with a vengeance!</small></li>
+
+                        <li><a href="https://maajantanoshii.neocities.org/ranking.html"><strong>Majsoul Character Ranking</strong></a> <em>(site)</em><br>
+                            <small>Rank the majsoul girls to find out how much you love your favorite!</small></li>
+
+                        <li><a href="oc-pages/hat-gallery.html"><strong>Hat Gallery</strong></a> <em>(ocs)</em><br>
+                            <small>/mjg/ draws hats</small></li>
+
+                        <li><a href="https://files.catbox.moe/5uhqpd.ass"><strong>Super Zugan ep2 subs</strong></a> <em>(movies)</em><br>
+                            <small>Subtitles (stolen from the movie night stream with asynch audio) for episode 2 of Super Zugan! The RAWs can be found <a href="https://drive.google.com/drive/folders/1exsutVDi0VFq8_jpIV2O6FRrRD0T_AwJ?usp=sharing">here</a>, or in the movies section</small></li>
 
 
-                    <li><a href="https://github.com/watterle/301-wwyd-translation"><strong>301 wwyd Translations V2</strong></a> <em>(resources)</em><br>
-                    <small>Your cutewife wwyd-chan now speaks English! Learn about tile efficiency and the feeling of having a girlfriend all in one book! Updated with over 100 fixes.<br></small></li>
-
-                    <li><a href="https://de.catbox.moe/x28awi.pdf"><strong>Flow Book 1 (complete)</strong></a> <em>(resource)</em><br>
-                    <small>Now you can swallow the final schizopill!</small></li>
+                        <li><a href="https://files.catbox.moe/5uhqpd.ass"><strong>Super Zugan ep4 subs</strong></a> <em>(movies)</em><br>
+                            <small>Subtitles for episode 4 of Super Zugan! The RAWs can be found <a href="https://drive.google.com/drive/folders/1exsutVDi0VFq8_jpIV2O6FRrRD0T_AwJ?usp=sharing">here</a>, or in the movies section</small></li>
 
 
-                    <li><a href="https://files.catbox.moe/fnksb0.mspr"><strong>CHINPO mod</strong></a> <em>(majsoul plus mod)</em><br>
-                    <small>since a few people liked it, I updated the CHINPO mod<br>
-                        - remove overlong lines<br>
-                        - volume should be ok now<br>
-                        - added more lines</small></li>
+                        <li><a href="https://github.com/watterle/301-wwyd-translation"><strong>301 wwyd Translations V2</strong></a> <em>(resources)</em><br>
+                            <small>Your cutewife wwyd-chan now speaks English! Learn about tile efficiency and the feeling of having a girlfriend all in one book! Updated with over 100 fixes.<br></small></li>
 
-                    <li><a href="https://docs.google.com/document/d/1w1KJnFN_TZXnKHb0mwo6OWqC57wHlhUz12H7n-T2CZg/edit"><strong>Saki collab celebration tourney</strong></a> <em>(tourney)</em><br>
-                    <small>Oh shit anons Saki collab is actually real?!?!? I can't believe they are adding Nodokas Nodokas and Tacos taco to MJS! We as the anons of the active and respectable community of /mjg/ cannot just sit idly by and do nothing! After all this is the most beloved /mjg/ mahjong anime of all time!Now go out there and show the world you lesbian mahjong superpowers!<br>
-                    <a href="https://docs.google.com/document/d/1w1KJnFN_TZXnKHb0mwo6OWqC57wHlhUz12H7n-T2CZg/edit">Full PDF</a></small></li>
+                        <li><a href="https://de.catbox.moe/x28awi.pdf"><strong>Flow Book 1 (complete)</strong></a> <em>(resource)</em><br>
+                            <small>Now you can swallow the final schizopill!</small></li>
 
 
+                        <li><a href="https://files.catbox.moe/fnksb0.mspr"><strong>CHINPO mod</strong></a> <em>(majsoul plus mod)</em><br>
+                            <small>since a few people liked it, I updated the CHINPO mod<br>
+                                - remove overlong lines<br>
+                                - volume should be ok now<br>
+                                - added more lines</small></li>
 
-                    <li><a href="https://github.com/watterle/301-wwyd-translation"><strong>301 wwyd Translations</strong></a> <em>(resources)</em><br>
-                    <small>Your cutewife wwyd-chan now speaks English! Learn about tile efficiency and the feeling of having a girlfriend all in one book! <br></small></li>
+                        <li><a href="https://docs.google.com/document/d/1w1KJnFN_TZXnKHb0mwo6OWqC57wHlhUz12H7n-T2CZg/edit"><strong>Saki collab celebration tourney</strong></a> <em>(tourney)</em><br>
+                            <small>Oh shit anons Saki collab is actually real?!?!? I can't believe they are adding Nodokas Nodokas and Tacos taco to MJS! We as the anons of the active and respectable community of /mjg/ cannot just sit idly by and do nothing! After all this is the most beloved /mjg/ mahjong anime of all time!Now go out there and show the world you lesbian mahjong superpowers!<br>
+                                <a href="https://docs.google.com/document/d/1w1KJnFN_TZXnKHb0mwo6OWqC57wHlhUz12H7n-T2CZg/edit">Full PDF</a></small></li>
 
-            </div>
+
+
+                        <li><a href="https://github.com/watterle/301-wwyd-translation"><strong>301 wwyd Translations</strong></a> <em>(resources)</em><br>
+                            <small>Your cutewife wwyd-chan now speaks English! Learn about tile efficiency and the feeling of having a girlfriend all in one book! <br></small></li>
+                    </ul>
+                </div>
 
             </td>
 
 
-<!--
+            <!--
   ####################### Events
     -->
-           <td>
-              <strong><span style="font-size:1.5rem"><img src="gifs/1570998246941.gif" height="75px" alt=""> Events</span></strong>
-              <div class="autoscroll">
-            <p><a href="banners/saki.png"><strong>saki collab</strong></a>. Yes it's shit. Yes it's full of bugs. Imagine whaling for nyaggers, thanks for the jade. Help out with maintaining the repo, please.</p>
-  <!--
+            <td>
+                <strong><span style="font-size:1.5rem"><img src="gifs/1570998246941.gif" height="75px" alt=""> Events</span></strong>
+                <div class="autoscroll">
+                    <p><b>Battle of Asura </b>is back (again). Remember to exchange your terminals, kokushi isn't real anyways.</p>
+                    <!--
                 <img src="banners/events/lumberjack.png" height="88px" alt="snowman">
 				<img src="banners/events/shota.png" height="88px" alt="snowman"><br>
                 <span style="font-size: 1.2rem;"><strong>Character Rate Up</strong></span><br>
                 <strong>Kaguyahime and Sora Ichinose</strong> (12/21 - 12/25)-->
-<!--
+                    <!--
                 <hr>
                   <img src="banners/events/snowman.jpg" alt="snowman">
                    <p><span style="font-size: 1.2rem;"><strong>Winter Festival Snowman Battle</strong><br></span></p>
@@ -346,205 +358,210 @@
                       <li>New snowmen and the accumulated points limit will be unlocked gradually during the event period.</li>
                     </ul>
                 </p>
-
-
               </small>
-              </div>
-            </td>
 -->
-            </tr>
-            </table>
-
-        <br>
-
-        <!-- Clients section -->
-
-              <div id="cont">
-
-                <strong><span style="font-size:1.5rem">Where to Play?</span></strong><br><br>
-                <div class="rtab">
-                  <button class="rtablinks" onclick="openClient(event, 'majsoultab')" id="defaultOpen"><img src="banners/clients/majsoulban.png" width="100%"></button>
-                  <button class="rtablinks" onclick="openClient(event, 'tenhoutab')"><img src="banners/clients/tenhouban.png" width="100%"></button>
-                  <button class="rtablinks" onclick="openClient(event, 'himetab')"><img src="banners/clients/himeban.png" width="100%"></button>
                 </div>
+            </td>
+        </tr>
+    </table>
 
-                <div id="majsoultab" class="rtabcontent">
-                  <h3>Mahjong Soul</h3>
-                  <p>English client, preferred by /mjg/ because of the cute anime girls. Tutorial Included!</p>
-                  <p><a href="https://mahjongsoul.game.yo-star.com/">Play Online</a><br>
-                  <a href="https://play.google.com/store/apps/details?id=com.YoStarEN.MahjongSoul">Android</a> / <a href="https://apps.apple.com/us/app/id1464872167">iOS</a><br>
-                  <a href="guides/Majsoul-Plus-Guide.html">Majsoul Plus</a> - <small>unofficial moddable PC Client</small></p>
-                  <p><a href="guides/Free-2-Play-Guide.html">An Introduction to Mahjong Soul (free 2 play guide)</a> - <small>answers most questions about the gacha side of majsoul</small><br>
-                  <a href="http://arcturus.su/wiki/Majsoul">Mahjong Soul ruleset and ranking system</a></p>
-                </div>
+    <br>
 
-                <div id="tenhoutab" class="rtabcontent">
-                  <h3>Tenhou</h3>
-                  <p>Test your skills in a more competitive mahjong environment.</p>
-                  <p>
-                    <a href="http://tenhou.net/3/">Play Online</a><br>
-                    <a href="https://repo.riichi.moe/resources.html#10hoeplus">Minhou</a> - <small>Hacked Windows Client</small><br>
-                    <a href="https://play.google.com/store/apps/details?id=net.tenhou.WebBrowser20161220">Android</a> / <a href="https://itunes.apple.com/jp/app/tian-feng/id1187938169">iOS</a>
-                  </p>
-                  <p>
-                    <a href="https://addons.mozilla.org/en-US/firefox/addon/tenhou-english/">Firefox</a>, <a href="https://chrome.google.com/webstore/detail/tenhou-english-ui/cbomnmkpjmleifejmnjhfnfnpiileiin?hl=en">Chrome</a> - <small>add-ons to translate the web interface to English</small><br>
-                    <a href="http://arcturus.su/wiki/Tenhou.net">Tenhou ruleset and ranking system</a>
-                  </p>
-                </div>
+    <!-- Clients section -->
 
-                <div id="himetab" class="rtabcontent">
-                  <h3>Hime Mahjong</h3>
-                  <p>Better gacha rates and more cosmetics, but <strong>NO ENGLISH TRANSLATIONS</strong>. Soon there will be, maybe.</p>
-                  <p>
-                    <a href="https://store.steampowered.com/app/1084520/_/">Steam</a><br>
-                    <a href="https://www.queji.tw/web/">Play Online</a> <small>(chinese)</small><br>
-                    <a href="https://play.google.com/store/apps/details?id=com.jacktech.sparrowhimejp">Android</a> / <a href="https://apps.apple.com/jp/app/id1466207506">iOS</a>
-                  </p>
-                  <p>
-                    <a href="guides/Hime-Mahjong-Guide.html">Hime Mahjong Guide</a> - <small>will help you get through the moonrunes enough to play mahjong, given that you're already familiar with common mahjong client interface</small><br>
-                    <a href="http://arcturus.su/wiki/MajHime">Mahjong Hime</a> - <small>a more in-depth guide about Hime Mahjong's interface. Just ignore the majsoul shilling and go straight to the pictures.</small>
-                  </p>
-                  <p>Hime Mahjong is a <s>shit</s> perfectly good client, <s>don't fall for the shills</s> which teaches you the proper way to play mahjong</p>
-                </div>
+    <div id="cont">
 
-                <!-- Script for the tabs, don't want to put them in a separate js file -->
+        <strong><span style="font-size:1.5rem">Where to Play?</span></strong><br><br>
+        <div class="rtab">
+            <button class="rtablinks" onclick="openClient(event, 'majsoultab')" id="defaultOpen"><img src="banners/clients/majsoulban.png" width="100%"></button>
+            <button class="rtablinks" onclick="openClient(event, 'tenhoutab')"><img src="banners/clients/tenhouban.png" width="100%"></button>
+            <button class="rtablinks" onclick="openClient(event, 'himetab')"><img src="banners/clients/himeban.png" width="100%"></button>
+        </div>
 
-                <script>
-                  function openClient(evt, rcityName) {
-                    var a, rtabcontent, rtablinks;
-                    rtabcontent = document.getElementsByClassName("rtabcontent");
-                    for (a = 0; a < rtabcontent.length; a++) {
-                      rtabcontent[a].style.display = "none";
-                    }
-                    rtablinks = document.getElementsByClassName("rtablinks");
-                    for (a = 0; a < rtablinks.length; a++) {
-                      rtablinks[a].className = rtablinks[a].className.replace(" active", "");
-                    }
-                    document.getElementById(rcityName).style.display = "block";
-                    evt.currentTarget.className += " active";
-                  }
-                  // Get the element with id="defaultOpen" and click on it
-                  document.getElementById("defaultOpen").click();
-                  </script><br>
-                  <a href="guides/newfren-readme.html#wherepo">More Options...</a><br><br>
+        <div id="majsoultab" class="rtabcontent">
+            <h3>Mahjong Soul</h3>
+            <p>English client, preferred by /mjg/ because of the cute anime girls. Tutorial Included!</p>
+            <p><a href="https://mahjongsoul.game.yo-star.com/">Play Online</a><br>
+                <a href="https://play.google.com/store/apps/details?id=com.YoStarEN.MahjongSoul">Android</a> / <a href="https://apps.apple.com/us/app/id1464872167">iOS</a><br>
+                <a href="guides/Majsoul-Plus-Guide.html">Majsoul Plus</a> - <small>unofficial moddable PC Client</small></p>
+            <p><a href="guides/Free-2-Play-Guide.html">An Introduction to Mahjong Soul (free 2 play guide)</a> - <small>answers most questions about the gacha side of majsoul</small><br>
+                <a href="http://arcturus.su/wiki/Majsoul">Mahjong Soul ruleset and ranking system</a></p>
+        </div>
+
+        <div id="tenhoutab" class="rtabcontent">
+            <h3>Tenhou</h3>
+            <p>Test your skills in a more competitive mahjong environment.</p>
+            <p>
+                <a href="http://tenhou.net/3/">Play Online</a><br>
+                <a href="https://repo.riichi.moe/resources.html#10hoeplus">Minhou</a> - <small>Hacked Windows Client</small><br>
+                <a href="https://play.google.com/store/apps/details?id=net.tenhou.WebBrowser20161220">Android</a> / <a href="https://itunes.apple.com/jp/app/tian-feng/id1187938169">iOS</a>
+            </p>
+            <p>
+                <a href="https://addons.mozilla.org/en-US/firefox/addon/tenhou-english/">Firefox</a>, <a href="https://chrome.google.com/webstore/detail/tenhou-english-ui/cbomnmkpjmleifejmnjhfnfnpiileiin?hl=en">Chrome</a> - <small>add-ons to translate the web interface to English</small><br>
+                <a href="http://arcturus.su/wiki/Tenhou.net">Tenhou ruleset and ranking system</a>
+            </p>
+        </div>
+
+        <div id="himetab" class="rtabcontent">
+            <h3>Hime Mahjong</h3>
+            <p>Better gacha rates and more cosmetics, but <strong>NO ENGLISH TRANSLATIONS</strong>. Soon there will be, maybe.</p>
+            <p>
+                <a href="https://store.steampowered.com/app/1084520/_/">Steam</a><br>
+                <a href="https://www.queji.tw/web/">Play Online</a> <small>(chinese)</small><br>
+                <a href="https://play.google.com/store/apps/details?id=com.jacktech.sparrowhimejp">Android</a> / <a href="https://apps.apple.com/jp/app/id1466207506">iOS</a>
+            </p>
+            <p>
+                <a href="guides/Hime-Mahjong-Guide.html">Hime Mahjong Guide</a> - <small>will help you get through the moonrunes enough to play mahjong, given that you're already familiar with common mahjong client interface</small><br>
+                <a href="http://arcturus.su/wiki/MajHime">Mahjong Hime</a> - <small>a more in-depth guide about Hime Mahjong's interface. Just ignore the majsoul shilling and go straight to the pictures.</small>
+            </p>
+            <p>Hime Mahjong is a <s>shit</s> perfectly good client, <s>don't fall for the shills</s> which teaches you the proper way to play mahjong</p>
+        </div>
+
+        <!-- Script for the tabs, don't want to put them in a separate js file -->
+
+        <script>
+            function openClient(evt, rcityName) {
+                var a, rtabcontent, rtablinks;
+                rtabcontent = document.getElementsByClassName("rtabcontent");
+                for (a = 0; a < rtabcontent.length; a++) {
+                    rtabcontent[a].style.display = "none";
+                }
+                rtablinks = document.getElementsByClassName("rtablinks");
+                for (a = 0; a < rtablinks.length; a++) {
+                    rtablinks[a].className = rtablinks[a].className.replace(" active", "");
+                }
+                document.getElementById(rcityName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+            // Get the element with id="defaultOpen" and click on it
+            document.getElementById("defaultOpen").click();
+        </script><br>
+        <a href="guides/newfren-readme.html#wherepo">More Options...</a><br><br>
 
 
 
 
 
-                  <!-- Quick Links -->
+        <!-- Quick Links -->
 
-                  <div class="ac">
-                    <input class="ac-input" id="ac-1" name="ac-1" type="checkbox" />
-                    <label class="ac-label" for="ac-1">Quick Links</label>
-                        <article class="ac-text">
-                            <table id="modtablein">
-                <tr>
-                  <td style="vertical-align: top;">
-                <strong>How to Play</strong>
-                <ul>
-                  <li><a href="https://www.youtube.com/watch?v=lZxwAxlqexY">Basic video guide</a> / <a href="https://www.youtube.com/watch?v=hlnC2rgIPrc">Extensive video guide</a></li>
-                  <li><a href="https://www.youtube.com/watch?v=eesuXarJlbw">Mahjong 101 in 20 Minutes!</a> by v-tuber Sio</li>
-                  <li><a href="guides/how-to-play-video-game-mahjong.html">Fast and dirty guide to playing video game Mahjong</a></li>
-                  <li><a href="https://mahjong.guide/a-beginners-guide-to-riichi-mahjong/">A Beginner's Guide to Riichi Mahjong</a></li>
-                  <li>Images that list  all the yaku in the game</li>
-                    <ul>
-                      <li><a href="https://i.imgur.com/Lr78SfE.png">Yaku List</a></li>
-                      <li><a href="https://files.catbox.moe/zjv9bc.png">Yaku List Alt </a></li>
-                      <li><a href="https://files.catbox.moe/wi5mp4.jpg">Yaku For Beginners</a></li>
-                    </ul>
-                </ul>
-                  </td>
-                  <td style="vertical-align: top;">
-                  <strong>Learn More</strong>
-                    <ul>
-                      <li><a href="https://dainachiba.github.io/RiichiBooks/">Riichi Book 1</a> (<a href="books/rb1.html">Read online</a>)</li>
-                      <li><a href="https://files.catbox.moe/chwp6q.pdf">Riichi Mahjong Strategy</a> (<a href="books/rms.html">Read online</a>)</li>
-                      <li><a href="https://drive.google.com/drive/folders/12IO03vOKurIHcvgNrmMwpRso_GMohpsT?usp=sharing">Mahjong Strategy Books Collection</a></li>
-                      <li><a href="library.html#mahj-strat">More Strategy Resources</a></li>
-                      <br>
-                      <li><a href="https://docs.google.com/document/d/1LTg2mTGf3jyxE0TEE0CLXo9Nc-xOF29_mr3W0CkEMes/edit">Anon&rsquo;s Dumbfuck Vocab Guide</a></li>
-                      <li><a href="guides/mahjong-terms.html">Glossary of Japanese Mahjong Terms</a></li>
-                      <br>
-                      <li><a href="http://mahjong-europe.org/portal/index.php?option=com_content&view=article&id=30&Itemid=166">Official Rules</a></li>
-                      <li><a href="http://arcturus.su/wiki/Main_Page">Mahjong Wiki</a></li>
-                    </ul>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="vertical-align: top;">
-                    <strong>Mahjong IRL</strong>
-                    <ul>
-                      <li><a href="guides/Mahjong-Equipment-Buying-Guide.html">Mahjong Equipment Buying Guide</a></li>
-                      <li><a href="guides/newfren-readme.html#realife">Find Players IRL Article</a></li>
-                      <br>
-                      <li><a href="https://abema.tv/now-on-air/mahjong">Abema</a></li>
-                          <ul>
-                            <li><a href="https://m-league.jp/games/">M-league schedule</a></li>
-                            <li><a href="https://abema.tv/video/genre/mahjong">Past videos</a></li>
-                            <li><a href="https://mleaguewatch.wordpress.com/">M-League repo (english)</a></li>
-                          </ul>
-                      <br>
-                      <li><a href="https://www.google.com/maps/d/viewer?hl=en&mid=1DJozCri0vrRV0ymJzaBP_6EyTXGcurZd&ll=-7.969955302522683%2C135.70368195455126&z=2">/mjg/ players map</a></li>
-                        <ul><li><a href="https://forms.gle/93fannww9A9YGG7p9">Google form to add yourself</a></li></ul>
-                    </ul>
-                  </td>
-                  <td style="vertical-align: top;">
-                    <strong>Training Tools</strong>
-                    <ul>
-                      <li><a href="https://euophrys.itch.io/mahjong-efficiency-trainer">Efficiency trainer</a></li>
-                      <li><a href="http://www.gamedesign.jp/flash/bamboo/bamboo.html">Bamboo</a></li>
-                      <li><a href="https://mahjong.org/training/training_002/">Chinitsu Wait Trainer</a></li>
-                      <li><a href="https://mahjong.horneds.com/">Riichi Scores Trainer</a> / <a href="guides/newfren-readme.html#count">More scoring tools</a></li>
-                      <li><a href="https://pathofhouou.blogspot.com/2019/05/training-tool-hitori-mahjong-simulator.html">Hitori Mahjong Simulator</a></li>
+        <div class="ac">
+            <input class="ac-input" id="ac-1" name="ac-1" type="checkbox" />
+            <label class="ac-label" for="ac-1">Quick Links</label>
+            <article class="ac-text">
+                <table id="modtablein">
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <strong>How to Play</strong>
+                            <ul>
+                                <li><a href="https://www.youtube.com/watch?v=lZxwAxlqexY">Basic video guide</a> / <a href="https://www.youtube.com/watch?v=hlnC2rgIPrc">Extensive video guide</a></li>
+                                <li><a href="https://www.youtube.com/watch?v=eesuXarJlbw">Mahjong 101 in 20 Minutes!</a> by v-tuber Sio</li>
+                                <li><a href="guides/how-to-play-video-game-mahjong.html">Fast and dirty guide to playing video game Mahjong</a></li>
+                                <li><a href="https://mahjong.guide/a-beginners-guide-to-riichi-mahjong/">A Beginner's Guide to Riichi Mahjong</a></li>
+                                <li>Images that list all the yaku in the game</li>
+                                <ul>
+                                    <li><a href="https://i.imgur.com/Lr78SfE.png">Yaku List</a></li>
+                                    <li><a href="https://files.catbox.moe/zjv9bc.png">Yaku List Alt </a></li>
+                                    <li><a href="https://files.catbox.moe/wi5mp4.jpg">Yaku For Beginners</a></li>
+                                </ul>
+                            </ul>
+                        </td>
+                        <td style="vertical-align: top;">
+                            <strong>Learn More</strong>
+                            <ul>
+                                <li><a href="https://dainachiba.github.io/RiichiBooks/">Riichi Book 1</a> (<a href="books/rb1.html">Read online</a>)</li>
+                                <li><a href="https://files.catbox.moe/chwp6q.pdf">Riichi Mahjong Strategy</a> (<a href="books/rms.html">Read online</a>)</li>
+                                <li><a href="https://drive.google.com/drive/folders/12IO03vOKurIHcvgNrmMwpRso_GMohpsT?usp=sharing">Mahjong Strategy Books Collection</a></li>
+                                <li><a href="library.html#mahj-strat">More Strategy Resources</a></li>
+                                <br>
+                                <li><a href="https://docs.google.com/document/d/1LTg2mTGf3jyxE0TEE0CLXo9Nc-xOF29_mr3W0CkEMes/edit">Anon&rsquo;s Dumbfuck Vocab Guide</a></li>
+                                <li><a href="guides/mahjong-terms.html">Glossary of Japanese Mahjong Terms</a></li>
+                                <br>
+                                <li><a href="http://mahjong-europe.org/portal/index.php?option=com_content&view=article&id=30&Itemid=166">Official Rules</a></li>
+                                <li><a href="http://arcturus.su/wiki/Main_Page">Mahjong Wiki</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <strong>Mahjong IRL</strong>
+                            <ul>
+                                <li><a href="guides/Mahjong-Equipment-Buying-Guide.html">Mahjong Equipment Buying Guide</a></li>
+                                <li><a href="guides/newfren-readme.html#realife">Find Players IRL Article</a></li>
+                                <br>
+                                <li><a href="https://abema.tv/now-on-air/mahjong">Abema</a></li>
+                                <ul>
+                                    <li><a href="https://m-league.jp/games/">M-league schedule</a></li>
+                                    <li><a href="https://abema.tv/video/genre/mahjong">Past videos</a></li>
+                                    <li><a href="https://mleaguewatch.wordpress.com/">M-League repo (english)</a></li>
+                                </ul>
+                                <br>
+                                <li><a href="https://www.google.com/maps/d/viewer?hl=en&mid=1DJozCri0vrRV0ymJzaBP_6EyTXGcurZd&ll=-7.969955302522683%2C135.70368195455126&z=2">/mjg/ players map</a></li>
+                                <ul>
+                                    <li><a href="https://forms.gle/93fannww9A9YGG7p9">Google form to add yourself</a></li>
+                                </ul>
+                            </ul>
+                        </td>
+                        <td style="vertical-align: top;">
+                            <strong>Training Tools</strong>
+                            <ul>
+                                <li><a href="https://euophrys.itch.io/mahjong-efficiency-trainer">Efficiency trainer</a></li>
+                                <li><a href="http://www.gamedesign.jp/flash/bamboo/bamboo.html">Bamboo</a></li>
+                                <li><a href="https://mahjong.org/training/training_002/">Chinitsu Wait Trainer</a></li>
+                                <li><a href="https://mahjong.horneds.com/">Riichi Scores Trainer</a> / <a href="guides/newfren-readme.html#count">More scoring tools</a></li>
+                                <li><a href="https://pathofhouou.blogspot.com/2019/05/training-tool-hitori-mahjong-simulator.html">Hitori Mahjong Simulator</a></li>
 
-                        <ul>
-                          <li><a href="http://kobalab.net/majiang/dapai.html#m123p1234789s338s8/0/0/s3">Online version</a> - <a href="https://i.imgur.com/onod7Lu.jpg"> Translation</a></li>
-                          <li><a href="https://pastebin.com/KZVHjSES">Instructions for inputting a hand</a></li>
-                        </ul>
-                    </ul>
+                                <ul>
+                                    <li><a href="http://kobalab.net/majiang/dapai.html#m123p1234789s338s8/0/0/s3">Online version</a> - <a href="https://i.imgur.com/onod7Lu.jpg"> Translation</a></li>
+                                    <li><a href="https://pastebin.com/KZVHjSES">Instructions for inputting a hand</a></li>
+                                </ul>
+                            </ul>
 
-                  </td>
-                </tr>
-                <tr>
-                  <td style="vertical-align: top;">
-                    <strong>/mjg/ Essentials</strong>
-                          <ul>
-                            <li><a href="https://files.catbox.moe/vgkh40.7z">Mahjong Soul Emotes</a></li>
-                            <li><a href="library.html#majsoulp-mods">Majsoul+ Mod List</a></li>
-                            <li><a href="https://mjg.booru.org/">/mjg/ Booru</a></li>
-                            <li><a href="https://files.catbox.moe/vcdh5y.7z">Hime Emotes</a></li>
-                          </ul>
-                  </td>
-                </tr>
-                <tbody>
-                </tbody>
-              </table>
-                        </article><!--/ac-text-->
-                </div><!--/ac-->
-              </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: top;">
+                            <strong>/mjg/ Essentials</strong>
+                            <ul>
+                                <li><a href="https://files.catbox.moe/vgkh40.7z">Mahjong Soul Emotes</a></li>
+                                <li><a href="library.html#majsoulp-mods">Majsoul+ Mod List</a></li>
+                                <li><a href="https://mjg.booru.org/">/mjg/ Booru</a></li>
+                                <li><a href="https://files.catbox.moe/vcdh5y.7z">Hime Emotes</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tbody>
+                    </tbody>
+                </table>
+            </article>
+            <!--/ac-text-->
+        </div>
+        <!--/ac-->
+    </div>
 
-            <!-- Footer Stuff -->
-          <HR>
-            <br>
-          <center><small>
+    <!-- Footer Stuff -->
+    <hr>
+    <br>
+    <center>
+        <small>
 
             <!-- <img src="gifs/hat.png" height="100" alt="hat"/>  AHAHAH FUCK (YOU)-->
-            <img src="gifs/shamiko.gif" height="100" alt="hat2"/>
-            <img src="gifs/meid-bride.gif" height="100" alt="cutest meido"/><br>
+            <img src="gifs/shamiko.gif" height="100" alt="hat2" />
+            <img src="gifs/meid-bride.gif" height="100" alt="cutest meido" /><br>
             <!-- KIKI KANRI -->
-          <audio controls>
-              <source src="https://files.catbox.moe/pt55no.mp3" type="audio/mp3">
-          </audio>
+            <audio controls>
+                <source src="https://files.catbox.moe/pt55no.mp3" type="audio/mp3">
+            </audio>
 
-          <p>
-            <a href="https://boards.4channel.org/vg/catalog#s=mjg">/mjg/</a> / <a href="https://github.com/sharmayu/mjg-repo">Repo's Repo (Github)</a> / <a href="https://repo.riichi.moe/feed.html">Site Feedback </a> / <a href="https://github.com/sharmayu/mjg-repo/issues">Report issues</a><br>
-            <a href="others/repobanners.html">Repo Banners</a> / <a href="others/loli.html">loli</a> / <a href="https://riichi.moe/">tourneys</a> / <a href="others/vn.html">...</a> / <a href="others/urg.html">. </a>
-          </p>
+            <p>
+                <a href="https://boards.4channel.org/vg/catalog#s=mjg">/mjg/</a> / <a href="https://github.com/sharmayu/mjg-repo">Repo's Repo (Github)</a> / <a href="https://repo.riichi.moe/feed.html">Site Feedback </a> / <a href="https://github.com/sharmayu/mjg-repo/issues">Report issues</a><br>
+                <a href="others/repobanners.html">Repo Banners</a> / <a href="others/loli.html">loli</a> / <a href="https://riichi.moe/">tourneys</a> / <a href="others/vn.html">...</a> / <a href="others/urg.html">. </a>
+            </p>
 
-          <p>Repoanon spots open, apply now. Pls. ;_;</p>
-          <p>Also please put new stuff <a href="feed.html">here</a >, thanks</p>
+            <p>Repoanon spots open, apply now. Pls. ;_;</p>
+            <p>Also please put new stuff <a href="feed.html">here</a>, thanks</p>
 
+        </small>
+    </center>
+</body>
 
-    </body>
 </html>
