@@ -98,7 +98,27 @@
             <br>
         </center>
     </header>
-    <a href="audio/kaan.mp3"><img class="sticky" src="hatt.png" alt="Avatar"></a>
+	
+	<audio id="hatkan">
+		<source src="audio/kaan.mp3" type="audio/mpeg">
+	</audio>
+	
+	<audio id="modottekoi">
+		<source src="audio/modottekoi.mp3" type="audio/mpeg">
+	</audio>
+	
+    <button  onclick="document.getElementById('hatkan').play()">
+		<img id="hat-avatar" style="display:none" class="sticky" src="pics/hatt.png" alt="Avatar">
+	</button>
+	<button  onclick="document.getElementById('modottekoi').play();">
+		<img id="cunny-avatar" style="display:none" class="sticky" src="pics/haruna.png" alt="Cunny">
+	</button>
+
+	<script>
+		var avatar_ids = ["hat-avatar", "cunny-avatar"];
+		var avatar_obj = document.getElementById(avatar_ids[Math.floor(Math.random() * avatar_ids.length)]);
+		avatar_obj.style.display = "block";
+	</script>
     <!--
         ############################# Navbar (I just wanna play miagete goran fd already....)
        -->
