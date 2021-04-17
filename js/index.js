@@ -23,6 +23,17 @@ function PickImage() {
     images[17] = "repobanner/16.png";
     var image = images[rand1];
     $("#randimg").attr("src", image);
+    sticky_image = new Array;
+    sticky_image[1] = "pics/haruna.png";
+    sticky_image[2] = "pics/hatt.png";
+    sticky_audio = new Array;
+    sticky_audio[1] = "modottekoi";
+    sticky_audio[2] = "kaan";
+    randnum = 2;
+    var rand2 = Math.round( (randnum-1) * randomnumber) + 1;
+    var img2 = sticky_image[rand2];
+    $("#flying-cunny").attr("src", img2);
+    $("#flying-cunny").addClass(sticky_audio[rand2]);
 };
 
 function SwitchLight() {
@@ -65,13 +76,24 @@ function ChangeTheme() {
     } else {
         SwitchDark();
     }
-}
+};
 
 function GetTime() {
     var now = new Date(Date.now());
     var formatted = now.toUTCString();
     $("#time").html(formatted);
-}
+};
+
+function SoundAdvice() {
+    var kaan = new Audio("audio/kaan.mp3");
+    var modottekoi = new Audio("audio/modottekoi.mp3");
+    var cunny = $("#flying-cunny").hasClass('kaan');
+    if(cunny) {
+        kaan.play();
+    } else {
+        modottekoi.play();
+    }
+};
 
 $(document).ready(function() {
     var interval = setInterval(GetTime, 500);
@@ -91,4 +113,8 @@ $("#ChangeImage").click(function() {
 
 $("#ThemeSwitch").click(function() {
     ChangeTheme();
+})
+
+$("#flying-cunny").click(function() {
+    SoundAdvice();
 })
