@@ -73,3 +73,11 @@ hr:after {
 .card-body a:hover {
     color: #4A4A4A;
 }
+
+.sticky {
+    cursor: pointer;
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    width: 120px;
+}
