@@ -57,7 +57,7 @@
             </div>
         </div>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom" id="menu">
             <a class="navbar-brand" href="#"><img src="background/ichihime-0.png" width="40" height="40" class="d-inline-block align-top" alt=""></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -151,6 +151,14 @@
                   <dt><a href="[LINK]"><strong>[TITLE]</strong></a></dt>
                   <dd><span class="badge badge-secondary">[CATEGORY]</span></dd>
                   <dd><small>[DESCRIPTION]</small></dd> -->
+
+                  <dt><a href="https://files.catbox.moe/adsc08.zip"><strong>Akochan Reviewer Batch File</strong></a></dt>
+                  <dd><span class="badge badge-secondary">Software</span></dd>
+                  <dd><small>The latest version of Akochan Reviewer with a batch file all ready to go so you can try it out. Just run the review.bat and paste in your log then it will output a webpage with your reviewed game.</small></dd>
+
+                  <dt><a href="https://forms.gle/XgQJPjiEaz6NY2iC6"><strong>2nd /mjg/ Great Annual Questionnaire</strong></a></dt>
+                  <dd><span class="badge badge-secondary">Survey</span></dd>
+                  <dd><small>Suggest questions for anons to answer.</small></dd>
 
                   <dt><a href="https://forms.gle/YK47Hh1gVTUrBxN97"><strong>/mjg/ league 2 feedback</strong></a></dt>
                   <dd><span class="badge badge-secondary">Tourney</span></dd>
@@ -261,85 +269,52 @@
 
         <div class="container mb-4">
             <div class="row justify-content-md-center">
-            <div class="col-sm-8">
+            <div class="col-md-9">
                 <h2>Where to play?</h2>
 
-                <div class="accordion" id="WhereToPlay">
-                  <div class="card border border-0">
-                    <div class="card-header justify-content-center bg-dark" id="MajSouls">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left text-white justify-content-center" type="button" data-toggle="collapse" data-target="#collapseMajSouls" aria-expanded="true" aria-controls="collapseMajSouls">
-                            <div class="text-center">
-                              <img src="banners/clients/majsoulban.png" class="justify-content-center">
-                            </div>
-                        </button>
-                      </h2>
-                    </div>
-
-                    <div id="collapseMajSouls" class="collapse show" aria-labelledby="MajSouls" data-parent="#WhereToPlay">
-                      <div class="card-body bg-secondary">
-                        <h3>Mahjong Soul</h3>
-                        <p>English client, preferred by /mjg/ because of the cute anime girls. Tutorial Included!</p>
-                        <p><a href="https://mahjongsoul.game.yo-star.com/">Play Online</a><br>
-                            <a href="https://play.google.com/store/apps/details?id=com.YoStarEN.MahjongSoul">Android</a> / <a href="https://apps.apple.com/us/app/id1464872167">iOS</a><br>
-                            <a href="guides/Majsoul-Plus-Guide.html">Majsoul Plus</a> - <small>unofficial moddable PC Client</small></p>
-                        <p><a href="guides/Free-2-Play-Guide.html">An Introduction to Mahjong Soul (free 2 play guide)</a> - <small>answers most questions about the gacha side of majsoul</small><br>
-                            <a href="http://arcturus.su/wiki/Majsoul">Mahjong Soul ruleset and ranking system</a></p>
-                      </div>
-                    </div>
+                <nav>
+                  <div class="nav nav-tabs nav-fill nav-justified border-0" id="nav-tab" role="tablist">
+                    <a class="nav-link active" id="nav-majsoul-tab" data-toggle="tab" href="#nav-majsoul" role="tab" aria-controls="nav-majsoul" aria-selected="true"><img src="banners/clients/majsoulban.png" class="w-100"></a>
+                    <a class="nav-link" id="nav-tenhou-tab" data-toggle="tab" href="#nav-tenhou" role="tab" aria-controls="nav-tenhou" aria-selected="false"><img src="banners/clients/tenhouban.png" class="w-100"></a>
+                    <a class="nav-link" id="nav-hime-tab" data-toggle="tab" href="#nav-hime" role="tab" aria-controls="nav-hime" aria-selected="false"><img src="banners/clients/himeban.png" class="w-100"></a>
                   </div>
-                  <div class="card border-bottom border-left-0 border-right-0 border-white">
-                    <div class="card-header bg-dark" id="Tenhou">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseTenhou" aria-expanded="false" aria-controls="collapseTenhou">
-                            <div class="text-center">
-                                <img src="banners/clients/tenhouban.png" class="text-center">
-                            </div>
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseTenhou" class="collapse" aria-labelledby="Tenhou" data-parent="#WhereToPlay">
-                      <div class="card-body bg-secondary">
-                        <h3>Tenhou</h3>
-                        <p>Test your skills in a more competitive mahjong environment.</p>
-                        <p>
-                            <a href="http://tenhou.net/3/">Play Online</a><br>
-                            <a href="https://repo.riichi.moe/resources.html#10hoeplus">Minhou</a> - <small>Hacked Windows Client</small><br>
-                            <a href="https://play.google.com/store/apps/details?id=net.tenhou.WebBrowser20161220">Android</a> / <a href="https://itunes.apple.com/jp/app/tian-feng/id1187938169">iOS</a>
-                        </p>
-                        <p>
-                            <a href="https://addons.mozilla.org/en-US/firefox/addon/tenhou-english/">Firefox</a>, <a href="https://chrome.google.com/webstore/detail/tenhou-english-ui/cbomnmkpjmleifejmnjhfnfnpiileiin?hl=en">Chrome</a> - <small>add-ons to translate the web interface to English</small><br>
-                            <a href="http://arcturus.su/wiki/Tenhou.net">Tenhou ruleset and ranking system</a>
-                        </p>
-                      </div>
-                    </div>
+                </nav>
+                <div class="tab-content border border-white bg-secondary w-100" id="nav-tabContent">
+                  <div class="tab-pane pl-1 fade show active" id="nav-majsoul" role="tabpanel" aria-labelledby="nav-majsoul-tab">
+                    <h3>Mahjong Soul</h3>
+                    <p>English client, preferred by /mjg/ because of the cute anime girls. Tutorial Included!</p>
+                    <p><a href="https://mahjongsoul.game.yo-star.com/">Play Online</a><br>
+                        <a href="https://play.google.com/store/apps/details?id=com.YoStarEN.MahjongSoul">Android</a> / <a href="https://apps.apple.com/us/app/id1464872167">iOS</a><br>
+                        <a href="guides/Majsoul-Plus-Guide.html">Majsoul Plus</a> - <small>unofficial moddable PC Client</small></p>
+                    <p><a href="guides/Free-2-Play-Guide.html">An Introduction to Mahjong Soul (free 2 play guide)</a> - <small>answers most questions about the gacha side of majsoul</small><br>
+                        <a href="http://arcturus.su/wiki/Majsoul">Mahjong Soul ruleset and ranking system</a></p>
                   </div>
-                  <div class="card border border-0">
-                    <div class="card-header bg-dark" id="Hime">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left text-white collapsed" type="button" data-toggle="collapse" data-target="#collapseHime" aria-expanded="false" aria-controls="collapseHime">
-                            <div class="text-center">
-                                <img src="banners/clients/himeban.png">
-                            </div>
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseHime" class="collapse" aria-labelledby="Hime" data-parent="#WhereToPlay">
-                      <div class="card-body bg-secondary">
-                        <h3>Hime Mahjong</h3>
-                        <p>Better gacha rates and more cosmetics, but <strong>NO ENGLISH TRANSLATIONS</strong>. Soon there will be, maybe.</p>
-                        <p>
-                            <a href="https://store.steampowered.com/app/1084520/_/">Steam</a><br>
-                            <a href="https://www.queji.tw/web/">Play Online</a> <small>(chinese)</small><br>
-                            <a href="https://play.google.com/store/apps/details?id=com.jacktech.sparrowhimejp">Android</a> / <a href="https://apps.apple.com/jp/app/id1466207506">iOS</a>
-                        </p>
-                        <p>
-                            <a href="guides/Hime-Mahjong-Guide.html">Hime Mahjong Guide</a> - <small>will help you get through the moonrunes enough to play mahjong, given that you're already familiar with common mahjong client interface</small><br>
-                            <a href="http://arcturus.su/wiki/MajHime">Mahjong Hime</a> - <small>a more in-depth guide about Hime Mahjong's interface. Just ignore the majsoul shilling and go straight to the pictures.</small>
-                        </p>
-                        <p>Hime Mahjong is a <s>shit</s> perfectly good client, <s>don't fall for the shills</s> which teaches you the proper way to play mahjong.</p>
-                      </div>
-                    </div>
+                  <div class="tab-pane pl-1 fade" id="nav-tenhou" role="tabpanel" aria-labelledby="nav-tenhou-tab">
+                    <h3>Tenhou</h3>
+                    <p>Test your skills in a more competitive mahjong environment.</p>
+                    <p>
+                        <a href="http://tenhou.net/3/">Play Online</a><br>
+                        <a href="https://repo.riichi.moe/resources.html#10hoeplus">Minhou</a> - <small>Hacked Windows Client</small><br>
+                        <a href="https://play.google.com/store/apps/details?id=net.tenhou.WebBrowser20161220">Android</a> / <a href="https://itunes.apple.com/jp/app/tian-feng/id1187938169">iOS</a>
+                    </p>
+                    <p>
+                        <a href="https://addons.mozilla.org/en-US/firefox/addon/tenhou-english/">Firefox</a>, <a href="https://chrome.google.com/webstore/detail/tenhou-english-ui/cbomnmkpjmleifejmnjhfnfnpiileiin?hl=en">Chrome</a> - <small>add-ons to translate the web interface to English</small><br>
+                        <a href="http://arcturus.su/wiki/Tenhou.net">Tenhou ruleset and ranking system</a>
+                    </p>
+                  </div>
+                  <div class="tab-pane pl-1 fade" id="nav-hime" role="tabpanel" aria-labelledby="nav-hime-tab">
+                    <h3>Hime Mahjong</h3>
+                    <p>Better gacha rates and more cosmetics, but <strong>NO ENGLISH TRANSLATIONS</strong>. Soon there will be, maybe.</p>
+                    <p>
+                        <a href="https://store.steampowered.com/app/1084520/_/">Steam</a><br>
+                        <a href="https://www.queji.tw/web/">Play Online</a> <small>(chinese)</small><br>
+                        <a href="https://play.google.com/store/apps/details?id=com.jacktech.sparrowhimejp">Android</a> / <a href="https://apps.apple.com/jp/app/id1466207506">iOS</a>
+                    </p>
+                    <p>
+                        <a href="guides/Hime-Mahjong-Guide.html">Hime Mahjong Guide</a> - <small>will help you get through the moonrunes enough to play mahjong, given that you're already familiar with common mahjong client interface</small><br>
+                        <a href="http://arcturus.su/wiki/MajHime">Mahjong Hime</a> - <small>a more in-depth guide about Hime Mahjong's interface. Just ignore the majsoul shilling and go straight to the pictures.</small>
+                    </p>
+                    <p>Hime Mahjong is a <s>shit</s> perfectly good client, <s>don't fall for the shills</s> which teaches you the proper way to play mahjong.</p>
                   </div>
                 </div>
             </div>
