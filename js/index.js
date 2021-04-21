@@ -90,6 +90,30 @@ function GetTime() {
     $("#time").html(formatted);
 };
 
+function Countdown(count_time) {
+    var countDownDate = new Date(count_time).getTime();
+    var now = new Date();
+    var nowUTC = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
+
+    // Find the distance between now and the count down date
+    var distance = countDownDate - nowUTC;
+
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    if (distance > 0) {
+        var end_time = "<br /> " + days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds";
+
+        $("#countdown").html(end_time);
+    } else {
+        $("#countdown").html("<br>It's time");
+    }
+
+}
+
 function SoundAdvice() {
     var kaan = new Audio("audio/kaan.mp3");
     var modottekoi = new Audio("audio/modottekoi.mp3");
@@ -102,7 +126,13 @@ function SoundAdvice() {
 };
 
 $(document).ready(function() {
-    var interval = setInterval(GetTime, 500);
+    var time_interval = setInterval(GetTime, 1000);
+    /* HOW TO USE:
+        Leave everything else as it is except the last argument. This already transforms everything to UTC.
+        At the end of the set interval function add the date. An example: "Dec 25, 2021 22:00:00".
+        It has to be a string.
+    */
+    var countdown_interval = setInterval(Countdown, 1000, "Apr 21, 2021 20:00:00");
     if (localStorage.getItem("theme") === null) {
         localStorage.setItem("theme", "dark");
     };
