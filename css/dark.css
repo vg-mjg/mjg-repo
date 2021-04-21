@@ -65,11 +65,11 @@ hr:after {
     box-shadow: none;
 }
 
-.card-body a {
-    color: #2D2D2D;
+.tab-content p a {
+  color: #000000;
 }
 
-.card-body a:hover {
+.tab-content p a:hover {
     color: #4A4A4A;
 }
 

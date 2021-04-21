@@ -40,9 +40,9 @@ function SwitchLight() {
     localStorage.setItem("theme", "light");
     $("link[rel='stylesheet']")[1].href = "css/light.css";
     $("label[for='ThemeSwitch']").html("おやすみ");
-    $("nav").removeClass("bg-dark");
-    $("nav").addClass("bg-white");
-    $("nav a").addClass("text-dark");
+    $("#menu").removeClass("bg-dark");
+    $("#menu").addClass("bg-white");
+    $("#menu a").addClass("text-dark");
     $(".card").addClass("border-dark");
     $(".card-header").removeClass("bg-dark");
     $(".card-header").addClass("bg-secondary");
@@ -51,15 +51,18 @@ function SwitchLight() {
     $(".card-body").addClass("text-dark");
     $("#more").removeClass("text-light");
     $("#more").addClass("text-dark");
+    $(".tab-content").removeClass("bg-secondary");
+    $(".tab-content").addClass("bg-white");
+    $(".tab-content").removeClass("border-white");
 };
 
 function SwitchDark() {
     localStorage.setItem("theme", "dark");
     $("link[rel='stylesheet']")[1].href = "css/dark.css";
     $("label[for='ThemeSwitch']").html("おはよう");
-    $("nav").removeClass("bg-white");
-    $("nav").addClass("bg-dark");
-    $("nav a").removeClass("text-dark");
+    $("#menu").removeClass("bg-white");
+    $("#menu").addClass("bg-dark");
+    $("#menu a").removeClass("text-dark");
     $(".card-header").removeClass("bg-secondary");
     $(".card-header").addClass("bg-dark");
     $(".card-body").removeClass("bg-light");
@@ -68,6 +71,9 @@ function SwitchDark() {
     $(".card-body").addClass("text-light");
     $("#more").removeClass("text-dark");
     $("#more").addClass("text-light");
+    $(".tab-content").removeClass("bg-white");
+    $(".tab-content").addClass("bg-secondary");
+    $(".tab-content").addClass("border-white");
 };
 
 function ChangeTheme() {
