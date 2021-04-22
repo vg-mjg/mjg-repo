@@ -113,7 +113,7 @@ function Countdown(count_time) {
             $("#countdown").html("<br>It's time");
         }
     }
-}
+};
 
 function SoundAdvice() {
     var kaan = new Audio("audio/kaan.mp3");
