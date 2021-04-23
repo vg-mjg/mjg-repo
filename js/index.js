@@ -141,6 +141,9 @@ $(document).ready(function() {
         SwitchLight();
         $("#ThemeSwitch").prop('checked', true);
     }
+    if (localStorage.getItem("theme") == "dark"){
+        SwitchDark();
+    }
     PickImage();
 });
 
