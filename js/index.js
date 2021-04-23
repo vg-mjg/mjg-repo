@@ -135,9 +135,9 @@ $(document).ready(function() {
     */
     var countdown_interval = setInterval(Countdown, 1000);
     if (localStorage.getItem("theme") === null) {
-        localStorage.setItem("theme", "light");
+        localStorage.setItem("theme", "dark");
     };
-    if (localStorage.getItem("theme") == "dark") {
+    if (localStorage.getItem("theme") == "light") {
         SwitchLight();
         $("#ThemeSwitch").prop('checked', true);
     }
