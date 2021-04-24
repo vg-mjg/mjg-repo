@@ -1,3 +1,6 @@
+/* LIGHT.CSS - THE LIGHT STYLESHEET OF THE REPO */
+/*MAIN STYLES */
+
 body {
     background: url('../background/bglight.png') repeat black;
     font-family: Arial;
@@ -80,4 +83,56 @@ hr:after {
     right: 0px;
     bottom: 0px;
     width: 120px;
+}
+
+/* STYLES USED IN THE GUIDES */
+#guide {
+    color: #3A3A3A;
+    font-family: sans-serif;
+}
+
+#guide a:not(.navbar-brand) {
+    color: #6A9FB4;
+}
+
+#guide a:hover:not(.navbar-brand) {
+    color: #427A91;
+    text-decoration: none;
+}
+
+#guide blockquote {
+  margin-top: 5px;
+  margin-left: 1.5em;
+  margin-right: auto;
+  padding-left: 1em;
+  border-left: 5px solid #393939;
+}
+#guide blockquote:before {
+  display: none;
+}
+#guide blockquote:not(:first-of-type) {
+  margin-top: .5em;
+}
+
+#guide .navbar-brand {
+    color: black;
+}
+
+#guide blockquote footer {
+  margin-top: .5em;
+  padding: 0;
+  color: #232323;
+  font-size: 12pt;
+  text-align: left;
+  font-style: italic;
+}
+
+#guide .nav-link {
+  display: all;
+  padding: 0.1rem 0.5rem;
+}
+
+.text-info {
+    color: #1B4D56;
+    font-weight: bold;
 }
