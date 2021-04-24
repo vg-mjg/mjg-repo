@@ -59,7 +59,9 @@ $('.page').css('height', $(window).height());
   
   $navbara.click(function(e){
     //prevent the page from refreshing
-    e.preventDefault();
+    if ($(this).attr('href') != '../index.html') {
+        e.preventDefault();
+    }
     //set the top offset animation and speed
     $('html, body').animate({
       scrollTop: $($(this).attr('href')).offset().top
