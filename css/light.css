@@ -85,6 +85,12 @@ hr:after {
     width: 120px;
 }
 
+@media (min-width: 992px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
 /* STYLES USED IN THE GUIDES */
 #guide {
     color: #3A3A3A;
