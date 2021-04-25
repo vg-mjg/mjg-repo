@@ -1,3 +1,6 @@
+/* DARK.CSS - THE DARK STYLESHEET OF THE REPO */
+/*MAIN STYLES */
+
 body {
     background: url('../background/bgdark.png') repeat black;
     font-family: Arial;
@@ -79,4 +82,58 @@ hr:after {
     right: 0px;
     bottom: 0px;
     width: 120px;
+}
+
+@media (min-width: 992px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+/* STYLES USED IN THE GUIDES */
+#guide {
+    color: #D2D2D2;
+    font-family: sans-serif;
+}
+
+#guide a:not(.navbar-brand) {
+    color: #8dcfea;
+}
+
+#guide a:hover:not(.navbar-brand) {
+    color: #75B2CB;
+    text-decoration: none;
+}
+
+#guide blockquote {
+  margin-top: 5px;
+  margin-left: 1.5em;
+  margin-right: auto;
+  padding-left: 1em;
+  border-left: 5px solid #999;
+}
+#guide blockquote:before {
+  display: none;
+}
+#guide blockquote:not(:first-of-type) {
+  margin-top: .5em;
+}
+
+#guide blockquote footer {
+  margin-top: .5em;
+  padding: 0;
+  color: #777;
+  font-size: 12pt;
+  text-align: left;
+  font-style: italic;
+}
+
+#guide .nav-link {
+  display: all;
+  padding: 0.1rem 0.5rem;
+}
+
+.text-info {
+    color: #5CDCF3;
+    font-weight: bold;
 }
