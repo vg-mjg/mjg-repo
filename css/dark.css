@@ -9,6 +9,7 @@ body {
 
 a {
     color: #A3A3A3;
+    outline: 0;
 }
 a:hover {
     color: #7F7F7F;
@@ -36,6 +37,15 @@ hr:after {
     padding: 0 0.25em;
     background: none;
     color: red;
+}
+
+.spoiler {
+  background-color: black;
+  color: black;
+}
+.spoiler:hover {
+  color: white;
+  cursor: pointer;
 }
 
 #banner {
@@ -136,4 +146,40 @@ hr:after {
 .text-info {
     color: #5CDCF3;
     font-weight: bold;
+}
+
+/* STYLES USED IN LIBRARY(IES) */
+#library-header p {
+    margin-bottom: 0;
+}
+
+#side-menu {
+  background: #485058;
+  height: auto;
+}
+
+#side-menu a {
+  color: #EEEEEE;
+}
+
+#resources .active {
+  font-weight: bold;
+}
+
+.tab-pane h3 {
+  font-size: 48px;
+  text-align: center;
+}
+
+.table td {
+  font-size: 16px;
+}
+
+.table td a {
+  color: #8dcfea;
+}
+
+.table td a:hover {
+  color: #75B2CB;
+  text-decoration: none;
 }
