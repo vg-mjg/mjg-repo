@@ -52,8 +52,9 @@ function SwitchLight() {
     $("#more").removeClass("text-light");
     $("#more").addClass("text-dark");
     $(".tab-content").removeClass("bg-secondary");
-    $(".tab-content").addClass("bg-white");
+    $(".tab-content").addClass("bg-lightgrey");
     $(".tab-content").removeClass("border-white");
+    $(".tab-content").addClass("border-secondary");
 };
 
 function SwitchDark() {
@@ -71,8 +72,9 @@ function SwitchDark() {
     $(".card-body").addClass("text-light");
     $("#more").removeClass("text-dark");
     $("#more").addClass("text-light");
-    $(".tab-content").removeClass("bg-white");
+    $(".tab-content").removeClass("bg-lightgrey");
     $(".tab-content").addClass("bg-secondary");
+    $(".tab-content").removeClass("border-secondary");
     $(".tab-content").addClass("border-white");
 };
 
