@@ -43,6 +43,16 @@ function ChangeTheme() {
 };
 
 $(document).ready(function() {
+    // If people enter to see a specific tab this should show it
+    // Or fallback to the default tab
+    if (window.location.hash != "") {
+      var load_anchor = $(window.location.hash);
+      load_anchor.tab("show");
+      $('a[href$="'+window.location.hash+'"]').addClass("active");
+    } else {
+      $("#resources-game").tab("show");
+      $('a[href$="#resources-game"]').addClass("active");
+    }
     if (localStorage.getItem("theme") === null) {
         localStorage.setItem("theme", "dark");
     };
