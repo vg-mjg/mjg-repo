@@ -22,10 +22,18 @@
     'I do not believe I can tsumo, I know I will.',
     'The sanshoku, the itsuu, the toitoi. Each offers something the others don\'t. But the tanyao is eternal.',
     'Come play at Hime Mahjong!'
-
-
-
     ];
     var randomFact = Math.floor(Math.random() * facts.length);
     document.getElementById('factDisplay').innerHTML = facts[randomFact];
+  })();
+
+  (function newSugar() {
+    var facts = [
+    'Mao is best sugar style.',
+    'Kaname is best sugar style.',
+    'Ichika is best sugar style.',
+    'Hare is best sugar style.'
+    ];
+    var randomFact = Math.floor(Math.random() * facts.length);
+    document.getElementById('sugarDisplay').innerHTML = facts[randomFact];
   })();
