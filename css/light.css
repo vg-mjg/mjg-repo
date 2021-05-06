@@ -69,16 +69,6 @@ hr:after {
     color: #D2D2D2;
 }
 
-#news {
-    height: 250px;
-}
-
-.btn:focus, .btn.focus {
-    border: none;
-    outline: 0 !important;
-    box-shadow: none;
-}
-
 .tab-content p a {
     color: #2D2D2D;
 }
@@ -95,23 +85,6 @@ hr:after {
 
 .bg-lightgrey {
   background: #E0E0E0;
-}
-
-.sticky {
-    cursor: pointer;
-    position: fixed;
-    right: 0px;
-    bottom: 0px;
-    width: 120px;
-}
-
-@media (min-width: 992px) {
-    .dropdown-menu {
-      margin-top: 0;
-    }
-    .dropdown:hover .dropdown-menu {
-        display: block;
-    }
 }
 
 /* STYLES USED IN THE GUIDES */
@@ -167,10 +140,6 @@ hr:after {
 }
 
 /* STYLES USED IN LIBRARY(IES) */
-#library-header p {
-    margin-bottom: 0;
-}
-
 #side-menu {
   background: #333333;
   min-height: 100%;
@@ -178,19 +147,6 @@ hr:after {
 
 #side-menu a {
   color: #EEEEEE;
-}
-
-#resources .active {
-  font-weight: bold;
-}
-
-.tab-pane h3 {
-  font-size: 48px;
-  text-align: center;
-}
-
-.table td {
-  font-size: 16px;
 }
 
 .table td a {
