@@ -31,7 +31,10 @@
               <div id="side-menu" class="col-3 h-25 shadow-sm sticky-top">
                 <div class="nav flex-column" id="resources" role="tablist" aria-orientation="vertical">
                   <a class="nav-link" id="resources-game-tab" data-toggle="pill" href="#resources-game" role="tab" aria-controls="resources-game" aria-selected="true">Game Resources and Tools</a>
-                  <a class="nav-link" id="resources-strategy-tab" data-toggle="pill" href="#resources-strategy" role="tab" aria-controls="resources-strategy" aria-selected="false">Mahjong Strategy Guides and Books</a>                
+                  <a class="nav-link" id="resources-strategy-tab" data-toggle="pill" href="#resources-strategy" role="tab" aria-controls="resources-strategy" aria-selected="false">Mahjong Strategy Guides and Books</a>    
+                  
+                  <a class="nav-link" id="resources-toolz-tab" data-toggle="pill" href="#resources-toolz" role="tab" aria-controls="resources-toolz" aria-selected="false">Training Tools</a>
+                  
                   <a class="nav-link" id="resources-gguides-tab" data-toggle="pill" href="#resources-gguides" role="tab" aria-controls="resources-gguides" aria-selected="false">General Guides</a>
                   <a class="nav-link" id="resources-majplus-tab" data-toggle="pill" href="#resources-majplus" role="tab" aria-controls="resources-majplus" aria-selected="false">Majsoul Plus Mods</a>
                   <a class="nav-link" id="resources-media-tab" data-toggle="pill" href="#resources-media" role="tab" aria-controls="resources-media" aria-selected="false">Movies and Other Media</a>
@@ -300,17 +303,6 @@
                                               Python program to generate majsoul hands pictures. Forked and translated from <a href="https://github.com/Neutralization/majsoul-generator">here</a>. It also calculates the score using this site, so it actually needs an internet connection. You need python with pillow library to run it.
                                           </td>
                                           <td><a href="https://github.com/watterle/majsoul-generator">Github</a></td>
-                                      </tr>
-                                      <tr>
-                                          <th>Akochan Reviewer</th>
-                                          <td>Review your Tenhou and Majsoul log with mahjong AI akochan.</td>
-                                          <td>
-                                            <ul class="list-unstyled">
-                                              <li><a href="https://github.com/Equim-chan/akochan-reviewer">github</a></li>
-                                              <li><a href="https://akochan.ekyu.moe/">online version</a></li>
-                                              <li><a href="https://files.catbox.moe/adsc08.zip">Batch File</a> - all ready to go so you can try it out. Just run the review.bat (or review - json.bat for local json files) and paste in your log then it will output a webpage with your reviewed game.</li>
-                                            </ul>
-                                          </td>
                                       </tr>
                           </tbody>
                       </table>
@@ -681,6 +673,106 @@
                         </tbody>
                       </table>
                   </div>
+
+
+
+                  <!-- TRAINING TOOLS (SORRY IF I BREAK BOOTSTRAP) -->
+                  <div class="tab-pane fade" id="resources-toolz" role="tabpanel" aria-labelledby="resources-toolz-tab">
+                    <h3>Training Tools</h3>
+
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item"><a href="#effic">Efficiency</a></li>
+                        <li class="list-inline-item">/</li>
+                        <li class="list-inline-item"><a href="#skor">Scoring</a></li>
+                        <li class="list-inline-item">/</li>
+                        <li class="list-inline-item"><a href="#chinkt">Chinitsu Training</a></li>
+                      </ul>
+
+
+                    <table data-spy="scroll" class="table table-transparent table-bordered table-striped">
+                        <thead class="thead-dark text-center">
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Download</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody-light text-white">
+         
+                            <tr id="effic">
+                                <td id="subtitle" colspan="3" class="text-center border-bottom bg-secondary text-white font-weight-bold">Efficiency</td>
+                            </tr>
+                            <tr>
+                                <th>Efficiency trainer</th>
+                                <td><p>A simple app to help you work on your efficiency in discards. The app is simplistic and doesn't take a holistic view of the table. Rather, it merely measures how efficient your discard is by how many tiles it believes would improve your hand to tenpai, and nothing else. You have great efficiency if you can consistently score 95% or higher on this over several attempts.</p></td>
+                                <td><a href="https://euophrys.itch.io/mahjong-efficiency-trainer">site</a></td>
+                            </tr>
+                            <tr>
+                                <th>Akochan Reviewer</th>
+                                <td><p>Review your Tenhou and Majsoul log with mahjong AI akochan.</p></td>
+                                <td>
+                                    <ul class="list-unstyled">
+                                      <li><a href="https://github.com/Equim-chan/akochan-reviewer">github</a></li>
+                                      <li><a href="https://akochan.ekyu.moe/">online version</a></li>
+                                      <li><a href="https://files.catbox.moe/adsc08.zip">Batch File</a> - all ready to go so you can try it out. Just run the review.bat (or review - json.bat for local json files) and paste in your log then it will output a webpage with your reviewed game.</li>
+                                    </ul>
+                                  </td>
+                            </tr>
+                            <tr>
+                                <th>Hitori Mahjong Simulator </th>
+                                <td><p>Entirely in Japanese, but the blog has instructions. Taken from the pathofhouou blog: Hitori Mahjong Simulator is a useful tool for getting statistics about the expected value or speed of a hand. It has some limitations, for example not considering calls, but you can still get good stuff out of it.</p></td>
+                                <td>
+                                    <ul class="list-unstyled">
+                                        <li><a href="https://pathofhouou.blogspot.com/2019/05/training-tool-hitori-mahjong-simulator.html">site</a></li>
+                                        <li><a href="http://kobalab.net/majiang/dapai.html#m123p1234789s338s8/0/0/s3">online version</a></li>
+                                        <li><a href="https://i.imgur.com/onod7Lu.jpg">Translation</a> / <a href="https://pastebin.com/KZVHjSES">instructions for inputting a hand</a></li>
+                                      </ul>
+                                </td>
+                            </tr>
+
+                            <tr id="skor">
+                                <td id="subtitle" colspan="3" class="text-center border-bottom bg-secondary text-white font-weight-bold">Scoring</td>
+                            </tr>
+                            <tr>
+                                <th>Riichi Scores Trainer</th>
+                                <td><p>Looks pretty but accordingly has some issues and shouldn't be trusted blindly.</p></td>
+                                <td><a href="https://mahjong.horneds.com/">site</a></td>
+                            </tr>
+                            <tr>
+                                <th>Maru-Jan Score Trainer</th>
+                                <td><p>A more interactive way to learn scoring. The software in in Japanese and it only works for Windows, but the guide is very thorough in teaching you how to set it up.</p></td>
+                                <td><a href="https://pathofhouou.blogspot.com/2019/05/training-tool-maru-jan-score-trainer.html">site</a></td>
+                            </tr>
+                            <tr>
+                                <th>Jan-Training</th>
+                                <td><p>This one's entirely in Jap, but it's a good resource</p><p>First one indicates riichi (立直), second either tsumo (ツモ) or ron (ロン), next the dora indicator tile (ドラ表示牌), and the last shows the uradora indicator tile (裏ドラ表示牌). なし means none. From there just choose from the dropdown answers below.</p></td>
+                                <td><a href="https://jan-training.com/">site</a></td>
+                            </tr>
+
+                            <tr id="chinkt">
+                                <td id="subtitle" colspan="3" class="text-center border-bottom bg-secondary text-white font-weight-bold">Chinitsu Training</td>
+                            </tr>
+                            <tr>
+                                <th>Bamboo</th>
+                                <td><p>This is a single-suit variant. This will give your brain a very intense workout. Definitely not recommended for beginners still learning the game, but included for advanced players looking to become better.</p><p>BUT FLASH IS DEAD, AND SO IS THIS ;_;</p></td>
+                                <td><a href="http://www.gamedesign.jp/flash/bamboo/bamboo.html">site</a></td>
+                            </tr>
+                            <tr>
+                                <th>Chinitsu Wait Trainer</th>
+                                <td><p>Similar to Bamboo listed above, but the page is entirely in Japanese. Just follow the guide written by an anon below and you'll be fine.</p><p>Blue button generates new hand and orange button shows answers. Top left determines number of tiles: either 7, 10, or 13. Below that is sorted or unsorted (sorted by default). Top right determines the suit (manzu by default)</p></td>
+                                <td><a href="https://mahjong.org/training/training_002/">site</a></td>
+                            </tr>
+                             
+                              
+                          </tr>
+                        </tbody>
+                    </table>
+
+                  </div>
+
+
+
+
                   <div class="tab-pane fade" id="resources-gguides" role="tabpanel" aria-labelledby="resources-gguides-tab">
                       <!-- GENERAL GUIDES -->
                       <h3>General Guides</h3>

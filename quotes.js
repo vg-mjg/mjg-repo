@@ -19,9 +19,9 @@
     'I calculate every move with probability, and if it comes to math, I\'m not going to lose to a bunch of otaku playing mahjong because they watched an anime series.',
     'If there is ever a single shadow of doubt, you will deal in and you will die',
     'There may be a hundred complex shapes and waits, but you win with just one.',
-    'If my opponent breathes on one, draws on two, and discards on three, then I aim to ron between two and three. Know your opponent’s rhythm and ron when he cannot.',
     'I do not believe I can tsumo, I know I will.',
-    'The shanshoku, the itsuu, the toitoi. Each offers something the others don\'t. But the tanyao is eternal.'
+    'The shanshoku, the itsuu, the toitoi. Each offers something the others don\'t. But the tanyao is eternal.',
+    'Come play at Hime Mahjong!'
 
 
 
