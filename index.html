@@ -8,6 +8,18 @@
 
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
+        
+        <!-- Why does the entire page break when I link a css file to the index page? I just don't know.-->
+        <style>
+          #factDisplay{
+            color: white;
+	text-shadow: -1px 1px 2px #000,
+		      		  1px 1px 2px #000,
+				        1px -1px 0 #000,
+				        -1px -1px 0 #000;
+          }
+        </style>
+        
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
         <link rel="stylesheet" href="css/light.css">
@@ -31,7 +43,10 @@
                 <audio controls>
                     <source src="audio/dorma.mp3" type="audio/mp3">
                 </audio>
-                <p>Do not sleep into that all last</p>
+                <!-- Random Quotes -->
+                
+                <div id="factDisplay"></div>
+
                 <h1>/mjg/ Repository</h1>
                 <p>a repository of mahjong stuff from the <a href="https://boards.4channel.org/vg/catalog#s=mjg">/mjg/</a> threads</p>
                 <form action="https://search.freefind.com/find.html" method="get" accept-charset="utf-8" target="_self">
@@ -72,7 +87,7 @@
                   Library of Resources
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="library.html#resources-game">Game Resources and Tools</a>
+                  <a class="dropdown-item" href="library.html#resources-game">Game Resources/Tools</a>
                   <a class="dropdown-item" href="library.html#resources-strategy">Mahjong Strategy Guides and Books</a>
                   <a class="dropdown-item" href="library.html#resources-gguides">General Guides</a>
                   <a class="dropdown-item" href="library.html#resources-majplus">Majsoul Plus Mods</a>
@@ -88,6 +103,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href="https://mjg.booru.org/index.php">/mjg/ Booru</a>
+                  <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="ocs.html#comic-series">Comic Series</a>
                   <a class="dropdown-item" href="ocs.html#oneshots-and-shorts">One Shots and Shorts</a>
                   <a class="dropdown-item" href="ocs.html#video">Videos</a>
@@ -102,12 +118,13 @@
                   /mjg/ Tourneys
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="https://riichi.moe/" target="_blank">Standings site</a>
+                  <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="tourneys.html#vidya">/v/idya Mahjong Tourneys</a>
                   <a class="dropdown-item" href="tourneys.html#league">/mjg/ League</a>
                   <a class="dropdown-item" href="tourneys.html#team">Team Tourneys</a>
                   <a class="dropdown-item" href="tourneys.html#doubles">Double Tourneys</a>
                   <a class="dropdown-item" href="tourneys.html#others">Others</a>
-                  <a class="dropdown-item" href="https://riichi.moe/" target="_blank">Standings site</a>
                 </div>
               </li>
             </ul>
@@ -486,5 +503,6 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
         <script src="js/index.js"></script>
+        <script src="quotes.js"></script>
     </body>
 </html>
