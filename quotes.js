@@ -1,7 +1,7 @@
 (function newFact() {
     var facts = [
-    'Do not sleep into that all last', 
-    'UH, ALL THE CAT PEOPLE OR NYAGGERS AS I LIKE TO CALL THEM, GET OFF THIS COMMUNITY BECAUSE ITS FOR CLOSED HANDS ONLY, UNDERSTAND, CAUSE IF YOU DON\'T I WILL MAKE CAT PEOPLE PETS AGAIN!!!', 
+    'Do not sleep into that all last',
+    'UH, ALL THE CAT PEOPLE OR NYAGGERS AS I LIKE TO CALL THEM, GET OFF THIS COMMUNITY BECAUSE ITS FOR CLOSED HANDS ONLY, UNDERSTAND, CAUSE IF YOU DON\'T I WILL MAKE CAT PEOPLE PETS AGAIN!!!',
     'No matter how big your hand is, death will end it all.',
     'Fuck hats.',
     'did you know that even with 50000 points people lose all the time in mahjong? i thought that was interesting',
@@ -20,7 +20,7 @@
     'If there is ever a single shadow of doubt, you will deal in and you will die',
     'There may be a hundred complex shapes and waits, but you win with just one.',
     'I do not believe I can tsumo, I know I will.',
-    'The shanshoku, the itsuu, the toitoi. Each offers something the others don\'t. But the tanyao is eternal.',
+    'The sanshoku, the itsuu, the toitoi. Each offers something the others don\'t. But the tanyao is eternal.',
     'Come play at Hime Mahjong!'
 
 
