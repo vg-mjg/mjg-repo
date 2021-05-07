@@ -50,8 +50,9 @@ $(document).ready(function() {
       load_anchor.tab("show");
       $('a[href$="'+window.location.hash+'"]').addClass("active");
     } else {
-      $("#resources-game").tab("show");
-      $('a[href$="#resources-game"]').addClass("active");
+      // This will always pick the first active tab of the side-menu
+      $("#side-menu a:first").tab("show");
+      $("#side-menu a:first").addClass("active");
     }
     if (localStorage.getItem("theme") === null) {
         localStorage.setItem("theme", "dark");
