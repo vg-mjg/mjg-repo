@@ -14,5 +14,3 @@ If you want your own article, you found something mahjong related, you made some
 
 \>noooo you have to put it in the issues\
 these aren't issues these are DREAMS
-
-test
