@@ -51,6 +51,11 @@
     display: none;
 }
 
+.back-to-top img {
+  width: 70px;
+  height: 70px;
+}
+
 /* STYLES USED IN LIBRARY(ES) */
 #library-header p {
     margin-bottom: 0;
