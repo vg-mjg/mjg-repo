@@ -1,666 +1,636 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Tourneys</title>
 
-<head>
-    <title>Tourneys</title>
-    <link href="style_lib.css" rel="stylesheet" type="text/css">
-    <script src="darkie.js"></script>
-    <link href="darkbutton.css" rel="stylesheet" type="text/css">
+        <!-- Bootstrap CSS -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/light.css">
+        <link rel="stylesheet" href="/css/general.css">
+    </head>
+    <body>
 
-    <script>
-        function scrollToTop() {
-            window.scrollTo(0, 0);
-        }
-    </script>
-
-</head>
-
-<body>
-
-
-    <center>
-        <strong><span style="font-size: 2.5rem;">Tourneys</span></strong><br>
-        <small><em>"I wanna be the very best, that no one ever was."</em></small><br>
-        <a href="index.html">Back to Home</a><br><br>
-    </center>
-    <div class="theme-switch-wrapper">
-        <label class="theme-switch" for="checkbox">
-            <input type="checkbox" id="checkbox" />
-            <div class="slider round"></div>
-        </label>
-        &nbsp;おはよう
-    </div>
-    <hr>
-
-
-    <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'vmt');scrollToTop()" id="tvmt">/v/idya Mahjong Tourneys</button>
-        <button class="tablinks" onclick="openCity(event, 'ml');scrollToTop()" id="tml">/mjg/ League</button>
-        <button class="tablinks" onclick="openCity(event, 'tt');scrollToTop()" id="ttt">Team Tourneys</button>
-        <button class="tablinks" onclick="openCity(event, 'dt');scrollToTop()" id="tdt">Doubles Tourney</button>
-        <button class="tablinks" onclick="openCity(event, 'oth');scrollToTop()" id="toth">Others</button>
-    </div>
-
-
-    <!--
-    ###########################################################################
-    Tourneys Page not that long
-    ###########################################################################
-    TABLE OF CONTENTS (ctrl + f to jump to that section)
-    /v/idya Mahjong Tourneys
-        VMT 2020
-        VMT 2019
-    /mjg/ League
-    Team Tourneys
-    Doubles Tourney
-    Others
- -->
-    <!-- this is the fucking worst solution for 2 columns with one div with position fixed. kill me. -->
-    <div class="row">
-        <div class="column left">
-            &nbsp;
+        <div id="library-header" class="container-fluid border-bottom text-center mt-2">
+            <h1 class="pt-1">Tourneys</h1>
+            <small class="font-italic">"I wanna be the very best, that no one ever was."</small>
+            <p><a href="/index.html">Back to Home</a></p>
+            <div class="row text-left">
+                <div class="custom-control custom-switch align-bottom">
+                  <input type="checkbox" class="custom-control-input" id="ThemeSwitch">
+                  <label class="custom-control-label" for="ThemeSwitch">おはよう</label>
+                </div>
+            </div>
         </div>
 
+        <!--
+           ###########################################################################
+           Tourneys Page not that long
+           ###########################################################################
+           TABLE OF CONTENTS (ctrl + f to jump to that section)
+           /v/idya Mahjong Tourneys
+               VMT 2020
+               VMT 2019
+           /mjg/ League
+           Team Tourneys
+           Doubles Tourney
+           Others
+        -->
 
-        <div class="column right">
-            <!--
-    ###########################################################################
-    /v/idya Mahjong Tourneys
-    ###########################################################################
- -->
-            <div id="vmt" class="tabcontent">
-                <h3>/v/idya Mahjong Tourneys</h3>
-                <table id="tourtable">
+
+        <div id="library-body" class="container-fluid mt-2 mb-5">
+            <div class="row">
+              <div id="side-menu" class="col-3 h-25 shadow-sm sticky-top">
+                <div class="nav flex-column" id="tourneys" role="tablist" aria-orientation="vertical">
+                  <a class="nav-link" id="tourneys-vidya-tab" data-toggle="pill" href="#tourneys-vidya" role="tab" aria-controls="tourneys-vidya" aria-selected="true">/v/idya Mahjong Tourneys</a>
+                  <a class="nav-link" id="tourneys-mjg-tab" data-toggle="pill" href="#tourneys-mjg" role="tab" aria-controls="tourneys-mjg" aria-selected="false">/mjg/ League</a>
+                  <a class="nav-link" id="tourneys-team-tab" data-toggle="pill" href="#tourneys-team" role="tab" aria-controls="tourneys-team" aria-selected="false">Team Tourneys</a>
+
+                  <a class="nav-link" id="tourneys-doubles-tab" data-toggle="pill" href="#tourneys-doubles" role="tab" aria-controls="tourneys-doubles" aria-selected="false">Doubles Tourney</a>
+                  <a class="nav-link" id="tourneys-others-tab" data-toggle="pill" href="#tourneys-others" role="tab" aria-controls="tourneys-others" aria-selected="false">Others</a>
+                </div>
+              </div>
+
+              <div class="col-9">
+                <div class="tab-content bg-transparent" id="tourneysContent">
+                  <div class="tab-pane fade show" id="tourneys-vidya" role="tabpanel" aria-labelledby="tourneys-vidya-tab">
+                    <h3>/v/idya Mahjong Tourneys</h3>
+
+                    <table data-spy="scroll" class="table table-transparent table-bordered table-striped">
+                      <thead class="thead-dark text-center">
+                          <tr>
+                              <th>Tourney</th>
+                              <th>Info</th>
+                              <th>Winner</th>
+                          </tr>
+                      </thead>
+                      <tbody class="tbody-light text-white">
+                        <!-- /v/idya Mahjong Tourneys -->
+                        <!-- VMT 2021 -->
+                        <tr id="2021">
+                            <td id="subtitle" colspan="3" class="text-center border-bottom bg-secondary text-white font-weight-bold"><h4>2021</h4></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>14th /V/idya Riichi Mahjong Tournament </h4>
+                                <p>WE ARE LEGION EDITION</p>
+                            </th>
+                            <td>
+                                <p><strong>Held On</strong></p>
+                                <p><strong>Qualifiers</strong><br>
+                                    <small>‣ </small>20th March, 2021<br>
+                                    <strong>Semifinals</strong><br>
+                                    <small>‣ </small>26th-27th March, 2021 <br>
+                                    <strong>Grand Finals</strong> <br>
+                                    <small>‣ </small>3rd April, 2021</p>
+                                <p><a href="https://www.youtube.com/watch?v=H6ldbTxIBYI&list=PLFTCycYVFIwys6szGoS4xE5vcECcqHb1U"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
+                                    <a href="https://docs.google.com/document/d/1cVCPRWdcfTS5GkKNiPkX87XzP9cIYXTGzGOgiczJxY8"><strong>Full Details PDF</strong></a></p>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>HustlerOne</p>
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                <h4>13th /V/idya Riichi Mahjong Tournament </h4>
+                                <p>PEASANT ULTRA INSTINCT EDITION</p>
+                                <!--<p><img src="banners/nofunhag.jpg" alt=""/></p>-->
+                            </th>
+                            <td>
+                                <p><strong>Held On</strong></p>
+                                <p><strong>Qualifiers</strong><br>
+                                    <small>‣ </small>15th-18th January, 2021<br>
+                                    <strong>Semifinals</strong><br>
+                                    <small>‣ </small>16th January, 2021 <br>
+                                    <strong>Grand Finals</strong> <br>
+                                    <small>‣ </small>17th January, 2021</p>
+                                <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwzz8y62uRiVdi2lnmWzEjB3"><strong>WATCH THE FULL ACTION HERE<br>
+                                        </strong></a><a href="https://docs.google.com/document/d/1XJC4qFlPhFDoFg6PamxOu09X1qDrTWmZflOy0xgCU0c"><strong>Full Details PDF</strong></a></p>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>Waifu</p>
+                            </th>
+                        </tr>
+                        <!-- VMT 2020 -->
+                        <tr id="2020">
+                            <td id="subtitle" colspan="3" class="text-center border-bottom bg-secondary text-white font-weight-bold"><h4>2020</h4></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>12th /V/idya Riichi Mahjong Tournament </h4>
+                                <p>Perfectly normal edition</p>
+                                <!--<p><img src="banners/nofunhag.jpg" alt=""/></p>-->
+                            </th>
+                            <td>
+                                <p><strong>Held On</strong></p>
+                                <p><strong>Qualifiers</strong><br>
+                                    <small>‣ </small>16th-18th October, 2020<br>
+                                    <strong>Quarterfinals (round of 24)<br>
+                                    </strong><small>‣ </small>, 2020<br>
+                                    <strong>Semifinals</strong><br>
+                                    <small>‣ </small>23rd October, 2020 <br>
+                                    <strong>Grand Finals</strong> <br>
+                                    <small>‣ </small>24th October, 2020</p>
+                                <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwyld9HsBl1n1iQ-aWWuhrOA"><strong>WATCH THE FULL ACTION HERE<br>
+                                        </strong></a><a href="https://docs.google.com/document/d/1eZeJc0OM6XYR8MZ3Kxa4PbTuSbXCctR_HmG5g2RJOZg"><strong>Full Details PDF</strong></a></p>
+                                <p><a href="https://docs.google.com/spreadsheets/d/1xvVHCisuFdlxOzRcwMFVxqoBorkfuV4YXwENxv8B9XA">Qualifier/Finals Leaderboards (excel file)</a></p><br>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>生意気な猫</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>11th /V/idya Riichi Mahjong Tournament </h4>
+                                <p>NO FUN ALLOWED edition</p>
+                                <p><img src="banners/nofunhag.jpg" alt="" /></p>
+                            </th>
+                            <td>
+                                <p><strong>Held On</strong></p>
+                                <p><strong>Qualifiers</strong><br>
+                                    <small>‣ </small>29th July-2nd of August, 2020<br>
+                                    <strong>Quarterfinals (round of 24)<br>
+                                    </strong><small>‣ </small>6th of August, 2020<br>
+                                    <strong>Semifinals</strong><br>
+                                    <small>‣ </small>15th of August, 2020 <br>
+                                    <strong>Grand Finals</strong> <br>
+                                    <small>‣ </small>16th of August, 2020</p>
+                                <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwwtX8pPoj-Ny4D1rrxrCLVd"><strong>WATCH THE FULL ACTION HERE<br>
+                                        </strong></a><a href="https://docs.google.com/document/d/1T8r-ZK7eW54Kio9kltZ_ebwKMizTNe7VPYu0ELP0Zks/edit"><strong>Full Details PDF</strong></a></p>
+                                <p><a href="https://docs.google.com/spreadsheets/d/13C5gq2Duf82M1UUX76cUhAjlyL_ogzNkgQjqMbF6TRs/edit#gid=0">Qualifier/Finals Leaderboards (excel file)</a><br>
+                                    <a href="https://docs.google.com/spreadsheets/d/1k_NHh37qPwZiuVylrCECu71hIFMY2xeVYSBQ6njz88E/edit#gid=0">RO24/RO12/FINALS (excel file)</a></p>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>guano</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>Great 10th /V/idya Riichi Mahjong Tournament </h4>
+                                <p>“Oh Shit it’s Been One Year Already” edition</p>
+                                <p><img src="banners/10tour.png" class="img-fluid" alt="" /></p>
+                            </th>
+                            <td>
+                                <p><strong>Held On</strong></p>
+                                <p><strong>Qualifiers</strong><br>
+                                    <small>‣ </small>10th-19th of April, 2020<br>
+                                    <strong>Quarterfinals (round of 16)<br>
+                                    </strong><small>‣ </small>24th of April (Friday): 16:00, 19:00 UTC<br>
+                                    <small>‣ </small>25th of April (Saturday): 16:00, 19:00 UTC<br>
+                                    <strong>Semifinals</strong><br>
+                                    <small>‣ </small>Friday, 1st of May 17:00, 20:00 UTC <br>
+                                    <strong>Grand Finals</strong> <br>
+                                    <small>‣ </small>Saturday, 2nd of May 19:00 UTC</p>
+                                <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwz0vyU2C1kMk2CCaMBadZKq"><strong>WATCH THE FULL ACTION HERE<br>
+                                        </strong></a><a href="https://files.catbox.moe/hdgwry.pdf"><strong>Full Details PDF</strong></a></p>
+                                <p><a href="https://docs.google.com/spreadsheets/d/1xh0_gt6Xoq4JPcOfBuAFGdbFZOM7MevxP4dk98J3UZg/edit#gid=1702123968">Qualifier/Finals Leaderboards (excel file)</a></p>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>EIGAMMA</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>9th /v/idya Secret Mahjong Tourney</h4>
+                                <p><img src="banners/secret.png" class="img-fluid" alt="" /></p>
+                                <p>The horrors of this day will forever live on in our hearts</p>
+                            </th>
+                            <td>
+                                <p><strong>Held On</strong></p>
+                                <small>‣ April 1, 2020</small>
+                                <p><strong><a href="https://youtu.be/yg224FKBSNs">WATCH THE FULL ACTION HERE<br>
+                                        </a></strong><strong><a href="https://drive.google.com/file/d/1rQiX5AEgdhgyJndXvgIcIuxhsosNJHr8/view?usp=drivesdk">Results Spreadsheet</a></strong></p>
+                                <p><a href="https://files.catbox.moe/91m7qp.png"><strong>Intro</strong></a><br>
+                                    <strong><a href="https://files.catbox.moe/ndw67m.png">R1,</a></strong> <strong><a href="https://files.catbox.moe/d2c85p.png">R2, </a></strong>
+                                    <strong><a href="https://files.catbox.moe/k99b8e.png">R3 <br>
+                                            Final Round </a></strong><br>
+                                </p>
+                                <p><a href="https://mega.nz/#!IVZS2AiK!UTkIM_RfvlfgTXuHQKmompdlNMFdMrWnVpn1SFjIGNU"><strong>Cursed Majsoul+ Setup<br>
+                                        </strong></a><small>(Need <a href="pastebin/Majsoul-Plus-Guide.html">Majsoul+</a>. in options, set the region to America. Launch the game. After launching the client, go into %appdata% and replace "static" folder in MJS+ directory )</small><br>
+                                </p>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>Nuxoz</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>8th /v/idya Mahjong Tourney</h4>
+                                <p>Second Gear Edition</p>
+                                <p><img src="sections/tourney banner/8th_vdya_maajan.png" class="img-fluid" alt="" /></p>
+                            </th>
+                            <td>
+                                <p><strong>Held On</strong></p>
+                                <small>‣ 7th of February, 0:01 UTC - 9th of February 2020, 23:59 UTC (Friday-Sunday)<br>
+                                    ‣ February 16th <strong>15:00 UTC</strong> on Sunday</small>
+                                <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwz4oZweQZPPb57ofDrmqaII&disable_polymer=1"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
+                                    <a href="https://files.catbox.moe/pmjgmd.pdf"><strong>Full Details PDF</strong></a></p>
+                                <p><a href="https://docs.google.com/spreadsheets/d/1uorRm25RtWUtYDJL0xI7Rnu8rksB9Pa5a1BzlRwxLoI/edit#gid=0">Qualifier/Finals Leaderboards (excel file)</a></p>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>Doraneko</p>
+                            </th>
+                        </tr>
+                        <!-- VMT 2019 -->
+                        <tr id="2019">
+                            <td id="subtitle" colspan="3" class="text-center border-bottom bg-secondary text-white font-weight-bold"><h4>2019</h4></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>7th /v/idya Mahjong Tourney</h4>
+                                <p>咲さんかわいい Edition</p>
+                                <p><img src="sections/tourney banner/7th_vdya_maajan.png" class="img-fluid" alt="" /></p>
+                            </th>
+                            <td>
+                                <p><strong>Held On</strong></p>
+                                <p class="smaller">‣ Friday 13th 0:01 UTC - Sunday 15th 23:59 UTC December<br>
+                                    ‣ 12:00 UTC 21st of December 2019</p>
+                                <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwy0LDliGoawVmzUXFEapUOO"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
+                                    <a href="https://files.catbox.moe/n1masb.pdf"><strong>Full Details PDF</strong></a></p>
+                                <p><a href="https://files.catbox.moe/a6t7gv.pdf">Preliminaries score table</a></p>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>UNIVERSE</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>6th /v/idya Mysterious Riichi Mahjong Tournament</h4>
+                                <p>Secretly Omnious Riddle Edition</p>
+                                <p><img src="sections/tourney banner/6th_vdya_maajan.png" class="img-fluid" alt="" /></p>
+                            </th>
+                            <td>
+                                <p><strong>Held On</strong></p>
+                                <p class="smaller">‣ Saturday, 26th of October 2019</p>
+                                <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwzB3TtYCrw5bANpRxL4nLvK"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
+                                    <a href="https://files.catbox.moe/ryn51g.pdf"><strong>Full Details PDF</strong></a></p>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>ZZZ</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>5th /v/idya Mahjong Tourney</h4>
+                                <p>SOA EDITION</p>
+                            </th>
+                            <td>
+                                <p><strong>Held On</strong></p>
+                                <p class="smaller">‣ 28th of September (Saturday), 16:00 UTC<br>
+                                    ‣ 29th of September 2019 (Sunday), 15:00 UTC</p>
+                                <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwx_Wi4f8ybb0_mWzFUGUY_m"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
+                                    <a href="https://files.catbox.moe/hzvwij.pdf"><strong>Full Details PDF</strong></a></p>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>Sjaalman</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>4th /v/idya Mahjong Tourney</h4>
+                                <p>Pinfu is the foundation of mahjong Edition</p>
+                            </th>
+                            <td>
+                                <p><strong>Held On</strong></p>
+                                <p class="smaller">‣ 23rd of August 2019, at 8 PM GMT<br>
+                                    ‣ 24th of August at 8 PM GMT</p>
+                                <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwynWwR4WWs9MoTxk8r3wGRS"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
+                                    <a href="https://files.catbox.moe/lx9m4e.pdf"><strong>Full Details PDF</strong></a></p>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>CrazyWafel</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>3rd /v/idya Mahjong Tourney</h4>
+                                <p>Magical Sands Edition</p>
+                            </th>
+                            <td>
+                                <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwxE2FZSbbVttPgou7XEQbeY"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
+                                    <a href="https://files.catbox.moe/h9wwdy.pdf"><strong>Full Details PDF</strong></a></p>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>Nuxoz</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>2nd /v/idya Mahjong Tourney</h4>
+                                <p>Intermediate Player's Hole Edition</p>
+                            </th>
+                            <td>
+                                <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwyCe43pQS7WH7DgauwU4s57"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
+                                    <a href="https://files.catbox.moe/bjwyga.pdf"><strong>Full Details PDF</strong></a></p>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>Skor</p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>1st /v/idya Mahjong Tourney</h4>
+                                <p>Yakuman /v/irgins edition</p>
+                            </th>
+                            <td><strong><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwxItuyfBmy6C7E9GkhnsaPn&disable_polymer=1">WATCH THE FULL ACTION HERE</a></strong></td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>Sjaalman</p>
+                            </th>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="tab-pane fade show" id="tourneys-mjg" role="tabpanel" aria-labelledby="tourneys-mjg-tab">
+                    <h3>/mjg/ League</h3>
+
+                    <table data-spy="scroll" class="table table-transparent table-bordered table-striped">
+                      <thead class="thead-dark text-center">
+                          <tr>
+                              <th>League</th>
+                              <th>Info</th>
+                              <th>Winner</th>
+                          </tr>
+                      </thead>
+                      <tbody class="tbody-light text-white">
+                        <!-- /mjg/ League -->
+                        <tr>
+                            <th>
+                                <h4>1st /mjg/ League</h4>
+                                <p><img src="banners/hatreg.png" class="img-fluid" alt="" /></p>
+                            </th>
+                            <td>
+                                <p><strong>Held On</strong></p>
+                                <small>‣ May 26 - June 28, 2020</small>
+                                <p><a href="https://docs.google.com/spreadsheets/d/1F8aIK0EnliSrV3ME_DNtTzfHi488THMx-m5vhO2lPSk/edit#gid=118530533"><strong>League Spreadsheet</strong></a><br>
+                                    <a href="http://riichi.moe/"><strong>League Site</strong></a><a href="https://files.catbox.moe/ab4kka.pdf"></a></p>
+                                <p><a href="https://www.youtube.com/playlist?list=PLG0rI7wy5Ub-4DoNaa9cw8FgJvkA-QwKV&feature=share">League Intro and OC videos</a><br>
+                                    <a href="https://docs.google.com/spreadsheets/d/1JBWQcUfNnBgv1ZCv_e-2MU-QSb1JQBeIhrAJ5z2l2Vk/edit#gid=1957981765">Individual Ranking</a></p>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>Fate/Stay Noten<br>
+                                    <small>(ZZZ, astolfodck, Sticky, trash, Bodoque, Nasu)</small></p>
+                            </th>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+
+                <div class="tab-pane fade show" id="tourneys-team" role="tabpanel" aria-labelledby="tourneys-team-tab">
+                  <h3>Team tourneys</h3>
+
+                  <table data-spy="scroll" class="table table-transparent table-bordered table-striped">
+                    <thead class="thead-dark text-center">
+                        <tr>
+                            <th>Tourney</th>
+                            <th>Info</th>
+                            <th>Winner</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody-light text-white">
+                        <!-- Team Tourneys -->
+                        <tr>
+                            <th>
+                                <h4>2nd /mjg/ Saki tourney </h4>
+                                <p><img src="banners/events/lesbian.png" class="img-fluid" alt="" /></p>
+                            </th>
+                            <td>
+                                <p> <strong>Held On</strong></p>
+                                <small>‣ 27th of February, 2021<br></small>
+                                <p><strong><a href="https://docs.google.com/spreadsheets/d/1HWQ04My4s48JYI36-UtsL15YvAbfeuNbodZEInMBZVo/edit#gid=0">Full PDF</a></strong><br>
+                                </p>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>Kiyosumi High School</p>
+                                <p><small>(Patriarkatet, snacks, rigged, ExelionBuster, sand_witch)</small></p>
+                            </th>
+
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>Saki collab celebration tourney </h4>
+                                <p><img src="banners/events/lesbian.png" class="img-fluid" alt="" /></p>
+                            </th>
+                            <td>
+                                <p> <strong>Held On</strong></p>
+                                <small>‣ 11th-13th of December, 2020<br>
+                                    ‣ 18th-20th December, 2020</small>
+                                <p><strong><a href="https://www.youtube.com/watch?v=eMmd6WN0y1c&feature=youtu.be">WATCH THE FULL ACTION HERE</a></strong><br></p>
+                                <p><strong><a href="https://www.twitch.tv/videos/843427978">WATCH THE FULL ACTION HERE pt2</a></strong><br>
+                                    <a href="https://docs.google.com/document/d/1w1KJnFN_TZXnKHb0mwo6OWqC57wHlhUz12H7n-T2CZg/edit"><strong>Full Details PDF</strong></a>
+                                </p>
+                                <p><a href="https://docs.google.com/spreadsheets/d/1lI3bAa6J02sL4UGSf570IzaNgVSqMW9GsCzxF-TLqoE/edit#gid=1838723269">Qualifiers/Finals Leaderboard (excel file)</a></p>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>Kiyosumi High School</p>
+                                <p><small>(amegumo, snacks, meido, Patriarkatet, B_Reveler)</small></p>
+                            </th>
+                        </tr>
+
+
+                        <tr>
+                            <th>
+                                <h4>4th Special 4chan Mahjong Soul Team Invitational Showdown</h4>
+                                <p>RETRO-FUTURE PLATFORM RACE EDITION</p>
+                                <p><img src="banners/events/tt4.jpg" class="img-fluid" alt="" /></p>
+                            </th>
+                            <td>
+                                <p> <strong>Held On</strong></p>
+                                <p class="smaller">‣ 19th-20th of September, 2020<br>
+                                    ‣ Saturday, 26th September, 2020</p>
+                                <p><strong><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwxRTfHl9JVHjMU3v3xMvBLP">WATCH THE FULL ACTION HERE</a></strong><br>
+                                    <a href="https://docs.google.com/document/d/1bow_1Ir6LanzqGjO4QwCsec1MwdTYDJJK6Ahvlg9_z8/edit"><strong>Full Details PDF</strong></a>
+                                </p>
+                                <p><a href="https://docs.google.com/spreadsheets/d/1Kd_RGDpkCR1JOFvtonY6kLM2BHC-_UX88M48oHbrbA0">Qualifiers/Finals Leaderboard (excel file)</a></p>
+                                <p><a href="https://mega.nz/file/0MxCzDAL#_xt8zQG9SEgUMYO0BuaFN4VSDCeqkd6F4KlT84gHDto">Download Assets</a></p>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>Team Noname</p>
+                                <p><small>(UNIVERSE, crackhead, 真実の魔女, sand_witch, Sjaalman)</small></p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>3rd Special 4chan Mahjong Soul Team Invitational Showdown</h4>
+                                <p>SECOND COLD WAR EDITION</p>
+                                <p><img src="banners/team tourney 3rd.png" class="img-fluid" alt="" /></p>
+                            </th>
+                            <td>
+                                <p> <strong>Held On</strong></p>
+                                <p class="smaller">‣ 6th-8th of March, 1980 <span class="spoiler">2019</span> - 12:00 UTC<br>
+                                    ‣ Sunday, 15th March, 1980 Tourney Lobby: 965440 </p>
+                                <p><strong><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwwF7eRLCN2zd_OAaw3ucvOK">WATCH THE FULL ACTION HERE</a></strong><br>
+                                    <a href="https://files.catbox.moe/bfm09t.pdf"><strong>Full Details PDF</strong></a><a href="https://files.catbox.moe/bfm09t.pdf"><strong><br>
+                                        </strong></a></p>
+                                <p><a href="https://docs.google.com/spreadsheets/d/1frqVfltsKgI1qGLa7YSJ4en8RoL4WKtXr9_-xyJQoh8/edit#gid=2076882235">Qualifiers/Finals Leaderboard (excel file)</a></p>
+                                <p><a href="https://drive.google.com/drive/folders/1wvn3fFLN29vfUuEuStWROrGZeneiCUcm">Download Assets</a></p>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>Team TROPIC THUNDER</p>
+                                <p><small>(Akari~, bob1444, sand_witch, ZZZ, Meido)</small></p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>2nd Special 4chan Mahjong Soul Team Invitational Showdown</h4>
+                                <p><strong>Hags vs Cats vs Hats vs Whales<br>
+                                    </strong>Best Waifu Edition</p>
+                                <p><img src="sections/tourney banner/2nd_team_maajan.png" class="img-fluid" alt="" /></p>
+                            </th>
+                            <td>
+                                <p><strong>Held On</strong></p>
+                                <p class="smaller">‣ Sunday, 17th of November 2019 at 16:00 UTC</p>
+                                <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwxYWlAGHzmpvVb9lUHqiAR2"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
+                                    <a href="https://files.catbox.moe/ou6fc4.pdf"><strong>Full Details PDF</strong></a></p>
+                                <p><a href="https://drive.google.com/file/d/1UWaZCsWCPM97j9FRU2lSMFz3xQQ17RKf/view?usp=drivesdk">Download Assets</a></p>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>Team Hats<br>
+                                    <small>(Ktecismo, Fire, Guano, Marisa, Resko)</small></p>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <h4>Special 4chan Mahjong Soul Team Invitational Showdown</h4>
+                                <p><strong>/v/ vs /jp/ vs /a/ vs /u/</strong></p>
+                            </th>
+                            <td>
+                                <p><strong>Held On</strong></p>
+                                <p class="smaller">‣ August 31, 2019 3:00 PM GMT </p>
+                                <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwxEE4a3VNtgvLv3IbYUvGp2"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
+                                    <a href="https://files.catbox.moe/eit1fe.pdf"><strong>Full Details PDF</strong></a></p>
+                                <p><a href="https://drive.google.com/file/d/18CC4mUpgzqZI0BZyZJfS3_aBKR9pdk_Y/view?usp=drivesdk">Download Assets</a></p>
+                            </td>
+                            <th class="text-center">
+                                <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
+                                <p>Team /u/<br>
+                                    <small>(名無し, Cleopatra, Gal, Kress, Lbstr)</small></p>
+                            </th>
+                        </tr>
+                    </tbody>
+                  </table>
+              </div>
+
+              <div class="tab-pane fade show" id="tourneys-doubles" role="tabpanel" aria-labelledby="tourneys-doubles-tab">
+                <h3>Doubles tourneys</h3>
+
+                <table data-spy="scroll" class="table table-transparent table-bordered table-striped">
+                  <thead class="thead-dark text-center">
+                      <tr>
+                          <th>Tourney</th>
+                          <th>Info</th>
+                          <th>Winner</th>
+                      </tr>
+                  </thead>
+                  <tbody class="tbody-light text-white">
+                    <!-- Doubles Tourney -->
                     <tr>
-                        <th>Tourney</th>
-                        <th>Info</th>
-                        <th>Winner</th>
-                    </tr>
-                    <!--
-    ############################
-    VMT 2020
-    ############################
- -->
-                    <tr>
-                        <th colspan="3" style="background-color: var(--tab-color);">2021</th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <h2 id="14tour">14th /V/idya Riichi Mahjong Tournament </h2>
-                            <p>WE ARE LEGION EDITION</p>
-                        </th>
-                        <td align="left">
-                            <p><strong>Held On</strong></p>
-                            <p><strong>Qualifiers</strong><br>
-                                <span class="smaller">‣ </span>20th March, 2021<br>
-                                <strong>Semifinals</strong><br>
-                                <span class="smaller">‣ </span>26th-27th March, 2021 <br>
-                                <strong>Grand Finals</strong> <br>
-                                <span class="smaller">‣ </span>3rd April, 2021</p>
-                            <p><a href="https://www.youtube.com/watch?v=H6ldbTxIBYI&list=PLFTCycYVFIwys6szGoS4xE5vcECcqHb1U"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
-                                <a href="https://docs.google.com/document/d/1cVCPRWdcfTS5GkKNiPkX87XzP9cIYXTGzGOgiczJxY8"><strong>Full Details PDF</strong></a></p>
-                        </td>
                         <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>HustlerOne</p>
-                        </th>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">
-                            <h2 id="13tour">13th /V/idya Riichi Mahjong Tournament </h2>
-                            <p>PEASANT ULTRA INSTINCT EDITION</p>
-                            <!--<p><img src="banners/nofunhag.jpg" alt=""/></p>-->
-                        </th>
-                        <td align="left">
-                            <p><strong>Held On</strong></p>
-                            <p><strong>Qualifiers</strong><br>
-                                <span class="smaller">‣ </span>15th-18th January, 2021<br>
-                                <strong>Semifinals</strong><br>
-                                <span class="smaller">‣ </span>16th January, 2021 <br>
-                                <strong>Grand Finals</strong> <br>
-                                <span class="smaller">‣ </span>17th January, 2021</p>
-                            <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwzz8y62uRiVdi2lnmWzEjB3"><strong>WATCH THE FULL ACTION HERE<br>
-                                    </strong></a><a href="https://docs.google.com/document/d/1XJC4qFlPhFDoFg6PamxOu09X1qDrTWmZflOy0xgCU0c"><strong>Full Details PDF</strong></a></p>
-                        </td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>Waifu</p>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th colspan="3" style="background-color: var(--tab-color);">2020</th>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">
-                            <h2 id="12tour">12th /V/idya Riichi Mahjong Tournament </h2>
-                            <p>Perfectly normal edition</p>
-                            <!--<p><img src="banners/nofunhag.jpg" alt=""/></p>-->
-                        </th>
-                        <td align="left">
-                            <p><strong>Held On</strong></p>
-                            <p><strong>Qualifiers</strong><br>
-                                <span class="smaller">‣ </span>16th-18th October, 2020<br>
-                                <strong>Quarterfinals (round of 24)<br>
-                                </strong><span class="smaller">‣ </span>, 2020<br>
-                                <strong>Semifinals</strong><br>
-                                <span class="smaller">‣ </span>23rd October, 2020 <br>
-                                <strong>Grand Finals</strong> <br>
-                                <span class="smaller">‣ </span>24th October, 2020</p>
-                            <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwyld9HsBl1n1iQ-aWWuhrOA"><strong>WATCH THE FULL ACTION HERE<br>
-                                    </strong></a><a href="https://docs.google.com/document/d/1eZeJc0OM6XYR8MZ3Kxa4PbTuSbXCctR_HmG5g2RJOZg"><strong>Full Details PDF</strong></a></p>
-                            <p><a href="https://docs.google.com/spreadsheets/d/1xvVHCisuFdlxOzRcwMFVxqoBorkfuV4YXwENxv8B9XA">Qualifier/Finals Leaderboards (excel file)</a></p><br>
-                        </td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>生意気な猫</p>
-                        </th>
-                    </tr>
-
-
-
-
-
-
-
-
-
-
-                    <tr>
-                        <th scope="row">
-                            <h2 id="11tour">11th /V/idya Riichi Mahjong Tournament </h2>
-                            <p>NO FUN ALLOWED edition</p>
-                            <p><img src="banners/nofunhag.jpg" alt="" /></p>
-                        </th>
-                        <td align="left">
-                            <p><strong>Held On</strong></p>
-                            <p><strong>Qualifiers</strong><br>
-                                <span class="smaller">‣ </span>29th July-2nd of August, 2020<br>
-                                <strong>Quarterfinals (round of 24)<br>
-                                </strong><span class="smaller">‣ </span>6th of August, 2020<br>
-                                <strong>Semifinals</strong><br>
-                                <span class="smaller">‣ </span>15th of August, 2020 <br>
-                                <strong>Grand Finals</strong> <br>
-                                <span class="smaller">‣ </span>16th of August, 2020</p>
-                            <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwwtX8pPoj-Ny4D1rrxrCLVd"><strong>WATCH THE FULL ACTION HERE<br>
-                                    </strong></a><a href="https://docs.google.com/document/d/1T8r-ZK7eW54Kio9kltZ_ebwKMizTNe7VPYu0ELP0Zks/edit"><strong>Full Details PDF</strong></a></p>
-                            <p><a href="https://docs.google.com/spreadsheets/d/13C5gq2Duf82M1UUX76cUhAjlyL_ogzNkgQjqMbF6TRs/edit#gid=0">Qualifier/Finals Leaderboards (excel file)</a><br>
-                                <a href="https://docs.google.com/spreadsheets/d/1k_NHh37qPwZiuVylrCECu71hIFMY2xeVYSBQ6njz88E/edit#gid=0">RO24/RO12/FINALS (excel file)</a></p>
-                        </td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>guano</p>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <h2 id="10tour">Great 10th /V/idya Riichi Mahjong Tournament </h2>
-                            <p>“Oh Shit it’s Been One Year Already” edition</p>
-                            <p><img src="banners/10tour.png" width="350" height="88" alt="" /></p>
-                        </th>
-                        <td align="left">
-                            <p><strong>Held On</strong></p>
-                            <p><strong>Qualifiers</strong><br>
-                                <span class="smaller">‣ </span>10th-19th of April, 2020<br>
-                                <strong>Quarterfinals (round of 16)<br>
-                                </strong><span class="smaller">‣ </span>24th of April (Friday): 16:00, 19:00 UTC<br>
-                                <span class="smaller">‣ </span>25th of April (Saturday): 16:00, 19:00 UTC<br>
-                                <strong>Semifinals</strong><br>
-                                <span class="smaller">‣ </span>Friday, 1st of May 17:00, 20:00 UTC <br>
-                                <strong>Grand Finals</strong> <br>
-                                <span class="smaller">‣ </span>Saturday, 2nd of May 19:00 UTC</p>
-                            <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwz0vyU2C1kMk2CCaMBadZKq"><strong>WATCH THE FULL ACTION HERE<br>
-                                    </strong></a><a href="https://files.catbox.moe/hdgwry.pdf"><strong>Full Details PDF</strong></a></p>
-                            <p><a href="https://docs.google.com/spreadsheets/d/1xh0_gt6Xoq4JPcOfBuAFGdbFZOM7MevxP4dk98J3UZg/edit#gid=1702123968">Qualifier/Finals Leaderboards (excel file)</a></p>
-                        </td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>EIGAMMA</p>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <h2 id="secret2">9th /v/idya Secret Mahjong Tourney</h2>
-                            <p><img src="banners/secret.png" width="350" height="88" alt="" /></p>
-                            <p>The horrors of this day will forever live on in our hearts</p>
-                        </th>
-                        <td align="left">
-                            <p><strong>Held On</strong></p>
-                            <p class="smaller">‣ April 1, 2020</p>
-                            <p><strong><a href="https://youtu.be/yg224FKBSNs">WATCH THE FULL ACTION HERE<br>
-                                    </a></strong><strong><a href="https://drive.google.com/file/d/1rQiX5AEgdhgyJndXvgIcIuxhsosNJHr8/view?usp=drivesdk">Results Spreadsheet</a></strong></p>
-                            <p><a href="https://files.catbox.moe/91m7qp.png"><strong>Intro</strong></a><br>
-                                <strong><a href="https://files.catbox.moe/ndw67m.png">R1,</a></strong> <strong><a href="https://files.catbox.moe/d2c85p.png">R2, </a></strong>
-                                <strong><a href="https://files.catbox.moe/k99b8e.png">R3 <br>
-                                        Final Round </a></strong><br>
-                            </p>
-                            <p><a href="https://mega.nz/#!IVZS2AiK!UTkIM_RfvlfgTXuHQKmompdlNMFdMrWnVpn1SFjIGNU"><strong>Cursed Majsoul+ Setup<br>
-                                    </strong></a><span class="smaller">(Needs <a href="pastebin/Majsoul-Plus-Guide.html">Majsoul+</a>. in options, set the region to America. Launch the game. After launching the client, go into %appdata% and replace "static" folder in MJS+ directory )</span><br>
-                            </p>
-                        </td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>Nuxoz</p>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <h2>8th /v/idya Mahjong Tourney</h2>
-                            <p>Second Gear Edition</p>
-                            <p><img src="sections/tourney banner/8th_vdya_maajan.png" width="350" height="88" alt="" /></p>
-                        </th>
-                        <td align="left">
-                            <p><strong>Held On</strong></p>
-                            <p class="smaller">‣ 7th of February, 0:01 UTC - 9th of February 2020, 23:59 UTC (Friday-Sunday)<br>
-                                ‣ February 16th <strong>15:00 UTC</strong> on Sunday</p>
-                            <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwz4oZweQZPPb57ofDrmqaII&disable_polymer=1"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
-                                <a href="https://files.catbox.moe/pmjgmd.pdf"><strong>Full Details PDF</strong></a></p>
-                            <p><a href="https://docs.google.com/spreadsheets/d/1uorRm25RtWUtYDJL0xI7Rnu8rksB9Pa5a1BzlRwxLoI/edit#gid=0">Qualifier/Finals Leaderboards (excel file)</a></p>
-                        </td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>Doraneko</p>
-                        </th>
-                    </tr>
-                    <!--
-    ############################
-    VMT 2019
-    ############################
- -->
-                    <tr>
-                        <th colspan="3" style="background-color: var(--tab-color);">2019</th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <h2>7th /v/idya Mahjong Tourney</h2>
-                            <p>咲さんかわいい Edition</p>
-                            <p><img src="sections/tourney banner/7th_vdya_maajan.png" width="350" height="88" alt="" /></p>
-                        </th>
-                        <td align="left">
-                            <p><strong>Held On</strong></p>
-                            <p class="smaller">‣ Friday 13th 0:01 UTC - Sunday 15th 23:59 UTC December<br>
-                                ‣ 12:00 UTC 21st of December 2019</p>
-                            <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwy0LDliGoawVmzUXFEapUOO"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
-                                <a href="https://files.catbox.moe/n1masb.pdf"><strong>Full Details PDF</strong></a></p>
-                            <p><a href="https://files.catbox.moe/a6t7gv.pdf">Preliminaries score table</a></p>
-                        </td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>UNIVERSE</p>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <h2>6th /v/idya Mysterious Riichi Mahjong Tournament</h2>
-                            <p>Secretly Omnious Riddle Edition</p>
-                            <p><img src="sections/tourney banner/6th_vdya_maajan.png" width="350" height="88" alt="" /></p>
-                        </th>
-                        <td align="left">
-                            <p><strong>Held On</strong></p>
-                            <p class="smaller">‣ Saturday, 26th of October 2019</p>
-                            <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwzB3TtYCrw5bANpRxL4nLvK"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
-                                <a href="https://files.catbox.moe/ryn51g.pdf"><strong>Full Details PDF</strong></a></p>
-                        </td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>ZZZ</p>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <h2>5th /v/idya Mahjong Tourney</h2>
-                            <p>SOA EDITION</p>
-                        </th>
-                        <td align="left">
-                            <p><strong>Held On</strong></p>
-                            <p class="smaller">‣ 28th of September (Saturday), 16:00 UTC<br>
-                                ‣ 29th of September 2019 (Sunday), 15:00 UTC</p>
-                            <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwx_Wi4f8ybb0_mWzFUGUY_m"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
-                                <a href="https://files.catbox.moe/hzvwij.pdf"><strong>Full Details PDF</strong></a></p>
-                        </td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>Sjaalman</p>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <h2>4th /v/idya Mahjong Tourney</h2>
-                            <p>Pinfu is the foundation of mahjong Edition</p>
-                        </th>
-                        <td align="left">
-                            <p><strong>Held On</strong></p>
-                            <p class="smaller">‣ 23rd of August 2019, at 8 PM GMT<br>
-                                ‣ 24th of August at 8 PM GMT</p>
-                            <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwynWwR4WWs9MoTxk8r3wGRS"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
-                                <a href="https://files.catbox.moe/lx9m4e.pdf"><strong>Full Details PDF</strong></a></p>
-                        </td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>CrazyWafel</p>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <h2>3rd /v/idya Mahjong Tourney</h2>
-                            <p>Magical Sands Edition</p>
-                        </th>
-                        <td align="left">
-                            <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwxE2FZSbbVttPgou7XEQbeY"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
-                                <a href="https://files.catbox.moe/h9wwdy.pdf"><strong>Full Details PDF</strong></a></p>
-                        </td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>Nuxoz</p>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <h2>2nd /v/idya Mahjong Tourney</h2>
-                            <p>Intermediate Player's Hole Edition</p>
-                        </th>
-                        <td align="left">
-                            <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwyCe43pQS7WH7DgauwU4s57"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
-                                <a href="https://files.catbox.moe/bjwyga.pdf"><strong>Full Details PDF</strong></a></p>
-                        </td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>Skor</p>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <h2>1st /v/idya Mahjong Tourney</h2>
-                            <p>Yakuman /v/irgins edition</p>
-                        </th>
-                        <td align="left"><strong><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwxItuyfBmy6C7E9GkhnsaPn&disable_polymer=1">WATCH THE FULL ACTION HERE</a></strong></td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>Sjaalman</p>
-                        </th>
-                    </tr>
-                </table>
-                <br>
-
-            </div>
-
-            <!--
-    ###########################################################################
-    /mjg/ League
-    ###########################################################################
- -->
-            <div id="ml" class="tabcontent">
-                <h3>/mjg/ League</h3>
-                <table id="tourtable1">
-                    <tr>
-                        <th>League</th>
-                        <th>Info</th>
-                        <th>Winner</th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <h2 id="league1">1st /mjg/ League</h2>
-                            <p><img src="banners/hatreg.png" width="350" height="88" alt="" /></p>
-                        </th>
-                        <td align="left">
-                            <p><strong>Held On</strong></p>
-                            <p class="smaller">‣ May 26 - June 28, 2020</p>
-                            <p><a href="https://docs.google.com/spreadsheets/d/1F8aIK0EnliSrV3ME_DNtTzfHi488THMx-m5vhO2lPSk/edit#gid=118530533"><strong>League Spreadsheet</strong></a><br>
-                                <a href="http://riichi.moe/"><strong>League Site</strong></a><a href="https://files.catbox.moe/ab4kka.pdf"><strong></strong></a></p>
-                            <p><a href="https://www.youtube.com/playlist?list=PLG0rI7wy5Ub-4DoNaa9cw8FgJvkA-QwKV&feature=share">League Intro and OC videos</a><br>
-                                <a href="https://docs.google.com/spreadsheets/d/1JBWQcUfNnBgv1ZCv_e-2MU-QSb1JQBeIhrAJ5z2l2Vk/edit#gid=1957981765">Individual Ranking</a></p>
-                        </td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>Fate/Stay Noten<br>
-                                <small>(ZZZ, astolfodck, Sticky, trash, Bodoque, Nasu)</small></p>
-                        </th>
-                    </tr>
-                </table>
-
-            </div>
-
-            <!--
-    ###########################################################################
-    Team Tourneys
-    ###########################################################################
- -->
-            <div id="tt" class="tabcontent">
-
-                <h3>Team Tourneys</h3>
-
-                <table>
-                    <tr>
-                        <th>Tourney</th>
-                        <th>Info</th>
-                        <th>Winner</th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <h2>2nd /mjg/ Saki tourney </h2>
-                            <p><img src="banners/events/lesbian.png" width="350" height="88" alt="" /></p>
-                        </th>
-                        <td align="left">
-                            <p> <strong>Held On</strong></p>
-                            <p class="smaller">‣ 27th of February, 2021<br></p>
-                            <p><strong><a href="https://docs.google.com/spreadsheets/d/1HWQ04My4s48JYI36-UtsL15YvAbfeuNbodZEInMBZVo/edit#gid=0">Full PDF</a></strong><br>
-                            </p>
-                        </td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>Kiyosumi High School</p>
-                            <p><small>(Patriarkatet, snacks, rigged, ExelionBuster, sand_witch)</small></p>
-                        </th>
-
-                    </tr>
-
-
-                    <tr>
-                        <th scope="row">
-                            <h2>Saki collab celebration tourney </h2>
-                            <p><img src="banners/events/lesbian.png" width="350" height="88" alt="" /></p>
-                        </th>
-                        <td align="left">
-                            <p> <strong>Held On</strong></p>
-                            <p class="smaller">‣ 11th-13th of December, 2020<br>
-                                ‣ 18th-20th December, 2020</p>
-                            <p><strong><a href="https://www.youtube.com/watch?v=eMmd6WN0y1c&feature=youtu.be">WATCH THE FULL ACTION HERE</a></strong><br></p>
-                            <p><strong><a href="https://www.twitch.tv/videos/843427978">WATCH THE FULL ACTION HERE pt2</a></strong><br>
-                                <a href="https://docs.google.com/document/d/1w1KJnFN_TZXnKHb0mwo6OWqC57wHlhUz12H7n-T2CZg/edit"><strong>Full Details PDF</strong></a>
-                            </p>
-                            <p><a href="https://docs.google.com/spreadsheets/d/1lI3bAa6J02sL4UGSf570IzaNgVSqMW9GsCzxF-TLqoE/edit#gid=1838723269">Qualifiers/Finals Leaderboard (excel file)</a></p>
-                        </td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>Kiyosumi High School</p>
-                            <p><small>(amegumo, snacks, meido, Patriarkatet, B_Reveler)</small></p>
-                        </th>
-                    </tr>
-
-
-                    <tr>
-                        <th scope="row">
-                            <h2>4th Special 4chan Mahjong Soul Team Invitational Showdown</h2>
-                            <p>RETRO-FUTURE PLATFORM RACE EDITION</p>
-                            <p><img src="banners/events/tt4.jpg" width="350" height="88" alt="" /></p>
-                        </th>
-                        <td align="left">
-                            <p> <strong>Held On</strong></p>
-                            <p class="smaller">‣ 19th-20th of September, 2020<br>
-                                ‣ Saturday, 26th September, 2020</p>
-                            <p><strong><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwxRTfHl9JVHjMU3v3xMvBLP">WATCH THE FULL ACTION HERE</a></strong><br>
-                                <a href="https://docs.google.com/document/d/1bow_1Ir6LanzqGjO4QwCsec1MwdTYDJJK6Ahvlg9_z8/edit"><strong>Full Details PDF</strong></a>
-                            </p>
-                            <p><a href="https://docs.google.com/spreadsheets/d/1Kd_RGDpkCR1JOFvtonY6kLM2BHC-_UX88M48oHbrbA0">Qualifiers/Finals Leaderboard (excel file)</a></p>
-                            <p><a href="https://mega.nz/file/0MxCzDAL#_xt8zQG9SEgUMYO0BuaFN4VSDCeqkd6F4KlT84gHDto">Download Assets</a></p>
-                        </td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>Team Noname</p>
-                            <p><small>(UNIVERSE, crackhead, 真実の魔女, sand_witch, Sjaalman)</small></p>
-                        </th>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">
-                            <h2>3rd Special 4chan Mahjong Soul Team Invitational Showdown</h2>
-                            <p>SECOND COLD WAR EDITION</p>
-                            <p><img src="banners/team tourney 3rd.png" width="350" height="88" alt="" /></p>
-                        </th>
-                        <td align="left">
-                            <p> <strong>Held On</strong></p>
-                            <p class="smaller">‣ 6th-8th of March, 1980 <span class="spoiler">2019</span> - 12:00 UTC<br>
-                                ‣ Sunday, 15th March, 1980 Tourney Lobby: 965440 </p>
-                            <p><strong><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwwF7eRLCN2zd_OAaw3ucvOK">WATCH THE FULL ACTION HERE</a></strong><br>
-                                <a href="https://files.catbox.moe/bfm09t.pdf"><strong>Full Details PDF</strong></a><a href="https://files.catbox.moe/bfm09t.pdf"><strong><br>
-                                    </strong></a></p>
-                            <p><a href="https://docs.google.com/spreadsheets/d/1frqVfltsKgI1qGLa7YSJ4en8RoL4WKtXr9_-xyJQoh8/edit#gid=2076882235">Qualifiers/Finals Leaderboard (excel file)</a></p>
-                            <p><a href="https://drive.google.com/drive/folders/1wvn3fFLN29vfUuEuStWROrGZeneiCUcm">Download Assets</a></p>
-                        </td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>Team TROPIC THUNDER</p>
-                            <p><small>(Akari~, bob1444, sand_witch, ZZZ, Meido)</small></p>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <h2>2nd Special 4chan Mahjong Soul Team Invitational Showdown</h2>
-                            <p><strong>Hags vs Cats vs Hats vs Whales<br>
-                                </strong>Best Waifu Edition</p>
-                            <p><img src="sections/tourney banner/2nd_team_maajan.png" width="350" height="88" alt="" /></p>
-                        </th>
-                        <td align="left">
-                            <p><strong>Held On</strong></p>
-                            <p class="smaller">‣ Sunday, 17th of November 2019 at 16:00 UTC</p>
-                            <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwxYWlAGHzmpvVb9lUHqiAR2"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
-                                <a href="https://files.catbox.moe/ou6fc4.pdf"><strong>Full Details PDF</strong></a></p>
-                            <p><a href="https://drive.google.com/file/d/1UWaZCsWCPM97j9FRU2lSMFz3xQQ17RKf/view?usp=drivesdk">Download Assets</a></p>
-                        </td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>Team Hats<br>
-                                <small>(Ktecismo, Fire, Guano, Marisa, Resko)</small></p>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <h2>Special 4chan Mahjong Soul Team Invitational Showdown</h2>
-                            <p><strong>/v/ vs /jp/ vs /a/ vs /u/</strong></p>
-                        </th>
-                        <td align="left">
-                            <p><strong>Held On</strong></p>
-                            <p class="smaller">‣ August 31, 2019 3:00 PM GMT </p>
-                            <p><a href="https://www.youtube.com/playlist?list=PLFTCycYVFIwxEE4a3VNtgvLv3IbYUvGp2"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
-                                <a href="https://files.catbox.moe/eit1fe.pdf"><strong>Full Details PDF</strong></a></p>
-                            <p><a href="https://drive.google.com/file/d/18CC4mUpgzqZI0BZyZJfS3_aBKR9pdk_Y/view?usp=drivesdk">Download Assets</a></p>
-                        </td>
-                        <th>
-                            <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
-                            <p>Team /u/<br>
-                                <small>(名無し, Cleopatra, Gal, Kress, Lbstr)</small></p>
-                        </th>
-                    </tr>
-                </table>
-                <br>
-            </div>
-
-            <!--
-    ###########################################################################
-    Doubles Tourney
-    ###########################################################################
- -->
-            <div id="dt" class="tabcontent">
-                <h3>Doubles Tourney</h3>
-                <table id="tourtable2">
-                    <tr>
-                        <th>Tourney</th>
-                        <th>Info</th>
-                        <th>Winner</th>
-                    </tr>
-                    <tr>
-                        <th scope="row">
-                            <h2>2nd Doubles Tourney</h2>
+                            <h4>2nd Doubles Tourney</h4>
                             <p>ded kurwa edition</p>
                         </th>
-                        <td align="left">
+                        <td>
                             <p><strong>Held On</strong></p>
-                            <p class="smaller">‣ January 18 2019 (SATURDAY), 3PM GMT</p>
+                            <small>‣ January 18 2019 (SATURDAY), 3PM GMT</small>
                             <p><a href="https://www.youtube.com/watch?v=kjC4b7pFgbA&feature=youtu.be"><strong>WATCH THE FULL ACTION HERE</strong></a><br>
                                 <strong><a href="https://files.catbox.moe/mvd413.pdf">Full Details PDF</a></strong></p>
                         </td>
-                        <th>
+                        <th class="text-center">
                             <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
                             <p>Ebola Bois<br>
                                 <small>(Theo and iron_mark)</small></p>
                         </th>
                     </tr>
                     <tr>
-                        <th scope="row">
-                            <h2>1st Doubles Tourney</h2>
+                        <th>
+                            <h4>1st Doubles Tourney</h4>
                         </th>
-                        <td align="left">
+                        <td>
                             <p><strong>Held On</strong></p>
-                            <p class="smaller">‣ October 19, 2019 (Saturday) 2PM GMT</p>
+                            <small>‣ October 19, 2019 (Saturday) 2PM GMT</small>
                             <p><a href="https://youtu.be/Hq3sdwCVE-M"><strong>WATCH THE FULL ACTION HERE (Hijacked Finals Match)</strong></a><br>
                                 <a href="https://files.catbox.moe/ab4kka.pdf"><strong>Full Details PDF</strong></a></p>
                         </td>
-                        <th>
+                        <th class="text-center">
                             <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
                             <p>pls join<br>
                                 <small>(Meido and BULKVANDERHUGE)</small></p>
                         </th>
                     </tr>
+                  </tbody>
                 </table>
-
             </div>
+            <div class="tab-pane fade show" id="tourneys-others" role="tabpanel" aria-labelledby="tourneys-others-tab">
+              <h3>Others</h3>
 
-            <!--
-    ###########################################################################
-    Others
-    ###########################################################################
- -->
-            <div id="oth" class="tabcontent">
-                <h3>Others</h3>
-                <table id="tourtable3">
+              <table data-spy="scroll" class="table table-transparent table-bordered table-striped">
+                <thead class="thead-dark text-center">
                     <tr>
                         <th>Tourney</th>
                         <th>Info</th>
                         <th>Winner</th>
                     </tr>
+                </thead>
+                <tbody class="tbody-light text-white">
+                    <!-- Others -->
                     <tr>
-                        <th scope="row">
-                            <h2>Kaavi's Fortune Telling Tournament</h2>
+                        <th>
+                            <h4>Kaavi's Fortune Telling Tournament</h4>
                         </th>
-                        <td align="left">
+                        <td>
                             <p><strong>Held On</strong></p>
-                            <p class="smaller"> ‣ April 2021</p>
+                            <small> ‣ April 2021</small>
                             <p><a href="https://docs.google.com/document/d/1slIRVhRQEkSdkyfPvt1FfLujuDvNrJ7V4uGsZDSNWn8/edit"><strong>Full Details</strong></a><br>
                                 <a href="https://docs.google.com/spreadsheets/d/18S5fg-2JxZr3oNP81rcckE50WlNGqjt9GUmJ3uuiv3U/edit"><strong>Results Spreadsheet</strong></a><br>
                                 <a href="https://mega.nz/file/F9RnESjS#YjjFXaxsqt152ZQz-9aeNqQJuMtJS6G2glAaeXh981A"><strong>Downloadable Content</strong></a><br>
                                 <a href="https://github.com/NicoleIsDead/Fortune-Tourney-Tool"><strong>Repo of the Fortune Tourney Tool</strong></a><br>
                             </p>
                         </td>
-                        <td>
+                        <td class="text-center">
                             <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
                             <p><strong>bob1444<br>
                                 </strong></p>
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row">
-                            <h2>/mjg/ Riichi Arts and Crafts Tournament</h2>
+                        <th>
+                            <h4>/mjg/ Riichi Arts and Crafts Tournament</h4>
                             <p><img src="oc-pages/octourney-gallery/header.png" width="350" height="88" alt="" /></p>
                         </th>
-                        <td align="left">
+                        <td>
                             <p><strong>Held On</strong></p>
-                            <p class="smaller"> ‣ 21st and 22nd of November 2020</p>
+                            <small> ‣ 21st and 22nd of November 2020</small>
                             <p><a href="https://docs.google.com/document/d/1JBhKbX1T6lagoWqs_xDOLzpjbNgkYFTukHIBX1p4F88/edit?usp=sharing"><strong>Full Details</strong></a><br>
                                 <a href="https://docs.google.com/spreadsheets/d/1Lia9cpSvlUXNSOxdQZekhWg3gh5yaDp-U7xwNR1cPlM/edit?usp=sharing"><strong>Results Spreadsheet</strong></a><br>
                                 <a href="oc-pages/octourney-gallery.html"><strong>Tournament Gallery</strong></a></p>
                         </td>
-                        <td>
+                        <td class="text-center">
                             <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
                             <p><strong>dojyan<br>
                                 </strong></p>
@@ -668,19 +638,20 @@
                     </tr>
 
                     <tr>
-                        <th scope="row">
-                            <h2>Sanma Tourney</h2>
+                        <th>
+                            <!-- >>>>sanma -->
+                            <h4>Sanma Tourney</h4>
                             <p>
                                 <!--<img src="banners/unofftourney.jpg" width="350" height="88" alt=""/>-->
                             </p>
                         </th>
-                        <td align="left">
+                        <td>
                             <p><strong>Held On</strong></p>
-                            <p class="smaller"> ‣ 31th of October 2020, 22 UTC</p>
+                            <small> ‣ 31th of October 2020, 22 UTC</small>
                             <p>
                                 <b><a href="https://docs.google.com/spreadsheets/d/1-QBv_Ckfz6abGlLFi7mCxq_3Ofkj_8wEmQE9usrJDYo/preview">Results Spreadsheet</a></b></p>
                         </td>
-                        <td>
+                        <td class="text-center">
                             <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
                             <p><strong>可愛い_Agro<br>
                                 </strong></p>
@@ -688,28 +659,28 @@
                     </tr>
 
                     <tr>
-                        <th scope="row">
-                            <h2>Unofficial /mjg/ Tourney</h2>
+                        <th>
+                            <h4>Unofficial /mjg/ Tourney</h4>
                             <p><img src="banners/unofftourney.jpg" width="350" height="88" alt="" /></p>
                         </th>
-                        <td align="left">
+                        <td>
                             <p><strong>Held On</strong></p>
                             <p class="smaller"> ‣ 22th of August 2020, 18 UTC</p>
                             <p>
                                 <a href="gifs/unofficial.jpg"><strong>Full Details</strong></a><br>
                                 <b><a href="https://i.imgur.com/bs3B8Fu.png">Results Spreadsheet</a></b></p>
                         </td>
-                        <td>
+                        <td class="text-center">
                             <p><img src="others/icons8-trophy-64.png" width="64" height="64" alt="" /></p>
                             <p><strong>Sprout#2<br>
                                 </strong></p>
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row">
-                            <h2>Catfood Bowl Minor /mjg/ Commentary</h2>
+                        <th>
+                            <h4>Catfood Bowl Minor /mjg/ Commentary</h4>
                         </th>
-                        <td align="left">
+                        <td colspan="2">
                             Watch our /mjg/ reps fight against the rigging of the catfood official tourney, from the perspective of /mjg/ and not those faggots from the official stream.
                             <p><a href="https://www.youtube.com/watch?v=Z1I2dykjZGM">Part 1</a>, <a href="https://www.youtube.com/watch?v=sCPD4LiFsUg">Part 2</a>
                             </p>
@@ -717,68 +688,29 @@
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row">
-                            <h2>Catfood Bowl Minor 2 /mjg/ Commentary</h2>
+                        <th>
+                            <h4>Catfood Bowl Minor 2 /mjg/ Commentary</h4>
                         </th>
-                        <td align="left">
+                        <td colspan="2">
                             Watch our /mjg/ reps fight against the rigging of the catfood official 2nd tourney, from the perspective of /mjg/ and not those faggots from the official stream.
 
                             <p><a href="https://www.youtube.com/watch?v=fxEUZcccx-s">Youtube</a></p>
 
                         </td>
                     </tr>
-
-                </table>
-
+                </tbody>
+              </table>
             </div>
-
-
-
-            <!-- div endings for the 2 column rows -->
+                <a id="back-to-top" href="#" class="back-to-top" role="button"><img src="/gifs/meido.png" alt="Go to top"></a>
+                </div>
+            </div>
         </div>
     </div>
 
-
-
-    <script>
-        function openCity(evt, cityName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-            }
-            document.getElementById(cityName).style.display = "block";
-            evt.currentTarget.className += " active";
-        }
-
-        //without reference links, just link to first item
-        document.getElementById("tvmt").click();
-
-        // Check where you came from and focuses on that tab
-
-        var url = document.location.toString();
-        if (url.match('#vidya')) {
-            document.getElementById("tvmt").click();
-        }
-        if (url.match('#league')) {
-            document.getElementById("tml").click();
-        }
-        if (url.match('#team')) {
-            document.getElementById("ttt").click();
-        }
-        if (url.match('#doubles')) {
-            document.getElementById("tdt").click();
-        }
-        if (url.match('#others')) {
-            document.getElementById("toth").click();
-        }
-    </script>
-
-
-</body>
-
+        
+        <!-- Optional JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+        <script src="js/library.js"></script>
+    </body>
 </html>
