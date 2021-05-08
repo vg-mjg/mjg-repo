@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>Hitori Mahjong Simulator</title>
+        <link href="style_indv.css" rel="stylesheet" type="text/css">
+        <script src="toc-scroll.js"></script>
+        <script src="../darkie.js"></script>
+<link href="../darkbutton.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+      <hr>
+      <center>
+      <h1>Hitori Mahjong Simulator</h1>
+
+        <small>
+          <a href="https://pathofhouou.blogspot.com/2019/05/training-tool-hitori-mahjong-simulator.html">Source</a><br>
+        </small>
+      </center>
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+      </label>
+      &nbsp;おはよう
+      </div>
+      <hr><br>
+
+<main>
+    <div>
+
+
+  <p><strong>Explanation:</strong></p>
+<p>  Hitori Mahjong Simulator is a useful tool for getting statistics about the expected value or speed of a hand. It has some limitations, for example not considering calls, but you can still get good stuff out of it. However, with it being entirely in Japanese, how do we use it? Let me guide you!
+ Note that this is only available on Windows. For other operating systems, you can try this <a href="http://kobalab.net/majiang/dapai.html">website</a>, though it lacks a little.
+ First, you'll need to download it from its <a href="http://ara.moo.jp/mjhmr/">website</a>. Just click the link that says "ver.1.52". Extract the zip to a folder in a memorable location. Run "hmr.exe" and you'll see a screen like this:
+ </p><p> * Note: There is a partial English translation available. Download the .exe from <a href="https://drive.google.com/open?id=121Nuz6GQoMmCQ8NCFbIGR11ev3Wgnax2">here</a> and place it in the HMS folder.</p>
+<p> <center><img src="images/hitori/h-1.png" height="350" alt=""/></center></p>
+<p> If you see a bunch of question marks everywhere, you probably need to set your locale to Japanese. Here is a <a href="https://java.com/en/download/help/locale.xml">guide</a> for changing your locale. You could also try using <a href="https://pooi.moe/Locale-Emulator/">Locale Emulator</a>, but I haven't personally used it. Either way, for training use there are a few settings you should change. Set these two to max to get more detailed results:</p>
+<p> <center><img src="images/hitori/h-2.png" height="350" alt=""/></center></p>
+<p> <center><img src="images/hitori/h-3.png" height="350" alt=""/></center></p>
+ <p>Then, set this dropdown to the top option in order to turn off hints:</p>
+ <p><center><img src="images/hitori/h-4.png" height="350" alt=""/></center></p>
+ <p>Now you're set up. The basic usage is pretty simple. Click on a tile to discard it, or right click on the tile to declare riichi. There's also an edit mode which you can access by clicking this button:
+ <p><center><img src="images/hitori/h-5.png" height="350" alt=""/></center></p>
+ <p>While in edit mode, click on a tile to increase its value by one, or right click it to decrease its value by one. It's a little awkward and slow, but it works if you want to look at a specific hand. To get to the good stuff, use this menu option:</p>
+ <p><center><img src="images/hitori/h-6.png" height="350" alt=""/></center></p>
+  <p>The first option is similar, but doesn't consider hand upgrades, so it's not as complete. This will calculate for a bit, and then open a web page. Once the webpage opens and you can see tiles, stop it from loading! It will load a lot of data, but the interesting stuff is all loaded immediately. I'd also recommend using Chrome for this, as I had more trouble with Firefox when it came to stopping the load. Let's go over the page that opens, from top to bottom.</p>
+  <p><center><img src="images/hitori/h-7.png" height="350" alt=""/></center></p>
+   <p>At the very top of the page, you can see the hand and other relevant information. How many turns do you think it would take this hand to have a 50% chance of reaching tenpai? Hmm. Let's look further down the page.</p>
+   <p><center><img src="images/hitori/h-8.png" height="350" alt=""/></center></p>
+ <p>This graph shows some stats for each discard. The second column is the expected value. The one in bold is the discard that nets you the greatest expected value. In the middle it shows the resulting hand. The next column shows the tile acceptance, and after that, the chance of tsumoing this hand if it went all the way to ryuukyoku. The final column is the chance the hand reaches tenpai by ryuukyoku. Note that since this is a simulator, tiles that are equivalent might have some small differences, so don't put too much weight into, say, a .5% difference. Next table!</p>
+ <p><center><img src="images/hitori/h-9.png" height="350" alt=""/></center></p>
+ <p>This is basically an expanded version of the second column in the previous table. It shows the hand's expected value if you had that hand at each turn. You kind of need to read this table (and the next ones) from bottom to top. The bottom row is the discard you're making, so you can start your count from 0 like a true programmer. So, on average, you'll win 2.7 points three turns after discarding the West. Nice. Next table!</p>
+ <p><center><img src="images/hitori/h-10.png" height="350" alt=""/></center></p>
+ <p>Similar to the previous table, this one shows the chance of tsumoing on if you had that hand at each turn. Since there's only a 0.03% chance to tsumo in three turns after discarding the West, that explains the 2.7 points. One more table to go!</p>
+ <p><center><img src="images/hitori/h-11.png" height="350" alt=""/></center></p>
+ <p>This shows the chance of reaching tenpai if you had that hand at each turn. So, in 9 turns you'll have around a 1 in 4 chance of tenpai, and in 14 you'll have a 1 in 2 chance. A pretty slow hand, which makes sense if you just look at it for a moment. Now you can go back to HMS, discard a tile, and open it again to see how the new draw changes things, and repeat as much as you want.</p>
+
+So, what do we actually do with this? Here's Dasuke's suggestion: "In this practice, for every discard, ask yourself, "What is the fastest way to tenpai? What is the fastest way to tsumo a winning hand? How many turns will it take to get there on average? If I was to take a less efficient route to tenpai for more value, how many turns do I actually lose here? How 'good' are some draws compared to others in the ways they affect the speed?""
+
+That's a lot to think about... Good luck!
+
+
+
+    </div>
+
+
+
+    <nav class="section-nav">
+        <ol>
+          <li><a href="../index.html">Back to Home</a></li><br>
+        </ol>
+    </nav>
+</main>
+
+
+    </body>
+</html>
