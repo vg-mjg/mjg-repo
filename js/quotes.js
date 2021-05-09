@@ -26,14 +26,3 @@
     var randomFact = Math.floor(Math.random() * facts.length);
     document.getElementById('factDisplay').innerHTML = facts[randomFact];
   })();
-
-  (function newSugar() {
-    var facts = [
-    'Mao is best sugar style.',
-    'Kaname is best sugar style.',
-    'Ichika is best sugar style.',
-    'Hare is best sugar style.'
-    ];
-    var randomFact = Math.floor(Math.random() * facts.length);
-    document.getElementById('sugarDisplay').innerHTML = facts[randomFact];
-  })();
