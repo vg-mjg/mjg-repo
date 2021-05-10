@@ -1,7 +1,4 @@
 function PickImage() {
-    var imagenumber = 17 ;
-    var randomnumber = Math.random() ;
-    var rand1 = Math.round( (imagenumber-1) * randomnumber) + 1;
     images = new Array;
     // I hate this, it should be a lot cleaner
     images[1] = "repobanner/0.png";
@@ -21,6 +18,9 @@ function PickImage() {
     images[15] = "repobanner/14.png";
     images[16] = "repobanner/15.png";
     images[17] = "repobanner/16.png";
+    images[18] = "repobanner/17.gif";
+    var randomnumber = Math.random() ;
+    var rand1 = Math.round( (images.length-1) * randomnumber) + 1;
     var image = images[rand1];
     $("#randimg").attr("src", image);
     sticky_image = new Array;
