@@ -129,6 +129,20 @@ function SoundAdvice() {
 };
 
 $(document).ready(function() {
+    var updates = "";
+    $.ajax({
+        url: '/updates.json',
+    })
+    .always(function(data) {
+        for (var i = 0; i < data.updates.length; i++) {
+            updates += `<dt><a href="`+data.updates[i].link+`"><strong>`+data.updates[i].title+`</strong></a></dt>
+            <dd><span class="badge badge-secondary">`+data.updates[i].category+`</span></dd>
+            <dd><small>`+data.updates[i].description+`</small></dd>`;
+        }
+        $("#news").html(updates);
+    });
+
+
     var time_interval = setInterval(GetTime, 1000);
     /* HOW TO USE:
         Leave everything else as it is except the last argument. This already transforms everything to UTC.
