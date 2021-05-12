@@ -130,10 +130,7 @@ function SoundAdvice() {
 
 $(document).ready(function() {
     var updates = "";
-    $.ajax({
-        url: '/updates.json',
-    })
-    .always(function(data) {
+    $.getJSON('/updates.json', function(data, textStatus) {
         for (var i = 0; i < data.updates.length; i++) {
             updates += `<dt><a href="`+data.updates[i].link+`"><strong>`+data.updates[i].title+`</strong></a></dt>
             <dd><span class="badge badge-secondary">`+data.updates[i].category+`</span></dd>
@@ -141,7 +138,6 @@ $(document).ready(function() {
         }
         $("#news").html(updates);
     });
-
 
     var time_interval = setInterval(GetTime, 1000);
     /* HOW TO USE:
