@@ -1,12 +1,11 @@
 {
-   "_template (copy everything between [] and paste it below on 'updates' in between [].)":[
-      {
+   "_template (copy everything including the {} and paste it below on 'updates' in between [].)":
+    {
          "title":"",
          "link":"",
          "category":"",
          "description":""
-      },
-   ],
+    },
    "updates":[
       {
          "title":"2nd Annual /mjg/ questionnarie",
