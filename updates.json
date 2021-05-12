@@ -1,0 +1,198 @@
+{
+   "_template (copy everything between [] and paste it below on 'updates' in between [].)":[
+      {
+         "title":"",
+         "link":"",
+         "category":"",
+         "description":""
+      },
+   ],
+   "updates":[
+      {
+         "title":"2nd Annual /mjg/ questionnarie",
+         "link":"https://forms.gle/frWQK3iG5fh8rinH7",
+         "category":"/mjg/ project",
+         "description":"If you have spare 20 minutes, please fill it up. You don\\'t have to answer all of the question (although it would be much appreciated). The form will be active for around one week. I\\'ll make a reminder in the thread one day before closing it, and then it will take me few days to compile the results and release them in video and text form."
+      },
+      {
+         "title":"Friendly Match Plus mod",
+         "link":"https://files.catbox.moe/c4fxzy.mspe",
+         "category":"Majsoul plus mod",
+         "description":"Adds UI for extra room creation parameters. Most of seem to work. Might be ban-worthy? Use at your risk."
+      },
+      {
+         "title":"Decensor mod",
+         "link":"https://files.catbox.moe/mgc10u.mspe",
+         "category":"Majsoul plus mod",
+         "description":"Read all the bad words like \"tenhou\" or \"tiananmen\" and avoid the chink censorship."
+      },
+      {
+         "title":"Fantasy /mjg/ league",
+         "link":"https://docs.google.com/spreadsheets/d/1_V7RiliN69FZNVeAa0CiWXPLEjojigorlm8VhOJxptA/edit?usp=sharing",
+         "category":"/mjg/ project",
+         "description":"Make your team <a href=\"https://docs.google.com/forms/d/e/1FAIpQLSdm27knInfuE3N78DyYOMJtDg1nmuXga17yG7VQ_namuG-m-Q/viewform\">here</a>. Pick your favourite >NAMES and fight it out."
+      },
+      {
+         "title":"Buttons mod",
+         "link":"https://files.catbox.moe/avaj6q.mspr",
+         "category":"Majsoul plus mod",
+         "description":"Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively. Updated again."
+      },
+      {
+         "title":"Akochan Reviewer Batch File",
+         "link":"https://files.catbox.moe/adsc08.zip",
+         "category":"Software",
+         "description":"The latest version of Akochan Reviewer with a batch file all ready to go so you can try it out. Just run the review.bat and paste in your log then it will output a webpage with your reviewed game."
+      },
+      {
+         "title":"2nd /mjg/ Great Annual Questionnaire",
+         "link":"https://forms.gle/XgQJPjiEaz6NY2iC6",
+         "category":"Survey",
+         "description":"Suggest questions for anons to answer."
+      },
+      {
+         "title":"/mjg/ league 2 feedback",
+         "link":"https://forms.gle/YK47Hh1gVTUrBxN97",
+         "category":"Tourney",
+         "description":"If you have any feedback (x rule was shit, x thing was great) or ideas tell me in the this form."
+      },
+      {
+         "title":"Hat+OC collection",
+         "link":"https://mega.nz/folder/7x1AwAbD#ZDTk1_bYzd9QYWUp5bKMQw",
+         "category":"Resources",
+         "description":"Shared by a kind anon."
+      },
+      {
+         "title":"M-league library",
+         "link":"library.html#ml",
+         "category":"Resources",
+         "description":"New section for mleague and mleague players. Currently looking for other resources, post them in thread."
+      },
+      {
+         "title":"Miko Uprising: Hell arc",
+         "link":"oc-pages/mikorise.html#hell1",
+         "category":"Webcomic",
+         "description":"Imagine losing over 100k points in 6 games"
+      },
+      {
+         "title":"Playing Mahjong with Dignity by Kosho Tsuchida-Pro",
+         "link":"https://www.youtube.com/watch?v=48m1B_pi21I",
+         "category":"Video",
+         "description":"Tsuchida Kosho-pro held a two-hour lecture for English-language players, held online on Zoom, translated live in subtitles. He chose to speak about two topics dear to him: chiitoitsu, and \"paipinkao\" - playing mahjong with dignity."
+      },
+      {
+         "title":"Catfood Bowl 2 /mjg/ Commentary",
+         "link":"https://www.youtube.com/watch?v=fxEUZcccx-s",
+         "category":"Video",
+         "description":"Watch our /mjg/ reps fight against the rigging of the catfood official 2nd tourney, from the perspective of /mjg/ and not those faggots from the official stream."
+      },
+      {
+         "title":"Mikovideo",
+         "link":"https://files.catbox.moe/leoich.mp4",
+         "category":"Video",
+         "description":"This one weird mikovideo."
+      },
+      {
+         "title":"Titles visible cross-server mod",
+         "link":"https://files.catbox.moe/ox6lac.mspe",
+         "category":"Majsoul plus mod",
+         "description":"Makes titles from other servers visible (as long as they exist on the current server)."
+      },
+      {
+         "title":"Friendly Uncle mod",
+         "link":"https://files.catbox.moe/uypxd7.mspe",
+         "category":"Majsoul plus mod",
+         "description":"Use the log viewer to send messages and friend requests to unsuspecting anons. A bit creepy if you ask me."
+      },
+      {
+         "title":"Anti region lock mod",
+         "link":"https://files.catbox.moe/frhq6s.mspe",
+         "category":"Majsoul plus mod",
+         "description":"Region lock? It's just 1 variable on client to disable and get full saki collab outside burgerland too."
+      },
+      {
+         "title":"buttons mod",
+         "link":"https://files.catbox.moe/qu1vxj.mspr",
+         "category":"Majsoul plus mod",
+         "description":"Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively. Updated again."
+      },
+      {
+         "title":"【JPML】 Play Like a Pro with Jenn & Garthe",
+         "link":"https://youtu.be/povvMEtyzbo?list=PLEAV_Z2MBt0y1rAadqGKn2flmqExB2rK4",
+         "category":"Video",
+         "description":"Videos in english with wwyd explained by various pros (Sasaki, Fujisaki, Takizawa, and some other JPML ones). Riichi book 1 level."
+      },
+      {
+         "title":"Super Zugan ep6 subs",
+         "link":"https://files.catbox.moe/ekaelc.ass",
+         "category":"Movies",
+         "description":"Subtitles for episode 6 of Super Zugan! The RAWs can be found <a href=\"https://drive.google.com/drive/folders/1exsutVDi0VFq8_jpIV2O6FRrRD0T_AwJ?usp=sharing\">here</a>, or in the movies section. Also shown in 6th movie night."
+      },
+      {
+         "title":"Anti AFK mod",
+         "link":"https://files.catbox.moe/4rlh6v.mspe",
+         "category":"Majsoul plus mod",
+         "description":"Stop mjs from kicking you out, by faking some mouse activity."
+      },
+      {
+         "title":"Super Real Mahjong 2-7 compilation for PC",
+         "link":"https://sukebei.nyaa.si/view/3213231",
+         "category":"Games",
+         "description":"Some single player mahjong game? Includes a anime OVA."
+      },
+      {
+         "title":"Save logs mod | Updated",
+         "link":"https://files.catbox.moe/qsbcg8.mspe",
+         "category":"Majsoul plus mod",
+         "description":"Save your logs by pressing 's' while looking at one. The format is .json formatted as tenhou.net/6/ does, so you can use the output as input for akochan reviewer."
+      },
+      {
+         "title":"Strip mahjong subs",
+         "link":"https://mega.nz/file/RFhWmJaA#bKOSQW8KR7ykjs1w29PwUVB7vk_-P9vqggP0YciJ9Vk",
+         "category":"Movies",
+         "description":"Subtitles for prison episode of strip mahjong series! The RAWs can be found here, or in the movies section."
+      },
+      {
+         "title":"/mjg/ peanuts",
+         "link":"https://files.catbox.moe/e5ipjy.webm",
+         "category":"OC",
+         "description":"Meanwhile on /mjg/..."
+      },
+      {
+         "title":"Super Zugan ep5 subs",
+         "link":"https://files.catbox.moe/q3z4tb.ass",
+         "category":"Movies",
+         "description":"Subtitles for episode 5 of Super Zugan! The RAWs can be found <a href=\"https://drive.google.com/drive/folders/1exsutVDi0VFq8_jpIV2O6FRrRD0T_AwJ?usp=sharing\">here</a>, or in the movies section"
+      },
+      {
+         "title":"/mjg/ draws with flet",
+         "link":"https://files.catbox.moe/wmvzp8.webm",
+         "category":"OC",
+         "description":"/mjg/ draws with flet and other nips."
+      },
+      {
+         "title":"buttons mod",
+         "link":"https://files.catbox.moe/9csg7w.mspr",
+         "category":"Majsoul plus mod",
+         "description":"Updated for the new mjs version. Get your free sex button here."
+      },
+      {
+         "title":"Save logs mod",
+         "link":"https://files.catbox.moe/q7iqhu.mspe",
+         "category":"Majsoul plus mod",
+         "description":"Save your logs by pressing 's' while looking at one. The format is .json formatted as tenhou.net/6/ does, so you can use the output as input for akochan reviewer."
+      },
+      {
+         "title":"Miko Uprising: New Age",
+         "link":"/oc-pages/mikorise.html#newage",
+         "category":"Webcomic",
+         "description":"Miko is back with a vengeance!"
+      },
+      {
+         "title":"Majsoul Character Ranking",
+         "link":"https://maajantanoshii.neocities.org/ranking.html",
+         "category":"Site",
+         "description":"Rank the majsoul girls to find out how much you love your favorite!"
+      }
+   ]
+}
