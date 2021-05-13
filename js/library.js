@@ -58,6 +58,10 @@ function LoadSection(section) {
     if(status == "success") {
       $(section).tab("show");
       $('a[href="'+section+'"]').addClass('active');
+      // Checks if the light theme is on and switches the pages to light
+      if (localStorage.getItem("theme") == "light") {
+          SwitchLight();
+      }
     }
   });
   
