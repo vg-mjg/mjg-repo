@@ -42,16 +42,37 @@ function ChangeTheme() {
     }
 };
 
+function LoadSection(section) {
+  var library_sections = {};
+  library_sections["resources-game"] = "resources-game.html";
+  library_sections["resources-strategy"] = "resources-strategy.html";
+  library_sections["resources-toolz"] = "resources-toolz.html";
+  library_sections["resources-gguides"] = "resources-gguides.html";
+  library_sections["resources-majplus"] = "resources-majplus.html";
+  library_sections["resources-media"] = "resources-media.html";
+  library_sections["resources-mleague"] = "resources-mleague.html";
+  library_sections["resources-mjg"] = "resources-mjg.html";
+  library_sections["resources-offline"] = "resources-offline.html";
+  $(section).load("resources/"+section.substring(1)+".html", function(response, status, xhr) {
+    /* Stuff to do after the page is loaded */
+    if(status == "success") {
+      $(section).tab("show");
+      $('a[href="'+section+'"]').addClass('active');
+    }
+  });
+  
+};
+
+
 $(document).ready(function() {
     // If people enter to see a specific tab this should show it
     // Or fallback to the default tab
     if (window.location.hash != "") {
-      var load_anchor = $(window.location.hash);
-      load_anchor.tab("show");
-      $('a[href$="'+window.location.hash+'"]').addClass("active");
+      LoadSection(window.location.hash);
     } else {
-      // This will always pick the first active tab of the side-menu
-      $("#side-menu a:first").tab("show");
+      // This will now load the first tab of the side menu
+      var res = $("#side-menu a:first").attr("href");
+      LoadSection(res);
       $("#side-menu a:first").addClass("active");
     }
     if (localStorage.getItem("theme") === null) {
@@ -86,6 +107,11 @@ $(document).ready(function() {
         scrollTop: 0
       }, 2000);
       return false;
+    });
+    $("#side-menu a").click(function(event) {
+      event.preventDefault();
+      section = $(this).attr("href");
+      LoadSection(section);
     });
 });
 
