@@ -72,11 +72,22 @@ $(document).ready(function() {
     // If people enter to see a specific tab this should show it
     // Or fallback to the default tab
     if (window.location.hash != "") {
-      LoadSection(window.location.hash);
+      // If the location is the library use the new way to load pages
+      if (window.location.pathname == "/library.html") {
+        LoadSection(window.location.hash);
+      } else {
+        // Else drop back to the old method
+        load_anchor = $(window.location.hash);
+        load_anchor.tab("show");
+      }
     } else {
       // This will now load the first tab of the side menu
-      var res = $("#side-menu a:first").attr("href");
-      LoadSection(res);
+      if (window.location.pathname == "/library.html") {
+        var res = $("#side-menu a:first").attr("href");
+        LoadSection(res);
+      } else {
+        $("#side-menu a:first").tab("show");
+      }
       $("#side-menu a:first").addClass("active");
     }
     if (localStorage.getItem("theme") === null) {
