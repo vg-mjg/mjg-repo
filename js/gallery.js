@@ -30,10 +30,14 @@ function SelectComic(name) {
     comics["mjg-drama"] = {"name": "/mjg/ Drama", "images": ["mjg-drama-1.gif", "mjg-drama-2.png"]};
     comics["nipples"] = {"name": "Nipples", "images": ["nipples.png"]};
     comics["ttott"] = {"name": "TToTT", "images": ["ttott-1.png", "ttott-2.png"]};
+    comics["newspaper"] = {"name": "Newspaper Reports", "images": ["newspaper-1.jpg", "newspaper-2.jpg"]};
+    comics["breaking"] = {"name": "Breaking News!", "images": ["breaking-1.jpg", "breaking-2.jpg", "breaking-3.png", "breaking-4.png"]};
+    comics["maikagi"] = {"name": "Maikagi: The Last Saint", "images": ["maikagi-1.png", "maikagi-2.png"]};
 
     if (comics[name] == null) {
         $("#comic-header h2").html("Comic does not exist.");
     } else {
+        document.title = "Comic - "+comics[name]["name"];
         $("#comic-header h2").html(comics[name]["name"]);
         var gallery = "";
         for (var i = 0; i < comics[name]["images"].length; i++) {
@@ -46,7 +50,7 @@ function SelectComic(name) {
             } else {
                 gallery += '">';
             }
-            gallery += '<img src="/oc-pages/pictures/'+comics[name]["images"][i]+'" class="d-block mx-auto container-fluid" alt=""></div>';
+            gallery += '<img src="/oc-pages/pictures/'+comics[name]["images"][i]+'" class="d-block mx-auto w-auto img-fluid container-fluid" alt=""></div>';
         };
         $(".carousel-inner").append(gallery);
     }
