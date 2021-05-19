@@ -128,6 +128,12 @@ $(document).ready(function() {
       section = $(this).attr("href");
       LoadSection(section);
     });
+    $("#search-term").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#term-table tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
 });
 
 $("#ThemeSwitch").click(function() {
