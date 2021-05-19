@@ -8,6 +8,12 @@
     },
    "updates":[
       {
+         "title":"Gamedesign Flash Game",
+         "link":"https://files.catbox.moe/hwljo2.7z",
+         "category":"Offline game",
+         "description":"An offline backup of <a href=\"https://www.gamedesign.jp/flash/mahjong/mahjong_e.html\">grandpa's favorite flash game</a>. Includes a flash player projector so you can just drag the swf file to it and play like the old times."
+      },
+      {
          "title":"Friendly Check",
          "link":"https://files.catbox.moe/63926p.mspe",
          "category":"Majsoul plus mod",
