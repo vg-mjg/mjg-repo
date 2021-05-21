@@ -102,12 +102,6 @@ $(document).ready(function() {
     }
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', '/audio/beeei.mp3');
-    audioElement.setAttribute('autoplay', 'autoplay');
-    //audioElement.load()
-    $.get();
-    audioElement.addEventListener("load", function() {
-    audioElement.play();
-    }, true);
     $(window).scroll(function() {
       if ($(this).scrollTop() > 50) {
         $('.back-to-top').fadeIn();
