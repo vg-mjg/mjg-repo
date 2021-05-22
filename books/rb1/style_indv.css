@@ -1,5 +1,5 @@
 :root{
-    --bgpaper: url(../background/bgdark.png);
+    --bgpaper: url(../../background/bgdark.png);
     --font-color: #d9d9d9;
     --link-color: #8dcfea;
     --acc-color: #485058;
@@ -10,7 +10,7 @@
   }
   
   [data-theme="dark"] {
-    --bgpaper: url(../background/bglight.png);
+    --bgpaper: url(../../background/bglight.png);
     --font-color: #424242;
     --link-color: #0072AB;
     --acc-color: #333333;
@@ -25,6 +25,7 @@
 /* 1. Enable smooth scrolling */
 html {
     scroll-behavior: smooth;
+    font-family: Georgia, serif;
 }
 
 /* 2. Make nav sticky */
