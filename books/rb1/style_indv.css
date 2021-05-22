@@ -26,6 +26,7 @@
 html {
     scroll-behavior: smooth;
     font-family: Georgia, serif;
+    
 }
 
 /* 2. Make nav sticky */
@@ -85,7 +86,7 @@ body{
     font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     background-image: var(--bgpaper);
     color: var(--font-color);
-    line-height: 1.2;
+    line-height: 2em;
 }
 
 ul, ol {
