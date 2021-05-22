@@ -1,0 +1,718 @@
+@font-face {
+    font-family: 'mahjongtile-clr';
+    src: url('https://natsuai.com/static/fonts/GL-MahjongTile-Clr.woff2') format('woff2'),
+        url('https://natsuai.com/static/fonts/GL-MahjongTile-Clr.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'mahjongtile';
+    src: url('https://natsuai.com/static/fonts/GL-MahjongTile.otf') format('opentype');
+}
+
+:root {
+    --grey-05: #f1f2f4;
+    --grey-10: #e2e4e9;
+    --grey-15: #d4d7dd;
+    --grey-20: #c6cad2;
+    --grey-25: #b8bdc7;
+    --grey-30: #aab0bb;
+    --grey-35: #9ba2b0;
+    --grey-40: #8e95a4;
+    --grey-45: #818898;
+    --grey-50: #747c8b;
+    --grey-55: #686f7d;
+    --grey-60: #5c6370;
+    --grey-65: #4f5663;
+    --grey-70: #444a55;
+    --grey-75: #383c47;
+    --grey-80: #2c2f3a;
+    --grey-85: #21232b;
+    --grey-90: #16181d;
+    --grey-95: #0b0c0f;
+
+    --tile-size: 2.6em;
+
+    --background: var(--grey-90);
+    --secondary-background: var(--grey-15);
+    --inverted-background: var(--grey-90);
+
+    --border-color: var(--grey-50);
+    --text-color: var(--grey-90);
+    --link-color: #186bd8;
+    --inverted-text-color: white;
+
+    --darken: rgba(0, 0, 0, 0.1);
+    --lighten: rgba(255, 255, 255, 0.6);
+}
+
+
+
+code,
+pre {
+    font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
+}
+
+code {
+    background-color: var(--darken);
+    border-radius: 2px;
+    padding: 0 2px;
+}
+
+
+.tiles {
+    font-family: mahjongtile-clr, mahjongtile;
+    font-size: var(--tile-size);
+    line-height: 1em;
+    position: relative;
+    letter-spacing: -0.112em;
+}
+
+.tiles.otf {
+    font-family: mahjongtile;
+    letter-spacing: -0.086em;
+}
+
+.dora .tiles {
+    letter-spacing: -0.05em;
+}
+
+.dora .tiles.otf {
+    letter-spacing: -0.02em;
+}
+
+p > .tiles,
+.paragraph > .tiles {
+    padding-right: 0.112rem;
+}
+
+p > .tiles.otf,
+.paragraph > .tiles.otf {
+    padding-right: 0.186rem;
+}
+
+.tiles-text {
+    font-size: 1.1em;
+    font-style: italic;
+    border: 1px solid var(--inverted-background);
+    border-radius: 2px;
+    padding: 0 1px;
+}
+
+
+
+.title .tiles,
+p .tiles,
+li .tiles,
+.paragraph .tiles,
+.hand-description .dora .tiles,
+.hand.compact .tiles,
+.footnotes .tiles {
+    top: calc(0.1 * var(--tile-size));
+    line-height: 0;
+}
+
+.footnotes .tiles {
+    font-size: 1.8rem;
+}
+
+
+
+
+.navigation-links a {
+    margin: 0.5em;
+    margin-top: 0;
+    font-size: 0.9em;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 4px;
+    margin-top: 12px;
+}
+
+.title {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.subtitle {
+    margin-top: 0;
+    padding-left: 12px;
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 1.2em;
+}
+
+.link-container {
+    flex: 1 1 auto;
+    text-align: right;
+}
+
+.convert-tiles {
+    color: #d66f00;
+    font-size: 0.95em;
+}
+
+
+
+.hand-container {
+    display: flex;
+}
+
+.hand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 12px;
+    border-left: 4px solid var(--border-color);
+}
+
+.hand.compact {
+    border: none;
+    padding: 0;
+    flex-direction: row;
+}
+
+.hand.compact .dora {
+    margin-left: 1.2rem;
+}
+
+.ruby {
+    position: relative;
+}
+
+.ruby .rt {
+    position: absolute;
+    top: 0;
+    width: auto;
+    font-size: 0.72em;
+    text-align: center;
+    margin-top: -1.5em;
+    background: var(--lighten);
+    border-radius: 2px;
+    height: 1em;
+    line-height: 1em;
+    font-weight: 600;
+}
+
+.ruby-center .rt {
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.hand-description {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 0.85em;
+    padding-bottom: 4px;
+}
+
+.hand-description .dora {
+    align-self: flex-end;
+}
+
+.hand-description .dora .tiles {
+    line-height: 0;
+}
+
+.hand .tiles {
+    font-size: 3em;
+}
+
+
+.tiles .sideways {
+    display: inline-block;
+    transform: translateY(0.12em);
+}
+
+.mahjong-table .player-hand.player-next .sideways,
+.mahjong-table .player-hand.player-prev .sideways {
+    transform: translateX(-0.12em);
+}
+
+.discards .tiles .sideways,
+.mahjong-table .player-discards .tiles .sideways {
+    transform: none;
+    margin: 0;
+}
+
+.hand-contents .tiles {
+    top: 0;
+}
+
+.sideways-text {
+    writing-mode: vertical-lr;
+    font-size: 0.6em;
+    line-height: 0em;
+    transform: translateX(-0.6em) rotate(180deg);
+}
+
+
+li.chapter-heading {
+    font-size: 0.9em;
+    font-weight: 700;
+    margin-top: 1em;
+}
+
+.example-list {
+    list-style: none;
+}
+
+.reset-counter {
+    counter-reset: list-counter;
+}
+
+.example-list li {
+    counter-increment: list-counter;
+    display: flex;
+    line-height: 2em;
+    margin-top: 0.8em;
+    align-items: center;
+}
+
+.main-content {
+    counter-reset: list-counter;
+}
+
+.main-content li {
+    line-height: 2em;
+    margin-top: 0.8em;
+}
+
+.example-list li::before {
+    content: counter(list-counter, upper-alpha);
+    border-radius: 2px;
+    background: var(--inverted-background);
+    color: var(--inverted-text-color);
+    line-height: 2em;
+    margin: 2px 0.5em 2px 0;
+    padding: 2px 1px;
+    width: 1em;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.footnote-link,
+.footnote-return-link {
+    text-decoration: none;
+    vertical-align: super;
+    font-size: 0.7em;
+    font-weight: 700;
+    line-height: 0;
+}
+
+.footnotes {
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9em;
+}
+
+.footnotes li {
+    margin-bottom: 0.5em;
+}
+
+.footnotes .footnote-return-link {
+    font-size: 0.7em;
+}
+
+.caption-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.caption-flex-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.caption-text {
+    font-size: 0.9em;
+    margin: 12px;
+    margin-top: 0;
+}
+
+.table-container.no-style, .table-container.no-style table {
+    margin: 0;
+    padding-left: 1em;
+}
+
+.table-container.no-style th, .table-container.no-style td, .table-container.no-style tr {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    padding-right: 0.5em !important;
+}
+
+/* html tables and some styles */
+.table-container {
+    margin: 0.6em 0;
+}
+
+.table-container table {
+    border-collapse: collapse;
+    margin: 0 2px;
+    /*! table-layout: fixed; */
+}
+
+.table-container td, .table-container th {
+    border-bottom: 1px solid var(--border-color);
+    padding: 4px 8px;
+}
+
+.table-container tr:first-child td {
+    border-top: 2px solid var(--border-color);
+}
+
+.table-container tr:last-child td {
+    border-bottom: 2px solid var(--border-color);
+}
+
+.table-container caption {
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.6em;
+}
+
+.table-container tbody > :nth-child(2n) {
+    background-color: var(--secondary-background);
+}
+
+.table-container.two-column-data {
+    max-width: 30em;
+}
+
+.table-container.two-column-data table {
+    width: 100%;
+}
+
+.table-container.two-column-data table td:last-child {
+    text-align: right;
+}
+
+.table-container.strong-caption table caption {
+    background-color: var(--inverted-background);
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    color: var(--inverted-text-color);
+    margin: 4px 0;
+}
+
+.table-container.static-width-8 th, .table-container.static-width-8 td {
+    width: 8em;
+}
+
+.table-container.static-width-6 th, .table-container.static-width-6 td {
+    width: 6em;
+}
+
+.table-container.static-width-4 th, .table-container.static-width-4 td {
+    width: 4em;
+}
+
+.table-container.center-text td, .center-text th {
+    text-align: center;
+}
+
+.table-container.unstriped tbody > :nth-child(2n) {
+    background-color: transparent;
+}
+
+.table-container.unstyled * {
+    background-color: transparent !important;
+    border-width: 0 !important;
+}
+
+/* inline blocks */
+.inline ol, .inline ul, .inline .table-container {
+    padding-left: 2rem;
+}
+
+.inline ol, .inline ul, .inline li {
+    margin: 0;
+    line-height: initial;
+}
+
+.inline ol {
+    list-style: inside arabic;
+}
+
+.inline ul {
+    list-style: inside;
+}
+
+.inline.padding-bottom {
+    padding-bottom: 0.5rem;
+}
+
+.inline.padding-around {
+    padding: 1rem 0;
+}
+
+.tiles .separated {
+    display: inline-block;
+    margin-left: 1.2rem;
+}
+
+/* mahjong-table */
+.mahjong-table {
+    --display-base: 1rem;
+    --separator-size: calc(0.6 * var(--display-base));
+}
+
+.mahjong-table {
+    display: grid;
+    width: calc(36 * var(--display-base));
+    height: calc(36.75 * var(--display-base));
+
+    max-width: 33em;
+    max-height: 33.75em;
+
+    grid-template-rows: 1fr 3fr 3fr 3fr 1.25fr;
+    grid-template-columns: 1fr 3fr 3fr 3fr 1fr;
+    grid-template-areas:
+        ".            hand-across     hand-across      hand-across   ."
+        "hand-prev    discards-across discards-across  discards-next    hand-next"
+        "hand-prev    discards-prev   center           discards-next    hand-next"
+        "hand-prev    discards-prev   discards-current discards-current hand-next"
+        "hand-current hand-current    hand-current     hand-current     hand-current";
+}
+
+.mahjong-table .center {
+    grid-area: center;
+    font-size: calc(1 * var(--display-base));
+
+    width: calc(9 * var(--display-base));
+    height: calc(9 * var(--display-base));
+
+    display: grid;
+    grid-template-rows: 2fr 5fr 2fr;
+    grid-template-columns: 2fr 5fr 2fr;
+    grid-template-areas:
+        ".          score-across  ."
+        "score-prev situation-box score-next"
+        ".          score-current .";
+
+    border: 1px solid var(--inverted-background);
+    border-radius: 2px;
+}
+
+.mahjong-table .center .situation-container {
+    grid-area: situation-box;
+
+    width: calc(4.5 * var(--display-base));
+    height: calc(4.5 * var(--display-base));
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: calc(0.5 * var(--display-base));
+    background-color: var(--inverted-background);
+    border-radius: 2px;
+    color: var(--inverted-text-color);
+}
+
+.mahjong-table .center .situation-container .round-container {
+    flex: 1 1 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.mahjong-table .center .situation-container .dora-indicator {
+    flex: 1 1 50%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    font-size: calc(0.8 * var(--display-base));
+    border-top: 1px dashed var(--inverted-text-color);
+}
+
+.mahjong-table .center .player-score {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.mahjong-table .center .player-score .wind {
+    background-color: var(--inverted-background);
+    color: var(--inverted-text-color);
+    border-radius: 2px;
+    margin: calc(0.2 * var(--display-base));
+    width: calc(1.2 * var(--display-base));
+    height: calc(1.2 * var(--display-base));
+    line-height: calc(1.1 * var(--display-base));
+    text-align: center;
+}
+
+.mahjong-table .center .player-score.player-current {
+    grid-area: score-current;
+}
+
+.mahjong-table .center .player-score.player-next {
+    grid-area: score-next;
+}
+
+.mahjong-table .center .player-score.player-across {
+    grid-area: score-across;
+}
+
+.mahjong-table .center .player-score.player-prev {
+    grid-area: score-prev;
+}
+
+.mahjong-table .player-hand {
+    align-self: center;
+    justify-self: center;
+    font-size: calc(1 * var(--display-base));
+
+    display: flex;
+    flex-direction: column;
+}
+
+.mahjong-table .player-hand.player-current {
+    grid-area: hand-current;
+    font-size: calc(1.2 * var(--display-base));
+}
+
+.mahjong-table .player-hand.player-next {
+    grid-area: hand-next;
+}
+
+.mahjong-table .player-hand.player-across {
+    grid-area: hand-across;
+}
+
+.mahjong-table .player-hand.player-prev {
+    grid-area: hand-prev;
+}
+
+.mahjong-table .player-discards {
+    font-size: calc(1 * var(--display-base));
+}
+
+.mahjong-table .player-discards.player-current {
+    grid-area: discards-current;
+    align-self: start;
+    justify-self: start;
+}
+
+.mahjong-table .player-discards.player-next {
+    grid-area: discards-next;
+    align-self: end;
+    justify-self: start;
+}
+
+.mahjong-table .player-discards.player-across {
+    grid-area: discards-across;
+    align-self: end;
+    justify-self: end;
+}
+
+.mahjong-table .player-discards.player-prev {
+    grid-area: discards-prev;
+    align-self: start;
+    justify-self: end;
+}
+
+.mahjong-table .player-prev, .mahjong-table .player-next {
+    writing-mode: vertical-rl;
+}
+
+.mahjong-table .player-across, .mahjong-table .player-next {
+    transform: rotate(180deg);
+}
+
+.mahjong-table .hand .dora .tiles,
+.mahjong-table .hand .hand-contents .tiles {
+    font-size: var(--tile-size);
+}
+
+.mahjong-table .player-current .player-name {
+    font-size: 0.9em;
+    margin-top: -12px;
+    margin-bottom: 12px;
+}
+
+.mahjong-table .player-across .player-name {
+    text-align: right;
+    transform: rotate(180deg);
+}
+
+.mahjong-table .player-current .separated,
+.mahjong-table .player-across .separated {
+    margin-left: var(--separator-size);
+}
+
+.mahjong-table .player-next .separated,
+.mahjong-table .player-prev .separated {
+    margin-left: 0;
+    margin-top: var(--separator-size);
+}
+
+.mahjong-table .player-current.player-discards .separated {
+    margin-top: var(--separator-size);
+}
+
+.mahjong-table .player-next.player-discards .separated {
+    margin-left: var(--separator-size);
+}
+
+.mahjong-table .player-across.player-discards .separated {
+    transform: translateY(var(--separator-size));
+}
+
+.mahjong-table .player-prev.player-discards .separated {
+    margin-right: var(--separator-size);
+}
+
+.mahjong-table {
+    margin: 12px 0;
+}
+
+.spoiler {
+    display: inline-block;
+    position: relative;
+}
+
+.reveal-spoiler-button {
+    display: none;
+}
+
+.spoiler.hidden .spoiler-content {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.spoiler.hidden .reveal-spoiler-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    justify-content: center;
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+.spoiler.hidden .reveal-spoiler-button:hover {
+    text-decoration: underline;
+}
