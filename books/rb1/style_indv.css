@@ -86,7 +86,7 @@ body{
     font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     background-image: var(--bgpaper);
     color: var(--font-color);
-    line-height: 2em;
+    line-height: 2.5em;
 }
 
 ul, ol {
