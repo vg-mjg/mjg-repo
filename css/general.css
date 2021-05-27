@@ -1,3 +1,9 @@
+/* GENERIC CSS FOR ALL CLASSES */
+/*IMPORTS*/
+@import url("https://fonts.googleapis.com/css2?family=Mr+Dafoe");
+@import url("https://fonts.googleapis.com/css2?family=Raleway");
+@import url("https://fonts.googleapis.com/css2?family=Forum");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
 /* GENERIC STUFF */
 .spoiler {
   background-color: black;
@@ -9,8 +15,16 @@
   cursor: pointer;
 }
 
-#news {
-    height: 250px;
+.back-to-top {
+    position: fixed;
+    bottom: 0px;
+    right: 25px;
+    display: none;
+}
+
+.back-to-top img {
+  width: 70px;
+  height: 70px;
 }
 
 .btn:focus, .btn.focus {
@@ -27,33 +41,103 @@
     width: 120px;
 }
 
-@media (min-width: 992px) {
-    .dropdown-menu {
-      margin-top: 0;
-    }
-    .dropdown:hover .dropdown-menu {
-        display: block;
-    }
+
+/* INDEX.HTML */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Raleway", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+a {
+    text-decoration: none;
 }
 
+#main {
+  /* this is needed or the background will be offset by a few pixels at the top */
+  overflow: auto;
+  position: relative;
+}
+
+h1, h2 {
+    font-family: "Mr Dafoe", "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+}
 #factDisplay {
-    color: white;
-    text-shadow: -1px 1px 2px #000,
-                  1px 1px 2px #000,
-                  1px -1px 0 #000,
-                 -1px -1px 0 #000;
+    font-family: "Forum", "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-size: 20px;
+    width: 300px;
+}
+#banner {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    max-width: 420px;
 }
 
-.back-to-top {
-    position: fixed;
-    bottom: 0px;
-    right: 25px;
-    display: none;
+@media all and (max-height: 1080px) {
+    #container-news {
+        height: 575px;
+    }
+}
+@media all and (max-height: 768px) {
+    #container-news {
+        height: 260px;
+    }
+}
+#tourneys #info ul {
+    margin-bottom: none;
+}
+#tourneys #info li {
+    padding-right: 5px;
+}
+#switch-location {
+    position: absolute;
+    top: 2px;
+    left: 2px;
 }
 
-.back-to-top img {
-  width: 70px;
-  height: 70px;
+.smaller {
+    font-size: 10px;
+}
+.marquee {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.marquee span {
+  display: inline-block;
+  width: max-content;
+
+  padding-left: 100%;
+  /* show the marquee just outside the paragraph */
+  will-change: transform;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee span:hover {
+  animation-play-state: paused
+}
+
+
+@keyframes marquee {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-100%, 0); }
+}
+
+
+/* Respect user preferences about animations */
+@media (prefers-reduced-motion: reduce) {
+  .marquee span {
+    animation-iteration-count: 1;
+    animation-duration: 0.01; 
+    /* instead of animation: none, so an animationend event is 
+     * still available, if previously attached.
+     */
+    width: auto;
+    padding-left: 0;
+  }
 }
 
 /* STYLES USED IN LIBRARY(ES) */
@@ -79,4 +163,3 @@
 }
 
 /* STYLES USED IN GALLERY(ES) */
-

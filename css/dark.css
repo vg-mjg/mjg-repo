@@ -1,12 +1,5 @@
-/* DARK.CSS - THE DARK STYLESHEET OF THE REPO */
-/*MAIN STYLES */
-
-body {
-    background: url('../background/bgdark.png') repeat black;
-    font-family: Arial;
-    color: white;
-}
-
+/* DARK THEME SETTINGS  */
+/*MAIN STYLES*/
 a {
     color: #A3A3A3;
     outline: 0;
@@ -15,7 +8,6 @@ a:hover {
     color: #7F7F7F;
     text-decoration: none;
 }
-
 hr {
     overflow: visible; /* For IE */
     padding: 0;
@@ -38,41 +30,46 @@ hr:after {
     background: none;
     color: red;
 }
-
-#banner {
-    background: url('../headers/happymaid.jpg') no-repeat center black;
-    background-size: cover;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+/* INDEX.HTML  */
+#navbar {
+    background: linear-gradient(to bottom, rgba(245, 246, 252, 0.40), rgba(0, 0, 0, 0.73)), url(../background/twinkle_twinkle.png);
 }
-#banner h1 {
-    font-family: Arial;
-    font-size: 42px;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 2px 2px black;
-}
+#main::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
 
-#banner p {
-    font-size: 12px;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 2px 2px black;
-}
+  display: block;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.55), 
+      rgba(0, 0, 0, 0.55)
+    ),  url(../background/lolis.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
 
-#banner a {
-    color: #D2D2D2;
-}
-
-.tab-content p a {
-  color: #000000;
-}
-
-.tab-content p a:hover {
-    color: #4A4A4A;
-}
-
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-  background: #6c757d;
-  border-color: #FFF !important;
-  border-bottom: none;
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  -ms-filter: blur(1px);
+  filter: blur(1px);
 }
 
+#navbar a {
+    color: white;
+}
+#tourneys a {
+    color: #E6E6E6;
+    transition: all 2s;
+}
+#tourneys a:hover {
+    color: #E3E3E3;
+    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+}
 /* STYLES USED IN THE GUIDES */
 #guide {
     color: #D2D2D2;

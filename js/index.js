@@ -1,3 +1,17 @@
+function ThemeSwitcher(state) {
+    if (state == "light") {
+        $("link[href*='dark.css']")[0].href = "css/light.css";
+        $("[class*='text-white']").each(function(i, v) {$(v).toggleClass("text-white text-dark");});
+        $("[class*='bg-dark']").each(function(i, v) {$(v).toggleClass("bg-dark bg-light");})
+        localStorage.setItem("theme", "light");
+    } else {
+        $("link[href*='light.css']")[0].href = "css/dark.css";
+        $("[class*='text-dark']").each(function(i, v) {$(v).toggleClass("text-dark text-white");});
+        $("[class*='bg-light']").each(function(i, v) {$(v).toggleClass("bg-light bg-dark");})
+        localStorage.setItem("theme", "dark");
+    }
+}
+
 function PickImage() {
     images = new Array;
     // I hate this, it should be a lot cleaner
@@ -23,67 +37,6 @@ function PickImage() {
     var rand1 = Math.round( (images.length-1) * randomnumber) + 1;
     var image = images[rand1];
     $("#randimg").attr("src", image);
-    sticky_image = new Array;
-    sticky_image[1] = "pics/haruna.png";
-    sticky_image[2] = "pics/hatt.png";
-    sticky_audio = new Array;
-    sticky_audio[1] = "modottekoi";
-    sticky_audio[2] = "kaan";
-    randnum = 2;
-    var rand2 = Math.round( (randnum-1) * randomnumber) + 1;
-    var img2 = sticky_image[rand2];
-    $("#flying-cunny").attr("src", img2);
-    $("#flying-cunny").addClass(sticky_audio[rand2]);
-};
-
-function SwitchLight() {
-    localStorage.setItem("theme", "light");
-    $("link[rel='stylesheet']")[1].href = "css/light.css";
-    $("label[for='ThemeSwitch']").html("おやすみ");
-    $("#menu").removeClass("bg-dark");
-    $("#menu").addClass("bg-white");
-    $("#menu a").addClass("text-dark");
-    $(".card").addClass("border-dark");
-    $(".card-header").removeClass("bg-dark");
-    $(".card-header").addClass("bg-secondary");
-    $(".card-body").removeClass("bg-secondary");
-    $(".card-body").addClass("bg-light");
-    $(".card-body").addClass("text-dark");
-    $("#more").removeClass("text-light");
-    $("#more").addClass("text-dark");
-    $(".tab-content").removeClass("bg-secondary");
-    $(".tab-content").addClass("bg-lightgrey");
-    $(".tab-content").removeClass("border-white");
-    $(".tab-content").addClass("border-secondary");
-};
-
-function SwitchDark() {
-    localStorage.setItem("theme", "dark");
-    $("link[rel='stylesheet']")[1].href = "css/dark.css";
-    $("label[for='ThemeSwitch']").html("おはよう");
-    $("#menu").removeClass("bg-white");
-    $("#menu").addClass("bg-dark");
-    $("#menu a").removeClass("text-dark");
-    $(".card-header").removeClass("bg-secondary");
-    $(".card-header").addClass("bg-dark");
-    $(".card-body").removeClass("bg-light");
-    $(".card-body").addClass("bg-secondary");
-    $(".card-body").removeClass("text-dark");
-    $(".card-body").addClass("text-light");
-    $("#more").removeClass("text-dark");
-    $("#more").addClass("text-light");
-    $(".tab-content").removeClass("bg-lightgrey");
-    $(".tab-content").addClass("bg-secondary");
-    $(".tab-content").removeClass("border-secondary");
-    $(".tab-content").addClass("border-white");
-};
-
-function ChangeTheme() {
-    if (localStorage.getItem("theme") == "dark") {
-        SwitchLight();
-    } else {
-        SwitchDark();
-    }
 };
 
 function GetTime() {
@@ -117,56 +70,58 @@ function Countdown(count_time) {
     }
 };
 
-function SoundAdvice() {
-    var kaan = new Audio("audio/kaan.mp3");
-    var modottekoi = new Audio("audio/modottekoi.mp3");
-    var cunny = $("#flying-cunny").hasClass('kaan');
-    if(cunny) {
-        kaan.play();
-    } else {
-        modottekoi.play();
-    }
-};
+function RedirectToMajSoul() {
+    window.location.replace("https://mahjongsoul.game.yo-star.com/");
+}
 
+var hereForever = new bootstrap.Modal(document.getElementById('hereforever'));
+var quick_links = new bootstrap.Modal(document.getElementById('QuickLinks'));
 $(document).ready(function() {
-    var updates = "";
-    $.getJSON('/updates.json', function(data, textStatus) {
-        for (var i = 0; i < data.updates.length; i++) {
-            updates += `<dt><a href="`+data.updates[i].link+`"><strong>`+data.updates[i].title+`</strong></a></dt>
-            <dd><span class="badge badge-secondary">`+data.updates[i].category+`</span></dd>
-            <dd><small>`+data.updates[i].description+`</small></dd>`;
-        }
-        $("#news").html(updates);
-    });
-
-    var time_interval = setInterval(GetTime, 1000);
-    /* HOW TO USE:
-        Leave everything else as it is except the last argument. This already transforms everything to UTC.
-        At the end of the set interval function add the date. An example: "Dec 25, 2021 22:00:00".
-        It has to be a string.
-    */
-    var countdown_interval = setInterval(Countdown, 1000);
-    if (localStorage.getItem("theme") === null) {
-        localStorage.setItem("theme", "dark");
-    };
-    if (localStorage.getItem("theme") == "light") {
-        SwitchLight();
-        $("#ThemeSwitch").prop('checked', true);
+   $('[data-toggle="tooltip"]').tooltip();
+   newfriend_link = document.getElementById('newfriend');
+   var tooltip = bootstrap.Tooltip.getInstance(newfriend_link);
+   tooltip.show();
+   if (localStorage.getItem("theme") === null) {
+       localStorage.setItem("theme", "dark");
+   }
+   ThemeSwitcher(localStorage.getItem("theme"));
+});
+var updates = "";
+$.getJSON('/updates.json', function(data, textStatus) {
+    for (var i = 0; i < data.updates.length; i++) {
+        updates += `<dt><a href="`+data.updates[i].link+`"><strong>`+data.updates[i].title+`</strong></a></dt>
+        <dd><span class="badge rounded-pill bg-secondary">`+data.updates[i].category+`</span></dd>
+        <dd><small>`+data.updates[i].description+`</small></dd>`;
     }
-    if (localStorage.getItem("theme") == "dark"){
-        SwitchDark();
-    }
+    $("#news").html(updates);
     PickImage();
 });
-
 $("#ChangeImage").click(function() {
     PickImage();
 });
-
-$("#ThemeSwitch").click(function() {
-    ChangeTheme();
-})
-
-$("#flying-cunny").click(function() {
-    SoundAdvice();
-})
+$("#quit").click(function(event) {
+    event.preventDefault();
+    hereForever.show();
+    var start_countdown = setInterval(SetMajSoulTimer, 1000);
+});
+$("#to-quicklinks").click(function(event) {
+    event.preventDefault();
+    quick_links.show();
+});
+$("#theme-switcher").change(function() {
+    if ($(this).prop('checked')) {
+        ThemeSwitcher("light");
+    } else {
+        ThemeSwitcher("dark");
+    }
+});
+var iterations = 0;
+function SetMajSoulTimer() {
+    time = 5 - iterations;
+    iterations++;
+    console.log(time);
+    $("#hereforever .modal-footer").html("Redirecting in "+time+"...");
+    if (time == 0) {
+        RedirectToMajSoul();
+    }
+};
