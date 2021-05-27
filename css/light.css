@@ -1,5 +1,9 @@
 /* DARK THEME SETTINGS  */
 /*MAIN STYLES*/
+body {
+    background: white url(../background/let-there-be-sun.png) repeat;
+    color: black;
+}
 a {
     color: #454545;
     outline: 0;

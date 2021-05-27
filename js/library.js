@@ -1,46 +1,20 @@
-function SwitchLight() {
-    localStorage.setItem("theme", "light");
-    $("link[rel='stylesheet']")[1].href = "/css/light.css";
-    $("label[for='ThemeSwitch']").html("おやすみ");
-    $("#library-header").addClass("border-dark");
-    $("thead").each(function() {
-        $(this).removeClass("thead-dark");
-        $(this).addClass("thead-light");
-    });
-    $("tbody").each(function() {
-        $(this).removeClass("text-white");
-    });
-    $("td#subtitle").each(function() {
-        $(this).removeClass("bg-success");
-        $(this).addClass("bg-info");
-    });
-};
-
-function SwitchDark() {
-    localStorage.setItem("theme", "dark");
-    $("link[rel='stylesheet']")[1].href = "/css/dark.css";
-    $("label[for='ThemeSwitch']").html("おはよう");
-    $("#library-header").removeClass("border-dark");
-    $("thead").each(function() {
-        $(this).removeClass("thead-light");
-        $(this).addClass("thead-dark");
-    });
-    $("tbody").each(function() {
-        $(this).addClass("text-white");
-    });
-    $("td#subtitle").each(function() {
-        $(this).removeClass("bg-info");
-        $(this).addClass("bg-secondary");
-    });
-};
-
-function ChangeTheme() {
-    if (localStorage.getItem("theme") == "dark") {
-        SwitchLight();
+function ThemeSwitcher(state) {
+    if (state == "light") {
+        if ($("link[href*='dark.css']")[0] != null) {
+          $("link[href*='dark.css']")[0].href = "../css/light.css";
+          $("[class*='text-white']").each(function(i, v) {$(v).toggleClass("text-white text-dark");});
+          $("[class*='dropdown-menu-dark']").each(function(i, v) {$(v).toggleClass("dropdown-menu-dark dropdown-menu-light");});
+          $("[class*='bg-dark']").each(function(i, v) {$(v).toggleClass("bg-dark bg-light");})
+          localStorage.setItem("theme", "light");
+        }
     } else {
-        SwitchDark();
+        $("link[href*='light.css']")[0].href = "../css/dark.css";
+        $("[class*='text-dark']").each(function(i, v) {$(v).toggleClass("text-dark text-white");});
+        $("[class*='dropdown-menu-light']").each(function(i, v) {$(v).toggleClass("dropdown-menu-light dropdown-menu-dark");});
+        $("[class*='bg-light']").each(function(i, v) {$(v).toggleClass("bg-light bg-dark");})
+        localStorage.setItem("theme", "dark");
     }
-};
+}
 
 function LoadSection(section) {
   var library_sections = {};
@@ -60,7 +34,7 @@ function LoadSection(section) {
       $('a[href="'+section+'"]').addClass('active');
       // Checks if the light theme is on and switches the pages to light
       if (localStorage.getItem("theme") == "light") {
-          SwitchLight();
+          ThemeSwitcher("light");
       }
     }
   });
@@ -93,13 +67,8 @@ $(document).ready(function() {
     if (localStorage.getItem("theme") === null) {
         localStorage.setItem("theme", "dark");
     };
-    if (localStorage.getItem("theme") == "light") {
-        SwitchLight();
-        $("#ThemeSwitch").prop('checked', true);
-    }
-    if (localStorage.getItem("theme") == "dark"){
-        SwitchDark();
-    }
+    console.log("Localstorage: "+localStorage.getItem("theme"));
+    ThemeSwitcher(localStorage.getItem("theme"));
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', '/audio/beeei.mp3');
     $(window).scroll(function() {
@@ -130,8 +99,12 @@ $(document).ready(function() {
     });
 });
 
-$("#ThemeSwitch").click(function() {
-    ChangeTheme();
+$("#theme-switcher").change(function() {
+    if ($(this).prop('checked')) {
+        ThemeSwitcher("light");
+    } else {
+        ThemeSwitcher("dark");
+    }
 });
 
 $("#resources a").click(function() {

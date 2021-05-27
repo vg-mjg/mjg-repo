@@ -10,24 +10,22 @@
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/light.css">
+        <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
         <link rel="stylesheet" href="/css/general.css">
+        <link rel="stylesheet" href="/css/light.css">
     </head>
     <body>
 
-        <div id="library-header" class="container-fluid border-bottom text-center mt-2">
+        <div id="library-header" class="container-fluid border-bottom text-center text-white mt-2">
             <h1 class="pt-1">Library of resources</h1>
             <small class="font-italic">"The greatest mahjong players rely on 3 things: otherworldly luck, unfathomable skill, and a cute anime girl table mat."</small>
             <p><a href="/index.html">Back to Home</a></p>
-            <div class="row text-left">
-                <div class="custom-control custom-switch align-bottom">
-                  <input type="checkbox" class="custom-control-input" id="ThemeSwitch">
-                  <label class="custom-control-label" for="ThemeSwitch">おはよう</label>
-                </div>
+            <div class="row text-left pb-1">
+                <input id="theme-switcher" checked type="checkbox" data-toggle="toggle" data-off="<i class='bi-sun'></i>" data-on="<i class='bi-moon'></i>" data-onstyle="dark" data-offstyle="light" data-style="border" data-size="sm">
             </div>
         </div>
 
-        <div id="library-body" class="container-fluid mt-2 mb-5">
+        <div id="library-body" class="container-fluid mt-2 mb-5 text-white">
             <div class="row">
               <div id="side-menu" class="col-3 h-25 shadow-sm sticky-top">
                 <div class="nav flex-column" id="resources" role="tablist" aria-orientation="vertical">
@@ -101,6 +99,7 @@
         <!-- Optional JavaScript -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
         <script src="js/library.js"></script>
     </body>
 </html>
