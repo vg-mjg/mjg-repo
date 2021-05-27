@@ -51,8 +51,8 @@ hr:after {
 
   display: block;
   background: linear-gradient(
-      rgba(255, 255, 255, 0.55), 
-      rgba(255, 255, 255, 0.55)
+      rgba(225, 225, 225, 0.35), 
+      rgba(225, 225, 225, 0.35)
     ),  url(../background/lolis.jpg);
   background-position: center;
   background-repeat: no-repeat;
