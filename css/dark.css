@@ -1,5 +1,9 @@
 /* DARK THEME SETTINGS  */
 /*MAIN STYLES*/
+body {
+    background: black url(../background/twinkle_twinkle.png) repeat;
+    color: white;
+}
 a {
     color: #A3A3A3;
     outline: 0;
