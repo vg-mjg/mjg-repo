@@ -1,36 +1,24 @@
-function SwitchLight() {
-    localStorage.setItem("theme", "light");
-    $("link[rel='stylesheet']")[1].href = "/css/light.css";
-    $("label[for='ThemeSwitch']").html("おやすみ");
-    $("#header").addClass("border-dark");
-};
-
-function SwitchDark() {
-    localStorage.setItem("theme", "dark");
-    $("link[rel='stylesheet']")[1].href = "/css/dark.css";
-    $("label[for='ThemeSwitch']").html("おはよう");
-    $("#header").removeClass("border-dark");
-};
-
-function ChangeTheme() {
-    if (localStorage.getItem("theme") == "dark") {
-        SwitchLight();
+function ThemeSwitcher(state) {
+    if (state == "light") {
+        $("link[href*='dark.css']")[0].href = "/css/light.css";
+        $("[class*='text-white']").each(function(i, v) {$(v).toggleClass("text-white text-dark");});
+        $("[class*='dropdown-menu-dark']").each(function(i, v) {$(v).toggleClass("dropdown-menu-dark dropdown-menu-light");});
+        $("[class*='bg-dark']").each(function(i, v) {$(v).toggleClass("bg-dark bg-light");})
+        localStorage.setItem("theme", "light");
     } else {
-        SwitchDark();
+        $("link[href*='light.css']")[0].href = "/css/dark.css";
+        $("[class*='text-dark']").each(function(i, v) {$(v).toggleClass("text-dark text-white");});
+        $("[class*='dropdown-menu-light']").each(function(i, v) {$(v).toggleClass("dropdown-menu-light dropdown-menu-dark");});
+        $("[class*='bg-light']").each(function(i, v) {$(v).toggleClass("bg-light bg-dark");})
+        localStorage.setItem("theme", "dark");
     }
-};
+}
 
 $(document).ready(function() {
     if (localStorage.getItem("theme") === null) {
         localStorage.setItem("theme", "dark");
-    };
-    if (localStorage.getItem("theme") == "light") {
-        SwitchLight();
-        $("#ThemeSwitch").prop('checked', true);
     }
-    if (localStorage.getItem("theme") == "dark"){
-        SwitchDark();
-    }
+    ThemeSwitcher(localStorage.getItem("theme"));
     var audioElement = document.createElement('audio');
     audioElement.setAttribute('src', '/audio/beeei.mp3');
     audioElement.setAttribute('autoplay', 'autoplay');
@@ -56,8 +44,12 @@ $(document).ready(function() {
     });
 });
 
-$("#ThemeSwitch").click(function() {
-    ChangeTheme();
+$("#theme-switcher").change(function() {
+    if ($(this).prop('checked')) {
+        ThemeSwitcher("light");
+    } else {
+        ThemeSwitcher("dark");
+    }
 });
 
 hash = function(h){
