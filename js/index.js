@@ -2,11 +2,13 @@ function ThemeSwitcher(state) {
     if (state == "light") {
         $("link[href*='dark.css']")[0].href = "css/light.css";
         $("[class*='text-white']").each(function(i, v) {$(v).toggleClass("text-white text-dark");});
+        $("[class*='dropdown-menu-dark']").each(function(i, v) {$(v).toggleClass("dropdown-menu-dark dropdown-menu-light");});
         $("[class*='bg-dark']").each(function(i, v) {$(v).toggleClass("bg-dark bg-light");})
         localStorage.setItem("theme", "light");
     } else {
         $("link[href*='light.css']")[0].href = "css/dark.css";
         $("[class*='text-dark']").each(function(i, v) {$(v).toggleClass("text-dark text-white");});
+        $("[class*='dropdown-menu-light']").each(function(i, v) {$(v).toggleClass("dropdown-menu-light dropdown-menu-dark");});
         $("[class*='bg-light']").each(function(i, v) {$(v).toggleClass("bg-light bg-dark");})
         localStorage.setItem("theme", "dark");
     }
