@@ -32,5 +32,7 @@ After method A or B you'll become official repoanon, which means you won't have 
 Which means you'll see something like pic related if you edit a file
 ![1000](https://user-images.githubusercontent.com/49875739/119968067-50c0eb80-bfad-11eb-9469-430812f26c54.png)
 It's still a good idea to make pull requests if you do something big. 
-If you're a brainlet there is https://desktop.github.com/ to make things easier
+
+If you're a brainlet there is https://desktop.github.com/ to make things easier.
+
 Good luck.
