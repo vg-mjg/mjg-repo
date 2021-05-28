@@ -1,9 +1,12 @@
-/* DARK THEME SETTINGS  */
-/*MAIN STYLES*/
+/* LIGHT.CSS - THE LIGHT STYLESHEET OF THE REPO */
+/*MAIN STYLES */
+
 body {
-    background: white url(../background/let-there-be-sun.png) repeat;
+    background: url('../background/bglight.png') repeat black;
+    font-family: Arial;
     color: black;
 }
+
 a {
     color: #454545;
     outline: 0;
@@ -12,6 +15,7 @@ a:hover {
     color: #2E2E2E;
     text-decoration: none;
 }
+
 hr {
     overflow: visible; /* For IE */
     padding: 0;
@@ -34,6 +38,7 @@ hr:after {
     background: none;
     color: red;
 }
+
 .spoiler {
   background-color: black;
   color: black;
@@ -42,46 +47,46 @@ hr:after {
   color: white;
   cursor: pointer;
 }
-/* INDEX.HTML  */
-#navbar {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.20), rgba(245, 246, 252, 0.73)), url(../background/let-there-be-sun.png);
+
+#banner {
+    color: white;
+    background: url('../headers/hatback.jpg') no-repeat center black;
+    background-size: cover;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
-#main::before {
-  content: "";
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: -1;
-
-  display: block;
-  background: linear-gradient(
-      rgba(225, 225, 225, 0.35), 
-      rgba(225, 225, 225, 0.35)
-    ),  url(../background/lolis.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-
-  -webkit-filter: blur(1px);
-  -moz-filter: blur(1px);
-  -o-filter: blur(1px);
-  -ms-filter: blur(1px);
-  filter: blur(1px);
+#banner h1 {
+    font-family: Arial;
+    font-size: 42px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 2px 2px black;
 }
 
-#navbar a {
-    color: #000000;
+#banner p {
+    font-size: 12px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 2px 2px black;
 }
-#tourneys a {
-    color: #000000;
-    transition: all 2s;
+
+#banner a {
+    color: #D2D2D2;
 }
-#tourneys a:hover {
-    color: #6B6B6B;
-    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+
+.tab-content p a {
+    color: #2D2D2D;
 }
+
+.tab-content p a:hover {
+    color: #4A4A4A;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  background: #E0E0E0;
+  border-color: #6c757d !important;
+  border-bottom: none;
+}
+
+.bg-lightgrey {
+  background: #E0E0E0;
+}
+
 /* STYLES USED IN THE GUIDES */
 #guide {
     color: #3A3A3A;
