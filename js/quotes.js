@@ -10,7 +10,6 @@
     'I won\'t lose as long as I keep winning.',
     'We can\'t trust any of the suji waits. Throw them all out!',
     'Even with instinct, courage, and the best game you can play, you will still lose in Mahjong.',
-    'Being repoanon causes great damage to the human spirit without a single benefit.',
     'Mahjong causes great damage to the human spirit without a single benefit.',
     'The sand at the bottom of hell is magical sand.',
     'Praise meido.',
