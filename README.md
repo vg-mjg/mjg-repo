@@ -13,6 +13,7 @@
 # Reorganization Plans
 - Make a Guides section its own thing instead of being buried in the Library of Resources
 - Reorganize the information on the Newfriend Readme to better suit the people who read it: newfags
+- Arrange the strategy resources into 3 sections: beginner friendly, intermediate play, and Lunatic.
 
 # To do
 - in the [issues](https://github.com/vg-mjg/mjg-repo/issues)
