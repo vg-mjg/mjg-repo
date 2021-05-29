@@ -4,11 +4,11 @@ maajan repo for the maajan general. pls apply as repoanons, thanks. ~~No serious
 
 [**How to contribute/become repoanon?**](https://github.com/vg-mjg/mjg-repo/blob/master/CONTRIBUTING.md)
 
-[**easier method to become a repoanon**](https://drive.google.com/file/d/1feviU9YQ4o773XEDeZHyjKugNoM1hTgA/view)
+[**Easier method to become a repoanon**](https://drive.google.com/file/d/1feviU9YQ4o773XEDeZHyjKugNoM1hTgA/view)
 
 [**/mjg/ Repo Constitution**](https://github.com/vg-mjg/mjg-repo/issues/95)
 
-[**team page**](https://github.com/orgs/vg-mjg/teams/repoanons) <sub><sup>facebook...</sup></sub>
+[**Team page**](https://github.com/orgs/vg-mjg/teams/repoanons) <sub><sup>facebook...</sup></sub>
 
 # Reorganization Plans
 - Make a Guides section its own thing instead of being buried in the Library of Resources
