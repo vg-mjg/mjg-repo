@@ -42,6 +42,11 @@ function ChangeTheme() {
     }
 };
 
+function FilterByLevel(level) {
+    // PEAK javascript code
+    $("table tbody tr").hide().filter("#"+level).show();
+}
+
 function LoadSection(section) {
   var library_sections = {};
   library_sections["resources-game"] = "resources-game.html";
