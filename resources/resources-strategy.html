@@ -14,9 +14,10 @@
 </ul>
 
 <ul id="level-filter" class="list-inline text-center">
-    <li class="list-inline-item"><a href="#" onclick="FilterByLevel('beginner')" title="" class="badge badge-pill badge-success">Beginner</a></li>
-    <li class="list-inline-item"><a href="#" title="" onclick="FilterByLevel('intermediate')" class="badge badge-pill badge-warning">Intermediate</a></li>
-    <li class="list-inline-item"><a href="#" title="" onclick="FilterByLevel('lunatic')" class="badge badge-pill badge-danger">Lunatic</a></li>
+    <li class="list-inline-item"><button onclick="FilterByLevel('beginner')" type="button" class="badge badge-pill badge-success">Beginner</button></li>
+    <li class="list-inline-item"><button onclick="FilterByLevel('intermediate')" type="button" class="badge badge-pill badge-warning">Intermediate</button></li>
+    <li class="list-inline-item"><button onclick="FilterByLevel('lunatic')" type="button" class="badge badge-pill badge-danger">Lunatic</button></li>
+    <li class="list-inline-item"><button onclick="$('table tbody tr').show();" type="button" class="badge badge-pill badge-secondary">Clear</button></li>
 </ul>
 
 <table data-spy="scroll" class="table table-transparent table-bordered table-striped">
