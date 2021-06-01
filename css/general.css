@@ -79,4 +79,16 @@
 }
 
 /* STYLES USED IN GALLERY(ES) */
+ul li.list-inline-item img {
+    width: 75px;
+    height: 75px;
+    filter: grayscale(100%);
+    transition: filter 2s;
+}
+ul li.list-inline-item img:hover {
+    filter: grayscale(0%);
+}
 
+ul li.list-inline-item img.img-active {
+    filter: grayscale(0%);
+}
