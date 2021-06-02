@@ -74,4 +74,8 @@ $(document).ready(function() {
       interval: false,
       keyboard: true
     });
+
+    $("#ThemeSwitch").click(function() {
+        ChangeTheme();
+    });
 });
