@@ -23,7 +23,6 @@ function LoadTeams() {
     for (var i = 1; i < 15; i++) {
         teams += '<li class="list-inline-item"><a href="#" data-team="'+i+'"><img src="team-logos/team'+i+'.png" width="75" height="75" alt=""></a></li>'
     }
-    console.log(teams);
     $("#teams-display").html(teams);
 }
 
