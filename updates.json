@@ -9,6 +9,12 @@
    "updates":[
       {
          "title":"Party Time",
+         "link":"others/userscripts/oversees.js",
+         "category":"Userscript",
+         "description":"Yes, it's a pun. Shows players' server origin."
+      },
+      {
+         "title":"Party Time",
          "link":"https://files.catbox.moe/sbmubx.mspe",
          "category":"Majsoul plus mod",
          "description":"<a href=\"others/userscripts/partytime.js\">Userscript</a><br>Everyone's invited. Press Ctrl+C during a match to get a link to the game. Anyone with the script can use that url to spectate."
