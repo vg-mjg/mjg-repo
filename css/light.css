@@ -8,11 +8,11 @@ body {
 }
 
 a {
-    color: #272525;
+    color: #0047b3;
     outline: 0;
 }
 a:hover {
-    color: black;
+    color: #005ce6;
     text-decoration: none;
 }
 
