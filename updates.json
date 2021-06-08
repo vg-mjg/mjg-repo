@@ -8,6 +8,12 @@
     },
    "updates":[
       {
+         "title":"Party Time",
+         "link":"https://files.catbox.moe/sbmubx.mspe",
+         "category":"Majsoul plus mod",
+         "description":"<a href=\"others/userscripts/partytime.js\">Userscript</a><br>Everyone's invited. Press Ctrl+C during a match to get a link to the game. Anyone with the script can use that url to spectate."
+      },
+      {
          "title":"Wild West Theme",
          "link":"https://www.mediafire.com/file/uy8796e7fdt8v25/Wild_West.mspr",
          "category":"Majsoul plus mod",
