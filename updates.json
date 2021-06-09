@@ -8,6 +8,12 @@
     },
    "updates":[
       {
+         "title":"Saki Vita dumps",
+         "link":"https://repo.riichi.moe/library.html#resources-game",
+         "category":"Resource",
+         "description":"Some anon ripped the game and got us some cool resources."
+      },
+      {
          "title":"Oversees",
          "link":"others/userscripts/oversees.js",
          "category":"Userscript",
