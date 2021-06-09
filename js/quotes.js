@@ -21,7 +21,8 @@
     'There may be a hundred complex shapes and waits, but you win with just one.',
     'I do not believe I can tsumo, I know I will.',
     'The sanshoku, the itsuu, the toitoi. Each offers something the others don\'t. But the tanyao is eternal.',
-    'Come play at Hime Mahjong!'
+    'Come play at Hime Mahjong!',
+    'The only time I ever considered dropping mahjong was when I couldn\'t hold it in anymore and just let it all out in the floor of my room.<br> I didn\'t even win that game.<br> I felt so fucking embarrassed afterwards as a grown-adult man to clean up a pile of disgusting shit because I was too entranced in a shitty tile-matching game.'
     ];
     var randomFact = Math.floor(Math.random() * facts.length);
     document.getElementById('factDisplay').innerHTML = facts[randomFact];
