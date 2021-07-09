@@ -108,7 +108,7 @@ function Countdown(count_time) {
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         if (distance > 0) {
-            var end_time = "<br /> " + days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds";
+            var end_time = "<br />Time before the tourney starts:<br /> " + days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds";
 
             $("#countdown").html(end_time);
         } else {
