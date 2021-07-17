@@ -145,7 +145,7 @@ $(document).ready(function() {
         At the end of the set interval function add the date. An example: "Dec 25, 2021 22:00:00".
         It has to be a string.
     */
-    var countdown_interval = setInterval(Countdown, 1000, "Jul 17, 2021 5:00:00");
+    var countdown_interval = setInterval(Countdown, 1000);
     if (localStorage.getItem("theme") === null) {
         localStorage.setItem("theme", "dark");
     };
