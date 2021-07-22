@@ -117,6 +117,17 @@ function Countdown(count_time) {
     }
 };
 
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+};
+
+function VisitorsCount() {
+    var value = getRndInteger(1000, 99999);
+    var html_text = "This repo has been visited by "+value+" retards and none of them escaped silver.";
+    console.log(html_text);
+    $("#counter").html(html_text);
+};
+
 function SoundAdvice() {
     var kaan = new Audio("audio/kaan.mp3");
     var modottekoi = new Audio("audio/modottekoi.mp3");
@@ -129,6 +140,7 @@ function SoundAdvice() {
 };
 
 $(document).ready(function() {
+    VisitorsCount();
     var updates = "";
     $.getJSON('/updates.json', function(data, textStatus) {
         for (var i = 0; i < data.updates.length; i++) {
