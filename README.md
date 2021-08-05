@@ -1,6 +1,6 @@
 # [/mjg/ Repository](https://repo.riichi.moe)
 
-[maajan repo](https://repo.riichi.moe) for the [maajan general](https://boards.4channel.org/vg/catalog#s=mjg). pls apply as repoanons, thanks. ~~No seriously, everybody is dead~~ there's people now, but help is still needed.
+[maajan repo](https://repo.riichi.moe) for the [maajan general](https://boards.4channel.org/vg/catalog#s=/gig/). pls apply as repoanons, thanks. ~~No seriously, everybody is dead~~ there's people now, but help is still needed.
 
 [**How to contribute/become repoanon?**](https://github.com/vg-mjg/mjg-repo/blob/master/CONTRIBUTING.md)
 
