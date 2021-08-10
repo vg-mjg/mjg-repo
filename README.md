@@ -11,7 +11,6 @@
 [**Team page**](https://github.com/orgs/vg-mjg/teams/repoanons) <sub><sup>facebook...</sup></sub>
 
 # Reorganization Plans
-- Make a Guides section its own thing instead of being buried in the Library of Resources
 
 # To do
 - in the [issues](https://github.com/vg-mjg/mjg-repo/issues)
