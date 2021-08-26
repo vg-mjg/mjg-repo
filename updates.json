@@ -7,11 +7,17 @@
          "description":""
     },
    "updates":[
+      {
+         "title":"Majsoul yakuman background",
+         "link":"https://files.catbox.moe/v80wp5.zip",
+         "category":"Resource",
+         "description":"All the final background that appear during the new yakuman animation (found on discord)"
+      },
 	  {
          "title":"Majsoul emotes and sprites (Update 26/07/21)",
          "link":"https://files.catbox.moe/ppvtme.zip",
          "category":"Resource",
-         "description":"Added both new character"
+         "description":"Added both new character (found on discord)"
 	  },
       {
            "title":"Download logs mod (Update 31/7/21)",
