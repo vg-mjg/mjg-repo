@@ -7,11 +7,17 @@
          "description":""
     },
    "updates":[
+     {
+        "title":"NAGA AI",
+        "link":"https://naga.dmv.nico/naga_report/top",
+        "category":"Training",
+        "description":"Akochan but strong??? Sadly you have to pay for it."
+     },
       {
          "title":"Majsoul yakuman background",
          "link":"https://files.catbox.moe/v80wp5.zip",
          "category":"Resource",
-         "description":"All the final background that appear during the new yakuman animation (found on discord)"
+         "description":"All the final background that appear during the new yakuman animation"
       },
 	  {
          "title":"Majsoul emotes and sprites (Update 26/07/21)",
