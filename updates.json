@@ -8,6 +8,12 @@
     },
    "updates":[
      {
+         "title":"Majsoul emotes and sprites (Update 26/07/21)",
+         "link":"https://files.catbox.moe/cam2zv.7z",
+         "category":"Resource",
+         "description":"The new majsoul emotes, with everything corrected"
+     },
+     {
         "title":"NAGA AI",
         "link":"https://naga.dmv.nico/naga_report/top",
         "category":"Training",
@@ -23,7 +29,7 @@
          "title":"Majsoul emotes and sprites (Update 26/07/21)",
          "link":"https://files.catbox.moe/ppvtme.zip",
          "category":"Resource",
-         "description":"Added both new character (found on discord)"
+         "description":"Don't download this one!"
 	  },
       {
            "title":"Download logs mod (Update 31/7/21)",
