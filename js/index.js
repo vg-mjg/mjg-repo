@@ -151,12 +151,6 @@ $(document).ready(function() {
         $("#news").html(updates);
     });
 
-    $("#neverforget").modal("show");
-
-    $("#neverforget").on("hidden.bs.modal", function () {
-        $("audio")[2].pause();
-    });
-
     var time_interval = setInterval(GetTime, 1000);
     /* HOW TO USE:
         Leave everything else as it is except the last argument. This already transforms everything to UTC.
