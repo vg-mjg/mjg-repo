@@ -8,6 +8,30 @@
     },
    "updates":[
      {
+        "title":"Arcturus is dead",
+        "link":"https://riichi.wiki/Main_Page",
+        "category":"Tools",
+        "description":"It can't be helped. Site moved to riichi.wiki, hosted by the osamuko guy."
+     },
+     {
+        "title":"Anon's akochan",
+        "link":"https://files.catbox.moe/8x9mas.zip",
+        "category":"Tools",
+        "description":"Easier to use than the official build, can even work with majsoul links."
+     },
+     {
+        "title":"M-league youtubers",
+        "link":"https://repo.riichi.moe/library.html#resources-mleague",
+        "category":"Video",
+        "description":"Updated with new entries (shiratori, arisa, rui, shibukawa's tulpas)"
+     },
+     {
+        "title":"Pystyle WWYD",
+        "link":"https://pystyle.info/apps/mahjong-nanikiru-simulator",
+        "category":"Tools",
+        "description":"Online EV calculator, looks pretty but of course it's in japanese."
+     },
+     {
         "title":"Statistical Mahjong Strategy (Updated)",
         "link":"https://files.catbox.moe/9pkxbm.pdf",
         "category":"Books",
