@@ -1,12 +1,12 @@
 function SwitchLight() {
     localStorage.setItem("theme", "light");
-    $("link[rel='stylesheet']")[1].href = "css/light.css";
+    $("link[rel='stylesheet']")[1].href = "../css/light.css";
     $("label[for='ThemeSwitch']").html("おやすみ");
 };
 
 function SwitchDark() {
     localStorage.setItem("theme", "dark");
-    $("link[rel='stylesheet']")[1].href = "css/dark.css";
+    $("link[rel='stylesheet']")[1].href = "../css/dark.css";
     $("label[for='ThemeSwitch']").html("おはよう");
 };
 
@@ -56,6 +56,60 @@ function SelectComic(name) {
     }
 }
 
+function OCGallery() {
+
+    oc_gallery = {};
+
+    oc_gallery["octourney-1"] = [
+        "octourney-gallery/1.PNG", 
+        "octourney-gallery/2.jpg", 
+        "octourney-gallery/3.png", 
+        "octourney-gallery/4.png", 
+        "octourney-gallery/5.png", 
+        "octourney-gallery/6.png", 
+        "octourney-gallery/7.png", 
+        "octourney-gallery/8.png", 
+        "octourney-gallery/9.png", 
+        "octourney-gallery/10.jpg",
+        "octourney-gallery/11.png",
+        "octourney-gallery/12.png",
+        "octourney-gallery/13.jpg",
+        "octourney-gallery/14.png",
+        "octourney-gallery/15.png",
+        "octourney-gallery/16.png",
+        "octourney-gallery/17.jpg",
+        "octourney-gallery/18.png",
+        "octourney-gallery/19.jpg",
+        "octourney-gallery/20.png",
+        "octourney-gallery/21.jpg",
+        "octourney-gallery/22.png",
+        "octourney-gallery/23.png",
+        "octourney-gallery/24.png",
+        "octourney-gallery/25.png",
+        "octourney-gallery/26.png",
+        "octourney-gallery/27.png",
+        "octourney-gallery/28.png"
+    ];
+
+    var gallery_content = "";
+    for (var i = 0; i < oc_gallery["octourney-1"].length; i++) {
+        gallery_content += '<div class="carousel-item w-100';
+        // With no first "active" image this shit won't work
+        // I think they fix this in bootstrap 5
+        // Will look into it
+        if (i == 0) {
+            gallery_content += ' active">';
+        } else {
+            gallery_content += '">';
+        }
+        gallery_content += '<img src="'+oc_gallery["octourney-1"][i]+'" class="d-block mx-auto w-auto img-fluid container-fluid" alt="">';
+        var sub_num = i+1;
+        gallery_content += '<h5 class="text-center">Submission #'+sub_num+'</h5></div>';
+    }
+    $(".carousel-inner").append(gallery_content);
+
+}
+
 $(document).ready(function() {
     if (localStorage.getItem("theme") === null) {
         localStorage.setItem("theme", "dark");
@@ -67,9 +121,15 @@ $(document).ready(function() {
     if (localStorage.getItem("theme") == "dark"){
         SwitchDark();
     }
+    $("#ThemeSwitch").click(function() {
+        ChangeTheme();
+    });
     var comic = window.location.hash;
     comic = comic.substring(1);
     SelectComic(comic);
+    if (window.location.href.indexOf("octourney-gallery.html") > -1) {
+        OCGallery();
+    }
     $('.carousel').carousel({
       interval: false,
       keyboard: true
