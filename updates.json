@@ -8,8 +8,14 @@
     },
    "updates":[
       {
-         "title":"Fishing Ichihime",
+         "title":"Fishing Ichihime v.3pin (Update 01/01/22)",
          "link":"https://files.catbox.moe/g2y4ku.zip",
+         "category":"OC",
+         "description":"It should fix bugs reported in the thread. You can just replace your executable with this one, your save files from previous version will be compatible."
+      }, 
+      {
+         "title":"Fishing Ichihime",
+         "link":"https://files.catbox.moe/z43grf.zip",
          "category":"OC",
          "description":"Very comfy single player mahjong game, win points to get fish for ichihime."
      }, 
