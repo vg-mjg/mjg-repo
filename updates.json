@@ -8,6 +8,12 @@
     },
    "updates":[
       {
+         "title":"Fishing Ichihime v.4pin (Update 02/01/22)",
+         "link":"https://files.catbox.moe/kx8ubj.zip",
+         "category":"OC",
+         "description":"Fixes a softlock in endless modes. You can just replace your executable with this one, your save files from previous version will be compatible."
+      }, 
+      {
          "title":"Fishing Ichihime v.3pin (Update 01/01/22)",
          "link":"https://files.catbox.moe/g2y4ku.zip",
          "category":"OC",
