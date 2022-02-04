@@ -8,6 +8,12 @@
     },
    "updates":[
       {
+         "title":"Touhou Gensou Mahjong 4N translation",
+         "link":"https://github.com/NicolasTurpin/Touhou-Gensou-Mahjong-4N---ENGLISH-translation",
+         "category":"Game",
+         "description":"A translation for the touhou mahjong game with superpowers and all of that. Pretty nice, just remember not to run it on japanese locale."
+      },
+      {
          "title":"Waifu 2x (Update 27/01/22)",
          "link":"https://files.catbox.moe/z5m2fe.mspr",
          "category":"Majsoul+ mod",
