@@ -28,7 +28,7 @@
     {
       "title":"Kitano dump",
       "link":"https://mega.nz/folder/ldBnnAyB#xUqkO04nAZGk5XQSNRM5rg",
-      "category":"Books",
+      "category":"Manga",
       "description":"Some anon got scans from this Kitano mahjong manga. Synopsis? Fuck if I know, it's in Japanese."
    },
       {
@@ -288,42 +288,6 @@
         "link":"https://files.catbox.moe/wzofc0.mspe",
         "category":"Majsoul+ mod",
         "description":"A mod that vastly improves nyagger, by using the pure sex picture from Riichima Financial instead of the bonded pic."
-     },
-     {
-        "title":"Change buttons (Updated)",
-        "link":"https://files.catbox.moe/w16a4p.mspr",
-        "category":"Majsoul+ mod",
-        "description":"Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively."
-     },
-      {
-         "title":"Saki Vita dumps",
-         "link":"https://repo.riichi.moe/library.html#resources-game",
-         "category":"Resource",
-         "description":"Some anon ripped the game and got us some cool resources. <a href=\"https://mega.nz/file/wR9GCIaa#ld1OwiMFy1IOoL9az2KYnJtqUTiEdUtXurasV5boBYU\">Images</a> and <a href=\"https://www.mediafire.com/file/ez9udmf3vdkpc99/Saki_MJS_v2.7z/file\">yaku</a>"
-      },
-      {
-         "title":"Oversees",
-         "link":"others/userscripts/oversees.js",
-         "category":"Userscript",
-         "description":"Yes, it's a pun. Shows players' server origin."
-      },
-      {
-         "title":"Party Time",
-         "link":"https://files.catbox.moe/sbmubx.mspe",
-         "category":"Majsoul plus mod",
-         "description":"<a href=\"others/userscripts/partytime.js\">Userscript</a><br>Everyone's invited. Press Ctrl+C during a match to get a link to the game. Anyone with the script can use that url to spectate."
-      },
-      {
-         "title":"Wild West Theme",
-         "link":"https://www.mediafire.com/file/uy8796e7fdt8v25/Wild_West.mspr",
-         "category":"Majsoul plus mod",
-         "description":"<a href=\"https://www.mediafire.com/file/7rt0cuq76vd7n0q/Wild+West+BGM.mspe\">Music BGM Mod</a><br>Yeehaw! Presented by team Bandora Bandits, get transported to the wild west and live out your cowbow dreams."
-      },
-      {
-         "title":"/mjg/ League 2",
-         "link":"https://www.youtube.com/watch?v=KZLpY14l0ZQ",
-         "category":"League",
-         "description":"Congratulations to <b>CoolDogz</b> (Kingdomfreak, XSA, mottwww, ワハハ, UncleMoton, 6k5e and SirL) for winning! Who would've expected this outcome, huh?<br><a href=\"https://forms.gle/uVF6fkkAizsMUnqX9\">League Review Form</a> <small>send your thoughts here</small>"
-      }
+     }
    ]
 }
