@@ -8,6 +8,12 @@
     },
    "updates":[
       {
+         "title":"Majsoul paifu",
+         "link":"https://maj.gg/",
+         "category":"Tools",
+         "description":"Give it a link to a majsoul game and it shows your paifu and point graph."
+      },
+      {
          "title":"4chan tiles",
          "link":"https://files.catbox.moe/xys0zh.js",
          "category":"Browser script",
