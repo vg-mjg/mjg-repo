@@ -8,6 +8,12 @@
     },
    "updates":[
       {
+         "title":"4chan tiles",
+         "link":"https://files.catbox.moe/xys0zh.js",
+         "category":"Browser script",
+         "description":"Revival of an old /jp/ script, showing tiles on 4chan. Uses the standard notation (like 123m20p66s27z)"
+      },
+      {
          "title":"Waifu 2x (Update 24/03/22)",
          "link":"https://files.catbox.moe/f35xx2.mspr",
          "category":"Majsoul+ mod",
