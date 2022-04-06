@@ -19,7 +19,7 @@ ask for a DAY MODE. */
 }
 
 [data-theme="dark"] {
-    --bgpaper: url(background/dust_scratches.png);
+    --bgpaper: url(background/bglight.png);
     --font-color: #424242;
     --link-color: #0072AB;
     --acc-color: #333333;
