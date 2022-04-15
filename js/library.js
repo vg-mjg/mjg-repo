@@ -47,6 +47,15 @@ function FilterByLevel(level) {
     $("table tbody tr").hide().filter("#"+level).show();
 }
 
+function preventOverride(event) {
+  event = event || window.event;
+  event.preventDefault();
+  go_to_address = "#"+event.path[0].href.split("#")[1];
+  $('html, body').animate({
+    scrollTop: ($(go_to_address).offset().top)
+  }, 1000);
+}
+
 function LoadSection(section) {
   var library_sections = {};
   library_sections["resources-game"] = "resources-game.html";
