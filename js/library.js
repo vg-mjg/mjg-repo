@@ -48,9 +48,10 @@ function FilterByLevel(level) {
 }
 
 function preventOverride(event) {
-  event = event || window.event;
-  event.preventDefault();
-  go_to_address = "#"+event.path[0].href.split("#")[1];
+  ev = event || window.event;
+  ev.preventDefault();
+  console.log();
+  go_to_address = "#"+ev.target.href.split("#")[1];
   $('html, body').animate({
     scrollTop: ($(go_to_address).offset().top)
   }, 1000);
