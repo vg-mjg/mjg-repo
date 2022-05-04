@@ -8,6 +8,24 @@
     },
    "updates":[
       {
+         "title":"Riichima Financial Group (Update 2022-05-02)",
+         "link":"https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/character%20swaps/RiichimaFinancialGroup.mspe",
+         "category":"Majsoul+ mod",
+         "description":"The long awaited, previously posted, now uploaded to the repo Riichima Financial mod. Replace bond skins with sharply dressed office workers!"
+      },
+	  {
+         "title":"Change buttons (Update 2022-04-27)",
+         "link":"https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Change%20buttons%202022-04-27.mspr",
+         "category":"Majsoul+ mod",
+         "description":"Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively. It's been exactly 6 months since they last moved around the buttons in their files for no fucking reason."
+      },
+      {
+         "title":"Waifu 2x (Update 2022-04-27)",
+         "link":"https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202022-04-27.mspr",
+         "category":"Majsoul+ mod",
+         "description":"A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Includes all the new characters from the Kaguya collab"
+      },
+      {
          "title":"Super Zugan subs",
          "link":"https://files.riichi.moe/mjg/movies%20and%20other%20media/super%20zugan%20subs/",
          "category":"Movies",
