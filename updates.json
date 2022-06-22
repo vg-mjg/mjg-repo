@@ -1,353 +1,370 @@
 {
-   "_template (copy everything including the {} and paste it below on 'updates' in between [].)":
+  "_template (copy everything including the {} and paste it below on 'updates' in between [].)": {
+    "title": "",
+    "link": "",
+    "category": "",
+    "description": ""
+  },
+  "updates": [
     {
-         "title":"",
-         "link":"",
-         "category":"",
-         "description":""
-    },
-   "updates":[
-      {
-         "title":"The Impact of the World's Strongest Mahjong AI Suphx - 11/06",
-         "link":"https://files.riichi.moe/mjg/books%20(en)/The%20Impact%20of%20the%20World%E2%80%99s%20Strongest%20Mahjong%20AI%20Suphx.pdf",
-         "category":"Book",
-         "description":"Chapter 2 done."
-    },
-      {
-         "title":"300 wwyd (wwyd-chan 3)",
-         "link":"https://files.riichi.moe/mjg/books%20(en)/300%20Established%20Practice%20Which%20to%20cut%20%28wwyd-chan%201%29.pdf",
-         "category":"Books",
-         "description":"Fixed typos, added preface and cover. 10-06-22"
-      },
-      {
-         "title":"Waifu 2x (Update 2022-06-06)",
-         "link":"https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu%202x%202022-06-06.mspr",
-         "category":"Majsoul+ mod",
-         "description":"A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Added the new skin emotes for Momo and A-37"
-      },
-      {
-         "title":"The Impact of the World's Strongest Mahjong AI Suphx",
-         "link":"https://files.riichi.moe/mjg/books%20(en)/The%20Impact%20of%20the%20World%E2%80%99s%20Strongest%20Mahjong%20AI%20Suphx.pdf",
-         "category":"Book",
-         "description":"Tenhoui player looks at Suphx's logs and tries to guess what Suphx meant by this. Thank you M$ for the akochan slayer. Do not read before memorizing RMS efficiency charts, it tests you. TL'd until chapter 1."
-    },
-      {
-           "title":"Printable Compass Files",
-           "link":"https://files.riichi.moe/mjg/game%20resources%20and%20tools/Real%20Life/Printable%20Compasses/",
-           "category":"Resource",
-           "description":"Printable compass .stl files for YMI and Amos Max sizes for playing IRL"
-      },
-	  {
-           "title":"The Fantasy World of Mahjong Princess",
-           "link":"https://files.riichi.moe/mjg/offline%20game%20downloads/h-games/The%20Fantasy%20World%20of%20Mahjong%20Princess.rar",
-           "category":"Games",
-           "description":"bla bla bla win mahjong games get to pon their ton. You know the drill. Password: mjg"
-      },
-      {
-         "title":"Riichima Financial Group (Update 2022-05-02)",
-         "link":"https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/character%20swaps/RiichimaFinancialGroup.mspe",
-         "category":"Majsoul+ mod",
-         "description":"The long awaited, previously posted, now uploaded to the repo Riichima Financial mod. Replace bond skins with sharply dressed office workers!"
-      },
-	  {
-         "title":"Change buttons (Update 2022-04-27)",
-         "link":"https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Change%20buttons%202022-04-27.mspr",
-         "category":"Majsoul+ mod",
-         "description":"Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively. It's been exactly 6 months since they last moved around the buttons in their files for no fucking reason."
-      },
-      {
-         "title":"Waifu 2x (Update 2022-04-27)",
-         "link":"https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202022-04-27.mspr",
-         "category":"Majsoul+ mod",
-         "description":"A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Includes all the new characters from the Kaguya collab"
-      },
-      {
-         "title":"Super Zugan subs",
-         "link":"https://files.riichi.moe/mjg/movies%20and%20other%20media/super%20zugan%20subs/",
-         "category":"Movies",
-         "description":"Episode 15 and 16, from the 8th movie night."
-      },
-      {
-         "title":"300 wwyd (wwyd-chan 3)",
-         "link":"https://files.riichi.moe/mjg/books%20(en)/300%20Established%20Practice%20Which%20to%20cut%20%28wwyd-chan%201%29.pdf",
-         "category":"Books",
-         "description":"Version beta, more bugfixes soon(tm)."
-      },
-      {
-         "title":"7th Movie night",
-         "link":"https://files.riichi.moe/mjg/movies%20and%20other%20media/movie%20nights/mjgmovienight%207.mp4",
-         "category":"Movie",
-         "description":"Shin janki 11, 12 and akagi LA "
-      },
-      {
-         "title":"Uzaku tile efficiency (wwyd-chan 3)",
-         "link":"https://files.catbox.moe/xegloh.pdf",
-         "category":"Books",
-         "description":"From the wwyd-chan author, now you get oyakodon! Complete translation of the tile efficiency book. Better get to study if you want to marry Akane."
-      },
-      {
-         "title":"Super closed mahjong (Hag book)",
-         "link":"https://files.catbox.moe/w9e330.pdf",
-         "category":"Books",
-         "description":"Update for the hag book. Still on chapter 1, but improved."
-      },
-      {
-         "title":"Majsoul paifu",
-         "link":"https://maj.gg/",
-         "category":"Tools",
-         "description":"Give it a link to a majsoul game and it shows your paifu and point graph."
-      },
-      {
-         "title":"4chan tiles",
-         "link":"https://files.catbox.moe/xys0zh.js",
-         "category":"Browser script",
-         "description":"Revival of an old /jp/ script, showing tiles on 4chan. Uses the standard notation (like 123m20p66s27z)"
-      },
-      {
-         "title":"Waifu 2x (Update 24/03/22)",
-         "link":"https://files.catbox.moe/f35xx2.mspr",
-         "category":"Majsoul+ mod",
-         "description":"A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Added the new emotes for Fuji and green hair guys skins in the Hot Spring event"
-      },
-      {
-         "title":"Hana improvement mod",
-         "link":"https://files.catbox.moe/ode9xk.mspr",
-         "category":"Majsoul+ mod",
-         "description":"Upgrade to literally who. Removes Hana's glasses, gives her longer hair and changes her thigh highs from white to black. <a href=\"https://files.catbox.moe/5rawd6.jpg\">Picture comparison here</a>"
-      },
-      {
-           "title":"Book dump",
-           "link":"https://mega.nz/folder/9BRzjSaa#iM_ozwAvSnXFYn0X6gFjbg",
-           "category":"Books",
-           "description":"The 3rd great mahjong dump. Look into this for books not included in the previous one, especially newer stuff. Old man, shibukawa, takizawa, uchikawa, uzaku 4, and so on."
-      },
-      {
-         "title":"Sakurai collection",
-         "link":"https://mega.nz/folder/xdZB2STK#ZhI4ZKb58SjTT2ZdoeVm6w",
-         "category":"Books",
-         "description":"Real flowmaster hours, in 12 simple books. Reading this will take you to celestial in less than 100 hanchans."
+      "title": "Majsoul emotes (Update 22/06/22)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
+      "category": "Resource",
+      "description": "New package with all, upscaled majsoul emotes."
     },
     {
-      "title":"Kitano dump",
-      "link":"https://mega.nz/folder/ldBnnAyB#xUqkO04nAZGk5XQSNRM5rg",
-      "category":"Manga",
-      "description":"Some anon got scans from this Kitano mahjong manga. Synopsis? Fuck if I know, it's in Japanese."
-   },
-      {
-         "title":"Waifu 2x (Update 23/02/22)",
-         "link":"https://files.catbox.moe/nxr9bj.mspr",
-         "category":"Majsoul+ mod",
-         "description":"A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Added the new emotes for Yui and Sawako's skins in the Moonlight Waltz event"
-      },
-      {
-         "title":"Statistical Mahjong Strategy (Updated 17/02/22)",
-         "link":"https://files.catbox.moe/3edzau.pdf",
-         "category":"Books",
-         "description":"It's like riichi book 2, but for math addicts. Fixed some typos."
-      }, 
-      {
-         "title":"Uzaku's 300 wwyd (beta) ",
-         "link":"https://files.catbox.moe/mm49ie.pdf",
-         "category":"Books",
-         "description":"Learn about tile efficiency and the feeling of having a girlfriend all in one book! Harder prequel of the 301 book. improved version soon(tm)"
-      }, 
-      {
-         "title":"Touhou Gensou Mahjong 4N translation",
-         "link":"https://github.com/NicolasTurpin/Touhou-Gensou-Mahjong-4N---ENGLISH-translation",
-         "category":"Game",
-         "description":"A translation for the touhou mahjong game with superpowers and all of that. Pretty nice, just remember not to run it on japanese locale."
-      },
-      {
-         "title":"Waifu 2x (Update 27/01/22)",
-         "link":"https://files.catbox.moe/z5m2fe.mspr",
-         "category":"Majsoul+ mod",
-         "description":"A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Added the 2 new characters emotes and new CNY emotes."
-      },
-      {
-         "title":"Riichi city character voices",
-         "link":"https://files.catbox.moe/4qhm70.7z",
-         "category":"Resource",
-         "description":"The riichi city character voice lines."
-      }, 
-      {
-         "title":"Riichi city emotes (Updated 23/01/22)",
-         "link":"https://files.catbox.moe/i03067.7z",
-         "category":"Resource",
-         "description":"Now including all emotes."
-      }, 
-      {
-         "title":"Riichi city emotes",
-         "link":"https://files.catbox.moe/p6whbd.zip",
-         "category":"Resource",
-         "description":"The riichi city animated emotes."
-      }, 
-      {
-         "title":"Uzaku's tile efficiency (Updated 18/01/22)",
-         "link":"https://files.catbox.moe/ilm460.pdf",
-         "category":"Books",
-         "description":"From the wwyd-chan author, oyakodon efficiency theory. Almost complete."
-      }, 
-      {
-         "title":"Statistical Mahjong Strategy (Updated 03/01/22)",
-         "link":"https://files.catbox.moe/ofyysq.pdf",
-         "category":"Books",
-         "description":"It's like riichi book 2, but for math addicts. Fixed some typos."
-      }, 
-      {
-         "title":"Fishing Ichihime v.4pin (Update 02/01/22)",
-         "link":"https://files.catbox.moe/kx8ubj.zip",
-         "category":"OC",
-         "description":"Fixes a softlock in endless modes. You can just replace your executable with this one, your save files from previous version will be compatible."
-      }, 
-      {
-         "title":"Fishing Ichihime v.3pin (Update 01/01/22)",
-         "link":"https://files.catbox.moe/g2y4ku.zip",
-         "category":"OC",
-         "description":"It should fix bugs reported in the thread. You can just replace your executable with this one, your save files from previous version will be compatible."
-      }, 
-      {
-         "title":"Fishing Ichihime",
-         "link":"https://files.catbox.moe/z43grf.zip",
-         "category":"OC",
-         "description":"Very comfy single player mahjong game, win points to get fish for ichihime."
-     }, 
-      {
-         "title":"Majsoul emotes (Update 22/12/21)",
-         "link":"https://files.catbox.moe/z0poyw.7z",
-         "category":"Resource",
-         "description":"The new majsoul emotes."
-     }, 
-      {
-         "title":"Waifu 2x (Update 24/11/21)",
-         "link":"https://files.catbox.moe/8t63ha.mspr",
-         "category":"Majsoul+ mod",
-         "description":"A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Added the 2 new halloween emotes from the latest update."
-      },
-     {
-        "title":"Tile Efficiency (wwyd-chan 3)",
-        "link":"https://files.catbox.moe/4xql3w.pdf",
-        "category":"Books",
-        "description":"From the wwyd-chan author, now you get oyakodon! Suited to learn beginner tile efficiency. Translation is going on, still quite a good number of typos."
-     },
-     {
-        "title":"Majsoul sprites (Update 28/10/21)",
-        "link":"https://files.catbox.moe/xf66bb.7z",
-        "category":"Resource",
-        "description":"The new majsoul sprites."
+      "title": "Majsoul character voices (Update 22/06/22)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/character%20voices/?zip=utf8",
+      "category": "Resource",
+      "description": "Complete package with all character voice lines."
     },
-     {
-        "title":"Majsoul emotes (Update 28/10/21)",
-        "link":"https://files.catbox.moe/58szyp.7z",
-        "category":"Resource",
-        "description":"The new majsoul emotes."
+    {
+      "title": "Majsoul character sprites (Update 22/06/22)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/portraits/?zip=utf8",
+      "category": "Resource",
+      "description": "Contains all majsoul character sprites."
     },
-     {
-        "title":"Waifu 2x",
-        "link":"https://files.catbox.moe/y7r6xz.mspr",
-        "category":"Majsoul+ mod",
-        "description":"A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. This makes emotes look better on larger screens instead of them looking a bit blurry."
-     },
-     {
-        "title":"Change buttons",
-        "link":"https://files.catbox.moe/y7r6xz.mspr",
-        "category":"Majsoul+ mod",
-        "description":"Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively."
-     },
-     {
-        "title":"Statistical Mahjong Strategy (Updated)",
-        "link":"https://files.catbox.moe/r55w98.pdf",
-        "category":"Books",
-        "description":"It's like riichi book 2, but for math addicts. Fixed some typos."
-     },
-     {
-        "title":"Arcturus is dead",
-        "link":"https://riichi.wiki/Main_Page",
-        "category":"Tools",
-        "description":"It can't be helped. Site moved to riichi.wiki, hosted by the osamuko guy."
-     },
-     {
-        "title":"Anon's akochan",
-        "link":"https://files.catbox.moe/8x9mas.zip",
-        "category":"Tools",
-        "description":"Easier to use than the official build, can even work with majsoul links."
-     },
-     {
-        "title":"M-league youtubers",
-        "link":"https://repo.riichi.moe/library.html#resources-mleague",
-        "category":"Video",
-        "description":"Updated with new entries (shiratori, arisa, rui, shibukawa's tulpas)"
-     },
-     {
-        "title":"Pystyle WWYD",
-        "link":"https://pystyle.info/apps/mahjong-nanikiru-simulator",
-        "category":"Tools",
-        "description":"Online EV calculator, looks pretty but of course it's in japanese."
-     },
-     {
-        "title":"Statistical Mahjong Strategy (Updated)",
-        "link":"https://files.catbox.moe/9pkxbm.pdf",
-        "category":"Books",
-        "description":"It's like riichi book 2, but for math addicts. Translation completed."
-     },
-     {
-        "title":"Change buttons (Not)Update",
-        "link":"https://files.catbox.moe/rl3duq.mspr",
-        "category":"Majsoul+ mod",
-        "description":"Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively."
-     },
-      {
-         "title":"Statistical Mahjong Strategy (Updated)",
-         "link":"https://files.catbox.moe/085cnu.pdf",
-         "category":"Books",
-         "description":"It's like riichi book 2, but for math addicts. Updated with chapter 2 fully translated."
-      },
-     {
-        "title":"Statistical Mahjong Strategy (sms)",
-        "link":"https://files.catbox.moe/nwxso3.pdf",
-        "category":"Books",
-        "description":"It's like riichi book 2, but for math addicts. Explains everything with ev, plots, tables and raw numbers. It's being translated by anon, chapters until 2.6 done."
-     },
-     {
-        "title":"Super Zugan ep10 subs",
-        "link":"https://files.catbox.moe/f5osnw.ass",
-        "category":"Anime",
-        "description":"Subs of the 9th episode of super zugan. Raws are in the media section."
-     },
-      {
-         "title":"Majsoul emotes and sprites (Update 26/08/21)",
-         "link":"https://files.catbox.moe/m4bxvt.7z",
-         "category":"Resource",
-         "description":"The new majsoul emotes, with everything corrected (I hope) /!\\ FULL PACK /!\\ (update only in the game resources section)"
-     },
-     {
-         "title":"Majsoul emotes and sprites (Update 26/08/21)",
-         "link":"https://files.catbox.moe/cam2zv.7z",
-         "category":"Resource",
-         "description":"Don't download this one too, yes I'm a retard!"
-     },
-     {
-        "title":"NAGA AI",
-        "link":"https://naga.dmv.nico/naga_report/top",
-        "category":"Training",
-        "description":"Akochan but strong??? Sadly you have to pay for it."
-     },
-      {
-         "title":"Majsoul yakuman background",
-         "link":"https://files.catbox.moe/v80wp5.zip",
-         "category":"Resource",
-         "description":"All the final background that appear during the new yakuman animation"
-      },
-	  {
-         "title":"Majsoul emotes and sprites (Update 26/07/21)",
-         "link":"https://files.catbox.moe/ppvtme.zip",
-         "category":"Resource",
-         "description":"Don't download this one!"
-	  },
-      {
-           "title":"Download logs mod (Update 31/7/21)",
-           "link":"https://files.catbox.moe/7tnpry.mspe",
-           "category":"Majsoul+ mod",
-           "description":"working branch. chankan. old logs. ai games. better js."
-      }
-      ]
+    {
+      "title": "The Impact of the World's Strongest Mahjong AI Suphx - 11/06",
+      "link": "https://files.riichi.moe/mjg/books%20(en)/The%20Impact%20of%20the%20World%E2%80%99s%20Strongest%20Mahjong%20AI%20Suphx.pdf",
+      "category": "Book",
+      "description": "Chapter 2 done."
+    },
+    {
+      "title": "300 wwyd (wwyd-chan 3)",
+      "link": "https://files.riichi.moe/mjg/books%20(en)/300%20Established%20Practice%20Which%20to%20cut%20%28wwyd-chan%201%29.pdf",
+      "category": "Books",
+      "description": "Fixed typos, added preface and cover. 10-06-22"
+    },
+    {
+      "title": "Waifu 2x (Update 2022-06-06)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu%202x%202022-06-06.mspr",
+      "category": "Majsoul+ mod",
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Added the new skin emotes for Momo and A-37"
+    },
+    {
+      "title": "The Impact of the World's Strongest Mahjong AI Suphx",
+      "link": "https://files.riichi.moe/mjg/books%20(en)/The%20Impact%20of%20the%20World%E2%80%99s%20Strongest%20Mahjong%20AI%20Suphx.pdf",
+      "category": "Book",
+      "description": "Tenhoui player looks at Suphx's logs and tries to guess what Suphx meant by this. Thank you M$ for the akochan slayer. Do not read before memorizing RMS efficiency charts, it tests you. TL'd until chapter 1."
+    },
+    {
+      "title": "Printable Compass Files",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Real%20Life/Printable%20Compasses/",
+      "category": "Resource",
+      "description": "Printable compass .stl files for YMI and Amos Max sizes for playing IRL"
+    },
+    {
+      "title": "The Fantasy World of Mahjong Princess",
+      "link": "https://files.riichi.moe/mjg/offline%20game%20downloads/h-games/The%20Fantasy%20World%20of%20Mahjong%20Princess.rar",
+      "category": "Games",
+      "description": "bla bla bla win mahjong games get to pon their ton. You know the drill. Password: mjg"
+    },
+    {
+      "title": "Riichima Financial Group (Update 2022-05-02)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/character%20swaps/RiichimaFinancialGroup.mspe",
+      "category": "Majsoul+ mod",
+      "description": "The long awaited, previously posted, now uploaded to the repo Riichima Financial mod. Replace bond skins with sharply dressed office workers!"
+    },
+    {
+      "title": "Change buttons (Update 2022-04-27)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Change%20buttons%202022-04-27.mspr",
+      "category": "Majsoul+ mod",
+      "description": "Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively. It's been exactly 6 months since they last moved around the buttons in their files for no fucking reason."
+    },
+    {
+      "title": "Waifu 2x (Update 2022-04-27)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202022-04-27.mspr",
+      "category": "Majsoul+ mod",
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Includes all the new characters from the Kaguya collab"
+    },
+    {
+      "title": "Super Zugan subs",
+      "link": "https://files.riichi.moe/mjg/movies%20and%20other%20media/super%20zugan%20subs/",
+      "category": "Movies",
+      "description": "Episode 15 and 16, from the 8th movie night."
+    },
+    {
+      "title": "300 wwyd (wwyd-chan 3)",
+      "link": "https://files.riichi.moe/mjg/books%20(en)/300%20Established%20Practice%20Which%20to%20cut%20%28wwyd-chan%201%29.pdf",
+      "category": "Books",
+      "description": "Version beta, more bugfixes soon(tm)."
+    },
+    {
+      "title": "7th Movie night",
+      "link": "https://files.riichi.moe/mjg/movies%20and%20other%20media/movie%20nights/mjgmovienight%207.mp4",
+      "category": "Movie",
+      "description": "Shin janki 11, 12 and akagi LA "
+    },
+    {
+      "title": "Uzaku tile efficiency (wwyd-chan 3)",
+      "link": "https://files.catbox.moe/xegloh.pdf",
+      "category": "Books",
+      "description": "From the wwyd-chan author, now you get oyakodon! Complete translation of the tile efficiency book. Better get to study if you want to marry Akane."
+    },
+    {
+      "title": "Super closed mahjong (Hag book)",
+      "link": "https://files.catbox.moe/w9e330.pdf",
+      "category": "Books",
+      "description": "Update for the hag book. Still on chapter 1, but improved."
+    },
+    {
+      "title": "Majsoul paifu",
+      "link": "https://maj.gg/",
+      "category": "Tools",
+      "description": "Give it a link to a majsoul game and it shows your paifu and point graph."
+    },
+    {
+      "title": "4chan tiles",
+      "link": "https://files.catbox.moe/xys0zh.js",
+      "category": "Browser script",
+      "description": "Revival of an old /jp/ script, showing tiles on 4chan. Uses the standard notation (like 123m20p66s27z)"
+    },
+    {
+      "title": "Waifu 2x (Update 24/03/22)",
+      "link": "https://files.catbox.moe/f35xx2.mspr",
+      "category": "Majsoul+ mod",
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Added the new emotes for Fuji and green hair guys skins in the Hot Spring event"
+    },
+    {
+      "title": "Hana improvement mod",
+      "link": "https://files.catbox.moe/ode9xk.mspr",
+      "category": "Majsoul+ mod",
+      "description": "Upgrade to literally who. Removes Hana's glasses, gives her longer hair and changes her thigh highs from white to black. <a href=\"https://files.catbox.moe/5rawd6.jpg\">Picture comparison here</a>"
+    },
+    {
+      "title": "Book dump",
+      "link": "https://mega.nz/folder/9BRzjSaa#iM_ozwAvSnXFYn0X6gFjbg",
+      "category": "Books",
+      "description": "The 3rd great mahjong dump. Look into this for books not included in the previous one, especially newer stuff. Old man, shibukawa, takizawa, uchikawa, uzaku 4, and so on."
+    },
+    {
+      "title": "Sakurai collection",
+      "link": "https://mega.nz/folder/xdZB2STK#ZhI4ZKb58SjTT2ZdoeVm6w",
+      "category": "Books",
+      "description": "Real flowmaster hours, in 12 simple books. Reading this will take you to celestial in less than 100 hanchans."
+    },
+    {
+      "title": "Kitano dump",
+      "link": "https://mega.nz/folder/ldBnnAyB#xUqkO04nAZGk5XQSNRM5rg",
+      "category": "Manga",
+      "description": "Some anon got scans from this Kitano mahjong manga. Synopsis? Fuck if I know, it's in Japanese."
+    },
+    {
+      "title": "Waifu 2x (Update 23/02/22)",
+      "link": "https://files.catbox.moe/nxr9bj.mspr",
+      "category": "Majsoul+ mod",
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Added the new emotes for Yui and Sawako's skins in the Moonlight Waltz event"
+    },
+    {
+      "title": "Statistical Mahjong Strategy (Updated 17/02/22)",
+      "link": "https://files.catbox.moe/3edzau.pdf",
+      "category": "Books",
+      "description": "It's like riichi book 2, but for math addicts. Fixed some typos."
+    },
+    {
+      "title": "Uzaku's 300 wwyd (beta) ",
+      "link": "https://files.catbox.moe/mm49ie.pdf",
+      "category": "Books",
+      "description": "Learn about tile efficiency and the feeling of having a girlfriend all in one book! Harder prequel of the 301 book. improved version soon(tm)"
+    },
+    {
+      "title": "Touhou Gensou Mahjong 4N translation",
+      "link": "https://github.com/NicolasTurpin/Touhou-Gensou-Mahjong-4N---ENGLISH-translation",
+      "category": "Game",
+      "description": "A translation for the touhou mahjong game with superpowers and all of that. Pretty nice, just remember not to run it on japanese locale."
+    },
+    {
+      "title": "Waifu 2x (Update 27/01/22)",
+      "link": "https://files.catbox.moe/z5m2fe.mspr",
+      "category": "Majsoul+ mod",
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Added the 2 new characters emotes and new CNY emotes."
+    },
+    {
+      "title": "Riichi city character voices",
+      "link": "https://files.catbox.moe/4qhm70.7z",
+      "category": "Resource",
+      "description": "The riichi city character voice lines."
+    },
+    {
+      "title": "Riichi city emotes (Updated 23/01/22)",
+      "link": "https://files.catbox.moe/i03067.7z",
+      "category": "Resource",
+      "description": "Now including all emotes."
+    },
+    {
+      "title": "Riichi city emotes",
+      "link": "https://files.catbox.moe/p6whbd.zip",
+      "category": "Resource",
+      "description": "The riichi city animated emotes."
+    },
+    {
+      "title": "Uzaku's tile efficiency (Updated 18/01/22)",
+      "link": "https://files.catbox.moe/ilm460.pdf",
+      "category": "Books",
+      "description": "From the wwyd-chan author, oyakodon efficiency theory. Almost complete."
+    },
+    {
+      "title": "Statistical Mahjong Strategy (Updated 03/01/22)",
+      "link": "https://files.catbox.moe/ofyysq.pdf",
+      "category": "Books",
+      "description": "It's like riichi book 2, but for math addicts. Fixed some typos."
+    },
+    {
+      "title": "Fishing Ichihime v.4pin (Update 02/01/22)",
+      "link": "https://files.catbox.moe/kx8ubj.zip",
+      "category": "OC",
+      "description": "Fixes a softlock in endless modes. You can just replace your executable with this one, your save files from previous version will be compatible."
+    },
+    {
+      "title": "Fishing Ichihime v.3pin (Update 01/01/22)",
+      "link": "https://files.catbox.moe/g2y4ku.zip",
+      "category": "OC",
+      "description": "It should fix bugs reported in the thread. You can just replace your executable with this one, your save files from previous version will be compatible."
+    },
+    {
+      "title": "Fishing Ichihime",
+      "link": "https://files.catbox.moe/z43grf.zip",
+      "category": "OC",
+      "description": "Very comfy single player mahjong game, win points to get fish for ichihime."
+    },
+    {
+      "title": "Majsoul emotes (Update 22/12/21)",
+      "link": "https://files.catbox.moe/z0poyw.7z",
+      "category": "Resource",
+      "description": "The new majsoul emotes."
+    },
+    {
+      "title": "Waifu 2x (Update 24/11/21)",
+      "link": "https://files.catbox.moe/8t63ha.mspr",
+      "category": "Majsoul+ mod",
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Added the 2 new halloween emotes from the latest update."
+    },
+    {
+      "title": "Tile Efficiency (wwyd-chan 3)",
+      "link": "https://files.catbox.moe/4xql3w.pdf",
+      "category": "Books",
+      "description": "From the wwyd-chan author, now you get oyakodon! Suited to learn beginner tile efficiency. Translation is going on, still quite a good number of typos."
+    },
+    {
+      "title": "Majsoul sprites (Update 28/10/21)",
+      "link": "https://files.catbox.moe/xf66bb.7z",
+      "category": "Resource",
+      "description": "The new majsoul sprites."
+    },
+    {
+      "title": "Majsoul emotes (Update 28/10/21)",
+      "link": "https://files.catbox.moe/58szyp.7z",
+      "category": "Resource",
+      "description": "The new majsoul emotes."
+    },
+    {
+      "title": "Waifu 2x",
+      "link": "https://files.catbox.moe/y7r6xz.mspr",
+      "category": "Majsoul+ mod",
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. This makes emotes look better on larger screens instead of them looking a bit blurry."
+    },
+    {
+      "title": "Change buttons",
+      "link": "https://files.catbox.moe/y7r6xz.mspr",
+      "category": "Majsoul+ mod",
+      "description": "Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively."
+    },
+    {
+      "title": "Statistical Mahjong Strategy (Updated)",
+      "link": "https://files.catbox.moe/r55w98.pdf",
+      "category": "Books",
+      "description": "It's like riichi book 2, but for math addicts. Fixed some typos."
+    },
+    {
+      "title": "Arcturus is dead",
+      "link": "https://riichi.wiki/Main_Page",
+      "category": "Tools",
+      "description": "It can't be helped. Site moved to riichi.wiki, hosted by the osamuko guy."
+    },
+    {
+      "title": "Anon's akochan",
+      "link": "https://files.catbox.moe/8x9mas.zip",
+      "category": "Tools",
+      "description": "Easier to use than the official build, can even work with majsoul links."
+    },
+    {
+      "title": "M-league youtubers",
+      "link": "https://repo.riichi.moe/library.html#resources-mleague",
+      "category": "Video",
+      "description": "Updated with new entries (shiratori, arisa, rui, shibukawa's tulpas)"
+    },
+    {
+      "title": "Pystyle WWYD",
+      "link": "https://pystyle.info/apps/mahjong-nanikiru-simulator",
+      "category": "Tools",
+      "description": "Online EV calculator, looks pretty but of course it's in japanese."
+    },
+    {
+      "title": "Statistical Mahjong Strategy (Updated)",
+      "link": "https://files.catbox.moe/9pkxbm.pdf",
+      "category": "Books",
+      "description": "It's like riichi book 2, but for math addicts. Translation completed."
+    },
+    {
+      "title": "Change buttons (Not)Update",
+      "link": "https://files.catbox.moe/rl3duq.mspr",
+      "category": "Majsoul+ mod",
+      "description": "Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively."
+    },
+    {
+      "title": "Statistical Mahjong Strategy (Updated)",
+      "link": "https://files.catbox.moe/085cnu.pdf",
+      "category": "Books",
+      "description": "It's like riichi book 2, but for math addicts. Updated with chapter 2 fully translated."
+    },
+    {
+      "title": "Statistical Mahjong Strategy (sms)",
+      "link": "https://files.catbox.moe/nwxso3.pdf",
+      "category": "Books",
+      "description": "It's like riichi book 2, but for math addicts. Explains everything with ev, plots, tables and raw numbers. It's being translated by anon, chapters until 2.6 done."
+    },
+    {
+      "title": "Super Zugan ep10 subs",
+      "link": "https://files.catbox.moe/f5osnw.ass",
+      "category": "Anime",
+      "description": "Subs of the 9th episode of super zugan. Raws are in the media section."
+    },
+    {
+      "title": "Majsoul emotes and sprites (Update 26/08/21)",
+      "link": "https://files.catbox.moe/m4bxvt.7z",
+      "category": "Resource",
+      "description": "The new majsoul emotes, with everything corrected (I hope) /!\\ FULL PACK /!\\ (update only in the game resources section)"
+    },
+    {
+      "title": "Majsoul emotes and sprites (Update 26/08/21)",
+      "link": "https://files.catbox.moe/cam2zv.7z",
+      "category": "Resource",
+      "description": "Don't download this one too, yes I'm a retard!"
+    },
+    {
+      "title": "NAGA AI",
+      "link": "https://naga.dmv.nico/naga_report/top",
+      "category": "Training",
+      "description": "Akochan but strong??? Sadly you have to pay for it."
+    },
+    {
+      "title": "Majsoul yakuman background",
+      "link": "https://files.catbox.moe/v80wp5.zip",
+      "category": "Resource",
+      "description": "All the final background that appear during the new yakuman animation"
+    },
+    {
+      "title": "Majsoul emotes and sprites (Update 26/07/21)",
+      "link": "https://files.catbox.moe/ppvtme.zip",
+      "category": "Resource",
+      "description": "Don't download this one!"
+    },
+    {
+      "title": "Download logs mod (Update 31/7/21)",
+      "link": "https://files.catbox.moe/7tnpry.mspe",
+      "category": "Majsoul+ mod",
+      "description": "working branch. chankan. old logs. ai games. better js."
+    }
+  ]
 }
