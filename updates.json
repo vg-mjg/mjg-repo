@@ -7,28 +7,28 @@
   },
   "updates": [
     {
+      "title": "Majsoul emotes (Update 13/07/22)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
+      "category": "Resource",
+      "description": "New package with all, upscaled majsoul emotes."
+    },
+    {
+      "title": "Majsoul character sprites (Update 13/07/22)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/portraits/?zip=utf8",
+      "category": "Resource",
+      "description": "Contains all majsoul character sprites."
+    },
+    {
       "title": "Waifu 2x (Update 22/06/22)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu%202x%202022-06-22.mspr",
       "category": "Majsoul+ mod",
       "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Added Yuzu and Zechs emotes, and the new skin emotes for Meido and Sprout"
     },
     {
-      "title": "Majsoul emotes (Update 22/06/22)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
-      "category": "Resource",
-      "description": "New package with all, upscaled majsoul emotes."
-    },
-    {
       "title": "Majsoul character voices (Update 22/06/22)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/character%20voices/?zip=utf8",
       "category": "Resource",
       "description": "Complete package with all character voice lines."
-    },
-    {
-      "title": "Majsoul character sprites (Update 22/06/22)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/portraits/?zip=utf8",
-      "category": "Resource",
-      "description": "Contains all majsoul character sprites."
     },
     {
       "title": "The Impact of the World's Strongest Mahjong AI Suphx - 11/06",
