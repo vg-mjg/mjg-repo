@@ -16,3 +16,7 @@
 - in the [issues](https://github.com/vg-mjg/mjg-repo/issues)
 
 Want your implement your own shit that nobody can deny? Hate github and shan't ever make an account? As usual just win a tourney/league/whatever and make the request, as stated in the repo constitution article 4 section 4.
+
+\>repo constitution
+
+\>having any value
