@@ -98,12 +98,12 @@ $(document).ready(function() {
     } else {
       // This will now load the first tab of the side menu
       if (window.location.pathname == "/library.html") {
-        var res = $("#side-menu a:first").attr("href");
+        var res = $("#side-menu .nav-link:first").attr("href");
         LoadSection(res);
       } else {
-        $("#side-menu a:first").tab("show");
+        $("#side-menu .nav-link:first").tab("show");
       }
-      $("#side-menu a:first").addClass("active");
+      $("#side-menu .nav-link:first").addClass("active");
     }
     if (localStorage.getItem("theme") === null) {
         localStorage.setItem("theme", "dark");
@@ -132,7 +132,7 @@ $(document).ready(function() {
       }, 2000);
       return false;
     });
-    $("#side-menu a").click(function(event) {
+    $("#side-menu .nav-link").click(function(event) {
       event.preventDefault();
       section = $(this).attr("href");
       LoadSection(section);
