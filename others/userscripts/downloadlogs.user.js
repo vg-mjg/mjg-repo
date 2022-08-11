@@ -7,6 +7,8 @@
 // @include      https://mahjongsoul.game.yo-star.com/
 // @include      https://game.mahjongsoul.com/
 // @include      https://majsoul.union-game.com/0/
+// @updateURL    https://repo.riichi.moe/others/userscripts/downloadlogs.user.js
+// @downloadURL  https://repo.riichi.moe/others/userscripts/downloadlogs.user.js
 // ==/UserScript==
 
 (function()

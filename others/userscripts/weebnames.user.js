@@ -5,11 +5,11 @@
 // @version      1.1.0
 // @description  For all your weeaboo needs, change WEEB_LEVEL in script if you feel like it
 // @author       anon
-// @updateURL    https://repo.riichi.moe/others/userscripts/weebnames.js
-// @downloadURL  https://repo.riichi.moe/others/userscripts/weebnames.js
 // @include      https://mahjongsoul.game.yo-star.com/
 // @include      https://game.mahjongsoul.com/
 // @include      https://majsoul.union-game.com/0/
+// @updateURL    https://repo.riichi.moe/others/userscripts/weebnames.user.js
+// @downloadURL  https://repo.riichi.moe/others/userscripts/weebnames.user.js
 // ==/UserScript==
 
 (function () {
@@ -111,8 +111,7 @@
     }
 
     var LobbyCheck = setInterval(function () {
-        // using nasty syntax because electron shipped with MJS+ builds doesn't support `?`
-        if (GameMgr != undefined && GameMgr.Inst != undefined && GameMgr.Inst.EnterLobby != undefined) {
+        if (GameMgr && GameMgr.Inst && GameMgr.Inst.EnterLobby) {
             GameMgr.Inst.EnterLobby = (function () {
                 var cacheF = GameMgr.Inst.EnterLobby;
                 return function () {

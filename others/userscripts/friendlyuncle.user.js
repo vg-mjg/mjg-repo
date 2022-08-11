@@ -8,14 +8,16 @@
 // @include      https://mahjongsoul.game.yo-star.com/
 // @include      https://game.mahjongsoul.com/
 // @include      https://game.maj-soul.com/1/
+// @updateURL    https://repo.riichi.moe/others/userscripts/friendlyuncle.user.js
+// @downloadURL  https://repo.riichi.moe/others/userscripts/friendlyuncle.user.js
 // ==/UserScript==
 
-(function() {
+(function () {
     'use strict';
 
-    function InappropriateTouch(){
+    function InappropriateTouch() {
         if (view.DesktopMgr.Inst.paipu_config & view.EMJMode.live_broadcast) return;
-        uiscript.UI_DesktopInfo.Inst.btn_seeinfo = function(e) {
+        uiscript.UI_DesktopInfo.Inst.btn_seeinfo = function (e) {
             if (view.DesktopMgr.Inst.gameing) {
                 var i = view.DesktopMgr.Inst.player_datas[view.DesktopMgr.Inst.localPosition2Seat(e)].account_id;
                 if (i) {
@@ -26,7 +28,7 @@
                 }
             }
         }
-        uiscript.UI_DesktopInfo.Inst.refreshSeat = function(t) {
+        uiscript.UI_DesktopInfo.Inst.refreshSeat = function (t) {
             void 0 === t && (t = !1);
             view.DesktopMgr.Inst.seat;
             for (var e = view.DesktopMgr.Inst.player_datas, i = 0; i < 4; i++) {
@@ -48,7 +50,7 @@
                 }
             }
         }
-        for (let i = 0; i < 4; i++){
+        for (let i = 0; i < 4; i++) {
             let head = uiscript.UI_DesktopInfo.Inst._player_infos[i].container.getChildByName("btn_head");
             if (!head)
                 continue;
@@ -58,11 +60,11 @@
         }
     }
 
-    var LazyCheck = setInterval(function(){
-        if (uiscript?.UI_DesktopInfo?.Inst?.initRoom){
-            uiscript.UI_DesktopInfo.Inst.initRoom = (function(){
+    var LazyCheck = setInterval(function () {
+        if (uiscript && uiscript.UI_DesktopInfo && uiscript.UI_DesktopInfo.Inst && uiscript.UI_DesktopInfo.Inst.initRoom) {
+            uiscript.UI_DesktopInfo.Inst.initRoom = (function () {
                 var cacheF = uiscript.UI_DesktopInfo.Inst.initRoom;
-                return function(){
+                return function () {
                     InappropriateTouch();
                     var result = cacheF.apply(this, arguments);
                     return result;
@@ -70,5 +72,5 @@
             })();
             clearInterval(LazyCheck);
         }
-    },2000);
+    }, 2000);
 })();

@@ -8,6 +8,8 @@
 // @include      https://mahjongsoul.game.yo-star.com/
 // @include      https://game.mahjongsoul.com/
 // @include      https://game.maj-soul.com/1/
+// @updateURL    https://repo.riichi.moe/others/userscripts/oversees.user.js
+// @downloadURL  https://repo.riichi.moe/others/userscripts/oversees.user.js
 // ==/UserScript==
 
 (function() {
@@ -42,7 +44,7 @@
     }
 
     var LazyCheck = setInterval(function(){
-        if (GameMgr?.Inst?.EnterMJ){
+        if (GameMgr && GameMgr.Inst && GameMgr.Inst.EnterMJ){
             GameMgr.Inst.EnterMJ = (function(){
                 var cacheF = GameMgr.Inst.EnterMJ;
                 return function(){

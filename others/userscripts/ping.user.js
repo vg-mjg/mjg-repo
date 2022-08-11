@@ -9,6 +9,8 @@
 // @include      https://mahjongsoul.game.yo-star.com/
 // @include      https://game.mahjongsoul.com/
 // @include      https://game.maj-soul.com/1/
+// @updateURL    https://repo.riichi.moe/others/userscripts/ping.user.js
+// @downloadURL  https://repo.riichi.moe/others/userscripts/ping.user.js
 // ==/UserScript==
  
 (function() {
@@ -37,7 +39,7 @@
     }
  
     var LazyCheck = setInterval(function(){
-        if (uiscript?.UI_Invite?.onNewInvite){
+        if (uiscript && uiscript.UI_Invite && uiscript.UI_Invite.onNewInvite){
             uiscript.UI_Invite.onNewInvite = (function(){
                 var cacheF = uiscript.UI_Invite.onNewInvite;
                 return function(){

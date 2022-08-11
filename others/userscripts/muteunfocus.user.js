@@ -1,12 +1,14 @@
 // ==UserScript==
 // @name        Mute Unfocus
 // @namespace   majsoul_script
-// @include      https://mahjongsoul.game.yo-star.com/
-// @include      https://game.mahjongsoul.com/
-// @include      https://majsoul.union-game.com/0/
 // @version     1.0
 // @author      anon
 // @description   mutes audio while the game is not focused
+// @include      https://mahjongsoul.game.yo-star.com/
+// @include      https://game.mahjongsoul.com/
+// @include      https://majsoul.union-game.com/0/
+// @updateURL    https://repo.riichi.moe/others/userscripts/muteunfocus.user.js
+// @downloadURL  https://repo.riichi.moe/others/userscripts/muteunfocus.user.js
 // ==/UserScript==
 
 // Mute sounds if window lost focus

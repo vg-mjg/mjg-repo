@@ -5,10 +5,12 @@
 // @version      1.04
 // @description  You'll cowards don't even riichi. Now with Youtube integration, press escape to open menu and input video IDs to replace music. Create playlists by separating with commas. (Remember to unblock youtube, ytimg and googlevideo scripts and allow site autoplay in your browser)
 // @author       anon
+// @grant        GM_addStyle
 // @include      https://mahjongsoul.game.yo-star.com/
 // @include      https://game.mahjongsoul.com/
 // @include      https://majsoul.union-game.com/0/
-// @grant        GM_addStyle
+// @updateURL    https://repo.riichi.moe/others/userscripts/nyaggertunes.user.js
+// @downloadURL  https://repo.riichi.moe/others/userscripts/nyaggertunes.user.js
 // ==/UserScript==
 
 GM_addStyle(`
