@@ -111,7 +111,8 @@
     }
  
     var LobbyCheck = setInterval(function(){
-        if (GameMgr?.Inst?.EnterLobby){
+        // using nasty syntax because electron shipped with MJS+ builds doesn't support `?`
+        if (GameMgr != undefined && GameMgr.Inst != undefined && GameMgr.Inst.EnterLobby != undefined) {
             GameMgr.Inst.EnterLobby = (function() {
                 var cacheF = GameMgr.Inst.EnterLobby;
                 return function(){
