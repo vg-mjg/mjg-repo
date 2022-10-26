@@ -13,34 +13,22 @@
       "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Added Halloween emotes for slutty mummy miko and wolf samurai"
     },
     {
-      "title": "Waifu 2x (Update 2022-09-28)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu%202x%202022-09-28.mspr",
-      "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Added Chihori and blonde guys festival skin emotes"
+      "title": "Majsoul emotes (Update 2022-10-26)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
+      "category": "Resource",
+      "description": "New package with all, upscaled majsoul emotes."
+    },
+    {
+      "title": "Majsoul character sprites (Update 2022-10-26)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/portraits/?zip=utf8",
+      "category": "Resource",
+      "description": "Contains all majsoul character sprites."
     },
     {
       "title": "Weeb Names",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/weebnames%201.1.0.mspe",
       "category": "Majsoul+ mod",
       "description": "Replaces the localized yaku names with the Japanese ones. Updated to work with the latest game version.<br>Alternative versions: <br><a href=\"https://repo.riichi.moe/others/userscripts/weebnames.user.js\">userscript</a><br><a href=\"https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/weebnamesnya%201.1.0.mspe\">nyagger edition mjs+ mod</a><br><a href=\"https://repo.riichi.moe/others/userscripts/weebnamesnya.user.js\">nyagger edition userscript</a>"
-    },
-    {
-      "title": "Waifu 2x (Update 2022-08-10)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu%202x%202022-08-10.mspr",
-      "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Added the nun emotes and summer emotes"
-    },
-    {
-      "title": "Majsoul emotes (Update 2022-08-10)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
-      "category": "Resource",
-      "description": "New package with all, upscaled majsoul emotes."
-    },
-    {
-      "title": "Majsoul character sprites (Update 2022-08-10)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/portraits/?zip=utf8",
-      "category": "Resource",
-      "description": "Contains all majsoul character sprites."
     },
     {
       "title": "Majsoul character voices (Update 2022-08-10)",
