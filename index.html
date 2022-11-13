@@ -3,396 +3,493 @@
 
 <head>
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>/mjg/ Repository</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>/mjg/ Repository</title>
 
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/light.css">
-    <link rel="stylesheet" href="css/general.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/light.css">
+  <link rel="stylesheet" href="css/general.css">
 
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row text-center align-items-start border-bottom shadow bg-dark" id="banner">
-            <div class="col-sm align-self-end">
-                <div class="row justify-content-start ml-2">
-                    <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="ThemeSwitch">
-                        <label class="custom-control-label" for="ThemeSwitch">おはよう</label>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-
-                <a title="Click to change" id="ChangeImage">
-                    <img src="repobanner/0.png" class="pt-1 pb-1" id="randimg" border="0">
-                </a>
-                <audio controls>
-                    <source src="https://files.riichi.moe/mjg/oc/tourneys/mjg%202nd%20arts%20and%20crafts/33.mp3" type="audio/mp3">
-                </audio>
-                <!-- Random Quotes -->
-
-                <div id="factDisplay"></div>
-
-                <h1>/mjg/ Repository</h1>
-                <p>a repository of mahjong stuff from the <a href="https://boards.4channel.org/vg/catalog#s=mjg">/mjg/</a> threads</p>
-
-                <form action="https://search.freefind.com/find.html" method="get" accept-charset="utf-8" target="_self">
-                    <div class="form-group mb-2">
-                        <input type="hidden" name="si" value="41040027">
-                        <input type="hidden" name="pid" value="r">
-                        <input type="hidden" name="n" value="0">
-                        <input type="hidden" name="_charset_" value="">
-                        <input type="hidden" name="bcd" value="&#247;">
-                        <label for="query" class="sr-only">Search</label>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Looking for a Yaku?" name="query">
-                        <div class="input-group-append">
-                            <button class="btn btn-dark" type="button" id="button-addon2">Search</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col align-self-center w-100">
-
-            </div>
+  <div class="container-fluid">
+    <div class="row text-center align-items-start border-bottom shadow bg-dark" id="banner">
+      <div class="col-sm align-self-end">
+        <div class="row justify-content-start ml-2">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="ThemeSwitch">
+            <label class="custom-control-label" for="ThemeSwitch">おはよう</label>
+          </div>
         </div>
+      </div>
+      <div class="col-sm-4">
+
+        <a title="Click to change" id="ChangeImage">
+          <img src="repobanner/0.png" class="pt-1 pb-1" id="randimg" border="0">
+        </a>
+        <audio controls>
+          <source src="https://files.riichi.moe/mjg/oc/tourneys/mjg%202nd%20arts%20and%20crafts/33.mp3"
+            type="audio/mp3">
+        </audio>
+        <!-- Random Quotes -->
+
+        <div id="factDisplay"></div>
+
+        <h1>/mjg/ Repository</h1>
+        <p>a repository of mahjong stuff from the <a href="https://boards.4channel.org/vg/catalog#s=mjg">/mjg/</a>
+          threads</p>
+
+        <form action="https://search.freefind.com/find.html" method="get" accept-charset="utf-8" target="_self">
+          <div class="form-group mb-2">
+            <input type="hidden" name="si" value="41040027">
+            <input type="hidden" name="pid" value="r">
+            <input type="hidden" name="n" value="0">
+            <input type="hidden" name="_charset_" value="">
+            <input type="hidden" name="bcd" value="&#247;">
+            <label for="query" class="sr-only">Search</label>
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Looking for a Yaku?" name="query">
+            <div class="input-group-append">
+              <button class="btn btn-dark" type="button" id="button-addon2">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col align-self-center w-100">
+
+      </div>
     </div>
+  </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom" id="menu">
-        <a class="navbar-brand" href="https://vg-mjg.github.io/RB1-VN/"><img src="background/ichihime-0.png" width="40" height="40" class="d-inline-block align-top" alt=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <!-- <a class="nav-link font-weight-bold" href="guides/newfren-readme.html">Newfriend Readme</a> -->
-                    <button class="btn btn-outline-success" type="button" onclick="document.location='https://mahjongsoul.game.yo-star.com/'" data-toggle="tooltip" title="Pro tip: just keep on playing mahjong until it clicks">Play Mahjong</button>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="guides/newfren-readme.html" data-toggle="tooltip" title="READ THIS BEFORE ASKING YOUR RETARDED QUESTIONS IN THE THREAD">Newfriend Readme</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Library of Resources
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="library.html#resources-game">Game Resources/Tools</a>
-                        <a class="dropdown-item" href="library.html#resources-majplus">Majsoul Plus Mods</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="library.html#resources-strategy">Mahjong Strategy Guides and Books</a>
-                        <a class="dropdown-item" href="library.html#resources-toolz">Training Tools</a>
-                        <a class="dropdown-item" href="library.html#resources-gguides">General Guides</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="library.html#resources-mleague">M-League</a>
-                        <a class="dropdown-item" href="library.html#resources-mjg">/mjg/ Projects</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="library.html#resources-media">Movies and Other Media</a>
-                        <a class="dropdown-item" href="library.html#resources-offline">Offline Game Downloads</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Comics and OCs
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="https://mjg.booru.org/index.php">/mjg/ Booru</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="ocs.html#ocs-comics">Comic Series</a>
-                        <a class="dropdown-item" href="ocs.html#ocs-oneshot">One Shots and Shorts</a>
-                        <a class="dropdown-item" href="ocs.html#ocs-videos">Videos</a>
-                        <a class="dropdown-item" href="ocs.html#ocs-music">Music</a>
-                        <a class="dropdown-item" href="ocs.html#ocs-vns">Games</a>
-                        <a class="dropdown-item" href="ocs.html#ocs-webn">Webnovels</a>
-                        <a class="dropdown-item" href="ocs.html#ocs-others">Others</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        /mjg/ Tourneys
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="https://riichi.moe/" target="_blank">Standings site</a>
-                        <a class="dropdown-item" href="https://riichi.moe/contests/" target="_blank">Previous Records</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="tourneys.html#tourneys-vidya">/v/idya Mahjong Tourneys</a>
-                        <a class="dropdown-item" href="tourneys.html#tourneys-mjg">/mjg/ League</a>
-                        <a class="dropdown-item" href="tourneys.html#tourneys-2chan">2chan collabs</a>
-                        <a class="dropdown-item" href="tourneys.html#tourneys-solo">Solo Tourneys</a>
-                        <a class="dropdown-item" href="tourneys.html#tourneys-team">Team Tourneys</a>
-                        <a class="dropdown-item" href="tourneys.html#tourneys-doubles">Double Tourneys</a>
-                        <a class="dropdown-item" href="tourneys.html#tourneys-others">Others</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom" id="menu">
+    <a class="navbar-brand" href="https://vg-mjg.github.io/RB1-VN/"><img src="background/ichihime-0.png" width="40"
+        height="40" class="d-inline-block align-top" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <!-- <a class="nav-link font-weight-bold" href="guides/newfren-readme.html">Newfriend Readme</a> -->
+          <button class="btn btn-outline-success" type="button"
+            onclick="document.location='https://mahjongsoul.game.yo-star.com/'" data-toggle="tooltip"
+            title="Pro tip: just keep on playing mahjong until it clicks">Play Mahjong</button>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="guides/newfren-readme.html" data-toggle="tooltip"
+            title="READ THIS BEFORE ASKING YOUR RETARDED QUESTIONS IN THE THREAD">Newfriend Readme</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Library of Resources
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="library.html#resources-game">Game Resources/Tools</a>
+            <a class="dropdown-item" href="library.html#resources-majplus">Majsoul Plus Mods</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="library.html#resources-strategy">Mahjong Strategy Guides and
+              Books</a>
+            <a class="dropdown-item" href="library.html#resources-toolz">Training Tools</a>
+            <a class="dropdown-item" href="library.html#resources-gguides">General Guides</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="library.html#resources-mleague">M-League</a>
+            <a class="dropdown-item" href="library.html#resources-mjg">/mjg/ Projects</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="library.html#resources-media">Movies and Other Media</a>
+            <a class="dropdown-item" href="library.html#resources-offline">Offline Game Downloads</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Comics and OCs
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="https://mjg.booru.org/index.php">/mjg/ Booru</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="ocs.html#ocs-comics">Comic Series</a>
+            <a class="dropdown-item" href="ocs.html#ocs-oneshot">One Shots and Shorts</a>
+            <a class="dropdown-item" href="ocs.html#ocs-videos">Videos</a>
+            <a class="dropdown-item" href="ocs.html#ocs-music">Music</a>
+            <a class="dropdown-item" href="ocs.html#ocs-vns">Games</a>
+            <a class="dropdown-item" href="ocs.html#ocs-webn">Webnovels</a>
+            <a class="dropdown-item" href="ocs.html#ocs-others">Others</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            /mjg/ Tourneys
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="https://riichi.moe/" target="_blank">Standings site</a>
+            <a class="dropdown-item" href="https://riichi.moe/contests/" target="_blank">Previous
+              Records</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="tourneys.html#tourneys-vidya">/v/idya Mahjong Tourneys</a>
+            <a class="dropdown-item" href="tourneys.html#tourneys-mjg">/mjg/ League</a>
+            <a class="dropdown-item" href="tourneys.html#tourneys-2chan">2chan collabs</a>
+            <a class="dropdown-item" href="tourneys.html#tourneys-solo">Solo Tourneys</a>
+            <a class="dropdown-item" href="tourneys.html#tourneys-team">Team Tourneys</a>
+            <a class="dropdown-item" href="tourneys.html#tourneys-doubles">Double Tourneys</a>
+            <a class="dropdown-item" href="tourneys.html#tourneys-others">Others</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-    <div class="container-fluid pt-1">
-        <div class="row justify-content-center mt-1">
-            <div id="time" class="lead"></div>
-        </div>
-        <!-- <div class="row justify-content-center mb-1">
+  <div class="container-fluid pt-1">
+    <div class="row justify-content-center mt-1">
+      <div id="time" class="lead"></div>
+    </div>
+    <!-- <div class="row justify-content-center mb-1">
             <div id="countdown" class="text-center"></div>
         </div> -->
-    </div>
-    <div class="container-fluid h-auto">
-        <div class="row">
-            <div class="col-4 overflow-auto">
-                <h2 class="text-center"><img src="gifs/sharpandpretty.gif" height="75px" alt=""> Updates</h2>
+  </div>
+  <div class="container-fluid h-auto">
+    <div class="row">
+      <div class="col-4 overflow-auto">
+        <h2 class="text-center"><img src="gifs/sharpandpretty.gif" height="75px" alt=""> Updates</h2>
 
-                <dl class="row-fluid" id="news"></dl>
+        <dl class="row-fluid" id="news"></dl>
+      </div>
+      <div class="col-8">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col">
+              <h2 class="text-center"><img src="gifs/hat.png" height="75px" alt="">Tourneys</h2>
+              <!-- TO ADD SIMPLY COPY AND PASTE THIS
+              <ul class="list-unstyled">
+                <li class="text-center h5"><b>[TITLE]</b></li>
+                <li class="text-center text-muted">[DESCRIPTION]</li>
+                <li>
+                  <ul>
+                    <li>[INFO]</li>
+                    <-- Just copy and paste as many as you need </ul>
+                </li>
+              </ul> -->
+
+
+              <!-- <li><a href="https://riichi.moe/">>Standings</a></li> -->
+              <!-- <iframe src="someone update this please" style="border-width:0" width="400" height="200" frameborder="0" scrolling="no"></iframe> -->
+              <p class="text-center h5"><b>/mjg/ Riichi Arts and Crafts Tourney</b></p>
+              <p class="text-center text-muted">Third Edition</p>
+              <ul>
+                <li>Qualifiers over; finals start Nov. 11. Top 16 need to fill out availability.</li>
+                <li><a href="https://forms.gle/mtK8XJCnJqBwjTkx7">Finalist time slots survey</a></li>
+                <li><a
+                    href="https://docs.google.com/document/d/10_t73XC3fXc0IOXNq6yoItJMEqXyvX5zaMBwuy50TSI/edit?usp=sharing">Docs</a>
+                </li>
+                <li><a
+                    href="https://docs.google.com/spreadsheets/d/1E7viqxTqDd1lK32pcSBrYUG-ZTv3OSKlb7J0yEKA9W4/edit#gid=0">Spreadsheet</a>
+                </li>
+                <!-- <li><a href="https://riichi.moe/">>Standings</a></li> -->
+                <!-- <iframe src="someone update this please" style="border-width:0" width="400" height="200" frameborder="0" scrolling="no"></iframe> -->
+              </ul>
+
+              <p class="text-center h5"><b>Saki Tournament</b></p>
+              <p class="text-center text-muted">Third Edition</p>
+              <ul>
+                <li>Make sure to also check the doc for dates, because the retard TO will absolutely change them.</li>
+                <li>Signups: 14-11-2022 until 30-11-2022 22:00 UTC</li>
+                <li>Qualifiers: 02-12-2022 14:00 UTC until 04-12-2022 22:00 UTC</li>
+                <li>TEAM SHOWDOWN: 09-12-2022 until 11-12-2022 time TBA</li>
+                <li><a href="https://docs.google.com/forms/d/1sNlC_cMubS0_NKSxoIyWHhv9shSagUhyDxzSYb2DcAY">Signup form</a></li>
+                <li><a href="https://docs.google.com/document/d/11GLerjqv8Xwq0nTskgzW6O2k4ahsDQx4sIzmgQRop8A">Docs</a></li>
+                <li><a href="https://docs.google.com/spreadsheets/d/1lywmDcIMxdUlBiZnpUq89rZdrfLZFCymIlxEceY-GK4">Spreadsheet</a></li>
+              </ul>
             </div>
-            <div class="col-8">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col">
-                            <h2 class="text-center"><img src="gifs/hat.png" height="75px" alt="">Tourneys</h2>
-                            <!-- TO ADD SIMPLY COPY AND PASTE THIS
-                      <ul class="list-unstyled">
-                        <li class="text-center h5"><b>[TITLE]</b></li>
-                        <li class="text-center text-muted">[DESCRIPTION]</li>
-                        <li>
-                          <ul>
-                            <li>[INFO]</li> <-- Just copy and paste as many as you need
-                          </ul>
-                        </li>
-                      </ul>
-                       -->
-                           
-                        <!-- <li><a href="https://riichi.moe/">>Standings</a></li> -->
-                            <!-- <iframe src="someone update this please" style="border-width:0" width="400" height="200" frameborder="0" scrolling="no"></iframe> -->
-                        </ul>
-                        </li>
-                        <p class="text-center h5"><b>/mjg/ Riichi Arts and Crafts Tourney</b></p>
-                        <p class="text-center text-muted">Third Edition</p>
-                            <ul>
-                            <li>Qualifiers over; finals start Nov. 11. Top 16 need to fill out availability.</li>
-                            <li><a href="https://forms.gle/mtK8XJCnJqBwjTkx7">Finalist time slots survey</a></li>
-							<li><a href="https://docs.google.com/document/d/10_t73XC3fXc0IOXNq6yoItJMEqXyvX5zaMBwuy50TSI/edit?usp=sharing">Docs</a></li>
-							<li><a href="https://docs.google.com/spreadsheets/d/1E7viqxTqDd1lK32pcSBrYUG-ZTv3OSKlb7J0yEKA9W4/edit#gid=0">Spreadsheet</a></li>
- <!-- <li><a href="https://riichi.moe/">>Standings</a></li> -->
-                            <!-- <iframe src="someone update this please" style="border-width:0" width="400" height="200" frameborder="0" scrolling="no"></iframe> -->
-                            </ul>
-                        
-
-
-
-
-                      </ul>
-
-                        </div>
-                        <div class="col">
-                            <h2 class="text-center"><img src="gifs/1570998246941.gif" height="75px" alt="">Loli of the week</h2>
-                            <a href="https://files.riichi.moe/cunny/vamp1.jpg" target="_blank" class="row justify-content-md-center">
-                                <img src="https://files.riichi.moe/cunny/vamp1.jpg" width="100%" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <hr>
-
-                <div class="container">
-                    <div class="row justify-content-md-center">
-                        <div class="col-md-9">
-                            <h2 class="text-center">Where to play?</h2>
-
-                            <nav>
-                                <div class="nav nav-tabs nav-fill nav-justified border-0" id="nav-tab" role="tablist">
-                                    <a class="nav-link" id="nav-city-tab" data-toggle="tab" href="#nav-hime" role="tab" aria-controls="nav-hime" aria-selected="false"><img src="banners/clients/cityban.jpg" class="w-100"></a>
-                                    <a class="nav-link active" id="nav-majsoul-tab" data-toggle="tab" href="#nav-majsoul" role="tab" aria-controls="nav-majsoul" aria-selected="true"><img src="banners/clients/majsoulban.png" class="w-100"></a>
-                                    <a class="nav-link" id="nav-tenhou-tab" data-toggle="tab" href="#nav-tenhou" role="tab" aria-controls="nav-tenhou" aria-selected="false"><img src="banners/clients/tenhouban.png" class="w-100"></a>
-                                </div>
-                            </nav>
-                            <div class="tab-content border border-white bg-secondary w-100 pb-2" id="nav-tabContent">
-                                <div class="tab-pane pl-1 fade" id="nav-hime" role="tabpanel" aria-labelledby="nav-city-tab">
-                                    <h3>Riichi city</h3>
-                                    <p>English client, preferred by /mjg/ because of the cute anime girls. Tutorial Included. Great UI, characters, ranking system, free tourneys, etc... You even get a loli for free!</p>
-                                    <p>
-                                        <a href="https://www.mahjong-jp.com/home">Site</a><br>
-                                        <a href="https://store.steampowered.com/app/1954420/Riichi_City__Japanese_Mahjong_Online/">Steam</a><br>
-                                        <a href="https://play.google.com/store/apps/details?id=com.riichicity.happywoods">Android</a> / <a href="https://apps.apple.com/app/id1578816591">iOS</a>
-                                    </p>
-                                    <p>
-                                        Guide: <a href="https://files.riichi.moe/mjg/game%20resources%20and%20tools/Riichi%20City/bond%20guide.png">Bond Information</a>
-                                    </p>
-                                </div>
-                                <div class="tab-pane pl-1 fade show active" id="nav-majsoul" role="tabpanel" aria-labelledby="nav-majsoul-tab">
-                                    <h3>Mahjong Soul</h3>
-                                    <p>English client, formerly preferred by /mjg/ because of the cute anime girls. Tutorial Included! These days everybody plays on riichi city.</p>
-                                    <p><a href="https://mahjongsoul.game.yo-star.com/">Play Online</a><br>
-                                        <a href="https://play.google.com/store/apps/details?id=com.YoStarEN.MahjongSoul">Android</a> / <a href="https://apps.apple.com/us/app/id1464872167">iOS</a><br>
-                                        <a href="guides/Majsoul-Plus-Guide.html">Majsoul Plus</a> - <small>unofficial moddable PC Client</small></p>
-                                    <p><a href="guides/Free-2-Play-Guide.html">An Introduction to Mahjong Soul (free 2 play guide)</a> - <small>answers most questions about the gacha side of majsoul</small><br>
-                                        <a href="http://riichi.wiki/Majsoul">Mahjong Soul ruleset and ranking system</a></p>
-                                </div>
-                                <div class="tab-pane pl-1 fade" id="nav-tenhou" role="tabpanel" aria-labelledby="nav-tenhou-tab">
-                                    <h3>Tenhou</h3>
-                                    <p>Test your skills in a more competitive mahjong environment.</p>
-                                    <p>
-                                        <a href="http://tenhou.net/3/">Play Online</a><br>
-                                        <a href="https://files.riichi.moe/mjg/game%20resources%20and%20tools/Tenhou/minhou%20small.7z">Minhou</a> - <small>Hacked Windows Client</small><br>
-                                        <a href="https://play.google.com/store/apps/details?id=net.tenhou.WebBrowser20161220">Android</a> / <a href="https://itunes.apple.com/jp/app/tian-feng/id1187938169">iOS</a>
-                                    </p>
-                                    <p>
-                                        <a href="https://addons.mozilla.org/en-US/firefox/addon/tenhou-english/">Firefox</a>, <a href="https://chrome.google.com/webstore/detail/tenhou-english-ui/cbomnmkpjmleifejmnjhfnfnpiileiin?hl=en">Chrome</a> - <small>add-ons to translate the web interface to English</small><br>
-                                        <a href="http://riichi.wiki/Tenhou.net">Tenhou ruleset and ranking system</a>
-                                    </p>
-                                </div>
-                            </div>
-                            <a id="more" class="text-light" href="guides/newfren-readme.html#wherepo">More Options...</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="col">
+              <h2 class="text-center"><img src="gifs/1570998246941.gif" height="75px" alt="">Loli of the
+                week</h2>
+              <a href="https://files.riichi.moe/cunny/vamp1.jpg" target="_blank" class="row justify-content-md-center">
+                <img src="https://files.riichi.moe/cunny/vamp1.jpg" width="100%" alt="">
+              </a>
             </div>
+          </div>
         </div>
-    </div>
 
-    <hr>
+        <hr>
 
-    <div class="container-fluid">
-        <div class="col-12">
-            <h2 class="text-center">Quick Links</h2>
-            <div class="row justify-content-center">
+        <div class="container">
+          <div class="row justify-content-md-center">
+            <div class="col-md-9">
+              <h2 class="text-center">Where to play?</h2>
 
-                <table>
-                    <tr valign="top">
-                        <td>
-                            <strong>How to Play</strong>
-                            <ul>
-                                <li><a href="https://www.youtube.com/watch?v=lZxwAxlqexY">Basic video guide</a> / <a href="https://www.youtube.com/watch?v=hlnC2rgIPrc">Extensive video guide</a></li>
-                                <li><a href="https://www.youtube.com/watch?v=eesuXarJlbw">Mahjong 101 in 20 Minutes!</a> by v-tuber Sio</li>
-                                <li><a href="guides/how-to-play-video-game-mahjong.html">Fast and dirty guide to playing video game Mahjong</a></li>
-                                <li><a href="https://mahjong.guide/a-beginners-guide-to-riichi-mahjong/">A Beginner's Guide to Riichi Mahjong</a></li>
-                                <li>Images that list all the yaku in the game</li>
-                                <ul>
-                                    <li><a href="guides/images/reference/yaku_list.png">Yaku List</a></li>
-                                    <li><a href="guides/images/reference/yaku_list_alt.png">Yaku List Alt </a></li>
-                                    <li><a href="guides/images/reference/yaku_for_beginners.jpg">Yaku For Beginners</a></li>
-                                </ul>
-                            </ul>
-                        </td>
-                        <td>
-                            <strong>Learn More</strong>
-                            <ul>
-                                <li><a href="https://dainachiba.github.io/RiichiBooks/">Riichi Book 1</a> (<a href="books/rb1.html">Read online</a>)</li>
-                                <li><a href="https://files.riichi.moe/mjg/books%20(en)/Riichi%20Mahjong%20Strategy%20%28rms%29.pdf">Riichi Mahjong Strategy</a> (<a href="books/rms.html">Read online</a>)</li>
-                                <li><a href="https://files.riichi.moe/mjg/books%20(en)/">Mahjong Strategy Books Collection</a></li>
-                                <li><a href="library.html#resources-strategy">More Strategy Resources</a></li>
-                                <br>
-                                <li><a href="https://files.riichi.moe/mjg/books%20(en)/Anon%E2%80%99s%20Dumbfuck%20Guide%20to%20Chink%20Vocab%20in%20Taiwanese%20Dominoes%20101.docx">Anon&rsquo;s Dumbfuck Vocab Guide</a></li>
-                                <li><a href="guides/mahjong-terms.html">Glossary of Japanese Mahjong Terms</a></li>
-                                <br>
-                                <li><a href="http://mahjong-europe.org/portal/index.php?option=com_content&view=article&id=30&Itemid=166">Official Rules</a></li>
-                                <li><a href="http://riichi.wiki/Main_Page">Mahjong Wiki</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                    <tr valign="top">
-                        <td>
-                            <strong>Mahjong IRL</strong>
-                            <ul>
-                                <li><a href="guides/Mahjong-Equipment-Buying-Guide.html">Mahjong Equipment Buying Guide</a></li>
-                                <li><a href="guides/newfren-readme.html#reallife">Find Players IRL Article</a></li>
-                                <br>
-                                <li><a href="https://abema.tv/now-on-air/mahjong">Abema</a></li>
-                                <ul>
-                                    <li><a href="https://m-league.jp/games/">M-league schedule</a></li>
-                                    <li><a href="https://abema.tv/video/genre/mahjong">Past videos</a></li>
-                                    <li><a href="library.html#resources-mleague">M-League page</a></li>
-                                </ul>
-                                <br>
-                                <li><a href="https://www.google.com/maps/d/u/0/edit?mid=13b8wSEmDHMLcr-bLAOwYn9uojYST3svf&usp=sharing">/mjg/ players map</a></li>
-                                <ul>
-                                    <li><a href="https://forms.gle/GtoKNodZv2b45G2t5">Google form to add yourself</a></li>
-                                </ul>
-                            </ul>
-                        </td>
-                        <td>
-                            <strong>Training Tools</strong>
-                            <ul>
-                                <li><a href="https://sagisawa.0am.jp/akochandaaaaa/">Efficiency trainer</a></li>
-                                <li><a href="http://www.gamedesign.jp/flash/bamboo/bamboo.html">Bamboo</a></li>
-                                <li><a href="https://mahjong.org/training/training_002/">Chinitsu Wait Trainer</a></li>
-                                <li><a href="https://mahjong.horneds.com/">Riichi Scores Trainer</a> / <a href="guides/newfren-readme.html#count">More scoring tools</a></li>
-                                <li><a href="https://pystyle.info/apps/mahjong-nanikiru-simulator/">WWYD Online Mahjong Simulator</a></li>
-                                <li><a href="https://pathofhouou.blogspot.com/2019/05/training-tool-hitori-mahjong-simulator.html">Hitori Mahjong Simulator</a></li>
-
-                                <ul>
-                                    <li><a href="http://kobalab.net/majiang/dapai.html#m123p1234789s338s8/0/0/s3">Online version</a> - <a href="https://i.imgur.com/onod7Lu.jpg"> Translation</a></li>
-                                    <li><a href="https://pastebin.com/KZVHjSES">Instructions for inputting a hand</a></li>
-                                </ul>
-                            </ul>
-
-                        </td>
-                    </tr>
-                    <tr valign="top">
-                        <td style="vertical-align: top;">
-                            <strong>/mjg/ Essentials</strong>
-                            <ul>
-                                <li><a href="https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/">Mahjong Soul Emotes</a></li>
-                                <li><a href="library.html#resources-majplus">Majsoul+ Mod List</a></li>
-                                <li><a href="https://mjg.booru.org/">/mjg/ Booru</a></li>
-                                <li><a href="https://files.riichi.moe/mjg/game%20resources%20and%20tools/Hime%20Mahjong/emotes/">Hime Emotes</a></li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <hr>
-
-    <br>
-    <center>
-        <div class="col-8">
-            <div class="container-fluid">
-                <div class="row justify-content-md-center">
-                    <div class="col">
-                        <!-- Doujin of the Week -->
-                        <h3 class="text-center"><a href="others/doujin-review.html">Music of the Week</a></h3>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/MlAXgSMXo00" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <p>BEST SONG +++FLOW GUARANTEED</p>
-                    </div>
-                    <div class="col">
-                        <img src="https://files.catbox.moe/y9js0e.png" height="100" alt="love jews" />
-                        <img src="gifs/meid-bride.gif" height="100" alt="cutest meido" /><br>
-                        <!-- KIKI KANRI -->
-                        <!-- >they didn't tell me to remove the audio -->
-                        <audio controls>
-                            <source src="https://files.riichi.moe/mjg/other/KIKI%20KAN%20RI.mp3" type="audio/mp3">
-                        </audio>
-
-                        <p>
-                            <a href="https://boards.4channel.org/vg/catalog#s=mjg">/mjg/</a> / <a href="https://github.com/vg-mjg/mjg-repo">Repo's Repo (Github)</a> / <a href="https://repo.riichi.moe/feed.html">Site Feedback </a> / <a href="https://github.com/vg-mjg/mjg-repo/issues">Report issues</a><br>
-                            <a href="others/repobanners.html">Repo Banners</a> / <a href="others/loli.html">loli</a> / <a href="https://riichi.moe/">tourneys</a> / <a href="others/vn.html">...</a> / <a href="others/urg.html">. </a></p>
-                    </div>
-                    <p><small>fuck off repoanons you didn't fix your loli of the week and every fucking time i had to use the site shit's broken all over because retarded kodomo can't stop being so big, fuck off kokomo you're supposed to be small, dum fuck also stop only sticking to explicit lolis you ultrafaggots it's like your cum-soaked brains can't think of anything but sex with lolis they're supposed to be CUTE FIRST CUTENESS IS THE GREATEST LOVE OF ALL! CUTENESS IS JUSTICE!! CUTENESS TRIUMPHS OVER ALL HOW CAN NO ONE UNDERSTAND THIS ONE SIMPLE CONCEPT EVERY FUCKING LOLICON I MEET SAYS UUUUUOOOOOHHHH RAPE CORRECTION BUT NO ONE SAYS UUUOOOOOHHHH FLUFFY SKIRT COLLECTION, YOUR SKIMPY BASICALLY NUDE HARLOTS ARE NO MATCH AGAINST ANGELIC DRAWERS UNDERWEAR AND A REFRESHING SUNDRESS IF YOU WANT NAKED SKIN GO FOR A HAG OR SOMETHING, CUTENESS IS SOMETHING A LOLI CAN EXCLUSIVELY PROCLAIM IS HERS AND TO DENY THAT IS INJUSTICE</small></p>
-                    <p id="counter"></p>
+              <nav>
+                <div class="nav nav-tabs nav-fill nav-justified border-0" id="nav-tab" role="tablist">
+                  <a class="nav-link" id="nav-city-tab" data-toggle="tab" href="#nav-hime" role="tab"
+                    aria-controls="nav-hime" aria-selected="false"><img src="banners/clients/cityban.jpg"
+                      class="w-100"></a>
+                  <a class="nav-link active" id="nav-majsoul-tab" data-toggle="tab" href="#nav-majsoul" role="tab"
+                    aria-controls="nav-majsoul" aria-selected="true"><img src="banners/clients/majsoulban.png"
+                      class="w-100"></a>
+                  <a class="nav-link" id="nav-tenhou-tab" data-toggle="tab" href="#nav-tenhou" role="tab"
+                    aria-controls="nav-tenhou" aria-selected="false"><img src="banners/clients/tenhouban.png"
+                      class="w-100"></a>
                 </div>
+              </nav>
+              <div class="tab-content border border-white bg-secondary w-100 pb-2" id="nav-tabContent">
+                <div class="tab-pane pl-1 fade" id="nav-hime" role="tabpanel" aria-labelledby="nav-city-tab">
+                  <h3>Riichi city</h3>
+                  <p>English client, preferred by /mjg/ because of the cute anime girls. Tutorial
+                    Included. Great UI, characters, ranking system, free tourneys, etc... You even
+                    get a loli for free!</p>
+                  <p>
+                    <a href="https://www.mahjong-jp.com/home">Site</a><br>
+                    <a
+                      href="https://store.steampowered.com/app/1954420/Riichi_City__Japanese_Mahjong_Online/">Steam</a><br>
+                    <a href="https://play.google.com/store/apps/details?id=com.riichicity.happywoods">Android</a>
+                    / <a href="https://apps.apple.com/app/id1578816591">iOS</a>
+                  </p>
+                  <p>
+                    Guide: <a
+                      href="https://files.riichi.moe/mjg/game%20resources%20and%20tools/Riichi%20City/bond%20guide.png">Bond
+                      Information</a>
+                  </p>
+                </div>
+                <div class="tab-pane pl-1 fade show active" id="nav-majsoul" role="tabpanel"
+                  aria-labelledby="nav-majsoul-tab">
+                  <h3>Mahjong Soul</h3>
+                  <p>English client, formerly preferred by /mjg/ because of the cute anime girls.
+                    Tutorial Included! These days everybody plays on riichi city.</p>
+                  <p><a href="https://mahjongsoul.game.yo-star.com/">Play Online</a><br>
+                    <a href="https://play.google.com/store/apps/details?id=com.YoStarEN.MahjongSoul">Android</a>
+                    / <a href="https://apps.apple.com/us/app/id1464872167">iOS</a><br>
+                    <a href="guides/Majsoul-Plus-Guide.html">Majsoul Plus</a> - <small>unofficial
+                      moddable PC Client</small>
+                  </p>
+                  <p><a href="guides/Free-2-Play-Guide.html">An Introduction to Mahjong Soul (free 2
+                      play guide)</a> - <small>answers most questions about the gacha side of
+                      majsoul</small><br>
+                    <a href="http://riichi.wiki/Majsoul">Mahjong Soul ruleset and ranking system</a>
+                  </p>
+                </div>
+                <div class="tab-pane pl-1 fade" id="nav-tenhou" role="tabpanel" aria-labelledby="nav-tenhou-tab">
+                  <h3>Tenhou</h3>
+                  <p>Test your skills in a more competitive mahjong environment.</p>
+                  <p>
+                    <a href="http://tenhou.net/3/">Play Online</a><br>
+                    <a
+                      href="https://files.riichi.moe/mjg/game%20resources%20and%20tools/Tenhou/minhou%20small.7z">Minhou</a>
+                    - <small>Hacked Windows Client</small><br>
+                    <a href="https://play.google.com/store/apps/details?id=net.tenhou.WebBrowser20161220">Android</a>
+                    / <a href="https://itunes.apple.com/jp/app/tian-feng/id1187938169">iOS</a>
+                  </p>
+                  <p>
+                    <a href="https://addons.mozilla.org/en-US/firefox/addon/tenhou-english/">Firefox</a>,
+                    <a
+                      href="https://chrome.google.com/webstore/detail/tenhou-english-ui/cbomnmkpjmleifejmnjhfnfnpiileiin?hl=en">Chrome</a>
+                    - <small>add-ons to translate the web interface to English</small><br>
+                    <a href="http://riichi.wiki/Tenhou.net">Tenhou ruleset and ranking system</a>
+                  </p>
+                </div>
+              </div>
+              <a id="more" class="text-light" href="guides/newfren-readme.html#wherepo">More
+                Options...</a>
             </div>
+          </div>
         </div>
-    </center>
+      </div>
+    </div>
+  </div>
 
-    <img id="flying-cunny" class="sticky" src="" alt="Click for advice">
+  <hr>
 
-    <!-- Optional JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-    <script src="js/index.js"></script>
-    <script src="js/quotes.js"></script>
+  <div class="container-fluid">
+    <div class="col-12">
+      <h2 class="text-center">Quick Links</h2>
+      <div class="row justify-content-center">
+
+        <table>
+          <tr valign="top">
+            <td>
+              <strong>How to Play</strong>
+              <ul>
+                <li><a href="https://www.youtube.com/watch?v=lZxwAxlqexY">Basic video guide</a> / <a
+                    href="https://www.youtube.com/watch?v=hlnC2rgIPrc">Extensive video guide</a>
+                </li>
+                <li><a href="https://www.youtube.com/watch?v=eesuXarJlbw">Mahjong 101 in 20 Minutes!</a>
+                  by v-tuber Sio</li>
+                <li><a href="guides/how-to-play-video-game-mahjong.html">Fast and dirty guide to playing
+                    video game Mahjong</a></li>
+                <li><a href="https://mahjong.guide/a-beginners-guide-to-riichi-mahjong/">A Beginner's
+                    Guide to Riichi Mahjong</a></li>
+                <li>Images that list all the yaku in the game</li>
+                <ul>
+                  <li><a href="guides/images/reference/yaku_list.png">Yaku List</a></li>
+                  <li><a href="guides/images/reference/yaku_list_alt.png">Yaku List Alt </a></li>
+                  <li><a href="guides/images/reference/yaku_for_beginners.jpg">Yaku For Beginners</a>
+                  </li>
+                </ul>
+              </ul>
+            </td>
+            <td>
+              <strong>Learn More</strong>
+              <ul>
+                <li><a href="https://dainachiba.github.io/RiichiBooks/">Riichi Book 1</a> (<a href="books/rb1.html">Read
+                    online</a>)</li>
+                <li><a
+                    href="https://files.riichi.moe/mjg/books%20(en)/Riichi%20Mahjong%20Strategy%20%28rms%29.pdf">Riichi
+                    Mahjong Strategy</a> (<a href="books/rms.html">Read online</a>)</li>
+                <li><a href="https://files.riichi.moe/mjg/books%20(en)/">Mahjong Strategy Books
+                    Collection</a></li>
+                <li><a href="library.html#resources-strategy">More Strategy Resources</a></li>
+                <br>
+                <li><a
+                    href="https://files.riichi.moe/mjg/books%20(en)/Anon%E2%80%99s%20Dumbfuck%20Guide%20to%20Chink%20Vocab%20in%20Taiwanese%20Dominoes%20101.docx">Anon&rsquo;s
+                    Dumbfuck Vocab Guide</a></li>
+                <li><a href="guides/mahjong-terms.html">Glossary of Japanese Mahjong Terms</a></li>
+                <br>
+                <li><a
+                    href="http://mahjong-europe.org/portal/index.php?option=com_content&view=article&id=30&Itemid=166">Official
+                    Rules</a></li>
+                <li><a href="http://riichi.wiki/Main_Page">Mahjong Wiki</a></li>
+              </ul>
+            </td>
+          </tr>
+          <tr valign="top">
+            <td>
+              <strong>Mahjong IRL</strong>
+              <ul>
+                <li><a href="guides/Mahjong-Equipment-Buying-Guide.html">Mahjong Equipment Buying
+                    Guide</a></li>
+                <li><a href="guides/newfren-readme.html#reallife">Find Players IRL Article</a></li>
+                <br>
+                <li><a href="https://abema.tv/now-on-air/mahjong">Abema</a></li>
+                <ul>
+                  <li><a href="https://m-league.jp/games/">M-league schedule</a></li>
+                  <li><a href="https://abema.tv/video/genre/mahjong">Past videos</a></li>
+                  <li><a href="library.html#resources-mleague">M-League page</a></li>
+                </ul>
+                <br>
+                <li><a
+                    href="https://www.google.com/maps/d/u/0/edit?mid=13b8wSEmDHMLcr-bLAOwYn9uojYST3svf&usp=sharing">/mjg/
+                    players map</a></li>
+                <ul>
+                  <li><a href="https://forms.gle/GtoKNodZv2b45G2t5">Google form to add yourself</a>
+                  </li>
+                </ul>
+              </ul>
+            </td>
+            <td>
+              <strong>Training Tools</strong>
+              <ul>
+                <li><a href="https://sagisawa.0am.jp/akochandaaaaa/">Efficiency trainer</a></li>
+                <li><a href="http://www.gamedesign.jp/flash/bamboo/bamboo.html">Bamboo</a></li>
+                <li><a href="https://mahjong.org/training/training_002/">Chinitsu Wait Trainer</a></li>
+                <li><a href="https://mahjong.horneds.com/">Riichi Scores Trainer</a> / <a
+                    href="guides/newfren-readme.html#count">More scoring tools</a></li>
+                <li><a href="https://pystyle.info/apps/mahjong-nanikiru-simulator/">WWYD Online Mahjong
+                    Simulator</a></li>
+                <li><a
+                    href="https://pathofhouou.blogspot.com/2019/05/training-tool-hitori-mahjong-simulator.html">Hitori
+                    Mahjong Simulator</a></li>
+
+                <ul>
+                  <li><a href="http://kobalab.net/majiang/dapai.html#m123p1234789s338s8/0/0/s3">Online
+                      version</a> - <a href="https://i.imgur.com/onod7Lu.jpg"> Translation</a>
+                  </li>
+                  <li><a href="https://pastebin.com/KZVHjSES">Instructions for inputting a hand</a>
+                  </li>
+                </ul>
+              </ul>
+
+            </td>
+          </tr>
+          <tr valign="top">
+            <td style="vertical-align: top;">
+              <strong>/mjg/ Essentials</strong>
+              <ul>
+                <li><a
+                    href="https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/">Mahjong
+                    Soul Emotes</a></li>
+                <li><a href="library.html#resources-majplus">Majsoul+ Mod List</a></li>
+                <li><a href="https://mjg.booru.org/">/mjg/ Booru</a></li>
+                <li><a href="https://files.riichi.moe/mjg/game%20resources%20and%20tools/Hime%20Mahjong/emotes/">Hime
+                    Emotes</a></li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <br>
+  <center>
+    <div class="col-8">
+      <div class="container-fluid">
+        <div class="row justify-content-md-center">
+          <div class="col">
+            <!-- Doujin of the Week -->
+            <h3 class="text-center"><a href="others/doujin-review.html">Music of the Week</a></h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/MlAXgSMXo00"
+              title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+            <p>BEST SONG +++FLOW GUARANTEED</p>
+          </div>
+          <div class="col">
+            <img src="https://files.catbox.moe/y9js0e.png" height="100" alt="love jews" />
+            <img src="gifs/meid-bride.gif" height="100" alt="cutest meido" /><br>
+            <!-- KIKI KANRI -->
+            <!-- >they didn't tell me to remove the audio -->
+            <audio controls>
+              <source src="https://files.riichi.moe/mjg/other/KIKI%20KAN%20RI.mp3" type="audio/mp3">
+            </audio>
+
+            <p>
+              <a href="https://boards.4channel.org/vg/catalog#s=mjg">/mjg/</a> / <a
+                href="https://github.com/vg-mjg/mjg-repo">Repo's Repo (Github)</a> / <a
+                href="https://repo.riichi.moe/feed.html">Site Feedback </a> / <a
+                href="https://github.com/vg-mjg/mjg-repo/issues">Report issues</a><br>
+              <a href="others/repobanners.html">Repo Banners</a> / <a href="others/loli.html">loli</a> /
+              <a href="https://riichi.moe/">tourneys</a> / <a href="others/vn.html">...</a> / <a
+                href="others/urg.html">. </a>
+            </p>
+          </div>
+          <p><small>fuck off repoanons you didn't fix your loli of the week and every fucking time i had to
+              use the site shit's broken all over because retarded kodomo can't stop being so big, fuck
+              off kokomo you're supposed to be small, dum fuck also stop only sticking to explicit lolis
+              you ultrafaggots it's like your cum-soaked brains can't think of anything but sex with lolis
+              they're supposed to be CUTE FIRST CUTENESS IS THE GREATEST LOVE OF ALL! CUTENESS IS
+              JUSTICE!! CUTENESS TRIUMPHS OVER ALL HOW CAN NO ONE UNDERSTAND THIS ONE SIMPLE CONCEPT EVERY
+              FUCKING LOLICON I MEET SAYS UUUUUOOOOOHHHH RAPE CORRECTION BUT NO ONE SAYS UUUOOOOOHHHH
+              FLUFFY SKIRT COLLECTION, YOUR SKIMPY BASICALLY NUDE HARLOTS ARE NO MATCH AGAINST ANGELIC
+              DRAWERS UNDERWEAR AND A REFRESHING SUNDRESS IF YOU WANT NAKED SKIN GO FOR A HAG OR
+              SOMETHING, CUTENESS IS SOMETHING A LOLI CAN EXCLUSIVELY PROCLAIM IS HERS AND TO DENY THAT IS
+              INJUSTICE</small></p>
+          <p id="counter"></p>
+        </div>
+      </div>
+    </div>
+  </center>
+
+  <img id="flying-cunny" class="sticky" src="" alt="Click for advice">
+
+  <!-- Optional JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+  <script src="js/index.js"></script>
+  <script src="js/quotes.js"></script>
 </body>
 
 </html>
-
