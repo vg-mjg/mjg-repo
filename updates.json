@@ -7,6 +7,12 @@
   },
   "updates": [
     {
+      "title": "Riichi city emotes and misc art",
+      "link": "https://www.mahjong-jp.com/special",
+      "category": "Resource",
+      "description": "Emotes, banners and character icons. It should be always up to date."
+    },
+    {
       "title": "Occult mahjong guide",
       "link": "https://files.riichi.moe/mjg/other/An.introduction.to.Occult.Mahjong.txt",
       "category": "OC",
@@ -233,18 +239,6 @@
       "link": "https://files.catbox.moe/4qhm70.7z",
       "category": "Resource",
       "description": "The riichi city character voice lines."
-    },
-    {
-      "title": "Riichi city emotes (Updated 23/01/22)",
-      "link": "https://files.catbox.moe/i03067.7z",
-      "category": "Resource",
-      "description": "Now including all emotes."
-    },
-    {
-      "title": "Riichi city emotes",
-      "link": "https://files.catbox.moe/p6whbd.zip",
-      "category": "Resource",
-      "description": "The riichi city animated emotes."
     },
     {
       "title": "Uzaku's tile efficiency (Updated 18/01/22)",
