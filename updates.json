@@ -7,6 +7,12 @@
   },
   "updates": [
     {
+      "title": "Change buttons (Update 2022-12-21)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Change%20buttons%202022-12-21.mspr",
+      "category": "Majsoul+ mod",
+      "description": "Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively. They moved the Tsumo button, and only the Tsumo button, for absolutely no reason. Thanks Catfood!"
+    },
+    {
       "title": "Waifu 2x (Update 2022-12-21)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu%202x%202022-12-21.mspr",
       "category": "Majsoul+ mod",
@@ -53,12 +59,6 @@
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/character%20swaps/Hana%20improvement.mspr",
       "category": "Majsoul+ mod",
       "description": "Upgrade to literally who. Removes Hana's glasses, gives her longer hair and changes her thigh highs from white to black. Now also removes glasses in her bond skin! <br><a href=\"https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/character%20swaps/preview/hanaimprovementmod.jpg\">Unbonded comparison</a><br><a href=\"https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/character%20swaps/preview/hana2.jpg\">Bonded comparison</a>"
-    },
-    {
-      "title": "Change buttons (Update 2022-11-16)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Change%20buttons%202022-11-16.mspr",
-      "category": "Majsoul+ mod",
-      "description": "Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively. It's been another 6 months since they last moved around the buttons in their files, probably for that new gamemode. Necessary to update to fix"
     },
     {
       "title": "Wanjirou's Yakuman Blocks",
