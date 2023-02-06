@@ -199,6 +199,6 @@ $("#ThemeSwitch").click(function() {
 $("#flying-cunny").click(function() {
     SoundAdvice();
 })
-snowStorm.flakesMaxActive = 150;    // show more snow on screen at once
-snowStorm.animationInterval = 20;
-snowStorm.useTwinkleEffect = true; // let the snow flicker in and out of view
+//snowStorm.flakesMaxActive = 150;    // show more snow on screen at once
+//snowStorm.animationInterval = 20;
+//snowStorm.useTwinkleEffect = true; // let the snow flicker in and out of view
