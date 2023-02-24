@@ -7,6 +7,12 @@
   },
   "updates": [
     {
+      "title": "Umineko Sound effects + Music update (Update 2023-02-24)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/theming/Umineko%20Sound%20Effects%20and%20Music%200.1.7.mspr",
+      "category": "Majsoul+ mod",
+      "description": "Replaces sound effects and music to Umineko sound effects and music. Updated for the new riichi music tracks"
+    },
+    {
       "title": "Change buttons (Update 2023-02-22)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Change%20buttons%202023-02-22.mspr",
       "category": "Majsoul+ mod",
@@ -91,12 +97,6 @@
       "description": "Fixed typos, added preface and cover. 10-06-22"
     },
     {
-      "title": "Waifu 2x (Update 2022-06-06)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu%202x%202022-06-06.mspr",
-      "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Added the new skin emotes for Momo and A-37"
-    },
-    {
       "title": "The Impact of the World's Strongest Mahjong AI Suphx",
       "link": "https://files.riichi.moe/mjg/books%20(en)/The%20Impact%20of%20the%20World%E2%80%99s%20Strongest%20Mahjong%20AI%20Suphx.pdf",
       "category": "Book",
@@ -119,18 +119,6 @@
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/character%20swaps/RiichimaFinancialGroup.mspe",
       "category": "Majsoul+ mod",
       "description": "The long awaited, previously posted, now uploaded to the repo Riichima Financial mod. Replace bond skins with sharply dressed office workers!"
-    },
-    {
-      "title": "Change buttons (Update 2022-04-27)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Change%20buttons%202022-04-27.mspr",
-      "category": "Majsoul+ mod",
-      "description": "Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively. It's been exactly 6 months since they last moved around the buttons in their files for no fucking reason."
-    },
-    {
-      "title": "Waifu 2x (Update 2022-04-27)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202022-04-27.mspr",
-      "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Includes all the new characters from the Kaguya collab"
     },
     {
       "title": "Super Zugan subs",
@@ -175,12 +163,6 @@
       "description": "Revival of an old /jp/ script, showing tiles on 4chan. Uses the standard notation (like 123m20p66s27z)"
     },
     {
-      "title": "Waifu 2x (Update 24/03/22)",
-      "link": "https://files.catbox.moe/f35xx2.mspr",
-      "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Added the new emotes for Fuji and green hair guys skins in the Hot Spring event"
-    },
-    {
       "title": "Hana improvement mod",
       "link": "https://files.catbox.moe/ode9xk.mspr",
       "category": "Majsoul+ mod",
@@ -205,12 +187,6 @@
       "description": "Some anon got scans from this Kitano mahjong manga. Synopsis? Fuck if I know, it's in Japanese."
     },
     {
-      "title": "Waifu 2x (Update 23/02/22)",
-      "link": "https://files.catbox.moe/nxr9bj.mspr",
-      "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Added the new emotes for Yui and Sawako's skins in the Moonlight Waltz event"
-    },
-    {
       "title": "Statistical Mahjong Strategy (Updated 17/02/22)",
       "link": "https://files.catbox.moe/3edzau.pdf",
       "category": "Books",
@@ -227,12 +203,6 @@
       "link": "https://github.com/NicolasTurpin/Touhou-Gensou-Mahjong-4N---ENGLISH-translation",
       "category": "Game",
       "description": "A translation for the touhou mahjong game with superpowers and all of that. Pretty nice, just remember not to run it on japanese locale."
-    },
-    {
-      "title": "Waifu 2x (Update 27/01/22)",
-      "link": "https://files.catbox.moe/z5m2fe.mspr",
-      "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Added the 2 new characters emotes and new CNY emotes."
     },
     {
       "title": "Riichi city character voices",
