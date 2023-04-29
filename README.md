@@ -4,7 +4,7 @@
 
 [**How to contribute/become repoanon?**](https://github.com/vg-mjg/mjg-repo/blob/master/CONTRIBUTING.md)
 
-[**Easier method to become a repoanon**](https://drive.google.com/file/d/1feviU9YQ4o773XEDeZHyjKugNoM1hTgA/view)
+[**Easier method to become a repoanon**](https://files.riichi.moe/mjg/books%20(en)/tulpa%20creation%20guide.pdf)
 
 [**/mjg/ Repo Constitution**](https://github.com/vg-mjg/mjg-repo/blob/master/CONSTITUTION.md)
 
