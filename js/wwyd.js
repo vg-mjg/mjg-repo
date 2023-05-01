@@ -107,7 +107,7 @@ class App extends Component {
   render() {
     if (this.state.wwyd) {
       return [
-        h("h2", null, "What would you do?"),
+        h("h2", null, "What would you discard?"),
         h("span", { class: "wwyd-round" }, [
           h("span", null, [
             h("p", null, "Round:"),
@@ -126,7 +126,7 @@ class App extends Component {
             h(Tile, { tile: this.state.wwyd.indicator })
           ]),
         ]),
-        h(Hand, { onClick: this.chooseDiscard, choice: this.state.choice, tiles: this.state.wwyd.hand, draw: this.state.wwyd.draw }),
+        h(Hand, { onClick: this.state.choice ? thunk : this.chooseDiscard, choice: this.state.choice, tiles: this.state.wwyd.hand, draw: this.state.wwyd.draw }),
         h(Choice, { choice: this.state.choice, answer: this.state.wwyd.answer })
       ]
     } else {
