@@ -13,13 +13,19 @@
       "description": "Upgrade to literally who. Removes Hana's glasses, gives her longer hair and changes her thigh highs from white to black (on default Hana). Now improves her new skin! <br><a href=\"https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/character%20swaps/preview/hana3.jpg\">Maid Comparison</a>"
     },
     {
-      "title": "Majsoul emotes (Update 2023-04-26)",
+      "title": "Waifu 2x (Update 2023-05-24)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202023-05-24.mspr",
+      "category": "Majsoul+ mod",
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the maid event"
+    },
+    {
+      "title": "Majsoul emotes (Update 2023-05-24)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
       "category": "Resource",
       "description": "New package with all, upscaled majsoul emotes."
     },
     {
-      "title": "Majsoul character sprites (Update 2023-04-26)",
+      "title": "Majsoul character sprites (Update 2023-05-24)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/portraits/?zip=utf8",
       "category": "Resource",
       "description": "Contains all majsoul character sprites."
@@ -29,12 +35,6 @@
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/character%20voices/?zip=utf8",
       "category": "Resource",
       "description": "Complete package with all character voice lines."
-    },
-    {
-      "title": "Waifu 2x (Update 2023-05-24)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202023-05-24.mspr",
-      "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the maid event"
     },
     {
       "title": "Change buttons (Update 2023-04-26)",
