@@ -1,0 +1,347 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Resources</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+ <script src="banner.js"></script>
+</head>
+
+<body>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+
+<div id="wrapper">
+ <header id="top">
+   <div id="headerban">
+  <center>
+  <a href="riichi.html">
+    <script type="text/javascript">
+  document.write(getImageTag());
+</script>
+</a>
+  </center>
+   </div>
+    <center>
+
+      <span style="position: relative; top: -20px;">
+        <p><span style="font-size: 3rem;"><strong>Resources</strong></span><br>
+        <span style="text-align: center">Various resources and everything else /mjg/ and mahjong</span>    </p>
+      </span>
+    </center>
+<nav id="mainnav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="guides.html">Guides</a></li>
+        <li><a href="comicsoc.html">Comics/OC</a></li>
+        <li><a href="tourneys.html">Tourneys</a></li>
+        <li><a href="resources.html" class="thispage">Resources</a></li>
+      </ul>
+    </nav>
+    
+  </header>
+<div id="mainart">
+  <p>&nbsp;</p>
+  <p><a href="#majsoulr"><strong>Mahjong Soul Resources</strong></a><br>
+    <a href="#mjgpr"><strong>/mjg/ Projects</strong></a><br>
+    <a href="#otherss"><strong>Others</strong></a></p>
+  <p>&nbsp;</p>
+  <div style="overflow-x:auto;">
+    <h1 id="majsoulr">Mahjong Soul Resources</h1>
+    <table width="100%" border="1" id="modtable">
+      <tr>
+        <th scope="row"><h2>Game Files</h2>
+          <p><img src="sections/xtra_banners/majsoul_resources.png" width="350" height="88" alt=""/></p>
+          <p>&nbsp;</p></th>
+        <td align="left"><p>Resources directly ripped from the game.</p>
+          <p><a href="https://files.catbox.moe/zyrn92.zip"><strong>Emotes</strong> (Updated 25-4-2020)<br>
+            </a><a href="https://files.catbox.moe/ui25su.7z"><strong>Portraits</strong><br>
+              </a><a href="https://drive.google.com/file/d/1IOh4VwFd4-_kBGsDJH9cprKeyzVqvI8P/view?usp=drive_open"><strong>Buttons/Everything Else</strong><br>
+                </a><a href="https://files.catbox.moe/d60xn6.7z"><strong>Character Voices</strong><br>
+                  </a><a href="https://files.catbox.moe/6jp7tu.7z"><strong>Loading Screens</strong><br>
+                  </a><a href="https://files.catbox.moe/smif2n.7z"><strong>Sound Effects - BGM - etc</strong></a> (Probably lacking because I'm no whale and this is from my majsoul+ resource file.) </p>
+          <p>For customizing Mahjong Soul, try <a href="https://mjg-repo.neocities.org/pastebin/Majsoul-Plus-Guide.html"><strong>Majsoul+.</strong></a> Also contains the mod list.</p>
+          <p><a href="https://jantama.sinoa.ws/blog/?p=2500"><strong>jantama.sinoa.ws</strong></a> - a site that lists the animations and winning effects in majsoul, but in Japanese</p>
+          <ul>
+            <li><a href="https://jantama.sinoa.ws/blog/?page_id=1488">Riichi Sticks</a></li>
+            <li><a href="https://jantama.sinoa.ws/blog/?page_id=1705">Riichi Effects</a></li>
+            <li><a href="https://jantama.sinoa.ws/blog/?page_id=1730">Winning Effects</a></li>
+          </ul></td>
+      </tr>
+      <tr>
+        <th scope="row"><h2 id="usercripts">Mahjong Soul Usercripts</h2>
+          <p><img src="sections/xtra_banners/userscripts.png" width="350" height="88" alt=""/></p>
+          <p></p></th>
+        <td align="left"><p>Get <a href="https://violentmonkey.github.io/">Violentmonkey</a> or whatever userscript manager you like for these. Userscripts for Mahjong Soul's web version.</p>
+          <p><strong><a href="others/userscripts/nyaggertunes.txt">NyaggerTunes CLEAN</a></strong></p>
+          <p>You'll   cowards don't even riichi. Now with Youtube integration, press escape   to open menu and input video IDs to replace music. Create playlists by   separating with commas. (Remember to unblock youtube, ytimg and   googlevideo scripts and allow site autoplay in your browser) </p>
+          <p><strong><a href="others/userscripts/anonymizer.txt">Anonymizer</a></strong></p>
+          <p>Press ctrl to Why </p>
+          <p><strong><a href="others/userscripts/weebnames.txt">Weeb Names</a></strong></p>
+          <p>For all your weeaboo needs, change WEEB_LEVEL in script if you feel like it</p></td>
+      </tr>
+      <tbody>
+      </tbody>
+    </table>
+</div>
+<p>&nbsp;</p>
+<h1>/mjg/ Projects</h1>
+<div style="overflow-x:auto;">
+  <table width="100%" border="1" id="modtable">
+    <tr>
+      <th scope="row"><h2>Riichi Mahjong Strategy</h2>
+        <p><img src="sections/xtra_banners/rms.png" width="350" height="88" alt=""/></p>
+        <p></p></th>
+      <td align="left"><p>by <strong>Fukuchi Makoto</strong></p>
+        <p>Translated by bookanon</p>
+        <p>A   book by Fukuchi Makoto and constantly translated by a kind anon. The   book is heavily focused on tile efficiency, with a highly digital   (analytical) way of thinking. All of the later material about push-fold   judgment and discard reading is based on good tile efficiency.</p>
+        <p><a href="https://files.catbox.moe/chwp6q.pdf"><strong>Download</strong></a><br>
+          <a href="https://mjg-repo.neocities.org/books/rms.html">Read online</a></p></td>
+    </tr>
+    <tr>
+      <th scope="row"><h2>Strip Mahjong</h2>
+        <p><img src="sections/xtra_banners/strip.png" width="350" height="88" alt=""/></p></th>
+      <td align="left"><p>/mjg/ streams Strip Mahjong, because why not.</p>
+        <p><a href="https://mega.nz/#!AEYQCY4Q!-mDCZedzpOqdhGJTarJMTFUC0pGX7lkZNsXUYV5-ZPM"><strong>Strip Mahjong: Battle Royal</strong><br>
+        </a><a href="https://mega.nz/#!lEZXQYbQ!SVxtJczzfuv51U99Uo_l6DNZ56AGSylB8uhcF6VBB4I"><strong>Strip Mahjong: Midnight Clinical Test</strong></a><strong> (<a href="https://drive.google.com/open?id=1AiGslc5v1zi9a5z9oGqG2PjejDZYNTW5">gdrive backup</a>)</strong></p></td>
+    </tr>
+    <tr>
+      <th scope="row"><h2>Hat Playlist</h2>
+        <img src="sections/xtra_banners/hat.png" width="350" height="88" alt=""/></th>
+      <td align="left"><p>Download the award-winning album for guaranteed flow.</p>
+        <p><a href="https://mega.nz/#!3DRxDYbS!g4cs6iYo7Whl7ZRp51gi0sKXIt1nTenaVNQHCOe0FPg"><strong>Download</strong></a></p></td>
+    </tr>
+    <tr>
+      <th scope="row"><h2>Mahjong Soul Telegram Stickers</h2>
+        <img src="sections/xtra_banners/telegram.png" width="350" height="88" alt=""/></th>
+      <td align="left"><p>Sticker packs for telegram users.</p>
+        <p><a href="https://t.me/addstickers/MahjongSoulEN"><strong>1</strong></a> <strong><a href="https://t.me/addstickers/MahjongSoulEN2">2</a> <a href="https://t.me/addstickers/MahjongSoulEN3">3</a></strong><a href="https://t.me/addstickers/MahjongSoulEN3"></a></p></td>
+    </tr>
+    <tr>
+      <th scope="row"><h2>/mjg/ Character Survey</h2>
+        <img src="sections/xtra_banners/survey.png" width="350" height="88" alt=""/></th>
+      <td align="left"><p>Concluded on the 15th of January, 2020, 112 anons participated in this survey about their mahjong waifus. </p>
+        <p><a href="https://i.imgur.com/TGMg3do.jpg"><strong>Full size image</strong></a></p></td>
+    </tr>
+    <tr>
+      <th scope="row"><h2>Obscure Mahjong Movies</h2></th>
+      <td align="left"><p><strong>Old Akagi Movies</strong></p>
+        <p><a href="https://nyaa.si/view/1212927">Part 1</a><br>
+          <a href="https://nyaa.si/view/1212928">Part 2</a></p>
+        <p><strong>Shin Janki movies</strong></p>
+        <p><a href="https://nyaa.si/view/60935">Torrent</a><br>
+          <a href="https://mahjongkrazy.blogspot.com/2017/04/shin-janki-underground-mahjong-gambling.html">1st Movie Download</a><a href="https://mahjongkrazy.blogspot.com/2017/04/shin-janki-underground-mahjong-gambling.html"></a></p>
+        <p>English Subtitles</p>
+        <p><a href="https://files.catbox.moe/vr5xd7.ass">2nd Movie</a> | <a href="https://files.catbox.moe/w6dve2.srt">3rd Movie </a>| <a href="https://mega.nz/#!pwkAXTzB!gQb_IrpWyK9YIiHW_RPD2ZouG85_a7-wq89Q2NvACZA">11th Movie</a></p>
+        <p><strong>Saki Live Action</strong></p>
+        <p><a href="https://mega.nz/file/r1MiSQSI#uJ5o84ECbkI7oIOkh5ic71l73ngjEZIDt0oEy_4ngZw">Mega</a></p></td>
+    </tr>
+    <tr>
+      <th scope="row"><h2>/mjg/ sings Nantoka Nare</h2>
+        <p><img src="banners/nantoka.png" width="350" height="88" alt=""/></p></th>
+      <td align="left"><p>Pure unadultarated autism. </p>
+        <p controls>        
+        <audio controls>
+          <source src="https://files.catbox.moe/e0pgky.mp3" type="audio/mp3">
+        </audio></td>
+    </tr>
+    <tr>
+      <th scope="row"><h2>The analysis of /mjg/ questionarie - questions and answers</h2></th>
+      <td align="left"><p>Listen to kurwa address the answers from the general questionarie, as well as talk about the future of tourneys, leagues and whatnot for over an hour.</p>
+        <p><a href="https://www.youtube.com/watch?v=CJqKf1lwpyQ"><strong>Youtube</strong></a><br>
+          <strong><a href="https://drive.google.com/file/d/1nwvDaxhgIg_KynDI4xT9oivTBUCR2Ohq/view">Transcript by a kind anon</a></strong></p></td>
+    </tr>
+    <tr>
+      <th scope="row"><h2>3rd /mjg/ movie night</h2>
+        <p><img src="banners/3rdmovie.png" width="350" height="88" alt=""/></p></th>
+      <td align="left"><p>1st and 2nd movie nights were the strip mahjong movies. The movies streamed during this movie night were: </p>
+        <ul>
+          <li>3 eps of saki LA</li>
+          <li>5 short clips from chink Mahjong Warrior movie</li>
+          <li>mahjong themed OVA of Detective Conan</li>
+          <li>First ep of Super Zugan</li>
+          <li>1st movie of Shin Janki Series</li>
+          <li>Rattatouile with polish dub (cut out due to Disney's copyright AIDS) </li>
+        </ul>
+        <p><a href="https://mega.nz/#!YRQTCAKL!2h0BM8fftM99P0hX0GSCNTsrYXYopTvigGRHZC_mNJ0"><strong>Mega Link</strong></a></p></td>
+    </tr>
+    <tr>
+      <th scope="row"><h2 id="maajanbooks2">Mahjong Books (Japanese)</h2>
+        <p><img src="banners/books.png" width="350" height="88" alt=""/></p></th>
+      <td align="left"><p>A 7zip file of a bunch of mahjong books in <strong>Japanese</strong> shared in the thread. No dekinais allowed.</p>
+        <p>List of Books</p>
+        <div id="flower2">
+          <p>ASAPIN 天才雀士に麻雀のことを聞いたらバカ勝ちできた<br>
+          </p>
+          <p>朝倉康心 麻雀の失敗学<br>
+          </p>
+          <p>＼(＾o＾)/ 三人麻雀の極意<br>
+          </p>
+          <p>石橋伸洋 黒いデジタル麻雀<br>
+          </p>
+          <p>石橋伸洋 進化するデジタル麻雀<br>
+          </p>
+          <p>多井隆晴 多井熱<br>
+          </p>
+          <p>かにマジン 日本一麻雀が強いサラリーマンの必勝法<br>
+          </p>
+          <p>川村晃裕 麻雀勝ち組の鳴きテクニック<br>
+          </p>
+          <p>菊池翔 絶対に負けない最強麻雀戦術<br>
+          </p>
+          <p>きよ アマチュア地方最強位が作る新麻雀マニュアル<br>
+          </p>
+          <p>近代麻雀 麻雀プロMリーグ選手名鑑<br>
+          </p>
+          <p>近代麻雀 プロに挑戦!!麻雀検定<br>
+          </p>
+          <p>Guzaku 定石「何切る」301選<br>
+          </p>
+          <p>Guzaku 傑作「何切る」300選<br>
+          </p>
+          <p>小林剛 スーパーデジタル麻雀<br>
+          </p>
+          <p>近藤誠一 大きく打ち大きく勝つ麻雀<br>
+          </p>
+          <p>鈴木たろう ゼウスの選択<br>
+          </p>
+          <p>ZERO ゼロ秒思考の麻雀<br>
+          </p>
+          <p>ZERO 麻雀強者の0秒思考<br>
+          </p>
+          <p>土井泰昭 勝つ人は知っている現代麻雀30の新常識<br>
+          </p>
+          <p>土田浩翔 運を育てる<br>
+          </p>
+          <p>独歩 鉄押しの条件<br>
+          </p>
+          <p>独歩 序盤の鉄戦略<br>
+          </p>
+          <p>中島準也 理論的思考で勝つ麻雀<br>
+          </p>
+          <p>二階堂亜樹 勝てる麻雀の基本<br>
+          </p>
+          <p>日本プロ麻雀連盟 麻雀基本手筋コレクション<br>
+          </p>
+          <p>馬場裕一 バビーのメンチン何切る<br>
+          </p>
+          <p>比嘉秀仁 強者の最近手筋100<br>
+          </p>
+          <p>平澤元気 絶対にラスを引かない麻雀ラス回避35の技術<br>
+          </p>
+          <p>平澤元気 現代麻雀の秘技相手に対応させる技術<br>
+          </p>
+          <p>平澤元気 よくわかる麻雀の勝ち方<br>
+          </p>
+          <p>福地誠 これだけで勝てる!麻雀の基本形80<br>
+          </p>
+          <p>福地誠 麻雀10倍勝てるテクニック<br>
+          </p>
+          <p>福地誠 麻雀の正解<br>
+          </p>
+          <p>福地誠 麻雀勝ち組の選択<br>
+          </p>
+          <p>福地誠 麻雀勝ち組の選択II<br>
+          </p>
+          <p>福地誠 麻雀テクニック<br>
+          </p>
+          <p>福地誠 手作りと押し引きの鉄戦術<br>
+          </p>
+          <p>藤田晋 仕事が麻雀で麻雀が仕事<br>
+          </p>
+          <p>鳳南研究所 現代麻雀の神ワザ<br>
+          </p>
+          <p>堀慎吾 麻雀だから君は負けるんです<br>
+          </p>
+          <p>堀内正人 麻雀の麒麟児の一打<br>
+          </p>
+          <p>水上直紀 麻雀AI戦術<br>
+          </p>
+          <p>みーにん 「統計学」のマージャン戦術<br>
+          </p>
+          <p>みーにん 知るだけで強くなる麻雀の2択<br>
+          </p>
+          <p>ゆうせー 実戦でよく出る!麻雀講義 </p>
+        </div>
+        <p><a href="https://drive.google.com/file/d/1er4cF4cjmwhhEQKtdFoFi_eODSc3F3Ad/view"><strong>Google Drive</strong></a></p>
+        <p><strong>Special Mentions:</strong></p>
+        <p><strong><a href="https://files.catbox.moe/94q689.pdf">301『定石』何切る</a></strong><br>
+          <strong><a href="https://www.mediafire.com/file/7hbvcendau4uuxh/Ma_Que__Jie_Zuo_[He_Qie_ru]_300Xuan_-_Guzaku.pdf/file">300『傑作』何切る</a></strong></p>
+        <p>301 &quot;Established Practice&quot; Which to cut? This book is filled with wwyd (what would you discard) examples. Is, of course, entirely in Japanese, but it's visual enough for you to understand. The explanations are all in moonrunes,sadly. The part 2, 300 &quot;Masterpieces&quot; is the big brain book with even harder questions.</p>
+        <p><a href="https://files.catbox.moe/s3kfxd.7z">A rip of the cute wwyd-chans</a><br>
+          <a href="https://files.catbox.moe/3jborf.7z">300 version </a></p></td>
+    </tr>
+    <tr>
+      <th scope="row"><h2>/mjg/ Pastebin</h2>
+        <p><img src="banners/pastebins.png" width="350" height="88" alt=""/></p></th>
+      <td align="left"><p>An archive of copypastas and smut from /mjg/, because they deserve to go to the history books.</p>
+        <p><a href="https://pastebin.com/v3zxJgqJ"><strong>Index</strong></a></p></td>
+    </tr>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+<p>&nbsp;</p>
+<h1 id="otherss">Others  </h1>
+<div style="overflow-x:auto;">
+  <table width="100%" border="1" id="modtable">
+    <tr>
+      <th scope="row"><h2>Mahjong <span style="color:green; ">&gt;Soul</span> General Booru</h2>
+        <img src="sections/xtra_banners/booru.png" width="350" height="88" alt=""/></th>
+      <td align="left"><p>Go get your hat edits, mspaint emotes and other various /mjg/ memes here.</p>
+        <p><span style="color:green; ">&gt;Soul</span></p>
+        <p><a href="https://mjg.booru.org/" target="_blank" class="url"><strong>https://mjg.booru.org/</strong></a></p></td>
+    </tr>
+    <tr>
+      <th scope="row"><h2>/mjg/'s Divegrass Team</h2>
+        <img src="sections/xtra_banners/divegrass.png" width="350" height="88" alt=""/></th>
+      <td align="left"><p>Bringing their mastery of flow from the mahjong   parlor to the soccer field, /mjg/ is ready to take on the VGL, scoring   hanemans and hat tricks with equal ease. Technically not a mobage   general, even if 90% of us play on one.</p>
+        <p><a href="https://implyingrigged.info/wiki//mjg/"><strong>implyingrigged wiki</strong></a></p></td>
+    </tr>
+    <tr>
+      <th scope="row"><h2>Hime Mahjong Resources</h2>
+        <img src="sections/xtra_banners/hime.png" width="350" height="88" alt=""/></th>
+      <td align="left"><p>Himebros unite!</p>
+        <p><a href="https://files.catbox.moe/mec30h.zip"><strong>Emotes </strong></a><span class="smaller">(Updated, not upscaled)</span><br>
+          <a href="https://files.catbox.moe/yqxvny.7z"><strong>Emotes </strong></a><span class="smaller">(Old)</span><br>
+          <a href="https://files.catbox.moe/vl7g9g.zip"><strong>Character Files</strong></a> <span class="smaller">(start of the match, naki, first place, full portrait, winning hand)</span></p></td>
+    </tr>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+<p><script>var clicky_site_ids = clicky_site_ids || []; clicky_site_ids.push(101232877);</script>
+    <script async src="//static.getclicky.com/js"></script>
+    <noscript>
+    </noscript>
+    <noscript>
+    </noscript>
+</p>
+  <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101232877ns.gif" /></p></noscript>
+
+</div>
+</div>
+</body>
+</html>

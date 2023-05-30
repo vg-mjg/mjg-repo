@@ -1,0 +1,560 @@
+@charset "utf-8";
+
+
+
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Open Sans Regular'),url('./github/400.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: normal;
+    src: local('Open Sans Italic'),url('./github/400i.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: bold;
+    src: local('Open Sans Bold'),url('./github/700.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: bold;
+    src: local('Open Sans Bold Italic'),url('./github/700i.woff') format('woff');
+}
+#yonchan {
+	border: thick solid #EEF2FF;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: #000000;
+	text-align: center;
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	word-wrap: break-word;
+	background-image: url(bgimg/linedpaper.png);
+}
+
+
+
+/*------------------------------------*/
+
+
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+	font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: rgb(51, 51, 51);
+	background-image: url(bgimg/dust_scratches.png);
+	line-height: 1.6;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	border-width: thin;
+
+}
+
+/*------------------------------------*/
+
+
+/*------------------------------------*/
+
+a {
+	color: #0072AB;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+	text-align: right;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1 {
+	padding-bottom: .3em;
+	font-size: 2.25em;
+	line-height: 1.2;
+	border-bottom-style: none;
+	text-align: center;
+
+}
+#starthere {
+	border-style: double;
+	border-width: medium;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+
+#learnplay {
+	border-style: double;
+	border-width: medium;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+#morelearn {
+	border-style: double;
+	border-width: medium;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+#majirl   {
+	border-style: double;
+	border-width: medium;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+
+
+
+
+
+#wrapper footer {
+	background-color: #333333;
+	color: #D7D7D7;
+	width: 100%;
+}
+#foote {
+	background-color: #333333;
+	color: #E8E8E8;
+	margin-bottom: -20px;
+}
+
+#foote a {
+	color: #E8E8E8;
+}
+hr {
+	border-style: dashed;
+	border-width: 0.1px 0.1px thin;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+#updates hr {
+	border-style: dashed;
+	width: 30%;
+	text-align: center;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: rgb(75, 75, 75);
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+#mainnav ul {
+	list-style-type: none;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-left: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+#mainnav a {
+	width: 20%;
+	display: block;
+	float: left;
+	text-align: center;
+	background-color: #333333;
+	color: #E3E3E3;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-weight: bold;
+	word-wrap: break-word;
+}
+.gcse-searchbox-only {
+
+}
+#top {
+	margin-top: -20px;
+	background-image: url(bgimg/sakura.png);
+
+
+}
+
+
+
+#mainnav:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+#mainnav a:hover   , #mainnav a:active  ,#mainnav a:focus, #mainnav a.thispage{
+	text-decoration: none;
+	background-color: #949494;
+}
+#mainart {
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-bottom: 5%;
+	margin-top: 5%;
+
+}
+#mainartoc {
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 5%;
+	margin-top: 5%;
+	text-align: left;
+}
+
+
+#updates {
+	text-align: left;
+	font-size: medium;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 5px;
+	list-style-position: inside;
+	width: 90%;
+
+}
+
+
+#top figure img {
+	margin-top: 20px;
+
+}
+#mainnav {
+
+
+
+
+}
+.centered {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+}
+#tourtable {
+	border-collapse: collapse;
+	width: 100%;
+	text-align: center;
+}
+#tourtable td, #tourtable th {
+	padding: 8px;
+	border: 1px solid #ABABAB;
+	text-align: center;
+}
+
+.smaller {
+	font-size: small;
+}
+
+#tourtable th            {
+	text-align: center;
+}
+
+#octable {
+	border-collapse: collapse;
+	width: 100%;
+}
+#octable td, #octable th {
+	padding: 8px;
+	border: 1px solid #ABABAB;
+}
+#octable2 {
+	border-collapse: collapse;
+	width: 100%;
+}
+#octable2 td, #octable2 th {
+	padding: 8px;
+	border: 1px solid #ABABAB;
+}
+#octable3 {
+	border-collapse: collapse;
+	width: 100%;
+}
+#octable3 td, #octable3 th {
+	padding: 8px;
+	border: 1px solid #ABABAB;
+}
+#octable4 {
+	border-collapse: collapse;
+	width: 100%;
+}
+#octable4 td, #octable4 th {
+	padding: 8px;
+	border: 1px solid #ABABAB;
+}
+.topper {
+	display: block;
+	text-align: center;
+}
+
+#octable5 , #octable6{
+	border-collapse: collapse;
+	width: 100%;
+}
+#octable5 td, #octable5 th {
+	padding: 8px;
+	border: 1px solid #ABABAB;
+}
+#octable6 td, #octable6 th {
+	padding: 8px;
+	border: 1px solid #ABABAB;
+}
+#octable th  , #octable2 th, #octabl3 th, #octable4 th, #octable5 th, #octable6 th{
+	text-align: center;
+}
+
+
+#myBtn {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 30px;
+	z-index: 99;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	background-color: #6E6E6E;
+	color: white;
+	cursor: pointer;
+	padding: 15px;
+	border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+.boxer {
+	border-style: double;
+	border-width: medium;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.strikethru {
+	text-decoration: line-through;
+}
+#headerban {
+	padding-top: 20px;
+	margin-top: 20px;
+
+}
+.notopspace {
+	padding-top: 0px;
+	top: -100px;
+}
+.column {
+	float: left;
+	width: 50%;
+}
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/**--------------------------------------------------TEST**/
+#myInput {
+
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+#myTable {
+  border-collapse: collapse; /* Collapse borders */
+  width: 100%; /* Full-width */
+  border: 1px solid #ddd; /* Add a grey border */
+  font-size: 18px; /* Increase font-size */
+}
+
+#myTable th, #myTable td {
+  text-align: left; /* Left-align text */
+  padding: 12px; /* Add padding */
+}
+
+#myTable tr {
+  /* Add a bottom border to all table rows */
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  /* Add a grey background color to the table header and on hover */
+  background-color: #f1f1f1;
+}
+
+.accordion {
+	color: #444;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 15px;
+	transition: 0.4s;
+	background-image: url(bgimg/kindajean.png);
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+ 
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+/**-------------test styles**/
+#updates ul {
+	list-style-type: none;
+	padding: 0;
+	margin-bottom: 10px;
+}
+#updates li {
+	margin: 5px;
+
+}
+
+#updates li:before {
+	content: '>';
+	margin-left: -20px;
+	margin-right: 10px;
+	color: #78BD42;
+	font-weight: bolder;
+}
+
+#flower {
+	height: 300px;
+	overflow: scroll;
+	overflow-x: hidden;
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	border-top-width: thin;
+	border-top-style: dashed;
+	border-bottom-width: thin;
+	border-bottom-style: dashed;
+}
+#flower2 {
+	height: 300px;
+	overflow: scroll;
+	overflow-x: hidden;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	border-top-width: thin;
+	border-top-style: dashed;
+	border-bottom-width: thin;
+	border-bottom-style: dashed;
+}
+
+#announce {
+	width: 60%;
+	text-align: center;
+	left: auto;
+	right: auto;
+	margin-left: auto;
+	border-width: thin;
+	border-style: dotted;
+	padding-left: 0px;
+	margin-right: auto;
+	background-image: url(bgimg/linedpaper.png);
+}
+#modtable {
+	border-collapse: collapse;
+	width: 100%;
+	text-align: left;
+}
+
+#modtable td, #modtable th {
+	border: 1px solid #ABABAB;
+	padding: 8px;
+	text-align: left;
+}
+#modtable th {
+	text-align: center;
+}

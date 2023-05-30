@@ -1,0 +1,319 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Majsoul Plus Guide</title>
+<link href="../style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+<div id="wrapper">
+<header id="top">
+  <figure style="text-align: center; color: rgba(51,51,51,1);"><a href="riichi.html">	</a>  </figure>
+    <center>
+      <p><span style="font-size: 4rem;"><strong>Majsoul Plus Guide</strong></span><br>
+      <a href="https://pastebin.com/LwfAVMNd">Pastebin Source</a></p>
+    </center>
+<nav id="mainnav">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../guides.html" class="thispage">Guides</a></li>
+        <li><a href="../comicsoc.html">Comics/OC</a></li>
+        <li><a href="../tourneys.html">Tourneys</a></li>
+        <li><a href="../resources.html">Resources</a></li>
+      </ul>
+  </nav>
+    
+  </header>
+<div id="mainart">
+  <p style="color:green; ">&gt;2011+8.917<br>
+    &gt;playing mongolian bone bricks in your browser</p>
+  <p style="color:green; ">&nbsp;</p>
+  <p style="color:green; "><span data-ref="n4"><a href="https://mjg-repo.neocities.org/pastebin/Majsoul-Plus-Guide.html#majsoul-plus"><strong>Majsoul Plus</strong></a></span><br>
+    <span data-ref="n7"><a href="https://mjg-repo.neocities.org/pastebin/Majsoul-Plus-Guide.html#getting-started"><strong>Getting Started</strong></a></span><br>
+    <span data-ref="n18"><a href="https://mjg-repo.neocities.org/pastebin/Majsoul-Plus-Guide.html#known-issues"><strong>Known Issues</strong></a></span>    <br>
+    <span data-ref="n22"><a href="https://mjg-repo.neocities.org/pastebin/Majsoul-Plus-Guide.html#modding"><strong>Modding</strong></a></span>    <br>
+    <span data-ref="n27"><a href="https://mjg-repo.neocities.org/pastebin/Majsoul-Plus-Guide.html#default-mods"><strong>Default Mods</strong></a></span>    <br>
+    <span data-ref="n32"><a href="https://mjg-repo.neocities.org/pastebin/Majsoul-Plus-Guide.html#tools"><strong>Tools</strong></a></span>    <br>
+    <span data-ref="n44"><a href="https://mjg-repo.neocities.org/pastebin/Majsoul-Plus-Guide.html#mod-list"><strong>Mod list</strong></a></span></p>
+  <p style="color:green; "><br>
+  </p>
+  <h1>Majsoul Plus</h1>
+  <p>Majsoul Plus is a desktop   client for all Majsoul server regions. It should theoretically run   smoother than the browser app, as it's not running in your browser   session filled with a billion tabs of god-knows-what. It should also   load things a little faster as it maintains a static cash of game assets   on your PC, so it's not subjected to the whims of your browser's cache.   Lastly, it has modding support, so you can use custom tablecloths, turn   Chiori into a duck, use the Japanese yaku names, etc.</p>
+  <p>   </p>
+  <h1><a name="getting-started"></a>Getting Started</h1>
+  <ol start="1">
+    <li>Grab the latest 2.x version for your OS here: <a href="https://github.com/MajsoulPlus/majsoul-plus/releases" target="_blank">https://github.com/MajsoulPlus/majsoul-plus/releases</a> As of writing, this guide is for 2.x versions of Majsoul Plus, so it might not be accurate for newer ones.</li>
+    <li>Run the installer, or extract it to a suitable location and run the executable named 'Majsoul Plus' to open the launcher</li>
+    <li>Go to the settings tab, change the server region to 2 (or whichever is correct for your region), and hit save</li>
+    <li>Hit 'Launch Game' and log in as normal when prompted</li>
+  </ol>
+  <p>   </p>
+  <h1><a name="known-issues"></a>Known Issues</h1>
+  <p>If   you're migrating from an earlier version, you might get some error   relating to a route having disappeared when trying to log in. If this is   the case, browse to %appdata%, delete all the Majsoul Plus folders and   launch the game again.</p>
+  <p>If you have framerate issues, try messing around with the GPU options in the launcher.</p>
+  <p>   </p>
+  <h1><a name="modding"></a>Modding</h1>
+  <p>Mods are split into two types:</p>
+  <p>Extensions use javascript and can change game behavior, apply userstyles, and do all kinds of fun stuff.  Resource packs are simple one-to-one or many-to-one asset replacements using JSON</p>
+  <p>If   you want to try and get your head around how it works, have a look at   the default mods, the ones below, and/or the wiki (in Chinese) here: <a href="https://github.com/MajsoulPlus/majsoul-plus/wiki" target="_blank">https://github.com/MajsoulPlus/majsoul-plus/wiki</a></p>
+  <p>There is also a modding guide here: <a href="https://mjg-repo.neocities.org/pastebin/MJS%20-Modding-Guide.html">https://mjg-repo.neocities.org/pastebin/MJS%20-Modding-Guide.html</a></p>
+  <p>   </p>
+  <h1><a name="default-mods"></a>Default Mods</h1>
+  <p>The default extension by Majsoul Plus Team enables the lv.5 voiced yaku names regardless of whether you've unlocked them.</p>
+  <p>The other two default extensions seem to be related to the Chinese server, and one might just be an example extension.</p>
+  <p>The default resource pack with the duck icon replaces Chiori with a mallard duck and replaces her voice lines with quacks.</p>
+  <p>   </p>
+  <h1><a name="tools"></a>Tools</h1>
+  <p>The only tool so far is a default one that lets you create custom tablecloths.</p>
+  <p>After launching it, click the top box to browse for a suitable image, then change the slider to adjust the brightness.</p>
+  <p>The four fields are as follows: folder name, name, author, description.</p>
+  <p>Once you click ok, you can enable it from the extensions tab.</p>
+  <p>Don't forget to disable the tablecloths you aren't using.</p>
+  <p> </p>
+  <h2><a name="applying-mods"></a>Applying Mods</h2>
+  <p>In the extension/resource pack tab, click the import button in the top-right, and browse to the mod file you want to add.</p>
+  <p>Once you've added it, click the button under the mod to enable it.   It's possible if you used the installer (I didn't), that you can just run the .mspr/.mspe files to add them automatically.</p>
+  <p>You can also open the .mspr/.mspe files with 7zip and manually extract them to the appropriate location (%appdata%\Majsoul Plus...); just make sure you're putting them in the right folders, and hit refresh and enable it.</p>
+  <p>   </p>
+  <h1><a name="mod-list"></a>Mod list</h1>
+  <p>
+<center>
+  mspr = Resource Pack<br>
+  mspe = Extension
+</center>
+  </p>
+  <p><a href="#utilities"><strong>Utilities</strong></a><br>
+    <strong><a href="#theming">Theming</a></strong><br>
+    <strong><a href="#charac">Character Swaps </a></strong><br>
+    <strong><a href="#emotes">Emotes </a></strong><br>
+    <strong><a href="#tilebacks">Tilebacks </a></strong><a href="#tilebacks"></a></p>
+  <p>&nbsp;</p>
+  <h2 id="utilities">Utilities</h2>
+  <div style="overflow-x:auto;">
+  <table width="100%" border="1" id="modtable">
+    <tr>
+      <td align="left"><strong><a href="https://files.catbox.moe/oyhobj.mspr">Change buttons</a></strong></td>
+      <td><p>Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively</p>
+        <p><strong>v2</strong> - Here's a fix for the custom buttons   resource pack, for those who use   it. They moved around the buttons in   the mjdesktop2.png image for the   wareme gamemode for some reason. </p>
+        <p>Old Versions: <a href="https://anonfile.com/W5Wcx3Bbn8/Change_buttons_2.0.0_mspr">[v1]</a></p></td>
+    </tr>
+    <tr>
+      <td align="left"><strong><a href="https://anonfile.com/d9XbxaB3n5/weebnames_1.0.1_mspe">weebnames</a></strong></td>
+      <td><p>Replaces the localized yaku names with the Japanese ones. WEEB_LEVEL is configurable in script.js. </p>
+        <p><a href="https://drive.google.com/open?id=1-xJQhZ_B0FGMIkXEk-qIF6yexIbE_q2B">drive backup </a></p></td>
+    </tr>
+    <tr>
+      <td align="left"><strong><a href="https://files.catbox.moe/sldzu5.mspe">Anonymizer</a></strong></td>
+      <td><p>Press ctrl to hide names. </p></td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://anonfile.com/pb43A2B5n5/Colorizer_colorizer_-_Script_Anon_mspe"><strong>Colorizer</strong></a></td>
+      <td><p>Changes   the fingernail and hand colors in-game. You can also go   into the script   to change the values for certain characters' hands and   nails. For   example, Dancers hand is currently set to a darker tone. </p>
+        <p><a href="https://drive.google.com/open?id=1V3v7WhW9rLBDqB15pdQGXsjwWl_7jSxZ">gdrive backup</a></p></td>
+    </tr>
+    <tbody>
+    </tbody>
+  </table>
+  </div>
+  <p id="theming">&nbsp;</p>
+  <h2>Theming</h2>
+  <div style="overflow-x:auto;">
+  <table width="100%" border="1" id="modtable">
+    <tr>
+      <td align="left"><strong><a href="https://anonfile.com/Vdrfy8B9n2/Umineko_Sound_Effects_0.1.4_mspr">Umineko (Sound Effects)</a></strong></td>
+      <td><p>Replaces some of the game sfx with umineko sfx. </p>
+        <p><a href="https://drive.google.com/open?id=1tDazx71dyv_8yHveMFzh4X7lBDmF5AQn">gdrive backup</a></p></td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://anonfile.com/t3af0aIcn3/Umineko_Sound_Effects_umineko_sfx_-_Anon_Cat_and_Mostly_Hat_mspr"><strong>Umineko (Sound Effects + Music)</strong></a></td>
+      <td><p>Umineko sound effects but with more resources.</p>
+        <p><strong>Version 2</strong> - changes riichi music to goldenslaughterer</p>
+        <p><strong>Version 3 </strong>-   I have it set to have Charge   (which is our goalhorn in the 4cc!) to   Dread of the Grave, Serious   Game to goldenslaughterer, On The Edge to   Worldenddominator, and the   one that I don't have to Final Answer. I hope   you enjoy!</p>
+        <p>Old Versions: <a href="https://anonfile.com/P5A876Ban7/Umineko_Sound_Effects_umineko_sfx_-_Anon_Cat_and_Mostly_Hat_mspr">[v1]</a> <a href="https://anonfile.com/jaGd73B1nd/Umineko_Sound_Effects_umineko_sfx_-_Anon_Cat_and_Mostly_Hat_mspr">[v2]</a><br>
+          <a href="https://drive.google.com/open?id=1rrJJ9CivO8jwVFe1nS5vQ4hQX8U4ynZc">gdrive backup</a></p></td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://files.catbox.moe/7hcqmz.mspr"><strong>/mjg/ 2hu Tileset</strong></a></td>
+      <td><p>Are   you tired of the same old tiles? Want to get some flow? Put on   your   best touhou remix, and install the official /mjg/ 2hu tileset</p>
+        <p>Featuring:</p>
+        <ul>
+          <li>man sakuya, flandre, remilia</li>
+          <li>pin youmu, yuyuko, yukari</li>
+          <li>sou reisen, kaguya, mokou</li>
+          <li>winds reimu,marisa,aya,suika</li>
+          <li>dragons alice, keine, china?</li>
+        </ul>
+        <p><strong>version 2</strong> - new version of touhou tileset. I did   what I had to do at the start,   and cleaned the tiles (grey from photo   -&gt; white of mjs). Now it's   much easier on the eyes.</p>
+        <p><strong>version 3</strong> - fixed for the new update</p>
+        <p><strong>version 4</strong> - cleaned up version of 2hu tileset, now replacing both numbered and not numbered tiles.</p>
+        <p>Old Versions: [<a href="https://anonfile.com/Ldm672D6n9/2hutiles_mspr">v1</a> | <a href="https://drive.google.com/open?id=14EWBebegRMFEHbZ2fuN7HJy7eG9qBjZK">gdrive</a>] <a href="https://files.catbox.moe/1lz9uj.mspr">[v2]</a> <a href="https://anonfile.com/1dmeW8O9n6/2hu_tileset_2.0.1_mspr">[v3]</a></p></td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://files.catbox.moe/74keun.mspr"><strong>Festive Win Screen</strong></a></td>
+      <td>Simple mod replacing the standard blue+light blue win screen with a more festive red+white</td>
+    </tr>
+    <tr>
+      <td align="left"><strong><a href="https://files.catbox.moe/pcqiab.mspr">Polish Cat Hat and Hag</a></strong></td>
+      <td><p>Replaces the voice lines of the f2p girls with a polack. Featured   during the Secret Mahjong Tourney, minus the table and green and purple   tiles.</p>
+        <p>Old Versions: <a href="https://files.catbox.moe/2qgtfz.mspr">[v1]</a></p></td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://files.catbox.moe/nmp6xh.mspr"><strong>Maina-chan Appreciation Mod</strong></a></td>
+      <td><p>A majsoul+ mode for the 30,000 Maina fans out there. Replaces the welcome screen, bgm and the mat into the CUTEST IDOL.</p>
+        <p> I've also made it easier to modify if you want to make your own   themes.   Just extract, replace the files inside the asset folder,   change names in   the json file and re-compress/directly place in the   majsoul folder. For   the mat, it's best if you first run the Mat making   tool of majsoul+ and   copy the file from the assets folder into your   own theme folder.</p></td>
+    </tr>
+    <tbody>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+  </div>
+  <h2 id="charac">Character Swaps</h2>
+   <div style="overflow-x:auto;">
+  <table width="100%" border="1" id="modtable">
+    <tr>
+      <td align="left"><strong><a href="https://files.catbox.moe/vh631y.zip">Akagi Shigeru Mahjong Demon</a></strong></td>
+      <td><p>Are   you tired of nyaggers? Are you tired of "FKMT collab when"? Are   you   tired of having no flow? This mod replaces nyaggers with the one   and   only mahjong demon Akagi Shigeru</p>
+        <p><strong>Version 2</strong> - dechinked botnet version</p>
+        <p><strong>Version 3</strong> - "As complete as it can get" - more yaku (no chiitoi, toitoi), replaced emoticons, improved a couple of audio files.</p>
+        <p>Old Versions: <a href="https://files.catbox.moe/y9f1cq.zip">[v1]</a> <a href="https://files.catbox.moe/elkwyw.zip">[v2]<br>
+        </a><a href="https://drive.google.com/open?id=1jz9SDCxu6LPxziibR4vPB4BNw4XZvGqt">gdrive backup</a></p></td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://files.catbox.moe/ut184q.mspe"><strong>Washizu Mod</strong></a></td>
+      <td><p>Are you tired of wasting space with Hag? No soul, no players, no emote...<br>
+        Time to replace her with the real protagonist of Akagi and--</p>
+        <p>This was a coop work between audio autismo and mod autismo anons.</p>
+        <p> To be done: </p>
+        <ul>
+          <li>some magic with splicing to get more yaku</li>
+          <li>correct bio: do you know date of birth, age, blood type, etc...</li>
+          <li>better pics: do you have suggestions?</li>
+        </ul>
+        <p><strong>v0.2</strong> of the Washizu mod</p>
+        <ul>
+          <li>Fixed some yaku not showing up in mjs</li>
+          <li>Improved audio files</li>
+        </ul></td>
+    </tr>
+    <tr>
+      <td align="left"><p><strong><a href="https://files.catbox.moe/vaclxz.mspe">Cat 2 Meido Mod</a></strong></p>
+        <p><strong><a href="https://files.catbox.moe/lwasrk.mspe">Hag 2 Meido Mod </a></strong></p></td>
+      <td>Cat/Hag 2 Meido mod, a mod that replaces cat or hag with meido. Emotes   are lined up as well, so you don't look weird when emoting to other     people.</td>
+    </tr>
+    <tr>
+      <td align="left"><strong><a href="https://files.catbox.moe/caj8fp.mspe">Hag2mom mod</a></strong></td>
+      <td>Rejoice, f2pbros! For even we get to experience the Premium Whale Feel! No SP yet because hag doesn't have them. </td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://files.catbox.moe/ud76pn.mspe"><strong>Touka for MJS</strong></a></td>
+      <td><p>Introducing Ryuumonbuchi Touka! <br>
+        Features:</p>
+        <ul>
+          <li>Voicelines</li>
+          <li>Character sprites from PSP enlarged via AI Techmology™</li>
+          <li>Emotes</li>
+          <li>Haramura Nodoka! button</li>
+          <li>Copious amounts of Desu Wa!</li>
+        </ul>
+        <p>Some things aren't there and might never be. Like bond stuff.<br>
+          Shoutouts to people who helped with technical problems along the way.</p></td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://files.catbox.moe/wdbp4v.mspe"><strong>Hiroe for MJS</strong></a></td>
+      <td>Replace your retarded nyagger with retard master and school retards using cerebral playstyle TODAY.</td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://anonfile.com/X6n5uft3o4/Dog_to_Xenia_mspr"><strong>Dog to Xenia</strong></a></td>
+      <td>Change the dumb dog to Xenia.</td>
+    </tr>
+    <tbody>
+    </tbody>
+</table>
+</div>
+  <p>&nbsp;</p>
+  <h2 id="emotes">Emotes</h2>
+  
+  <div style="overflow-x:auto;">
+  <table width="100%" border="1" id="modtable">
+    <tr>
+      <td align="left"><strong><a href="https://files.catbox.moe/j431ro.mspr">Emote alter mod</a></strong></td>
+      <td><p>A mod to replace the emotes into meme edits.</p>
+        <p>Alt emote mod update - <strong>67</strong> spicy emotes</p>
+        <p>Alt emote mod update -<strong>70 </strong>spicy emotes</p>
+        <p>Old Versions: <a href="https://files.catbox.moe/bx7cf3.mspr">[V1]</a> <a href="https://files.catbox.moe/pviev3.mspr">[V2]</a></p></td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://anonfile.com/9f3cY6Ccn8/Christmas_Yui_mspr"><strong>Christmas Autist</strong></a></td>
+      <td><p>A resource pack that gives the autist Yui and her emotes Christmas hats</p>
+        <p><a href="https://drive.google.com/open?id=14asmXOtnpAEJolC9qyGRT6-hf2cQbF-D">gdrive backup </a></p></td>
+    </tr>
+    <tr>
+      <td align="left"><strong><a href="https://files.catbox.moe/m6yefp.mspr">Nozomi Toujou Hag Mod</a></strong></td>
+      <td><p>I've   made a resource pack that turns hags emotes into Nozomi Toujou   from   Love Live. Some chinese guy made the emotes, I just packaged it   into a   mod.</p>
+        <p>The mod only changes the 9 emotes in <a href="Majsoul-Plus-Guide_r3791i.jpg">pic related</a>,     and it doesn't change actual hag into Nozomi. I think it's better   this   way, but if someone actually wants Nozomi modded in fully it is   possible</p></td>
+    </tr>
+    <tr>
+      <td align="left"><strong><a href="https://files.catbox.moe/yqyn72.mspr">Linovel Hat Emotes</a></strong></td>
+      <td><p>Replacing hat emote with linovel ones.</p>
+        <p>I added a folder with both old (12 png) and chink emote (32 png), so if you don't like my choices, you can switch easily</p>
+        <p><strong>v2</strong> - I tried to emulate a bit yostar style to fit more</p>
+        <p>Old Versions: <a href="https://files.catbox.moe/lf3cf2.mspr">[v1]</a></p></td>
+    </tr>
+    <tbody>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+  </div>
+  <h2 id="tilebacks">Tilebacks</h2>
+  <div style="overflow-x:auto;">
+  <table width="100%" border="1" id="modtable">
+    <tr>
+      <td align="left"><strong><a href="https://anonfile.com/z4Q2V3O6nc/Light_blue_tiles_ex_1.0.1_mspe">Light Blue Tilebacks</a></strong></td>
+      <td><p>Pretty   light blue tilebacks for majsoul+ that replaces the default   orange   ones. If you want your own custom tileback, it's pretty easy to   edit   this mod and change the images.</p>
+        <p><strong>1.0.1</strong> - fixed for the new update</p>
+        <p>Old Versions: <a href="https://anonfile.com/LaaaH9H8n7/Light_blue_tiles_1.0.0_mspr">[1.0.0]</a></p></td>
+    </tr>
+    <tr>
+      <td align="left"><p><a href="https://files.catbox.moe/atvycc.rar"><strong>Black Tiles</strong></a><br>
+      </p></td>
+      <td><p>Makes the tileset black.</p>
+        <p>CC-BY 4.0. Based on https://github.com/FluffyStuff/riichi-mahjong-tiles</p>
+        <p>Old Versions: <a href="https://files.catbox.moe/cw19d1.mspr">[V1]</a></p></td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://anonfile.com/R7x2F6qcod/Purple_Star_tiles_mspr"><strong>Purple Star Tileback</strong></a></td>
+      <td>Pretty purple star tile backs for majsoul+. They look like <a href="https://files.catbox.moe/qq36wx.jpg">pic related</a>. They also work with training wheels, and they replace the original orange basic tiles</td>
+    </tr>
+    <tbody>
+    </tbody>
+  </table>
+  <p>&nbsp;</p>
+  </div>
+</div>
+</div>
+</body>
+</html>
