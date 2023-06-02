@@ -7,6 +7,12 @@
   },
   "updates": [
     {
+      "title": "/mjg/ Majsoul Anniversary Message",
+      "link": "anniversary/foru.html",
+      "category": "thanks",
+      "description": "A heartfelt message from /mjg/, to the Mahjong Soul devs for their 4th anniversary."
+    },
+    {
       "title": "Hana improvement mod (Updated 2023-05-24)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/character%20swaps/Hana%20improvement.mspr",
       "category": "Majsoul+ mod",
