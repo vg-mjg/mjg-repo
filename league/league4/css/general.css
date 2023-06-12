@@ -1,0 +1,213 @@
+/* GENERIC STUFF */
+.spoiler {
+  background-color: black;
+  color: black;
+}
+
+.spoiler:hover {
+  color: white;
+  cursor: pointer;
+}
+
+#news {
+    height: 250px;
+}
+
+.btn:focus, .btn.focus {
+    border: none;
+    outline: 0 !important;
+    box-shadow: none;
+}
+
+.sticky {
+    cursor: pointer;
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    width: 120px;
+}
+
+@media (min-width: 992px) {
+    .dropdown-menu {
+      margin-top: 0;
+    }
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+#factDisplay {
+    color: white;
+    text-shadow: -1px 1px 2px #000,
+                  1px 1px 2px #000,
+                  1px -1px 0 #000,
+                 -1px -1px 0 #000;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 0px;
+    right: 25px;
+    display: none;
+}
+
+.back-to-top img {
+  width: 70px;
+  height: 70px;
+}
+
+/* STYLES USED IN LIBRARY(ES) */
+#library-header p {
+    margin-bottom: 0;
+}
+
+#side-menu .active {
+  font-weight: bold;
+}
+
+.tab-pane h3 {
+  font-size: 48px;
+  text-align: center;
+}
+
+.table td {
+  font-size: 16px;
+}
+
+.fixed-height {
+  height: 200px;
+}
+
+/* STYLES USED IN GALLERY(ES) */
+ul li.list-inline-item img {
+    width: 75px;
+    height: 75px;
+    filter: grayscale(100%);
+    transition: filter 2s;
+}
+ul li.list-inline-item img:hover {
+    filter: grayscale(0%);
+}
+
+ul li.list-inline-item img.img-active {
+    filter: grayscale(0%);
+}
+
+.light .line {
+     text-align: center;
+}
+.light li {
+     position: relative;
+     margin: 5px 10px;
+     list-style: none;
+     padding: 0;
+     display: inline-block;
+     width: 12px;
+     height: 28px;
+     border-radius: 50%;
+     top: 35px;
+     background: #fff;
+}
+.light li:before {
+     content: "";
+     position: absolute;
+     background: #222;
+     width: 10px;
+     height: 9px;
+     border-radius: 3px;
+     top: -4px;
+     left: 1px;
+}
+.light li:after {
+     content: "";
+     top: -14px;
+     left: 9px;
+     position: absolute;
+     width: 52px;
+     height: 19px;
+     border-bottom: solid #222 2px;
+     border-radius: 30%;
+}
+.light .red {
+     background-color: #fb4545;
+     animation: lightningRed 1s infinite;
+}
+.light .green {
+     background-color: #24d024;
+     animation: lightningGreen 0.8s infinite;
+}
+.light .yellow {
+     background-color: #fff952;
+     animation: lightningYellow 0.9s infinite;
+}
+.light .blue {
+     background-color: #0a53de;
+     animation: lightningBlue 1.1s infinite;
+}
+.light .pink {
+     background-color: #f53896;
+     animation: lightningPink 1.2s infinite;
+}
+ @keyframes lightningRed {
+     0% {
+         box-shadow: 5px 10px 35px 10px #fb4545;
+    }
+     50% {
+         box-shadow: none;
+    }
+     100% {
+         box-shadow: 5px 10px 35px 10px #fb4545;
+    }
+}
+ @keyframes lightningGreen {
+     0% {
+         box-shadow: 5px 0 35px 10px #24d024;
+    }
+     50% {
+         box-shadow: none;
+    }
+     100% {
+         box-shadow: 5px 0 35px 10px #24d024;
+    }
+}
+ @keyframes lightningYellow {
+     0% {
+         box-shadow: 5px 0 35px 10px #fff952;
+    }
+     50% {
+         box-shadow: none;
+    }
+     100% {
+         box-shadow: 5px 0 35px 10px #fff952;
+    }
+}
+ @keyframes lightningBlue {
+     0% {
+         box-shadow: 5px 0 35px 10px #0a53de;
+    }
+     50% {
+         box-shadow: none;
+    }
+     100% {
+         box-shadow: 5px 0 35px 10px #0a53de;
+    }
+}
+ @keyframes lightningPink {
+     0% {
+         box-shadow: 5px 0 35px 10px #f53896;
+    }
+     50% {
+         box-shadow: none;
+    }
+     100% {
+         box-shadow: 5px 0 35px 10px #f53896;
+    }
+}
+ @media (max-width: 1024px) {
+    .light .line {
+         padding: 0;
+    }
+    .light li {
+         margin: 0 15px 20px 15px;
+    }
+}
