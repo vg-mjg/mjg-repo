@@ -7,6 +7,12 @@
   },
   "updates": [
     {
+      "title": "/mjg/ League 4 Page",
+      "link": "league/4/index.html",
+      "category": "/mjg/ League",
+      "description": "A page on the repo containing information and OC about League 4"
+    },
+    {
       "title": "/mjg/ sings Netsuretsu Kangei Wonderlan",
       "link": "https://files.riichi.moe/mjg/oc/music/mjg%20sings%20Netsuretsu%20Kangei%20Wonderland.mp3",
       "category": "/mjg/ Project",
