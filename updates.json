@@ -7,6 +7,24 @@
   },
   "updates": [
     {
+      "title": "Majsoul emotes (Update 2023-06-20)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
+      "category": "Resource",
+      "description": "New package with all, upscaled majsoul emotes."
+    },
+    {
+      "title": "Majsoul character sprites (Update 2023-06-20)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/portraits/?zip=utf8",
+      "category": "Resource",
+      "description": "Contains all majsoul character sprites."
+    },
+    {
+      "title": "Majsoul character voices (Update 2023-06-20)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/character%20voices/?zip=utf8",
+      "category": "Resource",
+      "description": "Complete package with all character voice lines."
+    },
+    {
       "title": "/mjg/ League 4 Page",
       "link": "league/4/index.html",
       "category": "/mjg/ League",
@@ -35,24 +53,6 @@
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202023-05-24.mspr",
       "category": "Majsoul+ mod",
       "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the maid event"
-    },
-    {
-      "title": "Majsoul emotes (Update 2023-05-24)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
-      "category": "Resource",
-      "description": "New package with all, upscaled majsoul emotes."
-    },
-    {
-      "title": "Majsoul character sprites (Update 2023-05-24)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/portraits/?zip=utf8",
-      "category": "Resource",
-      "description": "Contains all majsoul character sprites."
-    },
-    {
-      "title": "Majsoul character voices (Update 2023-04-26)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/character%20voices/?zip=utf8",
-      "category": "Resource",
-      "description": "Complete package with all character voice lines."
     },
     {
       "title": "Change buttons (Update 2023-04-26)",
