@@ -49,7 +49,7 @@
 "2023-06-17": {"seat": "E", "round": "E", "turn": "7", "indicator": "3s", "hand": ["0m", "6m", "7m", "2p", "3p", "4p", "6p", "6p", "7p", "4s", "5s", "6s", "6s"], "draw": "6m", "answer": "7p"},
 "2023-06-18": {"seat": "E", "round": "E", "turn": "7", "indicator": "8s", "hand": ["0m", "6m", "7m", "8m", "9m", "3p", "4p", "6p", "6p", "6p", "7p", "2s", "3s"], "draw": "4s", "answer": "9m"},
 "2023-06-19": {"seat": "E", "round": "E", "turn": "4", "indicator": "3s", "hand": ["4m", "5m", "6m", "6m", "8m", "4p", "4p", "6p", "3s", "4s", "5s", "9s", "9s"], "draw": "3m", "answer": "9s"},
-"2023-06-20": {"seat": "E", "round": "E", "turn": "4", "indicator": "3s", "hand": ["4m", "5m", "6m", "7m", "8m", "4p", "4p", "6p", "3s", "4s", "5s", "1z", "1z"], "draw": "3m", "answer": "8m"},
+"2023-06-20": {"seat": "E", "round": "E", "turn": "4", "indicator": "3s", "hand": ["4m", "5m", "6m", "6m", "8m", "4p", "4p", "6p", "3s", "4s", "5s", "1z", "1z"], "draw": "3m", "answer": "8m"},
 "2023-06-21": {"seat": "E", "round": "E", "turn": "7", "indicator": "1s", "hand": ["5m", "7m", "7m", "2p", "3p", "4p", "6p", "7p", "3s", "4s", "5s", "7s", "7s"], "draw": "4m", "answer": "7s"},
 "2023-06-22": {"seat": "E", "round": "E", "turn": "7", "indicator": "1s", "hand": ["5m", "7m", "7m", "2p", "3p", "4p", "2s", "3s", "6s", "7s", "8s", "8s", "8s"], "draw": "4m", "answer": "7m"},
 "2023-06-23": {"seat": "E", "round": "E", "turn": "7", "indicator": "1s", "hand": ["5m", "7m", "7m", "2p", "3p", "4p", "6p", "7p", "2s", "3s", "4s", "7s", "7s"], "draw": "2s", "answer": "2s"},
