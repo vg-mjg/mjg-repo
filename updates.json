@@ -7,6 +7,12 @@
   },
   "updates": [
     {
+      "title": "the /mjg/ WWYD project",
+      "link": "others/wwyd.html",
+      "category": "wwyd",
+      "description": "every rank rates your submitted wwyd. find the form in the thread to submit your wwyd"
+    },
+    {
       "title": "/mjg/ League 4",
       "link": "https://repo.riichi.moe/tourneys.html#tourneys-mjg",
       "category": "Leauge",
