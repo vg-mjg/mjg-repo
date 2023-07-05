@@ -20,3 +20,16 @@ Want your implement your own shit that nobody can deny? Hate github and shan't e
 \>repo constitution
 
 \>having any value
+
+<hr>
+
+fine you retards. email here: 
+- mjgrepositorie@gmail.com
+- mjgrepositorie@tfwno.gf
+- mayarru@tfwno.gf
+- mihiro-chan@tuta.io
+- yumemibluebell@gmail.com
+- eigamma@cock.li
+pick your poison.
+
+send me meido pics or whatever.
