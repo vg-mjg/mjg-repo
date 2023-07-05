@@ -20,3 +20,6 @@ Want your implement your own shit that nobody can deny? Hate github and shan't e
 \>repo constitution
 
 \>having any value
+
+fine you retards. email here: mjgrepositorie@gmail.com
+send me meido pics or whatever.
