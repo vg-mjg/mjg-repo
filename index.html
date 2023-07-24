@@ -44,8 +44,17 @@
         <div id="factDisplay"></div>
 
         <h1>/mjg/ Repository</h1>
-        <p>a repository of mahjong stuff from the <a href="https://boards.4channel.org/vg/catalog#s=mjg">/mjg/</a>
-          threads</p>
+        <p>a repository of mahjong stuff from the <a href="#" id="playMusicLink">osamuko discord</a> (free gay erp)</p>
+        <audio id="music" src="audio/discord.mp3" preload="auto" loop></audio>
+        <script>
+          document.getElementById('playMusicLink').addEventListener('click', function() {
+            var audioElement = document.getElementById('music');
+      
+            if (audioElement.paused) {
+              audioElement.play();
+            }
+          });
+        </script>
 
         <form action="https://search.freefind.com/find.html" method="get" accept-charset="utf-8" target="_self">
           <div class="form-group mb-2">
@@ -603,7 +612,18 @@
             </audio>
 
             <p>
-              <a href="https://boards.4channel.org/vg/catalog#s=mjg">/mjg/</a> / <a
+              <a href="#" id="playMusicLink2">Osamuko Discord (gay erp server)</a>
+              <audio id="music2" src="audio/discord.mp3" preload="auto" loop></audio>
+              <script>
+                document.getElementById('playMusicLink2').addEventListener('click', function() {
+                  var audioElement = document.getElementById('music2');
+            
+                  if (audioElement.paused) {
+                    audioElement.play();
+                  }
+                });
+              </script>
+               / <a
                 href="https://github.com/vg-mjg/mjg-repo">Repo's Repo (Github)</a> / <a
                 href="https://repo.riichi.moe/feed.html">Site Feedback </a> / <a
                 href="https://github.com/vg-mjg/mjg-repo/issues">Report issues</a><br>
