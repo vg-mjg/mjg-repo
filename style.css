@@ -434,3 +434,26 @@ right: 0px;
 bottom: 0px;
     width: 120px;
   }
+
+
+  /* Spoiler */
+  .spoiler, .spoiler2, .spoiler a, .spoiler2 a{ 
+    color: black; 
+    background-color: black;
+  }
+  
+  .spoiler:hover, .spoiler:hover a {
+    color: white;
+  }
+  
+  .spoiler2:hover, .spoiler2:hover a { 
+   background-color:white; 
+  }
+
+  /* Centerrerer */
+
+  .centerdiv {
+    margin: auto;
+    width: 60%;
+    padding: 80px;
+  }
