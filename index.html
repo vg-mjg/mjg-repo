@@ -147,22 +147,30 @@
 
   <script>
     function closeAllDivs() {
-      var x = document.getElementById("myDIV");
-      var y = document.getElementById("myDIV2");
-      x.style.display = "none";
-      y.style.display = "none";
+        var x = document.getElementById("myDIV");
+        var y = document.getElementById("myDIV2");
+        x.style.display = "none";
+        y.style.display = "none";
     }
 
     function myFunction() {
-      closeAllDivs(); // Close both divs first
-      var x = document.getElementById("myDIV");
-      x.style.display = "block"; // Then open the targeted div
+        var x = document.getElementById("myDIV");
+        if (x.style.display === "block") {
+            x.style.display = "none"; // Close the targeted div if it's already open
+        } else {
+            closeAllDivs(); // Close all divs first
+            x.style.display = "block"; // Then open the targeted div
+        }
     }
 
     function myFunction2() {
-      closeAllDivs(); // Close both divs first
-      var y = document.getElementById("myDIV2");
-      y.style.display = "block"; // Then open the targeted div
+        var y = document.getElementById("myDIV2");
+        if (y.style.display === "block") {
+            y.style.display = "none"; // Close the targeted div if it's already open
+        } else {
+            closeAllDivs(); // Close all divs first
+            y.style.display = "block"; // Then open the targeted div
+        }
     }
 </script>
   
