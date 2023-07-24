@@ -146,23 +146,25 @@
   </nav>
 
   <script>
-    function myFunction() {
+    function closeAllDivs() {
       var x = document.getElementById("myDIV");
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-      }
-    }
-    function myFunction2() {
       var y = document.getElementById("myDIV2");
-      if (y.style.display === "block") {
-        y.style.display = "none";
-      } else {
-        y.style.display = "block";
-      }
+      x.style.display = "none";
+      y.style.display = "none";
     }
-    </script>
+
+    function myFunction() {
+      closeAllDivs(); // Close both divs first
+      var x = document.getElementById("myDIV");
+      x.style.display = "block"; // Then open the targeted div
+    }
+
+    function myFunction2() {
+      closeAllDivs(); // Close both divs first
+      var y = document.getElementById("myDIV2");
+      y.style.display = "block"; // Then open the targeted div
+    }
+</script>
   
   <div>
     <br>
