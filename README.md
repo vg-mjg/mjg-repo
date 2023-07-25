@@ -25,4 +25,5 @@ A list of things to do. Might as well use this space
 - fix and rearrange the /mjg/ projects section in the library
 - img gallery for the oc pages forma non-shit
 - revamp the oc and tourney pages
+- copy [https://pixelbank.neocities.org/](https://pixelbank.neocities.org/)
 - ~~scrolling text~~
