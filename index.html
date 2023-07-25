@@ -18,14 +18,10 @@
   <link rel="stylesheet" href="css/general.css">
   <link rel="stylesheet" href="css/wwyd.css">
 
-    <!-- Shit didn't work when i placed this in the style.css file so instead i'll just put this here. Yes it's bloat. No I don't care. -->
-  <style>  img.clickable-image:hover {
-    cursor: pointer;
-}</style>
-
 </head>
 
-<body>
+
+
   <div class="container-fluid">
     <div class="row text-center align-items-start border-bottom shadow bg-dark" id="banner">
       <div class="col-sm align-self-end">
@@ -47,7 +43,7 @@
         <!-- Random Quotes -->
 
         <div id="factDisplay"></div>
-
+      
         <h1>/mjg/ Repository</h1>
         <p>a repository of mahjong stuff from the <a href="#" id="playMusicLink">osamuko discord</a> (free gay erp)</p>
         <audio id="music" src="audio/discord.mp3" preload="auto" loop></audio>
@@ -60,6 +56,18 @@
             }
           });
         </script>
+        
+        <div id="marquee-container" style="background-color: rgba(240, 240, 240, 0.815); color: black; overflow: hidden;">
+          <marquee id="my-marquee" direction="left" scrollamount="7" behavior="scroll">
+            [News]&nbsp;
+          I fucking hate hats &nbsp;&nbsp;|&nbsp;&nbsp; 
+          /mjg/ fails drunkard's WWYD quiz in an embarassing display of retardation in new hit game "Riichi Cooking in Another World" &nbsp;&nbsp;| &nbsp;&nbsp;
+          Testing this feature. I saw it in a neocities page and it looked cool &nbsp;&nbsp;| &nbsp;&nbsp;
+          fuck off i'm not using the css version of this the repo code is fucked &nbsp;&nbsp;| &nbsp;&nbsp;
+          
+          </marquee>
+        </div>
+        
 
         <form action="https://search.freefind.com/find.html" method="get" accept-charset="utf-8" target="_self">
           <div class="form-group mb-2">
@@ -159,6 +167,9 @@
     </div>
   </nav>
 
+ 
+  
+  </div>
   <script>
     function closeAllDivs() {
         var x = document.getElementById("myDIV");

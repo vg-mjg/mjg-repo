@@ -211,3 +211,12 @@ ul li.list-inline-item img.img-active {
          margin: 0 15px 20px 15px;
     }
 }
+
+
+/* Oh, this is the one used by the index.html. Okay I'll put stuff here. */
+
+
+/* For the curser when you hover to the picture nav links */
+img.clickable-image:hover {
+    cursor: pointer;
+}
