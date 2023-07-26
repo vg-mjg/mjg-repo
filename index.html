@@ -22,15 +22,11 @@
 
 
 <body>
- 
-  <div class="container-fluid">
-    
-    <div class="row text-center align-items-start border-bottom shadow bg-dark" id="banner">
-       <!-- News here -->
+ <!-- News here -->
         <!-- Put this shit in the hyperlink tag [style="color: black;text-decoration: underline;"] -->
-        <div id="marquee-container" style="background-color: rgba(240, 240, 240, 0.815); color: black; overflow: hidden; width: 100%;">
+        <div id="marquee-container">
           <marquee id="my-marquee" direction="left" scrollamount="7" behavior="scroll">
-          <span class="marquee-style">
+            <span class="marquee-style">
             
             [News]&nbsp;&nbsp;
             last 3 scrabble finalist, fill up <a href="https://forms.gle/jHCcoxFWP4cuQFjVA" style="color: black;text-decoration: underline;">this form</a> &nbsp;&nbsp;| &nbsp;&nbsp;
@@ -45,6 +41,10 @@
           </span>
           </marquee>
         </div>
+        <br>
+  <div class="container-fluid">
+    
+    <div class="row text-center align-items-start border-bottom shadow bg-dark" id="banner">        
       <div class="col-sm align-self-end">
         <div class="row justify-content-start ml-2">
           <div class="custom-control custom-switch">
@@ -53,6 +53,7 @@
           </div>
         </div>
       </div>
+      <br>
       <div class="col-sm-4">
         <a title="Click to change" id="ChangeImage">
           <img src="repobanner/0.png" class="pt-1 pb-1" id="randimg" border="0">
@@ -76,11 +77,7 @@
             }
           });
         </script>
-        
-
-        
-        
-
+              
         <form action="https://search.freefind.com/find.html" method="get" accept-charset="utf-8" target="_self">
           <div class="form-group mb-2">
             <input type="hidden" name="si" value="41040027">
@@ -102,6 +99,7 @@
       </div>
     </div>
   </div>
+  
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom" id="menu">
     <a class="navbar-brand" href="https://vg-mjg.github.io/RB1-VN/"><img src="background/ichihime-0.png" width="40"

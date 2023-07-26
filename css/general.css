@@ -214,7 +214,26 @@ ul li.list-inline-item img.img-active {
 
 
 /* Oh, this is the one used by the index.html. Okay I'll put stuff here. */
+/* Marquee */
+#marquee-container {
+    background-color: rgba(240, 240, 240, 0.815);
+    color: black;
+    overflow: hidden;
+    width: 100%;
+    position: fixed; /* Add fixed positioning */
+    top: 0; /* Stick the marquee to the top of the viewport */
+    z-index: 9999; /* Optional: Use a higher z-index to ensure it stays on top of other elements */
+    height: 24px; /* Set the height to 40 pixels */
+  }
 
+  #my-marquee {
+    white-space: nowrap; /* Prevent text from wrapping */
+
+  }
+
+  .marquee-style {
+    display: inline-block; /* Make sure the marquee scrolls as an inline element */
+  }
 
 /* For the curser when you hover to the picture nav links */
 img.clickable-image:hover {
