@@ -7,6 +7,18 @@
   },
   "updates": [
     {
+      "title": "Majsoul emotes (Update 2023-07-26)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
+      "category": "Resource",
+      "description": "New package with all, upscaled majsoul emotes."
+    },
+    {
+      "title": "Majsoul character sprites (Update 2023-07-26)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/portraits/?zip=utf8",
+      "category": "Resource",
+      "description": "Contains all majsoul character sprites."
+    },
+    {
       "title": "Waifu 2x (Update 2023-07-26)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202023-07-26.mspr",
       "category": "Majsoul+ mod",
@@ -41,18 +53,6 @@
       "link": "https://repo.riichi.moe/tourneys.html#tourneys-mjg",
       "category": "Leauge",
       "description": "WINNER: DEADϟHAND! Congratulations to the boomers, and to everyone who participated and did their best!"
-    },
-    {
-      "title": "Majsoul emotes (Update 2023-06-20)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
-      "category": "Resource",
-      "description": "New package with all, upscaled majsoul emotes."
-    },
-    {
-      "title": "Majsoul character sprites (Update 2023-06-20)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/portraits/?zip=utf8",
-      "category": "Resource",
-      "description": "Contains all majsoul character sprites."
     },
     {
       "title": "Majsoul character voices (Update 2023-06-20)",
