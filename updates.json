@@ -7,6 +7,12 @@
   },
   "updates": [
     {
+      "title": "Waifu 2x (Update 2023-07-26)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202023-07-26.mspr",
+      "category": "Majsoul+ mod",
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the pyjama"
+    },
+    {
       "title": "Riichi Cooking in Another World",
       "link": "https://files.riichi.moe/mjg/oc/games/RiichiCooking-0.1.zip",
       "category": "game ",
@@ -53,12 +59,6 @@
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/character%20voices/?zip=utf8",
       "category": "Resource",
       "description": "Complete package with all character voice lines."
-    },
-    {
-      "title": "Waifu 2x (Update 2023-06-20)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202023-06-20.mspr",
-      "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the ninja event"
     },
     {
       "title": "/mjg/ League 4 Page",
