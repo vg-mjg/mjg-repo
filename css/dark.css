@@ -1,10 +1,56 @@
 /* DARK.CSS - THE DARK STYLESHEET OF THE REPO */
 /*MAIN STYLES */
 
+/* latin-ext */
+@font-face {
+  font-family: 'Victor Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/victormono/v1/Yq6H-LGQWyfv-LGy7lEO09xRn-T81AVB_tCyO879jdaPZ0Y.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Victor Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/victormono/v1/Yq6H-LGQWyfv-LGy7lEO09xRn-T81AVB_tCyO879g9aP.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/spacemono/v13/i7dPIFZifjKcF5UAWdDRYE98RWq7.woff2) format('woff2');
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/spacemono/v13/i7dPIFZifjKcF5UAWdDRYEF8RQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+html, body {
+  height: 100%;
+}
+
 body {
-    background: url('../background/bgdark.png') repeat black;
-    font-family: Arial;
+    background-image: url('../background/meido-dark.png'), url('../background/bg-dark.png');
+    background-repeat: no-repeat, repeat;
+    background-position: center, top right;
+    background-size: contain, auto;
+    background-attachment: fixed, scroll;
+    font-family: 'Space Mono', arial;
     color: white;
+}
+
+.min-100 {
+    min-height: 100%;
 }
 
 a {
@@ -39,39 +85,123 @@ hr:after {
     color: red;
 }
 
-#banner {
-    background: url('../headers/happymaid.jpg') no-repeat center black;
-    background-size: cover;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-}
-#banner h1 {
-    font-family: Arial;
-    font-size: 42px;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 2px 2px black;
+#main {
+    background: rgba(0, 0, 0, 0.7);
+    background-size: contain;
 }
 
-#banner p {
+#main h1, #main h5 {
+    font-family: 'Victor Mono', sans-serif;
+    text-align: center;
+}
+
+#main h1 {
+    font-size: 72px;
+    padding: 10px;
+}
+
+#main h5 {
     font-size: 12px;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black, 2px 2px black;
 }
 
-#banner a {
-    color: #D2D2D2;
+#main-menu .accordion-button {
+    background-color: transparent !important;
+    display: block;
+    font-size: 36px;
+    transition: 0.5s;
 }
 
-.tab-content p a {
-  color: #000000;
+#main-menu .accordion-item {
+    background-color: transparent !important;
+    border: none !important;
 }
 
-.tab-content p a:hover {
-    color: #4A4A4A;
+#main-menu .accordion-bg {
+    background-color: transparent !important;
 }
 
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-  background: #6c757d;
-  border-color: #FFF !important;
-  border-bottom: none;
+#main-menu .accordion-button::after {
+  background-image: initial;
 }
+
+#main-menu .accordion-button:not(.collapsed)::after {
+  background-image: initial;
+}
+
+#main-menu .accordion-button:not(.collapsed) {
+    color: #E9E9E9;
+    background-color: rgb(255, 255, 255, 0.1) !important;
+    text-shadow: 0 0 4px #00ffff, 0 0 8px #00ffff, 0 0 16px #ff00ff !important;
+    transition: 0.5s;
+}
+
+#main-menu button.accordion-button a {
+    text-decoration: none;
+    color: #E9E9E9;
+}
+
+#main-menu .accordion-button:focus {
+  box-shadow: none;
+}
+
+#main-menu .accordion-button:not(.collapsed) {
+  color: none;
+}
+
+#main-menu .accordion-button:focus {
+    box-shadow: none;
+    border-color: none;
+}
+
+#main-menu .accordion-button:hover  {
+  background-color: rgb(255, 255, 255, 0.1) !important;
+  text-shadow: 0 0 4px #00ffff, 0 0 8px #00ffff, 0 0 16px #ff00ff !important;
+}
+
+#main-menu .accordion-button:not(:focus) {
+    box-shadow: none;
+    border-color: none;
+}
+
+#main-menu .list-group li a, #main-menu .list-unstyled li a {
+    color: #EDEBEB;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+#main-menu .list-group li a:hover, #main-menu .list-unstyled li a:hover {
+    color: #9B9B9B;
+    text-decoration: none;
+}
+
+#main-menu .repo-news {
+    height: 500px;
+}
+
+#main-menu .repo-news a {
+    color: #E0E0E0;
+    text-decoration: none;
+}
+
+#main-menu .repo-news span {
+    color: #EBEBEB;
+}
+
+#main-menu .repo-news dd {
+    color: #BEBEBE;
+}
+
+.fill { 
+    min-height: 100%;
+    height: 100%;
+}
+
+a#ThemeSwitch {
+    color: #DEDEDE;
+    font-weight: bold;
+    text-decoration: none;
+}
+
 
 /* STYLES USED IN THE GUIDES */
 #guide {
@@ -138,4 +268,8 @@ hr:after {
 .table td a:hover {
   color: #75B2CB;
   text-decoration: none;
+}
+
+.table tbody tr th, .table tbody tr td {
+    background: rgb(0, 0, 0, .75);
 }

@@ -31,14 +31,7 @@ $(document).ready(function() {
     if (localStorage.getItem("theme") == "dark"){
         SwitchDark();
     }
-    var audioElement = document.createElement('audio');
-    audioElement.setAttribute('src', '/audio/beeei.mp3');
-    audioElement.setAttribute('autoplay', 'autoplay');
-    //audioElement.load()
     $.get();
-    audioElement.addEventListener("load", function() {
-    audioElement.play();
-    }, true);
     $(window).scroll(function() {
       if ($(this).scrollTop() > 50) {
         $('.back-to-top').fadeIn();
@@ -48,7 +41,6 @@ $(document).ready(function() {
     });
     // scroll body to 0px on click
     $('#back-to-top').click(function() {
-      audioElement.play();
       $('body,html').animate({
         scrollTop: 0
       }, 2000);
