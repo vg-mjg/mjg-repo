@@ -38,10 +38,8 @@ function PickImage() {
 
 function SwitchLight() {
     localStorage.setItem("theme", "light");
-    console.log($("link[rel='stylesheet'] ")[1].href);
     $("link[rel='stylesheet']")[1].href = "css/light.css";
-    console.log($("link[rel='stylesheet']")[1].href);
-    $("a[id='ThemeSwitch']").html("<i class='bi bi-moon'></i> おやすみ");
+    $("label[for='ThemeSwitch']").html("おやすみ");
     $("#menu").removeClass("bg-dark");
     $("#menu").addClass("bg-white");
     $("#menu a").addClass("text-dark");
@@ -62,7 +60,7 @@ function SwitchLight() {
 function SwitchDark() {
     localStorage.setItem("theme", "dark");
     $("link[rel='stylesheet']")[1].href = "css/dark.css";
-    $("a[id='ThemeSwitch']").html("<i class='bi bi-sun'></i> おはよう");
+    $("label[for='ThemeSwitch']").html("おはよう");
     $("#menu").removeClass("bg-white");
     $("#menu").addClass("bg-dark");
     $("#menu a").removeClass("text-dark");
