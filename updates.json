@@ -7,6 +7,12 @@
   },
   "updates": [
     {
+      "title": "Riichi Cooking in Another World 0.2",
+      "link": "https://files.riichi.moe/mjg/oc/games/RiichiCooking-0.2-pc.zip",
+      "category": "game",
+      "description": "More ranks, more wwyds: Novice, Adept and Expert rank are implemented. Endgame wwyd modes: Normal, Blitz (10 seconds each) and Rush (60 seconds total). Novice test: only requires 4 correct answers out of 6 now. Cooking game: should calculate mangan value properly now. Also more events and some changes to other stuff like graphic and audio."
+    },
+    {
       "title": "No Reddit Fetish",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/noredditfetish.mspr",
       "category": "Majsoul+ mod",
@@ -31,9 +37,9 @@
       "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the pyjama"
     },
     {
-      "title": "Riichi Cooking in Another World",
+      "title": "Riichi Cooking in Another World 0.1",
       "link": "https://files.riichi.moe/mjg/oc/games/RiichiCooking-0.1.zip",
-      "category": "game ",
+      "category": "game",
       "description": "First demo of a cute game where you get isekai'd to the mahjong realm. Go cook yakus with Ichihime for random jyanshis and lose to Nadeshiko's WWYD test."
     },
     {
