@@ -7,6 +7,12 @@
   },
   "updates": [
     {
+      "title": "Waifu 2x (Update 2023-08-16)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202023-08-16.mspr",
+      "category": "Majsoul+ mod",
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the summer event and new hag foxgirl"
+    },
+    {
       "title": "/mjg/ Character Survery 2023",
       "link": "https://forms.gle/XnAPaHKRcRyfka6E7",
       "category": "survey",
@@ -35,12 +41,6 @@
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/portraits/?zip=utf8",
       "category": "Resource",
       "description": "Contains all majsoul character sprites."
-    },
-    {
-      "title": "Waifu 2x (Update 2023-07-26)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202023-07-26.mspr",
-      "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the pyjama"
     },
     {
       "title": "Riichi Cooking in Another World 0.1",
