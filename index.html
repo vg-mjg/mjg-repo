@@ -35,6 +35,9 @@
         a:visited{
             color: #74a2af;
         }
+        h2{
+            color: #b294bb;
+        }
         .boardBanner{
             text-align: center;
             clear: both;
@@ -112,22 +115,16 @@
             display: table;
             padding: 10px;
             margin: 10px;
-            flex: 33;
-        }
-        div.banners{
-            background-color: #282a2e;
-            border: 1px solid #282a2e;
-            display: table;
-            padding: 10px;
-            margin: 10px;
-            width: 400px;
-            flex: 66;
         }
         div.replycontent{
             padding-left: 20px;
         }
         .container {
             display: flex;
+        }
+        .containerV {
+            display: flex;
+            flex-direction: column;
         }
 
         div.nav {
@@ -156,6 +153,8 @@
             background-color: #111;
         }
     </style>
+    <link rel="stylesheet" href="css/wwyd.css">
+    
 </head>
 
 <body>
@@ -179,95 +178,125 @@
     <hr id="aboveMidAd">
     <div class="container">
         <!-- Blue Archive Links -->
-        <div class="reply">
-            <h2>Blue Archive Links</h2>
-            <div class="replycontent">
-                <p>JP to English Story Translations - <a href="https://www.youtube.com/c/yanagikaze/videos">Youtube</a></p>
-                <p>English Wiki - <a href="https://bluearchive.wiki/">Blue Archive Wiki</a></p>
-                <p>New Player FAQ - <a href="https://bluearchive.wiki/wiki/FAQ">FAQ</a></p>
-                <p>Japanese Wiki - <a href="https://bluearchive.wikiru.jp/">ブルアカ Wiki</a></p>
-                <p>English Database	 - <a href="https://lonqie.github.io/SchaleDB/">SchaleDB</a></p>
-                <p>English Planner - <a href="https://justin163.com/planner/">Blue Archive Resource Planner</a></p>
-                <p>Chibi Extraction and Posing Guide - <a href="https://rentry.org/qewdu">Rentry</a></p>
-                <p>Pyroxene Planner - <a href="https://docs.google.com/spreadsheets/d/16cSul5YqyqXDGNKUsthhgSlP0cuMgX4xZ572ecjEIvg/edit#gid=1291199777">Google Document</a></p>
-                <p>Future Content Timeline and Unit Ratings - <a href="https://docs.google.com/spreadsheets/d/1VSzm_ioCt2AdRvkfL9HKNNZSbyslayVERXxVxR6nzh4/edit#gid=616626271">Google Document</a></p>
-                <p>Library of Stats and Formulas - <a href="https://docs.google.com/document/d/1Ui0FRgG8h8RB1-cA639F3ETDrVM7q9FKftg4vBKBAAQ/edit">Google Document</a></p>
-                <p>Raid Strategy Guide - <a href="https://docs.google.com/document/d/1bvYGwIh-9o-2JQ4Q2MQXtsL0peiCPrRuw0l3HQmTrZ0/edit#">Google Document</a></p>
-                <p>PVP Tierlist - <a href="https://docs.google.com/spreadsheets/d/1NiLS4DloW7A92nIh5n5wl9uYkLAuYa-7Ph-u8RXVjik/">Google Document</a></p>
+        <div class="containerV">
+                <div class="reply" style="flex: 0;">
+                    <center>
+                    <form action="https://search.freefind.com/find.html" method="get" accept-charset="utf-8" target="_self">
+                        <div class="form-group mb-2">
+                          <input type="hidden" name="si" value="41040027">
+                          <input type="hidden" name="pid" value="r">
+                          <input type="hidden" name="n" value="0">
+                          <input type="hidden" name="_charset_" value="">
+                          <input type="hidden" name="bcd" value="&#247;">
+                        </div>
+                        <div class="input-group mb-3">
+                          <input style="width: 100%;background-color: #1d1f21;" type="text" class="form-control" placeholder="Search the repo" name="query">
+                        </div>
+                      </form>
+                    </center>
+                </div>
+            <div class="reply" style="flex: 33;">
+                <h2>Blue Archive Links</h2>
+                <div class="replycontent">
+                    <p>JP to English Story Translations - <a href="https://www.youtube.com/c/yanagikaze/videos">Youtube</a></p>
+                    <p>English Wiki - <a href="https://bluearchive.wiki/">Blue Archive Wiki</a></p>
+                    <p>New Player FAQ - <a href="https://bluearchive.wiki/wiki/FAQ">FAQ</a></p>
+                    <p>Japanese Wiki - <a href="https://bluearchive.wikiru.jp/">ブルアカ Wiki</a></p>
+                    <p>English Database	 - <a href="https://lonqie.github.io/SchaleDB/">SchaleDB</a></p>
+                    <p>English Planner - <a href="https://justin163.com/planner/">Blue Archive Resource Planner</a></p>
+                    <p>Chibi Extraction and Posing Guide - <a href="https://rentry.org/qewdu">Rentry</a></p>
+                    <p>Pyroxene Planner - <a href="https://docs.google.com/spreadsheets/d/16cSul5YqyqXDGNKUsthhgSlP0cuMgX4xZ572ecjEIvg/edit#gid=1291199777">Google Document</a></p>
+                    <p>Future Content Timeline and Unit Ratings - <a href="https://docs.google.com/spreadsheets/d/1VSzm_ioCt2AdRvkfL9HKNNZSbyslayVERXxVxR6nzh4/edit#gid=616626271">Google Document</a></p>
+                    <p>Library of Stats and Formulas - <a href="https://docs.google.com/document/d/1Ui0FRgG8h8RB1-cA639F3ETDrVM7q9FKftg4vBKBAAQ/edit">Google Document</a></p>
+                    <p>Raid Strategy Guide - <a href="https://docs.google.com/document/d/1bvYGwIh-9o-2JQ4Q2MQXtsL0peiCPrRuw0l3HQmTrZ0/edit#">Google Document</a></p>
+                    <p>PVP Tierlist - <a href="https://docs.google.com/spreadsheets/d/1NiLS4DloW7A92nIh5n5wl9uYkLAuYa-7Ph-u8RXVjik/">Google Document</a></p>
+                </div>
+            </div>
+            <div class="reply" style="flex: 66;">
+                <h2>Mari of the Day</h2>
+                <img src="ba_banner/mari 1.png" alt="" width="380px">
             </div>
         </div>
 
         <!-- News and Updates -->
-        <div class="banners">
-            <h2>Banners and Events</h2>
-            <h3>JP</h3>
-<div class="replycontent"><span class="quote">>Banners:</span><br>
-<span class="quote">>8/23 (Wed) 11:00 - 9/6 (Wed) 10:59 (JST)</span><br>
-Meru (3*)<br>
-Momiji (2*)<br>
-Cherino (3* - Rerun)<br>
-Marina (3* - Rerun)<br>
-<span class="quote">>9/6 (Wed) After Maint - 9/15 (Fri) 10:59 (JST)</span><br>
-Kotori (Cheerleader) (3*)<br>
-Utaha (Cheerleader) (3* - Rerun)<br>
-Noa (3* - Rerun)<br><br>
+        <div class="containerV" style="flex: 66;">
+            <div class="reply" style="flex: 66;">
+                <h2>Banners and Events</h2>
+                <h3>JP</h3>
+    <div class="replycontent"><span class="quote">>Banners:</span><br>
+    <span class="quote">>8/23 (Wed) 11:00 - 9/6 (Wed) 10:59 (JST)</span><br>
+    Meru (3*)<br>
+    Momiji (2*)<br>
+    Cherino (3* - Rerun)<br>
+    Marina (3* - Rerun)<br>
+    <span class="quote">>9/6 (Wed) After Maint - 9/15 (Fri) 10:59 (JST)</span><br>
+    Kotori (Cheerleader) (3*)<br>
+    Utaha (Cheerleader) (3* - Rerun)<br>
+    Noa (3* - Rerun)<br><br>
+    
+    <span class="quote">>Events:</span><br>
+    An Academy Club's Story – The Two Girls' Wish for the Final Volume - 8/23 (Wed) After Maint - 9/6 (Wed) 10:59 (JST)<br>
+    [Rerun] On your mark @ Millennium – Kivotos Halo Festival - 9/6 (Wed) After Maint - 9/15 (Fri) 10:59 (JST)<br>
+    [Mini Game] <a href="https://bluearchive.jp/kourintaisai/game01/">https://bluearchive.jp/kourintaisai/game01/</a><br>
+    <span class="quote">>Content:</span><br>
+    Elimination Raid - ShiroKuro (Indoor - Insane & Torment w/Yellow Dmg) - 9/13 (Wed) 11:00 - 9/20 (Wed) 3:59 (JST)<br>
+    Joint Firing Drill (Shooting Drill) - 9/6 (Wed) 11:00 - 9/13 (Wed) 3:59 (JST)<br>
+    2x Lessons - 9/6 (Wed) 4:00 - 9/13 (Wed) 3:59 (JST)<br>
+    2x Scrimmages - 9/6 (Wed) 4:00 - 9/13 (Wed) 3:59 (JST)<br>
+    2x Normals - 9/13 (Wed) 4:00 - 9/17 (Sun) 3:59 (JST)<br>
+    2x Hards - 9/17 (Sun) 4:00 - 9/20 (Wed) 3:59 (JST)</div>
+    <br>
+                <h3>Global</h3>
+    <div class="replycontent"><span class="quote">>Banners:</span><br>
+    <span class="quote">>9/5 (Tue) After Maint - 9/19 (Tue) 1:59 (UTC)</span><br>
+    Koyuki (3*)<br>
+    Shiroko (3* - Rerun)<br>
+    <span class="quote">>9/19 (Tue) 2:00 - 9/26 (Tue) 1:59 (UTC)</span><br>
+    Shiroko (Cycling) (3* - Rerun)<br>
+    Azusa (3* - Rerun)<br>
+    Hanako (2* - Rerun)<br><br>
+    
+    <span class="quote">>Events:</span><br>
+    Phrenapates Showdown - 9/5 (Tue) After Maint - 9/19 (Tue) 1:59 (UTC)<br>
+    Restoration Project: D.U. Shiratori City - 9/9 (Sat) 2:00 - 9/19 (Tue) 1:59 (UTC)<br>
+    <span class="quote">>Content:</span><br>
+    Raid - Binah (Field - Insane & Torment w/Yellow Dmg) - 9/19 (Tue) 2:00 – 9/25 (Mon) 18:59 (UTC)<br>
+    Joint Firing Drill (Shooting Drill) - 9/12 (Tue) 2:00 - 9/18 (Mon) 18:59 (UTC)<br>
+    2x Commissions - 9/4 (Mon) 19:00 - 9/11 (Mon) 18:59 (UTC)<br>
+    2x Normals - 9/15 (Fri) 19:00 - 9/22 (Fri) 18:59 (UTC)<br>
+    2x Hards - 9/22 (Fri) 19:00 - 9/25 (Mon) 18:59 (UTC)<br>
+    </div>
+            </div>
 
-<span class="quote">>Events:</span><br>
-An Academy Club's Story – The Two Girls' Wish for the Final Volume - 8/23 (Wed) After Maint - 9/6 (Wed) 10:59 (JST)<br>
-[Rerun] On your mark @ Millennium – Kivotos Halo Festival - 9/6 (Wed) After Maint - 9/15 (Fri) 10:59 (JST)<br>
-[Mini Game] <a href="https://bluearchive.jp/kourintaisai/game01/">https://bluearchive.jp/kourintaisai/game01/</a><br>
-<span class="quote">>Content:</span><br>
-Elimination Raid - ShiroKuro (Indoor - Insane & Torment w/Yellow Dmg) - 9/13 (Wed) 11:00 - 9/20 (Wed) 3:59 (JST)<br>
-Joint Firing Drill (Shooting Drill) - 9/6 (Wed) 11:00 - 9/13 (Wed) 3:59 (JST)<br>
-2x Lessons - 9/6 (Wed) 4:00 - 9/13 (Wed) 3:59 (JST)<br>
-2x Scrimmages - 9/6 (Wed) 4:00 - 9/13 (Wed) 3:59 (JST)<br>
-2x Normals - 9/13 (Wed) 4:00 - 9/17 (Sun) 3:59 (JST)<br>
-2x Hards - 9/17 (Sun) 4:00 - 9/20 (Wed) 3:59 (JST)</div>
-<br>
-            <h3>Global</h3>
-<div class="replycontent"><span class="quote">>Banners:</span><br>
-<span class="quote">>9/5 (Tue) After Maint - 9/19 (Tue) 1:59 (UTC)</span><br>
-Koyuki (3*)<br>
-Shiroko (3* - Rerun)<br>
-<span class="quote">>9/19 (Tue) 2:00 - 9/26 (Tue) 1:59 (UTC)</span><br>
-Shiroko (Cycling) (3* - Rerun)<br>
-Azusa (3* - Rerun)<br>
-Hanako (2* - Rerun)<br><br>
-
-<span class="quote">>Events:</span><br>
-Phrenapates Showdown - 9/5 (Tue) After Maint - 9/19 (Tue) 1:59 (UTC)<br>
-Restoration Project: D.U. Shiratori City - 9/9 (Sat) 2:00 - 9/19 (Tue) 1:59 (UTC)<br>
-<span class="quote">>Content:</span><br>
-Raid - Binah (Field - Insane & Torment w/Yellow Dmg) - 9/19 (Tue) 2:00 – 9/25 (Mon) 18:59 (UTC)<br>
-Joint Firing Drill (Shooting Drill) - 9/12 (Tue) 2:00 - 9/18 (Mon) 18:59 (UTC)<br>
-2x Commissions - 9/4 (Mon) 19:00 - 9/11 (Mon) 18:59 (UTC)<br>
-2x Normals - 9/15 (Fri) 19:00 - 9/22 (Fri) 18:59 (UTC)<br>
-2x Hards - 9/22 (Fri) 19:00 - 9/25 (Mon) 18:59 (UTC)<br>
-</div>
         </div>
 
         <!-- Resources -->
-        <div class="reply">
-            <h2>4koma, Manga, Side Content, PVs & Animated Shorts</h2>
-            <div class="replycontent">
-                <p>Official 4koma, Manga, Artbooks, Drama CD, Interviews, Side Content, etc - <a href="https://drive.google.com/drive/folders/1XNdrtS3qk2ChKiF32omwCdeZUzbG1Yn5">Google Drive</a></p>
-                <hr id="aboveMidInside">
-                <p>Official Promotional Video - <a href="https://www.youtube.com/watch?v=YHy8JmWX3kw">youtube</a></p>
-                <p>1st PV (Animated) - <a href="https://www.youtube.com/watch?v=-xHqglB973c">youtube</a></p>
-                <p>2nd PV - <a href="https://www.youtube.com/watch?v=Chh_rhWqvAA">youtube</a></p>
-                <p>2nd PV (Animated) - <a href="https://www.youtube.com/watch?v=NhTcck9ShqI">youtube</a></p>
-                <p>3rd PV - Anniversary - <a href="https://www.youtube.com/watch?v=RgHiiuahpRU">youtube</a></p>
-                <p>4th PV - 2nd Anniversary - <a href="https://www.youtube.com/watch?v=4rDOsvzTicY&">youtube</a></p>
-                <p>4.5th PV - <a href="https://www.youtube.com/watch?v=N8g9B0zEXpM">youtube</a></p>
-                <p>Summer PV (Animated) - <a href="https://www.youtube.com/watch?v=T5wNrdOMrNg&">youtube</a></p>
-                <p>Beautiful Day Dreamer (Animated) - <a href="https://www.youtube.com/watch?v=PNJhdtq6srg&">youtube</a></p>
-                <hr id="aboveMidInside">
-                <p>Clockwork Flower Pavane - Special PV Side-A (Animated) - <a href="https://www.youtube.com/watch?v=1lBIbTf2btQ">youtube</a></p>
-                <p>Clockwork Flower Pavane - Special PV Side-B (Animated) - <a href="https://www.youtube.com/watch?v=v9j9lIsNTtw">youtube</a></p>
-                <p>The Ark of Atrahasis Conquest - PV (Animated) - <a href="https://www.youtube.com/watch?v=u2d8GHRzxCQ&">youtube</a></p>
-                <hr id="aboveMidInside">
-                <p>JP Official Youtube Channel - <a href="https://www.youtube.com/@BlueArchive_JP/videos">youtube channel</a></p>
-                <p>Global Offical Youtube Channel - <a href="https://www.youtube.com/@bluearchive_Global/videos">youtube channel</a></p>
+        <div class="containerV" style="flex: 33;">
+            <div class="reply" style="flex: 66;">
+                <h2>4koma, Manga, Side Content, PVs & Animated Shorts</h2>
+                <div class="replycontent">
+                    <p>Official 4koma, Manga, Artbooks, Drama CD, Interviews, Side Content, etc - <a href="https://drive.google.com/drive/folders/1XNdrtS3qk2ChKiF32omwCdeZUzbG1Yn5">Google Drive</a></p>
+                    <hr id="aboveMidInside">
+                    <p>Official Promotional Video - <a href="https://www.youtube.com/watch?v=YHy8JmWX3kw">youtube</a></p>
+                    <p>1st PV (Animated) - <a href="https://www.youtube.com/watch?v=-xHqglB973c">youtube</a></p>
+                    <p>2nd PV - <a href="https://www.youtube.com/watch?v=Chh_rhWqvAA">youtube</a></p>
+                    <p>2nd PV (Animated) - <a href="https://www.youtube.com/watch?v=NhTcck9ShqI">youtube</a></p>
+                    <p>3rd PV - Anniversary - <a href="https://www.youtube.com/watch?v=RgHiiuahpRU">youtube</a></p>
+                    <p>4th PV - 2nd Anniversary - <a href="https://www.youtube.com/watch?v=4rDOsvzTicY&">youtube</a></p>
+                    <p>4.5th PV - <a href="https://www.youtube.com/watch?v=N8g9B0zEXpM">youtube</a></p>
+                    <p>Summer PV (Animated) - <a href="https://www.youtube.com/watch?v=T5wNrdOMrNg&">youtube</a></p>
+                    <p>Beautiful Day Dreamer (Animated) - <a href="https://www.youtube.com/watch?v=PNJhdtq6srg&">youtube</a></p>
+                    <hr id="aboveMidInside">
+                    <p>Clockwork Flower Pavane - Special PV Side-A (Animated) - <a href="https://www.youtube.com/watch?v=1lBIbTf2btQ">youtube</a></p>
+                    <p>Clockwork Flower Pavane - Special PV Side-B (Animated) - <a href="https://www.youtube.com/watch?v=v9j9lIsNTtw">youtube</a></p>
+                    <p>The Ark of Atrahasis Conquest - PV (Animated) - <a href="https://www.youtube.com/watch?v=u2d8GHRzxCQ&">youtube</a></p>
+                    <hr id="aboveMidInside">
+                    <p>JP Official Youtube Channel - <a href="https://www.youtube.com/@BlueArchive_JP/videos">youtube channel</a></p>
+                    <p>Global Offical Youtube Channel - <a href="https://www.youtube.com/@bluearchive_Global/videos">youtube channel</a></p>
+                </div>
+            </div>
+            <div class="reply" style="flex: 33;">
+                <div id="wwyd" class="wwyd"></div>
             </div>
         </div>
     </div>
@@ -275,7 +304,10 @@ Joint Firing Drill (Shooting Drill) - 9/12 (Tue) 2:00 - 9/18 (Mon) 18:59 (UTC)<b
     <div style="text-align: center;">
         <a href="index1.html">mahjong</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="https://github.com/vg-mjg/mjg-repo">repo's repo</a> &nbsp;&nbsp;&nbsp;&nbsp; mjgrepositorie@gmail.com <br><br>
         <small>This is the ideal repo. At some point, the repo became full of bells and whistles, but it was supposed to be just a simple repository of mahjong stuff without anything else.</small>
+        <br>
+        <small>I might change the entire repo layout to this one. As soon as I</small>
     </div>
     <br>
+    <script type="module" src="js/wwyd.js"></script>
 </body>
 </html>
