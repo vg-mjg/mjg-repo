@@ -25,6 +25,12 @@
       "description": "Complete package with all character voice lines. In this update they added voice lines for story mode."
     },
     {
+      "title": "Waifu 2x (Update 2023-09-27)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202023-09-27.mspr",
+      "category": "Majsoul+ mod",
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the new hotsprings skins for pochi and fox(2)"
+    },
+    {
       "title": "Kaavi's 8ball fortune tourney!",
       "link": "https://docs.google.com/spreadsheets/d/1WnV6rRQfSRO6z8V57aee7EWAWCr4KOqtINVz8RCRkVs",
       "category": "Tourney",
@@ -65,12 +71,6 @@
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/noredditfetish.mspr",
       "category": "Majsoul+ mod",
       "description": "Removes every trace of the reddit fetish from the game."
-    },
-    {
-      "title": "Waifu 2x (Update 2023-08-16)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202023-08-16.mspr",
-      "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the summer event and new hag foxgirl"
     },
     {
       "title": "Riichi Cooking in Another World 0.2",
