@@ -25,6 +25,12 @@
       "description": "Complete package with all character voice lines."
     },
     {
+      "title": "Waifu 2x (Update 2023-10-25)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202023-10-25.mspr",
+      "category": "Majsoul+ mod",
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the new furry, spearchucker and the halloween skins"
+    },
+    {
       "title": "Touhou Unreal Mahjong 4N character tier list",
       "link": "https://docs.google.com/spreadsheets/d/1vfL7monqEAPCb0ND0RPGyyGIjp__5tYI1DiAmV8VWX0/edit?usp=sharing",
       "category": "Guide",
@@ -41,12 +47,6 @@
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Riichi%20City/emotes/?zip=utf8",
       "category": "Resource",
       "description": "Animated Riichi City emotes are now back on the repo. Frank grinched updating them on his site."
-    },
-    {
-      "title": "Waifu 2x (Update 2023-09-27)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202023-09-27.mspr",
-      "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the new hotsprings skins for pochi and fox(2)"
     },
     {
       "title": "Kaavi's 8ball fortune tourney!",
