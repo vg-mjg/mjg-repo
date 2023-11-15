@@ -7,6 +7,12 @@
   },
   "updates": [
     {
+      "title": "Waifu 2x (Update 2023-11-15)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202023-11-15.mspr",
+      "category": "Majsoul+ mod",
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the Prillya collab"
+    },
+    {
       "title": "Replace Hannah with Mokou mod",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/character%20swaps/Hannah2Mokou.mspr",
       "category": "Majsoul+ mod",
@@ -29,12 +35,6 @@
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/character%20voices/?zip=utf8",
       "category": "Resource",
       "description": "Complete package with all character voice lines."
-    },
-    {
-      "title": "Waifu 2x (Update 2023-10-25)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202023-10-25.mspr",
-      "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the new furry, spearchucker and the halloween skins"
     },
     {
       "title": "Touhou Unreal Mahjong 4N character tier list",
