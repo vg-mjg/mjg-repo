@@ -7,6 +7,12 @@
   },
   "updates": [
     {
+      "title": "Umineko Sound effects + Music (Update 2023-11-21)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/theming/Umineko%20Sound%20Effects%20and%20Music%200.1.8.mspr",
+      "category": "Majsoul+ mod",
+      "description": "Replaces regular sound effects and music in majsoul to Umineko sound effects and music! (Hopefully) fixed the music tracks. Updated for the new menu, match and riichi music. I couldn't test everything so bitch in the thread if something's broken and I'll look out for it"
+    },
+    {
       "title": "Change buttons (Update 2023-11-15)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Change%20buttons%202023-11-15.mspr",
       "category": "Majsoul+ mod",
@@ -155,12 +161,6 @@
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/character%20swaps/Hana%20improvement.mspr",
       "category": "Majsoul+ mod",
       "description": "Upgrade to literally who. Removes Hana's glasses, gives her longer hair and changes her thigh highs from white to black (on default Hana). Now improves her new skin! <br><a href=\"https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/character%20swaps/preview/hana3.jpg\">Maid Comparison</a>"
-    },
-    {
-      "title": "Umineko Sound effects + Music (Update 2023-02-24)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/theming/Umineko%20Sound%20Effects%20and%20Music%200.1.7.mspr",
-      "category": "Majsoul+ mod",
-      "description": "Replaces regular sound effects and music in majsoul to Umineko sound effects and music! Updated for the new riichi music tracks"
     },
     {
       "title": "Riichi city emotes and misc art",
