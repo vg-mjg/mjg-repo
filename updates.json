@@ -13,6 +13,18 @@
       "description": "New package with all, upscaled majsoul emotes."
     },
     {
+      "title": "Waifu 2x (Update 2023-12-20)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/emotes/Waifu2x%202023-12-20.mspr",
+      "category": "Majsoul+ mod",
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the new Christmas/New years event"
+    },
+    {
+      "title": "/mjg/ Christmas pack 2023 (Update 2023-12-20)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/theming/Christmas%20theme%202023-12-20.mspr",
+      "category": "Majsoul+ mod",
+      "description": "Christmas mod containing character sprites and emote edits from the thread. <br><a href='https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/theming/Christmas%20Theme%20with%20waifu2x%20emotes%202023-12-20.mspr'>Version with waifu2x emotes here</a>"
+    },
+    {
       "title": "Majsoul character sprites (Update 2023-12-20)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/portraits/?zip=utf8",
       "category": "Resource",
@@ -25,12 +37,6 @@
       "description": "Complete package with all character voice lines."
     },
     {
-      "title": "/mjg/ Christmas pack 2023",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/theming/Christmas%20theme%202023.mspr",
-      "category": "Majsoul+ mod",
-      "description": "Christmas mod containing character sprites and emote edits from the thread"
-    },
-    {
       "title": "Umineko Sound effects + Music (Update 2023-11-21)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/theming/Umineko%20Sound%20Effects%20and%20Music%200.1.8.mspr",
       "category": "Majsoul+ mod",
@@ -41,12 +47,6 @@
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Change%20buttons%202023-11-15.mspr",
       "category": "Majsoul+ mod",
       "description": "Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively. Buttons are in 2 separate files still, but they're swapping the buttons between the files now. Fucking fantastic."
-    },
-    {
-      "title": "Waifu 2x (Update 2023-11-15)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202023-11-15.mspr",
-      "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the Prillya collab"
     },
     {
       "title": "Replace Hannah with Mokou mod",
