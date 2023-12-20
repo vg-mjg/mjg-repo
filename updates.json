@@ -7,6 +7,24 @@
   },
   "updates": [
     {
+      "title": "Majsoul emotes (Update 2023-12-20)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
+      "category": "Resource",
+      "description": "New package with all, upscaled majsoul emotes."
+    },
+    {
+      "title": "Majsoul character sprites (Update 2023-12-20)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/portraits/?zip=utf8",
+      "category": "Resource",
+      "description": "Contains all majsoul character sprites."
+    },
+    {
+      "title": "Majsoul character voices (Update 2023-12-20)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/character%20voices/?zip=utf8",
+      "category": "Resource",
+      "description": "Complete package with all character voice lines."
+    },
+    {
       "title": "/mjg/ Christmas pack 2023",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/theming/Christmas%20theme%202023.mspr",
       "category": "Majsoul+ mod",
@@ -29,24 +47,6 @@
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Waifu2x%202023-11-15.mspr",
       "category": "Majsoul+ mod",
       "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the Prillya collab"
-    },
-    {
-      "title": "Majsoul emotes (Update 2023-11-15)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
-      "category": "Resource",
-      "description": "New package with all, upscaled majsoul emotes."
-    },
-    {
-      "title": "Majsoul character sprites (Update 2023-11-15)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/portraits/?zip=utf8",
-      "category": "Resource",
-      "description": "Contains all majsoul character sprites."
-    },
-    {
-      "title": "Majsoul character voices (Update 2023-11-15)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/character%20voices/?zip=utf8",
-      "category": "Resource",
-      "description": "Complete package with all character voice lines."
     },
     {
       "title": "Replace Hannah with Mokou mod",
