@@ -13,6 +13,18 @@
       "description": "New package with all, upscaled majsoul emotes."
     },
     {
+      "title": "Change buttons (Update 2024-04-17)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Change%20buttons%202024-04-17.mspr",
+      "category": "Majsoul+ mod",
+      "description": "Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively. Seems like they only break them on every new major gamemode release (last time was the prillya collab). Could be worse I guess"
+    },
+    {
+      "title": "Waifu 2x (Update 2024-04-17)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/emotes/Waifu2x%202024-04-17.mspr",
+      "category": "Majsoul+ mod",
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the 2024 blue archive event"
+    },
+    {
       "title": "Majsoul character sprites (Update 2024-04-17)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/portraits/?zip=utf8",
       "category": "Resource",
@@ -29,12 +41,6 @@
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/buttons%20and%20everything%20else/april%20fools%202024/?zip=utf8",
       "category": "Resource",
       "description": "Ichihime sprites for April's fools 2024"
-    },
-    {
-      "title": "Waifu 2x (Update 2024-03-20)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/emotes/Waifu2x%202024-03-20.mspr",
-      "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the 2024 hot springs event"
     },
     {
       "title": "100 Latest Techniques of Strong Players - Hidehito Higa",
@@ -59,12 +65,6 @@
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/theming/Umineko%20Sound%20Effects%20and%20Music%200.1.8.mspr",
       "category": "Majsoul+ mod",
       "description": "Replaces regular sound effects and music in majsoul to Umineko sound effects and music! (Hopefully) fixed the music tracks. Updated for the new menu, match and riichi music. I couldn't test everything so bitch in the thread if something's broken and I'll look out for it"
-    },
-    {
-      "title": "Change buttons (Update 2023-11-15)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Change%20buttons%202023-11-15.mspr",
-      "category": "Majsoul+ mod",
-      "description": "Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively. Buttons are in 2 separate files still, but they're swapping the buttons between the files now. Fucking fantastic."
     },
     {
       "title": "Replace Hannah with Mokou mod",
