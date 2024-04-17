@@ -7,6 +7,24 @@
   },
   "updates": [
     {
+      "title": "Majsoul emotes (Update 2024-04-17)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
+      "category": "Resource",
+      "description": "New package with all, upscaled majsoul emotes."
+    },
+    {
+      "title": "Majsoul character sprites (Update 2024-04-17)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/portraits/?zip=utf8",
+      "category": "Resource",
+      "description": "Contains all majsoul character sprites."
+    },
+    {
+      "title": "Majsoul character voices (Update 2024-04-17)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/character%20voices/?zip=utf8",
+      "category": "Resource",
+      "description": "Complete package with all character voice lines."
+    },
+    {
       "title": "April's fools 2024",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/buttons%20and%20everything%20else/april%20fools%202024/?zip=utf8",
       "category": "Resource",
@@ -30,24 +48,6 @@
       "category": "Majsoul+ mod",
       "description": "Updated with new outfit + emotes"
     },   
-    {
-      "title": "Majsoul emotes (Update 2024-02-28)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
-      "category": "Resource",
-      "description": "New package with all, upscaled majsoul emotes."
-    },
-    {
-      "title": "Majsoul character sprites (Update 2024-02-28)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/portraits/?zip=utf8",
-      "category": "Resource",
-      "description": "Contains all majsoul character sprites."
-    },
-    {
-      "title": "Majsoul character voices (Update 2024-02-28)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/character%20voices/?zip=utf8",
-      "category": "Resource",
-      "description": "Complete package with all character voice lines."
-    },
     {
       "title": "/mjg/ Christmas pack 2023 (Update 2023-12-20)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/theming/Christmas%20theme%202023-12-20.mspr",
