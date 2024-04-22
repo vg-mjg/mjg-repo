@@ -40,7 +40,7 @@
     flex-direction: column;
     justify-content: center;
     margin: auto;
-    max-width: fit-content;
+    max-width: min-content;
     padding-top: 1rem;
     padding-bottom: 1rem;
     font-size: 1.125rem;
@@ -95,4 +95,22 @@
 
 .wwyd-answer>*+* {
     margin-left: 1rem;
+}
+
+.wwyd-comment {
+    display: inline-block;
+    white-space: pre-wrap;
+    line-height: 200%;
+}
+
+.wwyd-comment .tile {
+    width: 1.5rem;
+    height: 2.2rem;
+    padding: 0.1rem;
+    border-radius: 0.25rem;
+}
+
+.wwyd-comment .tile-group {
+    display: inline-block;
+    margin: 0.15rem;
 }

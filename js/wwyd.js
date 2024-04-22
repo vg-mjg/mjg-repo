@@ -15,7 +15,9 @@ function Tile(props) {
   const onClick = props.onClick ? () => props.onClick(props.tile) : thunk
   const selectedTileClass = props.selected ? "tile-selected" : ""
 
-  return h("div", { title: props.tile, onClick: onClick },
+  // for some reason the tile will appear on a separate line when it's a div
+  // I don't understand why, so it's a span now
+  return h("span", { title: props.tile, onClick: onClick },
     h("svg", { class: c("tile", selectedTileClass), fill: "" },
       h("use", { href: `/others/tiles.svg#${props.tile}` })
     )
@@ -45,6 +47,24 @@ function Hand(props) {
     h(TileGroup, { tiles: props.tiles, selectedIndex: selectedIndex, onClick: props.onClick }),
     h(Tile, { tile: props.draw, selected: selectDraw, onClick: props.onClick })
   ])
+}
+
+function Comment(props) {
+  if (typeof props.choice != "string") {
+    return ""
+  }
+
+  let comment_blocks = props.comment.map(chunk => {
+    if (typeof chunk == "string") {
+      return h("span", null, chunk)
+    } else if (chunk[0] == "<b>") {
+      return h("strong", null, chunk[1])
+    } else {
+      return h(TileGroup, {tiles: chunk})
+    }
+  })
+
+  return h("span", { class: "wwyd-comment" }, comment_blocks)
 }
 
 function Choice(props) {
@@ -127,7 +147,8 @@ class App extends Component {
           ]),
         ]),
         h(Hand, { onClick: this.state.choice ? thunk : this.chooseDiscard, choice: this.state.choice, tiles: this.state.wwyd.hand, draw: this.state.wwyd.draw }),
-        h(Choice, { choice: this.state.choice, answer: this.state.wwyd.answer })
+        h(Choice, { choice: this.state.choice, answer: this.state.wwyd.answer }),
+        h(Comment, { choice: this.state.choice, comment: this.state.wwyd.comment })
       ]
     } else {
       return [
