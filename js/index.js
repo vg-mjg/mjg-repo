@@ -108,7 +108,7 @@ function Countdown(count_time) {
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         if (distance > 0) {
-            var end_time = "<br />/mjg/ League 3 starts in:<br />" + days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds";
+            var end_time = "<br />/mjg/ League 5 starts in:<br />" + days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds";
 
             $("#countdown").html(end_time);
         } else {
@@ -165,7 +165,7 @@ $(document).ready(function() {
         At the end of the set interval function add the date. An example: "Dec 25, 2021 22:00:00".
         It has to be a string.
     */
-    var countdown_interval = setInterval(Countdown, 1000, "April 30, 2022 19:00:00");
+    var countdown_interval = setInterval(Countdown, 1000, "May 18, 2024 19:00:00");
     if (localStorage.getItem("theme") === null) {
         localStorage.setItem("theme", "dark");
     };
