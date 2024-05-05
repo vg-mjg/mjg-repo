@@ -78,8 +78,12 @@ def write_wwyd_json(wwyd, path):
 
         for i, (k, v) in enumerate(wwyd.items()):
             l = len(v["hand"])
+            loc = f"at row {i+1}"
             if l % 3 != 1:
-                print(f"invalid hand length {l} at row {i+1}")
+                print(f"invalid hand length {l} {loc}")
+
+            if v["answer"] not in v["hand"] and v["answer"] != v["draw"]:
+                print(f"answer not found in hand {loc}")
 
             f.write(f'"{k}": {json.dumps(v)}')
             if i == len(wwyd) - 1:
