@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Newfriend Pastebin</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/light.css">
+  <link rel="stylesheet" href="/css/general.css">
+</head>
+
+<body>
+  <div id="guide" class="container-fluid">
+    <div id="header" class="row text-center mt-2 text-center border-top border-bottom">
+      <div class="col pt-1 pb-1">
+        <img src="/guides/images/hackerman.png" width="200">
+        <h1>How to run MJS PC client on Linux</h1>
+        <div class="row text-left">
+          <div class="custom-control custom-switch align-bottom">
+            <input type="checkbox" class="custom-control-input" id="ThemeSwitch">
+            <label class="custom-control-label" for="ThemeSwitch">おはよう</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-8 ml-4 text-justify">
+        <p>The official launcher, which is what downloads the actual game, will not run on plain Wine. It does launch
+          under Lutris or Steam when added as a non-Steam game with Steam Play compatibility enabled. However, it
+          appears to be broken and it will be stuck at 0% download progress. If this somehow works for you, consider
+          this guide outdated.</p>
+        <p>It is possible to run the game in Wine once you obtain the files. To do this, you'll need to generate a
+          signed, temporary download URL, just like the game launcher does. You can replicate it by running <a
+            href="/scripts/fetch_mjs.py" download>this python script</a>. Note that the MJS server sometimes returns
+          invalid links for some reason. If that happens, try running the script again in 10 minutes and it usually
+          works.</p>
+        <p>Download the zip file link it printed out, unzip and launch in Wine. No extra setup should be necessary (at
+          least on Wine 8.3 or later).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="../js/guides.js"></script>
+</body>
+
+</html>
