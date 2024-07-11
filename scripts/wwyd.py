@@ -1,21 +1,23 @@
 #!/usr/bin/env python3
 f"""
-usage: python3 {__file__} <input.tsv> <output.json>
+usage: wwyd.py [-h] [--input-csv INPUT_CSV | --input-url INPUT_URL] [--output OUTPUT]
 
-This script will convert a TSV file with transcribed problems from wwyd-chan books into JSON for repo's WWYD.
+This script will convert a CSV file with transcribed problems from wwyd-chan books into JSON for repo's WWYD.
 Sheet with existing WWYDs is available at https://docs.google.com/spreadsheets/d/178CFLNJJ9aCNkkkFgfX_qeywnIcBICLfzJQHRN48ICk/edit#gid=0
-The script expects slightly different columns from what's on google docs: date, seat, round, turn, hand, draw, indicator, answer, comment
 Date determines when a given WWYD will be displayed. It was chosen over incremental IDs to make it easier to add new ones in a stable way. 
 Comments may contain mahjong tile notation, which will be converted into actual tiles.
 Text between [] in the commments will be bold, but the tile notation inside it will not be converted.
 To work around it, make the tiles separate, ex. `[cut 4p to keep chitoi open]` -> `[cut] 4p [to keep chitoi open]`.
 """
 
+import argparse
 import csv
 import json
 import re
-import sys
+import urllib.request
 from pathlib import Path
+
+DEFAULT_SHEET_URL = "https://docs.google.com/spreadsheets/u/1/d/178CFLNJJ9aCNkkkFgfX_qeywnIcBICLfzJQHRN48ICk/export?format=csv&id=178CFLNJJ9aCNkkkFgfX_qeywnIcBICLfzJQHRN48ICk&gid=0"
 
 tile_notation_pattern = re.compile(r'([0-9]+[mpsz])+')
 tile_notation_pattern_exact = re.compile(f"^{tile_notation_pattern.pattern}$")
@@ -53,23 +55,26 @@ def parse_comment(text):
     chunks = split_pattern.split(text)
     return [parse_chunk(chunk) for chunk in chunks if chunk not in ["", None]]
 
-def read_wwyd_tsv(path):
-    with path.open("r") as f:
-        reader = csv.DictReader(f, delimiter="\t")
-        wwyd = {
-            x["date"]: {
-                "seat": x["seat"],
-                "round": x["round"],
-                "turn": x["turn"],
-                "indicator": x["indicator"],
-                "hand": parse_tile_notation(x["hand"]),
-                "draw": x["draw"],
-                "answer": x["answer"],
-                "comment": parse_comment(x["comment"])
-            }
-            for x in reader
+def parse_wwyd_csv(data):
+    reader = csv.DictReader(data, delimiter=",")
+    wwyd = {
+        row["DATE"]: {
+            "seat": row["SEAT"],
+            "round": row["ROUND"],
+            "turn": row["TURN"],
+            "indicator": row["DORA INDICATOR"],
+            "hand": parse_tile_notation(row["HAND"]),
+            "draw": row["DRAW"],
+            "answer": row["ANSWER"],
+            "comment": parse_comment(row["COMMENT"])
         }
-        return wwyd
+        for row in reader
+    }
+    return wwyd
+    
+def read_wwyd_csv(path):
+    with path.open("r") as f:
+        parse_wwyd_csv(f)
 
 # 'custom' json writer that writes one row per entry
 def write_wwyd_json(wwyd, path):
@@ -93,17 +98,31 @@ def write_wwyd_json(wwyd, path):
 
         f.write("}\n")
 
-def main():
-    if len(sys.argv) != 3:
-        print(f"usage: python3 {__file__} <input.tsv> <output.json>")
+def download_csv(url = DEFAULT_SHEET_URL):
+    response = urllib.request.urlopen(url)
+    lines = [l.decode("utf-8") for l in response.readlines()]
+    return lines
 
-    in_file = Path(sys.argv[1])
-    print("input file", in_file)
-    wwyd = read_wwyd_tsv(in_file)
+def main():
+    parser = argparse.ArgumentParser()
+    input_group = parser.add_mutually_exclusive_group()
+    input_group.add_argument("--input-csv", type=Path, help="CSV file with WWYDs")
+    input_group.add_argument("--input-url", default=DEFAULT_SHEET_URL, help="URL to CSV file with WWYDs")
+    parser.add_argument("--output", type=Path, default=Path("wwyd.json"), help="where to write the resulting JSON file")
+    args = parser.parse_args()
+
+    wwyd = None
+    if args.input_csv:
+        print("input file:", args.input_csv)
+        wwyd = read_wwyd_tsv(in_file)
+    elif args.input_url:
+        print("input url:", args.input_url)
+        csv_contents = download_csv(args.input_url)
+        wwyd = parse_wwyd_csv(csv_contents)
+
     print(f"parsed {len(wwyd)} rows")
-    out_file = Path(sys.argv[2])
-    print("output file", out_file)
-    write_wwyd_json(wwyd, out_file)
+    print("output file:", args.output)
+    write_wwyd_json(wwyd, args.output)
 
 if __name__ == "__main__":
     main()
