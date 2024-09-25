@@ -7,10 +7,16 @@
   },
   "updates": [
     {
-      "title": "Waifu 2x (Update 2024-08-20)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/emotes/Waifu2x%202024-08-20.mspr",
+      "title": "Change buttons (Update 2024-09-25)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Change%20buttons%202024-09-25.mspr",
       "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the 2024 summer event with the phoenix cardinal"
+      "description": "Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively. They changed the file they were in once again for no reason (mjdesktop2), thanks catfood"
+    },
+    {
+      "title": "Waifu 2x (Update 2024-09-25)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/emotes/Waifu2x%202024-09-25.mspr",
+      "category": "Majsoul+ mod",
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the Hello Kitty event"
     },
     {
       "title": "Majsoul emotes (Update 2024-08-20)",
@@ -29,12 +35,6 @@
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/character%20voices/?zip=utf8",
       "category": "Resource",
       "description": "Complete package with all character voice lines."
-    },
-    {
-      "title": "Change buttons (Update 2024-05-22)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Change%20buttons%202024-05-22.mspr",
-      "category": "Majsoul+ mod",
-      "description": "Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively. Last time they broke the buttons was just over a month ago, are you fucking serious catfood? They also moved all of the images back to a single file again.."
     },
     {
       "title": "April's fools 2024",
