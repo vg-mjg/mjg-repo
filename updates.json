@@ -6,6 +6,18 @@
     "description": ""
   },
   "updates": [
+     {
+      "title": "WWYD4 (Update 2024-12-27)",
+      "link": "https://files.riichi.moe/mjg/books%20(en)/wwyd4.pdf",
+      "category": "Books",
+      "description": "202 foundational WWYDs which pair well with WWYD3 and Riichi Book 1. Questions hammer core concepts like 5-block theory, two-head theory, common complex shapes, and tradeoffs between wait and value. Much easier than WWYD1 and WWYD2."
+    },
+	 {
+      "title": "Tournament Hosting Guide (Update 2024-12-27)",
+      "link": "https://files.riichi.moe/mjg/books%20(en)/tourney_setup_guide.pdf",
+      "category": "Resource",
+      "description": "Everything you need to know to host your own /mjg/ tourney. Covers creating the doc/sheet, the MJS tournament management interface, streaming, recording, and expectations."
+    },
     {
       "title": "Waifu 2x (Update 2024-12-19)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/emotes/Waifu2x%202024-12-19.mspr",
