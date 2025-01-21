@@ -7,40 +7,40 @@
   },
   "updates": [
     {
+      "title": "Waifu 2x (Update 2025-01-21)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/emotes/Waifu2x%202025-01-21.mspr",
+      "category": "Majsoul+ mod",
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the 2024 Christmas update which includes panda girl and chinese man"
+    },
+    {
       "title": "Majsoul emotes (Update 2025-01-21)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
       "category": "Resource",
       "description": "New package with all, upscaled majsoul emotes."
     },
     {
-      "title": "Waifu 2x (Update 2025-01-21)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/emotes/Waifu2x%202025-01-21.mspr",
-      "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the 2024 Christmas update which includes panda girl and chinese man"
+      "title": "Majsoul character sprites (Update 2025-01-21)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/portraits",
+      "category": "Resource",
+      "description": "Contains all majsoul character sprites."
     },
-     {
+    {
+      "title": "Majsoul character voices (Update 2025-01-21)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/character%20voices",
+      "category": "Resource",
+      "description": "Complete package with all character voice lines."
+    },
+    {
       "title": "WWYD4 (Update 2024-12-27)",
       "link": "https://files.riichi.moe/mjg/books%20(en)/wwyd4.pdf",
       "category": "Books",
       "description": "202 foundational WWYDs which pair well with WWYD3 and Riichi Book 1. Questions hammer core concepts like 5-block theory, two-head theory, common complex shapes, and tradeoffs between wait and value. Much easier than WWYD1 and WWYD2."
     },
-	 {
+    {
       "title": "Tournament Hosting Guide (Update 2024-12-27)",
       "link": "https://files.riichi.moe/mjg/books%20(en)/tourney_setup_guide.pdf",
       "category": "Resource",
       "description": "Everything you need to know to host your own /mjg/ tourney. Covers creating the doc/sheet, the MJS tournament management interface, streaming, recording, and expectations."
-    },
-    {
-      "title": "Majsoul character sprites (Update 2024-12-19)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/portraits/?zip=utf8",
-      "category": "Resource",
-      "description": "Contains all majsoul character sprites."
-    },
-    {
-      "title": "Majsoul character voices (Update 2024-12-19)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/character%20voices/?zip=utf8",
-      "category": "Resource",
-      "description": "Complete package with all character voice lines."
     },
     {
       "title": "Illegal Mahjong",
@@ -71,7 +71,7 @@
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/character%20swaps/Hannah2Mokouv2.mspr",
       "category": "Majsoul+ mod",
       "description": "Updated with new outfit + emotes"
-    },   
+    },
     {
       "title": "/mjg/ Christmas pack 2023 (Update 2023-12-20)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/theming/Christmas%20theme%202023-12-20.mspr",
