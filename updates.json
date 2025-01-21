@@ -6,6 +6,18 @@
     "description": ""
   },
   "updates": [
+    {
+      "title": "Majsoul emotes (Update 2025-01-21)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
+      "category": "Resource",
+      "description": "New package with all, upscaled majsoul emotes."
+    },
+    {
+      "title": "Waifu 2x (Update 2025-01-21)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/emotes/Waifu2x%202025-01-21.mspr",
+      "category": "Majsoul+ mod",
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the 2024 Christmas update which includes panda girl and chinese man"
+    },
      {
       "title": "WWYD4 (Update 2024-12-27)",
       "link": "https://files.riichi.moe/mjg/books%20(en)/wwyd4.pdf",
@@ -17,18 +29,6 @@
       "link": "https://files.riichi.moe/mjg/books%20(en)/tourney_setup_guide.pdf",
       "category": "Resource",
       "description": "Everything you need to know to host your own /mjg/ tourney. Covers creating the doc/sheet, the MJS tournament management interface, streaming, recording, and expectations."
-    },
-    {
-      "title": "Waifu 2x (Update 2024-12-19)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/emotes/Waifu2x%202024-12-19.mspr",
-      "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the 2024 Christmas update which includes panda girl and chinese man"
-    },
-    {
-      "title": "Majsoul emotes (Update 2024-12-19)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
-      "category": "Resource",
-      "description": "New package with all, upscaled majsoul emotes."
     },
     {
       "title": "Majsoul character sprites (Update 2024-12-19)",
