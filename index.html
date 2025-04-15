@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>/mjg/ - Mahjong General</title>
 <style>
+  
   /* Tomorrow theme colors */
   :root {
     --bg-color: #1d2021;
@@ -160,6 +161,93 @@
     font-size: 11px;
     color: #666;
     margin-top: 40px;
+  }
+  /* Base container text color */
+  #HCB_comment_box {
+    color: var(--text-color, #dfdfdf);
+    font-family: 'Liberation Mono', monospace;
+    background-color: var(--secondary-bg, #282828);
+    border: 1px solid var(--border-color, #4b4b4b);
+    padding: 10px;
+    max-width: 900px;
+    margin: 20px auto 40px auto;
+  }
+
+  /* Input fields background and text */
+  #HCB_comment_box #hcb_form_content,
+  #HCB_comment_box #hcb_form_email,
+  #HCB_comment_box #hcb_form_name,
+  #HCB_comment_box #hcb_form_website {
+    background-color: #1d2021; /* dark background */
+    color: var(--text-color, #dfdfdf);
+    border: 1px solid var(--border-color, #4b4b4b);
+    font-family: 'Liberation Mono', monospace;
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  /* Textarea size and font */
+  #HCB_comment_box textarea {
+    height: 120px;
+    font-family: 'Liberation Mono', monospace;
+    font-size: 14px;
+    color: var(--text-color, #dfdfdf);
+    background-color: #1d2021;
+    border: 1px solid var(--border-color, #4b4b4b);
+    resize: vertical;
+  }
+
+  /* Watermark text color (placeholder) */
+  #HCB_comment_box .text-blur {
+    color: #666666;
+  }
+  #HCB_comment_box .text-focus {
+    color: var(--link-color, #458588);
+  }
+
+  /* Submit button styling */
+  #HCB_comment_box .submit {
+    background-color: var(--accent-color, #c4ae00);
+    border: 1px solid #a38f00;
+    color: var(--bg-color, #1d2021);
+    font-weight: bold;
+    font-family: 'Liberation Mono', monospace;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #HCB_comment_box .submit:hover {
+    background-color: #d4b800;
+  }
+
+  /* Comment text color */
+  #HCB_comment_box blockquote {
+    color: var(--text-color, #dfdfdf);
+    font-family: 'Liberation Mono', monospace;
+    font-size: 14px;
+  }
+
+  /* Author name and links */
+  #HCB_comment_box .author-name,
+  #HCB_comment_box .hcb-comment-tb a {
+    color: var(--link-color, #458588);
+    font-family: 'Liberation Mono', monospace;
+  }
+
+  /* Comment body */
+  #HCB_comment_box .hcb-comment-body {
+    color: var(--text-color, #dfdfdf);
+    font-family: 'Liberation Mono', monospace;
+    font-size: 14px;
+  }
+
+  /* Links inside comments */
+  #HCB_comment_box a {
+    color: var(--link-color, #458588);
+    text-decoration: none;
+  }
+  #HCB_comment_box a:hover {
+    text-decoration: underline;
   }
 </style>
 </head>
