@@ -259,6 +259,103 @@
   border: 1px solid var(--border-color, #4b4b4b);
   box-sizing: border-box;
 }
+/* Container for each comment */
+#HCB_comment_box .hcb-comment {
+  background-color: var(--secondary-bg, #282828);
+  border: 1px solid var(--border-color, #4b4b4b);
+  margin: 15px 0;
+  padding: 10px;
+  display: flex;
+  font-family: 'Liberation Mono', monospace;
+  color: var(--text-color, #dfdfdf);
+  font-size: 14px;
+  border-radius: 3px;
+}
+
+/* Post number on the left */
+#HCB_comment_box .hcb-comment .hcb-comment-id {
+  color: var(--accent-color, #c4ae00);
+  min-width: 70px;
+  font-weight: bold;
+  user-select: text;
+  flex-shrink: 0;
+  font-size: 13px;
+  line-height: 1.2;
+  padding-right: 10px;
+  border-right: 1px solid var(--border-color, #4b4b4b);
+  text-align: right;
+}
+
+/* Main content area */
+#HCB_comment_box .hcb-comment .hcb-comment-content {
+  flex: 1;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header: author name and date */
+#HCB_comment_box .hcb-comment .hcb-comment-header {
+  font-weight: bold;
+  color: var(--link-color, #458588);
+  font-size: 13px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  user-select: text;
+}
+
+/* Author name */
+#HCB_comment_box .hcb-comment .hcb-comment-author {
+  color: var(--link-color, #458588);
+}
+
+/* Date/time */
+#HCB_comment_box .hcb-comment .hcb-comment-date {
+  color: #999;
+  font-weight: normal;
+  font-size: 11px;
+  font-family: var(--font-family, Arial, sans-serif);
+}
+
+/* Comment body */
+#HCB_comment_box .hcb-comment .hcb-comment-body {
+  color: var(--text-color, #dfdfdf);
+  font-family: 'Liberation Mono', monospace;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Thumbnail or image on left if present */
+#HCB_comment_box .hcb-comment .hcb-comment-image {
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+#HCB_comment_box .hcb-comment .hcb-comment-image img {
+  max-width: 125px;
+  max-height: 125px;
+  border: 1px solid var(--border-color, #4b4b4b);
+  display: block;
+}
+
+/* Adjust layout if image present */
+#HCB_comment_box .hcb-comment {
+  align-items: flex-start;
+}
+#HCB_comment_box .hcb-comment .hcb-comment-image + .hcb-comment-content {
+  padding-left: 10px;
+}
+
+/* Links inside comments */
+#HCB_comment_box a {
+  color: var(--link-color, #458588);
+  text-decoration: none;
+}
+#HCB_comment_box a:hover {
+  text-decoration: underline;
+}
+
 </style>
 </head>
 <body>
