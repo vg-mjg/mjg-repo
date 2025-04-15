@@ -1,0 +1,289 @@
+ 
+  /* Tomorrow theme colors */
+  :root {
+    --bg-color: #1d2021;
+    --secondary-bg: #282828;
+    --text-color: #dfdfdf;
+    --link-color: #458588;
+    --border-color: #4b4b4b;
+    --accent-color: #c4ae00;
+    --font-family: 'Liberation Sans', Arial, sans-serif;
+    --mono-font: 'Liberation Mono', monospace;
+  }
+
+  /* Reset and base */
+  body, html {
+    margin: 0;
+    padding: 15px 80px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    font-weight: 300;
+    font-size: 14px;
+  }
+
+  a {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+  a:hover, a:active {
+    text-decoration: underline;
+  }
+
+  /* Container */
+  #boardNavDesktop {
+    margin-bottom: 10px;
+  }
+  #boardNavDesktop a {
+    margin-right: 8px;
+  }
+
+  /* Board banner */
+  .boardBanner {
+    background-color: var(--secondary-bg);
+    border: 2px dashed var(--border-color);
+    padding: 10px 15px;
+    margin-bottom: 10px;
+  }
+  .boardBanner .boardTitle {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 5px;
+  }
+  .boardBanner .boardSubtitle {
+    font-size: 11px;
+    color: #999;
+    margin-top: 3px;
+  }
+  .boardBanner img.title {
+    height: 40px;
+    vertical-align: middle;
+  }
+
+  /* Posts container */
+  .board {
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    max-width: 900px;
+    margin: 0 auto 20px auto;
+  }
+
+  /* Post style */
+  .post {
+    border-bottom: 1px solid var(--border-color);
+    padding: 8px 0;
+    display: flex;
+    font-family: var(--mono-font);
+  }
+  .post:last-child {
+    border-bottom: none;
+  }
+  .post .postnum {
+    color: var(--accent-color);
+    margin-right: 10px;
+    min-width: 50px;
+  }
+  .post .postcontent {
+    flex: 1;
+  }
+  .post .postcontent .name {
+    font-weight: bold;
+    color: var(--link-color);
+  }
+  .post .postcontent .date {
+    font-size: 11px;
+    color: #999;
+    margin-left: 5px;
+  }
+  .post .postcontent .comment {
+    margin-top: 5px;
+    line-height: 1.4;
+  }
+
+  /* Image thumbnail */
+  .post .thumbnail {
+    margin-right: 10px;
+  }
+  .post .thumbnail img {
+    max-width: 250px;
+    max-height: 250px;
+    border: 1px solid var(--border-color);
+  }
+
+  /* Reply form */
+  #postForm {
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+  }
+  #postForm input[type="text"],
+  #postForm textarea {
+    width: 100%;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-family: var(--mono-font);
+    font-size: 14px;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  #postForm textarea {
+    height: 100px;
+    resize: vertical;
+  }
+  #postForm input[type="submit"] {
+    background-color: var(--accent-color);
+    border: none;
+    color: var(--bg-color);
+    font-weight: bold;
+    padding: 8px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: var(--mono-font);
+  }
+  #postForm input[type="submit"]:hover {
+    background-color: #d4b800;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    font-size: 11px;
+    color: #666;
+    margin-top: 40px;
+  }
+  /* Base container text color */
+  #HCB_comment_box {
+    color: var(--text-color, #dfdfdf);
+    font-family: 'Liberation Mono', monospace;
+    background-color: var(--secondary-bg, #282828);
+    border: 1px solid var(--border-color, #4b4b4b);
+    padding: 10px;
+    max-width: 900px;
+    margin: 20px auto 40px auto;
+  }
+
+  /* Input fields background and text */
+  #HCB_comment_box #hcb_form_content,
+  #HCB_comment_box #hcb_form_email,
+  #HCB_comment_box #hcb_form_name,
+  #HCB_comment_box #hcb_form_website {
+    background-color: #1d2021; /* dark background */
+    color: var(--text-color, #dfdfdf);
+    border: 1px solid var(--border-color, #4b4b4b);
+    font-family: 'Liberation Mono', monospace;
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  /* Textarea size and font */
+  #HCB_comment_box textarea {
+    height: 120px;
+    font-family: 'Liberation Mono', monospace;
+    font-size: 14px;
+    color: var(--text-color, #dfdfdf);
+    background-color: #1d2021;
+    border: 1px solid var(--border-color, #4b4b4b);
+    resize: vertical;
+  }
+
+  /* Watermark text color (placeholder) */
+  #HCB_comment_box .text-blur {
+    color: #666666;
+  }
+  #HCB_comment_box .text-focus {
+    color: var(--link-color, #458588);
+  }
+
+  /* Submit button styling */
+  #HCB_comment_box .submit {
+    background-color: var(--accent-color, #c4ae00);
+    border: 1px solid #a38f00;
+    color: var(--bg-color, #1d2021);
+    font-weight: bold;
+    font-family: 'Liberation Mono', monospace;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #HCB_comment_box .submit:hover {
+    background-color: #d4b800;
+  }
+
+  /* Comment text color */
+  #HCB_comment_box blockquote {
+    color: var(--text-color, #dfdfdf);
+    font-family: 'Liberation Mono', monospace;
+    font-size: 14px;
+  }
+
+  /* Author name and links */
+  #HCB_comment_box .author-name,
+  #HCB_comment_box .hcb-comment-tb a {
+    color: var(--link-color, #458588);
+    font-family: 'Liberation Mono', monospace;
+  }
+
+  /* Comment body */
+  #HCB_comment_box .hcb-comment-body {
+    color: var(--text-color, #dfdfdf);
+    font-family: 'Liberation Mono', monospace;
+    font-size: 14px;
+  }
+
+  /* Links inside comments */
+  #HCB_comment_box a {
+    color: var(--link-color, #458588);
+    text-decoration: none;
+  }
+  #HCB_comment_box a:hover {
+    text-decoration: underline;
+  }
+  #HCB_comment_box img {
+  max-width: 250px;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 8px 0;
+  border: 1px solid var(--border-color, #4b4b4b);
+  box-sizing: border-box;
+}
+.float-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.float-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.float-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: background 0.3s;
+}
+
+.float-btn:hover {
+    background: #555;
+}
