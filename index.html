@@ -114,7 +114,17 @@
 <div class="post" id="wwydp">
   <div id="wwyd" class="wwyd"></div>
 </div>
-  
+
+
+  <label>Sort: 
+    <select id="commentSort" onchange="refreshComments(this.value)">
+      <option value="latest">Latest First</option>
+      <option value="oldest">Oldest First</option>
+    </select>
+  </label>
+
+
+
   <!-- begin wwww.htmlcommentbox.com -->
   <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...</div>
   <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
@@ -124,12 +134,14 @@
 
 
 <footer>
-  4chan is NOT coming back. This is your home now. Discord won. REDDIT won. Everyone else but /mjg/ won.
+  4chan is NOT coming back. This is your home now. Discord won. REDDIT won. Everyone else but /mjg/ won. <br>
+  <br>
+  Your posts are your own. That's it. That's the rules.
 </footer>
 <script type="module" src="js/wwyd.js"></script>
 <div class="float-buttons">
   <button class="float-btn" onclick="scrollToTop()">↑</button>
-  <button class="float-btn" onclick="refreshComments()">↻</button>
+  <button class="float-btn" onclick="refreshCommentsWrapper()">↻</button>
   <button class="float-btn" onclick="scrollToBottom()">↓</button>
 </div>
 
@@ -143,36 +155,36 @@
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   }
 
-  // Refresh comments function
-  function refreshComments() {
-      // Remove existing comment box and script
+  function refreshComments(sortType) {
       const commentBox = document.getElementById('HCB_comment_box');
       const oldScript = document.getElementById('hcb');
       
-      if (commentBox) {
-          commentBox.innerHTML = '<a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...';
-      }
-      
-      if (oldScript) {
-          oldScript.remove();
-      }
+      // Clear existing elements
+      if (commentBox) commentBox.innerHTML = '<a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...';
+      if (oldScript) oldScript.remove();
 
-      // Recreate the script
+      // Create new script
       const s = document.createElement('script');
       s.type = 'text/javascript';
       s.id = 'hcb';
       
-      // Regenerate the script URL with new timestamp to prevent caching
+      // Set parameters based on sort type
       const l = hcb_user?.PAGE || ('' + window.location).replace(/'/g, "%27");
       const h = 'https://www.htmlcommentbox.com';
-      const newTs = Date.now();
+      const opts = sortType === 'oldest' ? '16772' : '16798';
+      const ts = Date.now();
       
       s.src = h + '/jread?page=' + encodeURIComponent(l).replace('+', '%2B') + 
              '&mod=%241%24wq1rdBcg%24u8N8WdVmD9aEBX7ap8qyD%2F' + 
-             '&opts=16798&num=8300&ts=' + newTs;
+             `&opts=${opts}&num=8300&ts=${ts}`;
 
-      // Append the new script
       document.head.appendChild(s);
+  }
+
+  // Update float button to pass current sort value
+  function refreshCommentsWrapper() {
+      const sortSelect = document.getElementById('commentSort');
+      refreshComments(sortSelect.value);
   }
 </script>
 </body>
