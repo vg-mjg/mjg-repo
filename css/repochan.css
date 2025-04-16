@@ -320,3 +320,8 @@
   #autoRefresh:checked ~ #refreshTimer {
       display: inline-block;
   }
+
+
+  .greentext {
+    color: #789922; /* Classic green color */
+  }
