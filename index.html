@@ -195,5 +195,40 @@
       refreshComments(sortSelect.value);
   }
 </script>
+
+<script>
+  // Function to process and highlight new comments
+  function processComments() {
+    const prevCommentIds = JSON.parse(localStorage.getItem('prevCommentIds')) || [];
+    const currentCommentIds = [];
+    const comments = document.getElementsByClassName('hcb-comment');
+
+    Array.from(comments).forEach(comment => {
+      const id = comment.id;
+      currentCommentIds.push(id);
+      if (!prevCommentIds.includes(id)) {
+        comment.classList.add('highlight-new-comment');
+      }
+    });
+
+    localStorage.setItem('prevCommentIds', JSON.stringify(currentCommentIds));
+  }
+
+  // Observe when comments are loaded dynamically
+  document.addEventListener('DOMContentLoaded', function() {
+    const commentBox = document.getElementById('HCB_comment_box');
+    if (!commentBox) return;
+
+    const observer = new MutationObserver((mutations) => {
+      const comments = commentBox.getElementsByClassName('hcb-comment');
+      if (comments.length > 0) {
+        observer.disconnect(); // Stop observing once comments are found
+        processComments();
+      }
+    });
+
+    observer.observe(commentBox, { childList: true, subtree: true });
+  });
+</script>
 </body>
 </html>

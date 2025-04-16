@@ -287,3 +287,13 @@
 .float-btn:hover {
     background: #555;
 }
+
+.highlight-new-comment {
+  background-color: #ffff99 !important;
+  animation: highlight-fade 3s ease;
+}
+
+@keyframes highlight-fade {
+  from { background-color: #ffff99; }
+  to { background-color: inherit; }
+}
