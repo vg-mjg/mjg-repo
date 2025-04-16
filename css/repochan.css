@@ -289,8 +289,21 @@
 }
 
 /* Highlight style for new comments */
-#HCB_comment_box .hcb-comment-tb.new-highlight {
-  background-color: rgba(69, 133, 136, 0.2);
-  border-left: 4px solid #458588;
-  transition: background-color 0.5s ease;
+.new-comment-highlight {
+  animation: highlightFade 5s ease forwards;
+  background-color: #458588; /* 4chan Tomorrow accent color */
+  color: #fff;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+@keyframes highlightFade {
+  from {
+    background-color: #458588;
+    color: #fff;
+  }
+  to {
+    background-color: transparent;
+    color: inherit;
+  }
 }
