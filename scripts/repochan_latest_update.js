@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         Repochan Latest Posts
 // @namespace    https://repo.riichi.moe/
-// @version      1.0
+// @version      1.1
 // @description  Shows the latest posts in the repochan threads
 // @icon         https://raw.githubusercontent.com/vg-mjg/mjg-repo/refs/heads/master/favicon.ico
 // @match        https://repo.riichi.moe/*
 // @grant        none
 // ==/UserScript==
+
 
 (function() {
     'use strict';
@@ -207,8 +208,8 @@
         // Create and add an entry for each post
         recentPosts.forEach(item => {
             const entry = document.createElement('div');
-            // Format: TIME - AUTHOR: snippet
-            const timeStr = new Date(item.timestamp).toLocaleTimeString();
+            // Format: TIME - AUTHOR: snippet (without seconds)
+            const timeStr = new Date(item.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             entry.innerHTML = `<span class="date">${timeStr}</span> - <span class="author">${item.author}</span>: <span class="hcb-comment-body">${item.snippet}</span>`;
             entry.style.marginBottom = '5px';
             entry.style.cursor = 'pointer';
