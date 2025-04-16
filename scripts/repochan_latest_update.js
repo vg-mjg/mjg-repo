@@ -3,6 +3,7 @@
 // @namespace    https://repo.riichi.moe/
 // @version      1.0
 // @description  Shows the latest posts in the repochan threads
+// @icon         https://raw.githubusercontent.com/vg-mjg/mjg-repo/refs/heads/master/favicon.ico
 // @match        https://repo.riichi.moe/*
 // @grant        none
 // ==/UserScript==
