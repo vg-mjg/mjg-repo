@@ -11,3 +11,5 @@ function changeBanner() {
   var randomIndex = Math.floor(Math.random() * banners.length);
   document.getElementById("banner").src = banners[randomIndex];
 }
+
+document.getElementById("banner").addEventListener('click', changeBanner);
