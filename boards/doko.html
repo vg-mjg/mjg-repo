@@ -66,6 +66,17 @@
     </div>
   </div>
 
+  
+<span class="auto-refresh-section">
+  <input type="checkbox" id="autoRefresh" onchange="toggleAutoRefresh()">
+  <label for="autoRefresh">Auto-refresh</label>
+  <select id="refreshInterval" onchange="updateRefreshInterval()">
+      <option value="10000">10 seconds</option>
+      <option value="60000">1 minute</option>
+      <option value="300000">5 minutes</option>
+  </select>
+  <span id="refreshTimer">Next refresh in: <span id="timeRemaining">0:00</span></span>
+</span>
 
   <!-- begin wwww.htmlcommentbox.com -->
   <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...</div>
