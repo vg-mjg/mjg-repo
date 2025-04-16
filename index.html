@@ -124,12 +124,23 @@
 </div>
 
 
-  <label>Sort: 
-    <select id="commentSort" onchange="refreshComments(this.value)">
+<label>Sort: 
+  <select id="commentSort" onchange="refreshCommentsWrapper()">
       <option value="latest">Latest First</option>
       <option value="oldest">Oldest First</option>
-    </select>
-  </label>
+  </select>
+</label>
+
+<span class="auto-refresh-section">
+  <input type="checkbox" id="autoRefresh" onchange="toggleAutoRefresh()">
+  <label for="autoRefresh">Auto-refresh</label>
+  <select id="refreshInterval" onchange="updateRefreshInterval()">
+      <option value="10000">10 seconds</option>
+      <option value="60000">1 minute</option>
+      <option value="300000">5 minutes</option>
+  </select>
+  <span id="refreshTimer">Next refresh in: <span id="timeRemaining">0:00</span></span>
+</span>
 
 
 
@@ -195,7 +206,80 @@
       refreshComments(sortSelect.value);
   }
 </script>
+<script>
+  let refreshTimer = null;
+    let currentInterval = 10000;
+    let countdownTimer = null;
+    let timeLeft = 0;
 
+    function updateTimerDisplay() {
+        const minutes = Math.floor(timeLeft / 60000);
+        const seconds = Math.floor((timeLeft % 60000) / 1000);
+        document.getElementById('timeRemaining').textContent = 
+            `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    function startCountdown() {
+        timeLeft = currentInterval;
+        updateTimerDisplay();
+        
+        countdownTimer = setInterval(() => {
+            timeLeft -= 1000;
+            if(timeLeft <= 0) {
+                clearInterval(countdownTimer);
+                timeLeft = 0;
+                updateTimerDisplay();
+            } else {
+                updateTimerDisplay();
+            }
+        }, 1000);
+    }
+
+    function toggleAutoRefresh() {
+        const autoRefresh = document.getElementById('autoRefresh');
+        
+        if (autoRefresh.checked) {
+            currentInterval = parseInt(document.getElementById('refreshInterval').value);
+            startAutoRefresh();
+            startCountdown();
+        } else {
+            stopAutoRefresh();
+            clearInterval(countdownTimer);
+            document.getElementById('timeRemaining').textContent = '0:00';
+        }
+    }
+
+    function updateRefreshInterval() {
+        const autoRefresh = document.getElementById('autoRefresh');
+        if (autoRefresh.checked) {
+            clearInterval(countdownTimer);
+            currentInterval = parseInt(document.getElementById('refreshInterval').value);
+            stopAutoRefresh();
+            startAutoRefresh();
+            startCountdown();
+        }
+    }
+
+    function startAutoRefresh() {
+        refreshTimer = setInterval(() => {
+            refreshCommentsWrapper();
+            clearInterval(countdownTimer);
+            startCountdown();
+        }, currentInterval);
+    }
+
+  function stopAutoRefresh() {
+      if (refreshTimer) {
+          clearInterval(refreshTimer);
+          refreshTimer = null;
+      }
+  }
+
+  // Stop auto-refresh when leaving page
+  window.addEventListener('beforeunload', () => {
+      stopAutoRefresh();
+  });
+</script>
 
 </body>
 </html>

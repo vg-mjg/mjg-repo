@@ -307,3 +307,16 @@
     color: inherit;
   }
 }
+
+.auto-refresh-section { display: inline-block; margin-left: 15px; }
+    #refreshInterval { display: none; margin-left: 5px; }
+    #autoRefresh:checked ~ #refreshInterval { display: inline-block; }
+
+    #refreshTimer {
+      margin-left: 10px;
+      display: none;
+      color: #666;
+  }
+  #autoRefresh:checked ~ #refreshTimer {
+      display: inline-block;
+  }
