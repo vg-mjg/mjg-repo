@@ -15,7 +15,7 @@ function greentext() {
                 const beforeTextNode = document.createTextNode(beforeText);
                 const afterTextSpan = document.createElement('span');
                 afterTextSpan.textContent = afterText;
-                afterTextSpan.style.color = 'green';
+                afterTextSpan.style.color = '#789922';
 
                 textNode.replaceWith(beforeTextNode, afterTextSpan);
             }
