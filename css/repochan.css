@@ -288,3 +288,9 @@
     background: #555;
 }
 
+/* Highlight style for new comments */
+#HCB_comment_box .hcb-comment-tb.new-highlight {
+  background-color: rgba(69, 133, 136, 0.2);
+  border-left: 4px solid #458588;
+  transition: background-color 0.5s ease;
+}

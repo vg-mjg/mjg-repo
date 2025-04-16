@@ -132,6 +132,47 @@
   </label>
 
 
+  <script>
+    // Function to highlight new comments
+    function highlightNewComments() {
+      // Select all comment elements - adjust selector based on HTML Comment Box structure
+      const comments = document.querySelectorAll('#HCB_comment_box .hcb-comment-tb');
+  
+      // Retrieve seen comment IDs from localStorage
+      let seenComments = JSON.parse(localStorage.getItem('seenComments') || '[]');
+  
+      comments.forEach(comment => {
+        // Assuming each comment has a unique data-id attribute or similar
+        const commentId = comment.getAttribute('data-id') || comment.textContent.slice(0, 20); // fallback
+  
+        if (!seenComments.includes(commentId)) {
+          // Highlight new comment
+          comment.style.backgroundColor = 'rgba(69, 133, 136, 0.2)'; // subtle highlight matching 4chan Tomorrow accent color
+          comment.style.borderLeft = '4px solid #458588'; // accent color from 4chan Tomorrow theme
+        }
+      });
+  
+      // Update seen comments list
+      const currentCommentIds = Array.from(comments).map(c => c.getAttribute('data-id') || c.textContent.slice(0, 20));
+      localStorage.setItem('seenComments', JSON.stringify(currentCommentIds));
+    }
+  
+    // Run highlight function after comments load
+    window.addEventListener('load', () => {
+      // Delay to ensure comments are loaded
+      setTimeout(highlightNewComments, 1000);
+    });
+  
+    // If HTML Comment Box has a callback after loading comments, hook into it:
+    if (typeof hcb_user !== 'undefined' && hcb_user.ON_COMMENT) {
+      const originalOnComment = hcb_user.ON_COMMENT;
+      hcb_user.ON_COMMENT = function() {
+        originalOnComment();
+        highlightNewComments();
+      };
+    }
+  </script>
+  
 
   <!-- begin wwww.htmlcommentbox.com -->
   <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...</div>
