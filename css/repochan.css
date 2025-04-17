@@ -328,3 +328,12 @@
   .greentext {
     color: #789922; /* Classic green color */
   }
+
+  /* Highlight animation: yellow→transparent over 2s */
+  @keyframes hcbFade {
+    from { background-color: yellow; }
+    to   { background-color: transparent; }
+  }
+  .hcb-highlight {
+    animation: hcbFade 2s ease-out;
+  }

@@ -1,60 +1,78 @@
 
-  // Ensure hcb_user exists
   window.hcb_user = window.hcb_user || {};
-  // Define the onload callback
   hcb_user.onload = function() {
-    // Select all comment containers
-    var comments = document.querySelectorAll('#HCB_comment_box .comment');
-    comments.forEach(function(c) {
-      // Extract the numeric ID from the container's id attribute
-      var id = c.id.split('_')[1];
-      // Find the author-name element
-      var authorEl = c.querySelector('.author-name');
-      // Append " #ID" if not already present
-      if (authorEl && !authorEl.textContent.includes('#')) {
-        authorEl.textContent = authorEl.textContent.trim() + ' #' + id;
-      }
-    });
-  };
+    // 1) Append “ #ID” to each author
+    document.querySelectorAll('#HCB_comment_box .comment')               // select all comments :contentReference[oaicite:4]{index=4}
+      .forEach(function(c) {                                             // NodeList.forEach :contentReference[oaicite:5]{index=5}
+        var id = c.id.split('_')[1],
+            authorEl = c.querySelector('.author-name');                 // Element.querySelector :contentReference[oaicite:6]{index=6}
+        if (authorEl && !authorEl.textContent.includes('#')) {
+          authorEl.textContent = authorEl.textContent.trim() + ' #' + id;
+        }
+      });
 
-  
-  window.hcb_user = window.hcb_user || {};
-  hcb_user.onload = function() {
-    // 1) Append "#ID" in reply textarea
+    // 2) Override reply() => prefill “>>ID”
     var origReply = window.hcb.reply;
     window.hcb.reply = function(id) {
       origReply.call(this, id);
-      setTimeout(function() {
+      setTimeout(function() {                                            // setTimeout :contentReference[oaicite:7]{index=7}
         var ta = document.querySelector('#HCB_comment_box textarea');
-        if (ta) {
-          ta.value = ta.value.replace(/@Anonymous\b/, '@Anonymous#' + id);
-        }
+        if (ta) ta.value = '>>' + id + ' ';
       }, 50);
     };
-  };
-    // 2) Linkify existing @Anonymous#ID texts
-    document.querySelectorAll(
-      '#HCB_comment_box .hcb-comment-body'
-    ).forEach(function(b) {
-      b.innerHTML = b.innerHTML.replace(
-        /@Anonymous#(\d+)/g,
-        function(_, num) {
-          return '<a href="#comment_' + num +
-                 '" class="hcb-mention" data-id="' + num +
-                 '">@Anonymous#' + num + '</a>';
-        }
-      );
+
+    // 3) Linkify all >>ID mentions
+    document.querySelectorAll('#HCB_comment_box .hcb-comment-body')      // querySelectorAll :contentReference[oaicite:8]{index=8}
+      .forEach(function(b) {
+        b.innerHTML = b.innerHTML.replace(
+          /&gt;&gt;(\d+)/g,                                             // global regex :contentReference[oaicite:9]{index=9}
+          '<a href="#comment_$1" class="hcb-quote" data-id="$1">>>$1</a>'
+        );
+      });
+
+    // 4) Build replies map and inject “Replies:” lists
+    var repliesMap = {};
+    // Scan all quote-links
+    document.querySelectorAll('#HCB_comment_box .hcb-quote')
+      .forEach(function(a) {
+        var tgt = a.dataset.id,                                         // dataset :contentReference[oaicite:10]{index=10}
+            from = a.closest('.comment').id.split('_')[1];
+        repliesMap[tgt] = repliesMap[tgt] || [];
+        repliesMap[tgt].push(from);
+      });
+    // For each comment, if it has replies, append a Replies line
+    Object.keys(repliesMap).forEach(function(tgt) {
+      var c = document.getElementById('comment_' + tgt);
+      if (c) {
+        var line = repliesMap[tgt]
+          .map(function(r) {
+            return '<a href="#comment_' + r +
+                   '" class="hcb-quote" data-id="' + r +
+                   '">&gt;&gt;' + r + '</a>';
+          }).join(' ');
+        c.querySelector('blockquote').insertAdjacentHTML(
+          'beforeend',
+          '<p class="hcb-replies">Replies: ' + line + '</p>'
+        );                                                              // insertAdjacentHTML :contentReference[oaicite:11]{index=11}
+      }
     });
 
-    // 3) Smooth-scroll on mention click
+    // 5) Delegate click: scroll & highlight
     document.getElementById('HCB_comment_box')
-      .addEventListener('click', function(e) {
+      .addEventListener('click', function(e) {                          // addEventListener :contentReference[oaicite:12]{index=12}
         var tgt = e.target;
-        if (tgt.matches('a.hcb-mention')) {
+        if (tgt.matches('a.hcb-quote')) {
           e.preventDefault();
-          var id = tgt.getAttribute('data-id'),
+          var id = tgt.dataset.id,
               el = document.getElementById('comment_' + id);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });                  // scrollIntoView :contentReference[oaicite:13]{index=13}
+            el.classList.add('hcb-highlight');                          // classList :contentReference[oaicite:14]{index=14}
+            setTimeout(function() {
+              el.classList.remove('hcb-highlight');
+            }, 2000);
+          }
         }
       });
- 
+  };
+
