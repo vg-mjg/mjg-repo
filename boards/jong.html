@@ -175,53 +175,50 @@
   };
 </script>
 <!-- end customize comment-author labels -->
+
+
+<!-- customize reply‑mentions and linkify @Anonymous#ID -->
 <script>
-  // 1. Ensure hcb_user object exists and define onload callback
   window.hcb_user = window.hcb_user || {};
   hcb_user.onload = function() {
-    // 2. Grab all rendered comments
-    var comments = document.querySelectorAll('#HCB_comment_box .comment'); 
-    comments.forEach(function(c) {
-      // 3. Extract numeric ID from div#comment_<ID>
-      var id = c.id.split('_')[1]; 
-      // 4. Find the author-name element
-      var authorEl = c.querySelector('.author-name');
-      if (authorEl && !authorEl.innerHTML.includes('href')) {
-        // 5. Build clickable fragment link
-        var nameText = authorEl.textContent.trim();
-        authorEl.innerHTML = nameText 
-          + ' <a href="#comment_' + id + '">#' + id + '</a>';
-      }
-    });
-  };
-</script>
-<script>
-  (function(){
-    // 1. Capture original reply method
-    var origReply = hcb.reply;
-    // 2. Override hcb.reply
-    hcb.reply = function(commentID) {
-      // 3. Call the original to render the reply form
-      origReply.apply(hcb, arguments);
-      // 4. After a short delay, find the new textarea and insert mention
-      setTimeout(function(){
-        // Locate the textarea inside this comment’s container
-        var textarea = document.querySelector(
-          '#comment_' + commentID + ' textarea'
-        );
-        if (textarea) {
-          // Grab the same link text we injected earlier
-          var link = document.querySelector(
-            '#comment_' + commentID + ' .author-name a'
-          );
-          var mention = link 
-            ? link.textContent 
-            : '#' + commentID;
-          textarea.value = '@' + mention + ' ';
+    // 1) Append "#ID" in reply textarea
+    var origReply = window.hcb.reply;
+    window.hcb.reply = function(id) {
+      origReply.call(this, id);
+      setTimeout(function() {
+        var ta = document.querySelector('#HCB_comment_box textarea');
+        if (ta) {
+          ta.value = ta.value.replace(/@Anonymous\b/, '@Anonymous#' + id);
         }
       }, 50);
     };
-  })();
+
+    // 2) Linkify existing @Anonymous#ID texts
+    document.querySelectorAll(
+      '#HCB_comment_box .hcb-comment-body'
+    ).forEach(function(b) {
+      b.innerHTML = b.innerHTML.replace(
+        /@Anonymous#(\d+)/g,
+        function(_, num) {
+          return '<a href="#comment_' + num +
+                 '" class="hcb-mention" data-id="' + num +
+                 '">@Anonymous#' + num + '</a>';
+        }
+      );
+    });
+
+    // 3) Smooth-scroll on mention click
+    document.getElementById('HCB_comment_box')
+      .addEventListener('click', function(e) {
+        var tgt = e.target;
+        if (tgt.matches('a.hcb-mention')) {
+          e.preventDefault();
+          var id = tgt.getAttribute('data-id'),
+              el = document.getElementById('comment_' + id);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+  };
 </script>
 
  <!-- begin www.htmlcommentbox.com -->
