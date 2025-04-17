@@ -331,7 +331,7 @@
 
   /* Highlight animation: yellow→transparent over 2s */
   @keyframes hcbFade {
-    from { background-color: #1d2021; }
+    from { background-color: yellow; }
     to   { background-color: transparent; }
   }
   .hcb-highlight {
