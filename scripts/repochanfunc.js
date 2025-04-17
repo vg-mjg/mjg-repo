@@ -17,8 +17,7 @@
     });
   };
 
-
-
+  
   window.hcb_user = window.hcb_user || {};
   hcb_user.onload = function() {
     // 1) Append "#ID" in reply textarea
@@ -32,7 +31,7 @@
         }
       }, 50);
     };
-
+  };
     // 2) Linkify existing @Anonymous#ID texts
     document.querySelectorAll(
       '#HCB_comment_box .hcb-comment-body'
@@ -58,4 +57,4 @@
           if (el) el.scrollIntoView({ behavior: 'smooth' });
         }
       });
-  };
+ 
