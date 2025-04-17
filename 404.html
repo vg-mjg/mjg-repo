@@ -10,10 +10,11 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
 		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
+
 	<style>
 		body {
 			background-color: aliceblue;
-			font-family: 'Impact', sans-serif;
+			font-family: 'Helvetica', 'Arial', sans-serif;
 			margin: 0;
 		}
 
@@ -110,6 +111,7 @@
 		.header .title {
 			font-weight: bold;
 			color: #a10000;
+			font-family: 'Impact', sans-serif;
 		}
 
 		.header .numbers {
@@ -170,14 +172,14 @@
 			max-width: 80%;
 		}
 
-		.post .content .body {
+		.body {
 			padding-left: 24px;
 			padding-bottom: 4px;
 			white-space: pre-wrap;
 
 		}
 
-		.post .content .body .greentext {
+		.body .greentext {
 			color: green;
 		}
 
@@ -253,6 +255,7 @@
 <body>
 	<script>
 		const baseUrl = "https://riichi.moe/api/"
+		// const baseUrl = "http://localhost:9515/"
 
 		function uuidv4() {
 			return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
@@ -289,7 +292,7 @@
 		}
 
 		function imageUrl(id, thumb) {
-			// return `${thumb ? '/thumb' : '/full'}/${id}`
+			// return `http://localhost:8080/${thumb ? '/thumb' : '/full'}/${id}`
 			return `${baseUrl}bulletin/images${thumb ? '/thumb' : '/full'}/${id}`
 		}
 
@@ -361,7 +364,7 @@
 				}
 				window.location = "/" + postNumber
 			})
-			container.find('.header .title').text(data.title)
+			container.find('.header .title').html(data.title)
 			container.find('.header .name').text(data.name ?? "Jyanshi")
 			container.find('.header .date').text(new Date(data.postTime).toLocaleString())
 			container.find('.header .link').attr('href', data.postNumber)
