@@ -17,7 +17,7 @@
       origReply.call(this, id);
       setTimeout(function() {                                            // setTimeout :contentReference[oaicite:7]{index=7}
         var ta = document.querySelector('#HCB_comment_box textarea');
-        if (ta) ta.value = '>>' + id + ' ';
+        if (ta) ta.value = '>>' + id + '\n';
       }, 50);
     };
 
