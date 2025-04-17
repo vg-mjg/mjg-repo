@@ -177,6 +177,9 @@
     font-family: 'Liberation Mono', monospace;
     font-size: 14px;
     padding: 6px;
+    width: 600px;
+    
+
   }
 
   /* Textarea size and font */
