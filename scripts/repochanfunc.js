@@ -32,30 +32,34 @@
 
     // 4) Build replies map and inject “Replies:” lists
     var repliesMap = {};
-    // Scan all quote-links
-    document.querySelectorAll('#HCB_comment_box .hcb-quote')
-      .forEach(function(a) {
-        var tgt = a.dataset.id,                                         // dataset :contentReference[oaicite:10]{index=10}
+      document.querySelectorAll(
+        '#HCB_comment_box .hcb-quote'
+      ).forEach(function(a) {
+        var tgt  = a.dataset.id,
             from = a.closest('.comment').id.split('_')[1];
         repliesMap[tgt] = repliesMap[tgt] || [];
         repliesMap[tgt].push(from);
       });
-    // For each comment, if it has replies, append a Replies line
-    Object.keys(repliesMap).forEach(function(tgt) {
-      var c = document.getElementById('comment_' + tgt);
-      if (c) {
-        var line = repliesMap[tgt]
-          .map(function(r) {
-            return '<a href="#comment_' + r +
-                   '" class="hcb-quote" data-id="' + r +
-                   '">&gt;&gt;' + r + '</a>';
-          }).join(' ');
-        c.querySelector('blockquote').insertAdjacentHTML(
-          'beforeend',
-          '<p class="hcb-replies">Replies: ' + line + '</p>'
-        );                                                              // insertAdjacentHTML :contentReference[oaicite:11]{index=11}
-      }
-    });
+
+      Object.keys(repliesMap).forEach(function(tgt) {
+        var c     = document.getElementById('comment_' + tgt),
+            dateE = c && c.querySelector('blockquote .date'),
+            links = repliesMap[tgt]
+                      .map(function(r) {
+                        return '<a href="#comment_' + r +
+                               '" class="hcb-quote" data-id="' + r +
+                               '">>>' + r + '</a>';
+                      })
+                      .join(' ');
+        if (dateE) {
+          dateE.insertAdjacentHTML(
+            'afterend',
+            '<span class="hcb-replies-inline"> Replies: ' +
+              links +
+            '</span>'
+          );
+        }
+      });
 
     // 5) Delegate click: scroll & highlight
     document.getElementById('HCB_comment_box')

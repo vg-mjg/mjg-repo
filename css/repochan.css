@@ -337,3 +337,17 @@
   .hcb-highlight {
     animation: hcbFade 2s ease-out;
   }
+/* place beside date, same size/color */
+.hcb-replies-inline {
+  font-size: inherit;
+  color: inherit;
+  margin-left: 12px;
+  white-space: nowrap;
+}
+.hcb-replies-inline a.hcb-quote {
+  text-decoration: none;
+  margin: 0 4px;
+}
+.hcb-replies-inline a.hcb-quote:hover {
+  text-decoration: underline;
+}
