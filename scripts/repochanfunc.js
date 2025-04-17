@@ -41,25 +41,35 @@
         repliesMap[tgt].push(from);
       });
 
-      Object.keys(repliesMap).forEach(function(tgt) {
-        var c     = document.getElementById('comment_' + tgt),
-            dateE = c && c.querySelector('blockquote .date'),
-            links = repliesMap[tgt]
-                      .map(function(r) {
-                        return '<a href="#comment_' + r +
-                               '" class="hcb-quote" data-id="' + r +
-                               '">>>' + r + '</a>';
-                      })
-                      .join(' ');
-        if (dateE) {
-          dateE.insertAdjacentHTML(
-            'afterend',
-            '<span class="hcb-replies-inline"> Replies: ' +
-              links +
-            '</span>'
-          );
-        }
-      });
+      // ... inside hcb_user.onload, after building repliesMap ...
+
+Object.keys(repliesMap).forEach(function(tgt) {
+    var c = document.getElementById('comment_' + tgt);
+    if (!c) return;
+  
+    // Sort the reply IDs numerically in ascending order
+    var sortedReplies = repliesMap[tgt].sort(function(a, b) {
+      return parseInt(a, 10) - parseInt(b, 10);
+    });
+  
+    // Build the inline links HTML
+    var inlineLinks = sortedReplies
+      .map(function(r) {
+        return '<a href="#comment_' + r +
+               '" class="hcb-quote" data-id="' + r +
+               '">>>' + r + '</a>';
+      }).join(' ');
+  
+    // Find the date span and inject AFTER it
+    var dateEl = c.querySelector('blockquote .date');
+    if (dateEl) {
+      dateEl.insertAdjacentHTML(
+        'afterend',
+        '<span class="hcb-replies-inline"> Replies: ' + inlineLinks + '</span>'
+      );
+    }
+  });
+  
 
     // 5) Delegate click: scroll & highlight
     document.getElementById('HCB_comment_box')
