@@ -20,7 +20,10 @@ const banners =[
   "banners/17.jpg",
   "banners/18.jpg",
   "banners/19.jpg",
-  "banners/20.jpg"
+  "banners/20.jpg",
+  "banners/21.jpg",
+  "banners/22.jpg",
+  "banners/23.jpg"
 ];
 
 // 2) Function to pick and apply a random banner

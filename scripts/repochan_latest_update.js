@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Repochan Latest Posts
 // @namespace    https://repo.riichi.moe/
-// @version      1.2
+// @version      1.4
 // @description  Shows the latest posts in the repochan threads
 // @icon         https://raw.githubusercontent.com/vg-mjg/mjg-repo/refs/heads/master/favicon.ico
 // @match        https://repo.riichi.moe/*
@@ -16,21 +16,18 @@
     function parseRelativeTime(relativeStr) {
         const now = Date.now();
         relativeStr = relativeStr.toLowerCase().trim();
-        if (relativeStr.indexOf('just now') !== -1) {
-            return now;
-        }
+        if (relativeStr.indexOf('just now') !== -1) return now;
         const match = relativeStr.match(/(\d+)\s*(second|minute|hour|day)s?\s+ago/);
         if (match) {
             const num = parseInt(match[1], 10);
             const unit = match[2];
-            let diff = 0;
-            switch (unit) {
-                case 'second': diff = num * 1000; break;
-                case 'minute': diff = num * 60 * 1000; break;
-                case 'hour': diff = num * 60 * 60 * 1000; break;
-                case 'day': diff = num * 24 * 60 * 60 * 1000; break;
-            }
-            return now - diff;
+            const multipliers = {
+                second: 1000,
+                minute: 60 * 1000,
+                hour: 60 * 60 * 1000,
+                day: 24 * 60 * 60 * 1000
+            };
+            return now - (multipliers[unit] || 0) * num;
         }
         return now;
     }
@@ -41,7 +38,6 @@
         Object.assign(box.style, {
             position: 'fixed',
             top: '10px',
-            left: 'auto',
             right: '10px',
             width: '300px',
             maxHeight: '90vh',
@@ -59,12 +55,13 @@
 
         const header = document.createElement('div');
         header.id = 'latest-posts-header';
-        header.style.backgroundColor = '#333';
-        header.style.padding = '8px';
-        header.style.cursor = 'move';
-        header.style.display = 'flex';
-        header.style.justifyContent = 'space-between';
-        header.style.alignItems = 'center';
+        Object.assign(header.style, {
+            backgroundColor: '#333',
+            padding: '8px',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center'
+        });
 
         const title = document.createElement('span');
         title.textContent = 'Latest Posts';
@@ -76,12 +73,13 @@
         const refreshButton = document.createElement('button');
         refreshButton.textContent = '⟳';
         refreshButton.title = 'Refresh Latest Posts';
-        refreshButton.style.background = 'none';
-        refreshButton.style.border = 'none';
-        refreshButton.style.color = '#fff';
-        refreshButton.style.fontSize = '16px';
-        refreshButton.style.cursor = 'pointer';
-        refreshButton.style.marginRight = '5px';
+        Object.assign(refreshButton.style, {
+            background: 'none',
+            border: 'none',
+            color: '#fff',
+            fontSize: '16px',
+            marginRight: '5px'
+        });
         refreshButton.addEventListener('click', (e) => {
             e.stopPropagation();
             updateLatestPosts();
@@ -89,26 +87,27 @@
         controls.appendChild(refreshButton);
 
         const toggleButton = document.createElement('button');
-        toggleButton.textContent = '−';
-        toggleButton.style.background = 'none';
-        toggleButton.style.border = 'none';
-        toggleButton.style.color = '#fff';
-        toggleButton.style.fontSize = '16px';
-        toggleButton.style.cursor = 'pointer';
-        controls.appendChild(toggleButton);
-
-        header.appendChild(controls);
-        header.addEventListener('click', () => {
+        toggleButton.textContent = '▲';
+        Object.assign(toggleButton.style, {
+            background: 'none',
+            border: 'none',
+            color: '#fff',
+            fontSize: '16px'
+        });
+        toggleButton.addEventListener('click', (e) => {
+            e.stopPropagation();
             const body = document.getElementById('latest-posts-body');
             if (body.style.display === 'none') {
                 body.style.display = 'block';
-                toggleButton.textContent = '−';
+                toggleButton.textContent = '▲';
             } else {
                 body.style.display = 'none';
-                toggleButton.textContent = '+';
+                toggleButton.textContent = '▼';
             }
         });
+        controls.appendChild(toggleButton);
 
+        header.appendChild(controls);
         box.appendChild(header);
 
         const body = document.createElement('div');
@@ -190,14 +189,11 @@
             const dateEl = el.querySelector("span.date");
             if (!dateEl) return null;
             const timestamp = parseRelativeTime(dateEl.textContent);
-
             const authorEl = el.querySelector(".author");
             const author = authorEl ? authorEl.textContent.trim() : "Anonymous";
-
             const bodyEl = el.querySelector(".hcb-comment-body");
             let bodyText = bodyEl ? bodyEl.textContent.trim() : "";
             bodyText = bodyText.replace("Flag 0", "").trim();
-
             const snippet = bodyText.length > 100 ? bodyText.slice(0, 100) + "…" : bodyText;
             return { el, timestamp, author, dateText: dateEl.textContent.trim(), snippet };
         }).filter(p => p !== null);
@@ -211,10 +207,8 @@
             const timeStr = new Date(item.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             entry.innerHTML = `<span class="date">${timeStr}</span> - <span class="author">${item.author}</span>: <span class="hcb-comment-body">${item.snippet}</span>`;
             entry.style.marginBottom = '5px';
-            entry.style.cursor = 'pointer';
             entry.style.borderBottom = '1px solid #444';
             entry.style.paddingBottom = '3px';
-
             entry.addEventListener('click', () => {
                 item.el.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 const originalBg = item.el.style.backgroundColor;
