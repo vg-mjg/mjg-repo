@@ -149,23 +149,6 @@ I'll be streaming the games on cytube, that way you'll be able to shitpost about
 </div>
 
 
-<label>Sort: 
-  <select id="commentSort" onchange="refreshCommentsWrapper()">
-      <option value="latest">Latest First</option>
-      <option value="oldest">Oldest First</option>
-  </select>
-</label>
-
-<span class="auto-refresh-section">
-  <input type="checkbox" id="autoRefresh" onchange="toggleAutoRefresh()">
-  <label for="autoRefresh">Auto-refresh</label>
-  <select id="refreshInterval" onchange="updateRefreshInterval()">
-      <option value="10000">10 seconds</option>
-      <option value="60000">1 minute</option>
-      <option value="300000">5 minutes</option>
-  </select>
-  <span id="refreshTimer">Next refresh in: <span id="timeRemaining">0:00</span></span>
-</span>
 
 
 
@@ -188,6 +171,25 @@ I'll be streaming the games on cytube, that way you'll be able to shitpost about
     document.head.appendChild(s);
   })();
 </script>
+
+
+<label>Sort: 
+  <select id="commentSort" onchange="refreshCommentsWrapper()">
+    <option value="oldest">Oldest First</option>
+      <option value="latest">Latest First</option>
+  </select>
+</label>
+
+<span class="auto-refresh-section">
+  <input type="checkbox" id="autoRefresh" onchange="toggleAutoRefresh()">
+  <label for="autoRefresh">Auto-refresh</label>
+  <select id="refreshInterval" onchange="updateRefreshInterval()">
+      <option value="10000">10 seconds</option>
+      <option value="60000">1 minute</option>
+      <option value="300000">5 minutes</option>
+  </select>
+  <span id="refreshTimer">Next refresh in: <span id="timeRemaining">0:00</span></span>
+</span>
 
 
 
