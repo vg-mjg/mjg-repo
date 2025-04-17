@@ -161,6 +161,10 @@ I'll be streaming the games on cytube, that way you'll be able to shitpost about
 </script>
 <!-- end www.htmlcommentbox.com -->
 
+<button style="padding: 10px 20px; font-size: 14px;" onclick="refreshCommentsWrapper()">
+  Update Thread
+</button>
+ <br><br>
 
 <label>Sort: 
   <select id="commentSort" onchange="refreshCommentsWrapper()">
@@ -168,6 +172,9 @@ I'll be streaming the games on cytube, that way you'll be able to shitpost about
       <option value="latest">Latest First</option>
   </select>
 </label>
+
+
+
 
 <span class="auto-refresh-section">
   <input type="checkbox" id="autoRefresh" onchange="toggleAutoRefresh()">
