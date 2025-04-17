@@ -154,60 +154,40 @@
 </span>
 
 
-
-<script>
-  // Ensure hcb_user exists
-  window.hcb_user = window.hcb_user || {};
-  // Define the onload callback
-  hcb_user.onload = function() {
-    // Select all comment containers
-    var comments = document.querySelectorAll('#HCB_comment_box .comment');
-    comments.forEach(function(c) {
-      // Extract the numeric ID from the container's id attribute
-      var id = c.id.split('_')[1];
-      // Find the author-name element
-      var authorEl = c.querySelector('.author-name');
-      // Append " #ID" if not already present
-      if (authorEl && !authorEl.textContent.includes('#')) {
-        authorEl.textContent = authorEl.textContent.trim() + ' #' + id;
-      }
-    });
-  };
-</script>
-<!-- end customize comment-author labels -->
-
-
-<!-- customize reply‑mentions and linkify @Anonymous#ID -->
+<!-- Combined onload -> author IDs + reply/linkify -->
 <script>
   window.hcb_user = window.hcb_user || {};
   hcb_user.onload = function() {
-    // 1) Append "#ID" in reply textarea
+    // 1) Append “ #ID” to each author
+    document.querySelectorAll('#HCB_comment_box .comment')  // select all comments :contentReference[oaicite:2]{index=2}
+      .forEach(function(c) {                               // loop over NodeList :contentReference[oaicite:3]{index=3}
+        var id = c.id.split('_')[1],                        // e.g. "comment_16964695" -> "16964695"
+            authorEl = c.querySelector('.author-name');
+        if (authorEl && !authorEl.textContent.includes('#')) {
+          authorEl.textContent = authorEl.textContent.trim() + ' #' + id;
+        }
+      });
+
+    // 2) Override reply() to prefill “@Anonymous#ID”
     var origReply = window.hcb.reply;
     window.hcb.reply = function(id) {
       origReply.call(this, id);
       setTimeout(function() {
         var ta = document.querySelector('#HCB_comment_box textarea');
-        if (ta) {
-          ta.value = ta.value.replace(/@Anonymous\b/, '@Anonymous#' + id);
-        }
+        if (ta) ta.value = ta.value.replace(/@Anonymous\b/, '@Anonymous#' + id);
       }, 50);
     };
 
-    // 2) Linkify existing @Anonymous#ID texts
-    document.querySelectorAll(
-      '#HCB_comment_box .hcb-comment-body'
-    ).forEach(function(b) {
-      b.innerHTML = b.innerHTML.replace(
-        /@Anonymous#(\d+)/g,
-        function(_, num) {
-          return '<a href="#comment_' + num +
-                 '" class="hcb-mention" data-id="' + num +
-                 '">@Anonymous#' + num + '</a>';
-        }
-      );
-    });
+    // 3) Linkify existing @Anonymous#ID mentions
+    document.querySelectorAll('#HCB_comment_box .hcb-comment-body')
+      .forEach(function(b) {
+        b.innerHTML = b.innerHTML.replace(
+          /@Anonymous#(\d+)/g,
+          '<a href="#comment_$1" class="hcb-mention" data-id="$1">@Anonymous#$1</a>'
+        );
+      });
 
-    // 3) Smooth-scroll on mention click
+    // 4) Smooth-scroll on mention click
     document.getElementById('HCB_comment_box')
       .addEventListener('click', function(e) {
         var tgt = e.target;
@@ -221,25 +201,22 @@
   };
 </script>
 
- <!-- begin www.htmlcommentbox.com -->
-<div id="HCB_comment_box">Repochan is loading posts... <br>The truth is just beyond the gate...</div>
-<link rel="stylesheet" type="text/css"
-      href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+<!-- then your regular HTMLCommentBox embed code -->
+<div id="HCB_comment_box">Loading comments…</div>
+<link rel="stylesheet" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
 <script type="text/javascript" id="hcb">
   if(!window.hcb_user){hcb_user={};}
   (function(){
-    var s=document.createElement("script"),
-        l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"),
-        h="https://www.htmlcommentbox.com";
-    s.setAttribute("type","text/javascript");
-    s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l)
-      +"&mod=%241%24wq1rdBcg%24u8N8WdVmD9aEBX7ap8qyD%2F"
-      +"&opts=16798&num=8300&ts="+Date.now());
-    document.getElementsByTagName("head")[0].appendChild(s);
+    var s = document.createElement("script"),
+        l = hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"),
+        h = "https://www.htmlcommentbox.com";
+    s.type = "text/javascript";
+    s.src  = h + "/jread?page=" + encodeURIComponent(l)
+           + "&mod=%241%24wq1rdBcg%24u8N8WdVmD9aEBX7ap8qyD%2F"
+           + "&opts=16798&num=8300&ts=" + Date.now();
+    document.head.appendChild(s);
   })();
 </script>
-<!-- end www.htmlcommentbox.com -->
-
 
 
 <footer>
