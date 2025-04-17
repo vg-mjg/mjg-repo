@@ -63,40 +63,6 @@
       </div>
     </div>
   </div>
-
-  
-<span class="auto-refresh-section">
-  <input type="checkbox" id="autoRefresh" onchange="toggleAutoRefresh()">
-  <label for="autoRefresh">Auto-refresh</label>
-  <select id="refreshInterval" onchange="updateRefreshInterval()">
-      <option value="10000">10 seconds</option>
-      <option value="60000">1 minute</option>
-      <option value="300000">5 minutes</option>
-  </select>
-  <span id="refreshTimer">Next refresh in: <span id="timeRemaining">0:00</span></span>
-</span>
-
-
-<script src="../scripts/repochanfunc.js"></script>
-
-<div id="HCB_comment_box">Hacking to the gate...</div>
-<link rel="stylesheet"
-      href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
-<script id="hcb" type="text/javascript">
-  if (!window.hcb_user) { hcb_user = {}; }
-  (function(){
-    var s = document.createElement('script'),
-        l = hcb_user.PAGE || (''+location).replace(/'/g,'%27'),
-        h = 'https://www.htmlcommentbox.com';
-    s.type = 'text/javascript';
-    s.src = h + '/jread?page=' + encodeURIComponent(l) +
-            '&mod=%241%24wq1rdBcg%24u8N8WdVmD9aEBX7ap8qyD%2F' +
-            '&opts=16798&num=8300&ts=' + Date.now();
-    document.head.appendChild(s);
-  })();
-</script>
-
-
 <!-- customize labels of htmlcommentbox.com -->
 <script>
   /* This code goes ABOVE the main HTML Comment Box code!
@@ -158,13 +124,6 @@
   </script>
 
 
-<style>
-  .auto-refresh-section { display: inline-block; margin-left: 15px; }
-  #refreshInterval { display: none; margin-left: 5px; }
-  #autoRefresh:checked ~ #refreshInterval { display: inline-block; }
-</style>
-
-<!-- Modify the sort section in your HTML -->
 <label>Sort: 
   <select id="commentSort" onchange="refreshCommentsWrapper()">
       <option value="latest">Latest First</option>
@@ -183,8 +142,25 @@
   <span id="refreshTimer">Next refresh in: <span id="timeRemaining">0:00</span></span>
 </span>
 
-  
 
+<script src="../scripts/repochanfunc.js"></script>
+
+<div id="HCB_comment_box">Hacking to the gate...</div>
+<link rel="stylesheet"
+      href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+<script id="hcb" type="text/javascript">
+  if (!window.hcb_user) { hcb_user = {}; }
+  (function(){
+    var s = document.createElement('script'),
+        l = hcb_user.PAGE || (''+location).replace(/'/g,'%27'),
+        h = 'https://www.htmlcommentbox.com';
+    s.type = 'text/javascript';
+    s.src = h + '/jread?page=' + encodeURIComponent(l) +
+            '&mod=%241%24wq1rdBcg%24u8N8WdVmD9aEBX7ap8qyD%2F' +
+            '&opts=16798&num=8300&ts=' + Date.now();
+    document.head.appendChild(s);
+  })();
+</script>
 
 
 <footer>
@@ -241,7 +217,6 @@
       refreshComments(sortSelect.value);
   }
 </script>
-
 <script>
   let refreshTimer = null;
     let currentInterval = 10000;
