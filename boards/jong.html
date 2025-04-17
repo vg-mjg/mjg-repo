@@ -154,66 +154,21 @@
 </span>
 
 
-<!-- Combined onload -> author IDs + reply/linkify -->
-<script>
-  window.hcb_user = window.hcb_user || {};
-  hcb_user.onload = function() {
-    // 1) Append “ #ID” to each author
-    document.querySelectorAll('#HCB_comment_box .comment')  // select all comments :contentReference[oaicite:2]{index=2}
-      .forEach(function(c) {                               // loop over NodeList :contentReference[oaicite:3]{index=3}
-        var id = c.id.split('_')[1],                        // e.g. "comment_16964695" -> "16964695"
-            authorEl = c.querySelector('.author-name');
-        if (authorEl && !authorEl.textContent.includes('#')) {
-          authorEl.textContent = authorEl.textContent.trim() + ' #' + id;
-        }
-      });
+<script src="../scripts/repochanfunc.js"></script>
 
-    // 2) Override reply() to prefill “@Anonymous#ID”
-    var origReply = window.hcb.reply;
-    window.hcb.reply = function(id) {
-      origReply.call(this, id);
-      setTimeout(function() {
-        var ta = document.querySelector('#HCB_comment_box textarea');
-        if (ta) ta.value = ta.value.replace(/@Anonymous\b/, '@Anonymous#' + id);
-      }, 50);
-    };
-
-    // 3) Linkify existing @Anonymous#ID mentions
-    document.querySelectorAll('#HCB_comment_box .hcb-comment-body')
-      .forEach(function(b) {
-        b.innerHTML = b.innerHTML.replace(
-          /@Anonymous#(\d+)/g,
-          '<a href="#comment_$1" class="hcb-mention" data-id="$1">@Anonymous#$1</a>'
-        );
-      });
-
-    // 4) Smooth-scroll on mention click
-    document.getElementById('HCB_comment_box')
-      .addEventListener('click', function(e) {
-        var tgt = e.target;
-        if (tgt.matches('a.hcb-mention')) {
-          e.preventDefault();
-          var id = tgt.getAttribute('data-id'),
-              el = document.getElementById('comment_' + id);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
-  };
-</script>
-
-<!-- then your regular HTMLCommentBox embed code -->
-<div id="HCB_comment_box">Loading comments…</div>
-<link rel="stylesheet" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
-<script type="text/javascript" id="hcb">
-  if(!window.hcb_user){hcb_user={};}
+<div id="HCB_comment_box">Hacking to the gate...</div>
+<link rel="stylesheet"
+      href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+<script id="hcb" type="text/javascript">
+  if (!window.hcb_user) { hcb_user = {}; }
   (function(){
-    var s = document.createElement("script"),
-        l = hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"),
-        h = "https://www.htmlcommentbox.com";
-    s.type = "text/javascript";
-    s.src  = h + "/jread?page=" + encodeURIComponent(l)
-           + "&mod=%241%24wq1rdBcg%24u8N8WdVmD9aEBX7ap8qyD%2F"
-           + "&opts=16798&num=8300&ts=" + Date.now();
+    var s = document.createElement('script'),
+        l = hcb_user.PAGE || (''+location).replace(/'/g,'%27'),
+        h = 'https://www.htmlcommentbox.com';
+    s.type = 'text/javascript';
+    s.src = h + '/jread?page=' + encodeURIComponent(l) +
+            '&mod=%241%24wq1rdBcg%24u8N8WdVmD9aEBX7ap8qyD%2F' +
+            '&opts=16798&num=8300&ts=' + Date.now();
     document.head.appendChild(s);
   })();
 </script>
