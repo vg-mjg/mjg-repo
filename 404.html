@@ -147,8 +147,13 @@
 			margin: 4px 0px;
 		}
 
-		.divider.limit {
+		.divider.limit, .divider.new-posts-line {
 			border-color: red;
+		}
+
+		.divider.new-posts-line {
+			padding-top: 4px;
+			margin-bottom: -2px;
 		}
 
 		.image {
@@ -709,9 +714,14 @@
 		function startRefreshTimer(data, max = 10, current = max) {
 			$('.timer').text(current)
 			if (current === 0) {
+				const oldLastPost = $('.thread .post:last-child')
+
 				loadUpdate(data.threadId, data.lastPostNumber).then(n => {
 					data.lastPostNumber = n.lastPostNumber
 					if (n.postsLoaded) {
+						if (!globalData.unreadPosts) {
+							$('<div>', { class: "divider new-posts-line" }).insertAfter(oldLastPost)
+						}
 						globalData.originalTitle = globalData.originalTitle ?? document.title
 						globalData.unreadPosts = (globalData.unreadPosts ?? 0) + n.postsLoaded
 						document.title = `(${globalData.unreadPosts}) ${globalData.originalTitle}`
@@ -844,6 +854,7 @@
 				if (globalData.unreadPosts) {
 					const doc = document.documentElement;
 					if (doc.scrollTop + doc.clientHeight >= doc.scrollHeight - 100) {
+						$('.thread .new-posts-line').remove()
 						document.title = globalData.originalTitle
 						globalData.unreadPosts = 0
 						globalData.originalTitle = undefined
