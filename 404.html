@@ -532,6 +532,7 @@
 			return false
 		}
 
+		var submission_inflight = false;
 		$(() => {
 			$('form').trigger('reset')
 			$('input[type=checkbox]').prop('checked', false);
@@ -548,6 +549,7 @@
 					}
 					$('.form.floating').css('top', e.pageY - data.topPos)
 					$('.form.floating').css('left', e.pageX - data.leftPos)
+					e.preventDefault()
 				})
 				.mouseup(function () {
 					data.isDragging = false
@@ -558,6 +560,7 @@
 					const offset = $(this).offset()
 					data.leftPos = e.pageX - offset.left
 					data.topPos = e.pageY - offset.top
+					e.preventDefault()
 				})
 
 			$('.control .top').on('click', () => window.scrollTo({ top: 0, behavior: "smooth" }))
@@ -577,6 +580,12 @@
 
 			$('form').on('submit', function (e) {
 				e.preventDefault()
+
+				if (submission_inflight) {
+					return
+				}
+				submission_inflight = true
+
 				const formData = new FormData(e.target)
 				formData.append('deleteId', deleteId)
 				let url = baseUrl + "bulletin"
@@ -588,6 +597,8 @@
 					body: formData
 				})
 					.then(res => {
+						submission_inflight = false
+
 						if (res.status !== 200) {
 							res.text().then(text => $('.error').text(text))
 							return
@@ -597,6 +608,8 @@
 							return
 						}
 						$('.error').text("")
+						$('.form.floating').addClass('hidden')
+						loadUpdate(data.threadId, data.lastPostNumber).then(n => data.lastPostNumber = n.lastPostNumber)
 					})
 					.catch(err => console.log(err));
 			})
