@@ -270,12 +270,14 @@
 			color: red;
 		}
 
-		.expander-link {
+		.expander .link,
+		.collapser .link {
 			color: blue;
 			cursor: pointer;
 		}
 
-		.collapser-icon {
+		.icon.minus,
+		.icon.plus {
 			display: inline-block;
 			color: white;
 			font-weight: bold;
@@ -290,12 +292,11 @@
 			cursor: pointer;
 		}
 
-		.collapser-icon.plus::before {
+		.icon.plus::before {
 			content: '＋';
 		}
 
-
-		.collapser-icon.minus::before {
+		.icon.minus::before {
 			content: '－';
 		}
 	</style>
@@ -396,16 +397,16 @@
 		function renderOP(entry) {
 			const newThread = $('.thread.template').clone()
 			newThread.removeClass('template')
-			const ommittedReplies = entry.totalReplies - 5
 			renderSharedData(newThread, entry)
 
-			if (ommittedReplies <= 0 || globalData.threadId) {
+			const ommittedReplies = entry.totalReplies - 5
+			if (!entry.totalReplies || ommittedReplies <= 0 || globalData.threadId) {
 				return newThread;
 			}
 
 			newThread.find('.expander').removeClass('hidden')
 			newThread.find('.expander .replies-count').text(`${ommittedReplies} replies omitted.`)
-			newThread.find('.expander .collapser-icon, .expander-link').on('click', () => {
+			newThread.find('.expander .icon.plus, .expander .link').on('click', () => {
 				fetch(baseUrl + "bulletin/" + entry.postNumber, {
 					headers: authHeaders
 				})
@@ -413,11 +414,18 @@
 					.then(data => {
 						newThread.find('.post').remove();
 						newThread.find('.expander').addClass('hidden')
+						newThread.find('.collapser').removeClass('hidden')
 						data.posts.forEach(post => {
 							const newPost = renderPost(post)
 							newPost.appendTo(newThread);
 						})
 					});
+			})
+
+			newThread.find('.collapser .icon.minus, .collapser .link').on('click', () => {
+				newThread.find('.post').slice(0, -5).remove();
+				newThread.find('.expander').removeClass('hidden')
+				newThread.find('.collapser').addClass('hidden')
 			})
 
 			return newThread
@@ -803,10 +811,14 @@
 		</span>
 		<div class="body"></div>
 		<div class="expander hidden">
-			<div class="collapser-icon plus"></div>
+			<div class="icon plus"></div>
 			<span class="replies-count"></span>
-			<span class="expander-link">Click here</span>
+			<span class="link">Click here</span>
 			<span> to view.</span>
+		</div>
+		<div class="collapser hidden">
+			<div class="icon minus"></div>
+			<span class="link">Hide Replies</span>
 		</div>
 	</div>
 	<div class="post template">
