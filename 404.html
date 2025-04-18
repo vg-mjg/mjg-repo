@@ -651,7 +651,7 @@
 					}
 					updateCount(data.thread.totalReplies)
 					return {
-						lastPostNumber: data.posts[data.posts.length - 1].postNumber,
+						lastPostNumber: data.posts.length && data.posts[data.posts.length - 1].postNumber,
 						threadId: data.thread.postNumber,
 						title: data.thread.title
 					}
