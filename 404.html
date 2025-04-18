@@ -559,7 +559,8 @@
 		}
 
 		function loadUpdate(threadId, lastPostId) {
-			return fetch(baseUrl + "bulletin/" + threadId + "?lastPostId=" + lastPostId, {
+			const lastPostIdAttr = lastPostId ? "?lastPostId=" + lastPostId : ""
+			return fetch(baseUrl + "bulletin/" + threadId + lastPostIdAttr, {
 				headers: authHeaders
 			})
 				.then(body => body.json())
