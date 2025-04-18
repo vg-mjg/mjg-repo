@@ -192,6 +192,7 @@
 			max-width: 80%;
 			min-width: 600px;
 			min-height: 70px;
+			position: relative;
 		}
 
 		.post .body,
@@ -200,7 +201,6 @@
 			padding-bottom: 8px;
 			padding-top: 15px;
 			white-space: pre-wrap;
-
 		}
 
 		.body .greentext {
@@ -211,6 +211,15 @@
 			color: #a10000;
 			cursor: pointer;
 			text-decoration: underline;
+		}
+
+		.post .content .body .post-preview {
+			z-index: 1;
+			position: absolute;
+			display: inline-block;
+		}
+		.post-preview, .post-preview .header, .post-preview .meta {
+			white-space: normal;
 		}
 
 		.menu {
@@ -545,6 +554,7 @@
 				}
 				window.location = "/" + postNumber
 			})
+
 			container.find('.header .title').html(data.title)
 			container.find('.header .name').html(data.name ?? "Jyanshi")
 			container.find('.header .date').text(new Date(data.postTime).toLocaleString())
@@ -867,6 +877,27 @@
 						globalData.originalTitle = undefined
 					}
 				}
+			})
+
+			$(document).on('mouseenter', '.reference', (e) => {
+				const elem = $(e.target)
+				const postNumber = parseInt(elem.text().slice(2), 10)
+				const targetNumbers = $(`.post .numbers[data-post="${postNumber}"]`)
+				if (!targetNumbers) {
+					return
+				}
+
+				const targetPost = targetNumbers.parent().parent()
+				if (!targetPost.hasClass('content')) {
+					return
+				}
+
+				const preview = $('<div>', { class: 'post post-preview' })
+				preview.append(targetPost.clone()).insertAfter(elem)
+			})
+			$(document).on('mouseleave', '.reference', (e) => {
+				const elem = $(e.target)
+				elem.parent().find('.post-preview').remove()
 			})
 
 			if (globalData.threadId) {
