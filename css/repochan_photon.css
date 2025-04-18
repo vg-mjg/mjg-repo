@@ -1,0 +1,90 @@
+body {
+	background-color: #eeeeee;
+	color: #333;
+}
+
+.form {
+	background-color: #ddd;
+	border-color: #ccc;
+}
+
+.form.floating .drag {
+	border-bottom-color: #ccc;
+}
+
+.row .error {
+	color: red;
+}
+
+.header .name {
+	color: #004a99;
+	font-weight: bold;
+}
+
+.header .title {
+	color: #111;
+	font-weight: bold;
+}
+
+.header .numbers {
+	color: #333333;
+}
+
+.banner .start span {
+	color: #323151;
+}
+
+.banner .start span:hover {
+	color: black;
+}
+
+.divider {
+	border-bottom-color: #ccc;
+}
+
+.divider.limit {
+	border-color: red;
+}
+
+.post .arrows {
+	color: #e0bfb7;
+}
+
+.post .content {
+	background-color: #ddd;
+	border-bottom-color: #ccc;
+	border-right-color: #ccc;
+}
+
+.body .greentext {
+	color: #789922;
+}
+
+.post .content .body .reference {
+	color: #ff6600;
+	text-decoration: underline;
+}
+
+.menu .options {
+	background-color: #ddd;
+}
+
+.menu .options>* {
+	border-bottom-color: #ccc;
+}
+
+.banned {
+	color: red;
+}
+
+.banner .title {
+	color: #a10000;
+}
+
+.control .button {
+	color: blue;
+}
+
+.control .notification {
+	color: red;
+}

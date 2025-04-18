@@ -1,0 +1,211 @@
+body {
+	font-family: 'Helvetica', 'Arial', sans-serif;
+	margin: 0;
+}
+
+#main {}
+
+.thread {
+	padding: 8px;
+	display: block;
+	margin-top: 8px;
+}
+
+.thread .title {}
+
+.thread::after {
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+}
+
+.form {
+	margin-top: 8px;
+	display: inline-block;
+	border: 1px solid;
+}
+
+
+.form form {
+	padding: 4px;
+	display: inline-block;
+	width: 480px;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+
+.form.floating {
+	position: absolute;
+}
+
+.form.floating .drag {
+	border-bottom: 1px solid;
+	text-align: right;
+	padding-right: 4px;
+}
+
+.form.floating .x {
+	cursor: pointer;
+	user-select: none;
+}
+
+.form form .row {
+	margin-top: 4px;
+	display: flex;
+	align-items: center;
+}
+
+textarea {
+	resize: vertical;
+	display: block;
+	width: 100%;
+	margin-top: 4px;
+	box-sizing: border-box;
+	min-height: 100px;
+}
+
+.row label {
+	min-width: 50px;
+	margin-right: 4px;
+}
+
+.row input[type=text] {
+	flex: 1;
+}
+
+
+.row input[type=file] {
+	min-width: 80px;
+	flex-basis: 80px;
+	flex: 1;
+}
+
+.row .error {
+	margin: 0px 4px;
+	font-weight: bold;
+}
+
+.header .name {
+	font-weight: bold;
+}
+
+.header .numbers {
+	cursor: pointer;
+}
+
+.banner .start {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.banner .start span {
+	cursor: pointer;
+}
+
+.divider {
+	border-bottom: 2px solid;
+	margin: 4px 0px;
+}
+
+.postimage {
+	float: left;
+	margin-right: 12px;
+	margin-left: 12px;
+	cursor: pointer;
+	max-width: 200px;
+	max-height: 200px;
+}
+
+h1 {
+	margin-left: 40px;
+}
+
+.post .arrows {
+	float: left;
+	margin-top: 4px;
+	margin-right: 4px;
+	user-select: none;
+}
+
+.post .content {
+	display: inline-block;
+	margin-top: 4px;
+	border-bottom: 1px solid;
+	border-right: 1px solid;
+	padding: 4px 8px;
+	max-width: 80%;
+}
+
+.body {
+	word-break: normal;
+	overflow-wrap: anywhere;
+}
+
+.meta {
+	margin-bottom: 4px;
+}
+
+.meta a {
+	color:#0F0C5D;
+}
+
+.body .greentext {
+	display: block;
+}
+
+.menu {
+	position: relative;
+	cursor: pointer;
+	font-size: 10px;
+	user-select: none;
+}
+
+.menu .options {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	font-size: 16px;
+}
+
+.menu .options>* {
+	border-bottom: 1px solid;
+	padding: 2px 4px;
+}
+
+.banned {
+	font-weight: bold;
+}
+
+.template,
+.hidden {
+	display: none;
+}
+
+.banner {
+	text-align: center;
+}
+
+.banner .title {
+	font-family: 'Impact', sans-serif;
+	font-size: 64px;
+	font-weight: bold;
+}
+
+.control .button {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.control {
+	display: flex;
+	user-select: none;
+	gap: 4px;
+	padding: 0px 12px;
+}
+
+.control .notification {
+	flex: 1;
+	text-align: right;
+	font-weight: bold;
+}

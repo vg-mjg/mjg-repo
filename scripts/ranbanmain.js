@@ -37,7 +37,9 @@ function randomizeBanner() {
 }
 
 // 3) On page load, pick one
-window.addEventListener('DOMContentLoaded', randomizeBanner);
+window.addEventListener('DOMContentLoaded', function(){
+  randomizeBanner();
+  document.getElementById('banner').addEventListener('click', randomizeBanner);
+});
 
 // 4) On click, pick another
-document.getElementById('banner').addEventListener('click', randomizeBanner);

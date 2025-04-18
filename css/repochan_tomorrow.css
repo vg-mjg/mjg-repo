@@ -1,0 +1,95 @@
+body {
+	background-color: #1d1f21;
+	color: #c5c8c6;
+}
+
+a, a:visited {
+	color: #81a2be !important;
+	text-decoration: none;
+}
+
+.form {
+	background-color: #282a2e;
+	border-color: #282a2e;
+}
+
+.form.floating .drag {
+	border-bottom-color: #282a2e;
+}
+
+.row .error {
+	color: red;
+}
+
+.header .name {
+	color: #c5c8c6;
+	font-weight: bold;
+}
+
+.header .title {
+	color: #b294bb;
+	font-weight: bold;
+}
+
+.header .numbers {
+	color: #5F89AC;
+}
+
+.banner .start span {
+	color: #323151;
+}
+
+.banner .start span:hover {
+	color: black;
+}
+
+.divider {
+	border-bottom-color: #282a2e;
+}
+
+.divider.limit {
+	border-color: red;
+}
+
+.post .arrows {
+	color: #282a2e;
+}
+
+.post .content {
+	background-color: #282a2e;
+	border-bottom-color: #282a2e;
+	border-right-color: #282a2e;
+}
+
+.body .greentext {
+	color: #b5bd68;
+}
+
+.post .content .body .reference {
+	color: #5F89AC;
+	text-decoration: underline;
+}
+
+.menu .options {
+	background-color: #282a2e;
+}
+
+.menu .options>* {
+	border-bottom-color: #282a2e;
+}
+
+.banned {
+	color: red;
+}
+
+.banner .title {
+	color: #a10000;
+}
+
+.control .button {
+	color: blue;
+}
+
+.control .notification {
+	color: red;
+}
