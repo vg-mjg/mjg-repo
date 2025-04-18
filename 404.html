@@ -778,7 +778,8 @@
 						scrollToPost(globalData.threadId)
 					}
 					if (resp.title) {
-						document.title = resp.title + " - 4han"
+						const decodedTitle = $("<div/>").html(resp.title).text()
+						document.title = decodedTitle + " - 4han"
 					}
 					globalData.threadId = resp.threadId
 				})
