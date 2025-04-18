@@ -482,16 +482,23 @@
 				headers: authHeaders
 			})
 				.then(body => body.json())
-				.then(data => data.forEach((entry, i) => {
-					if (i > 0) {
-						const d = $('<div/>').addClass('divider').appendTo($('#main'))
-						if (i === 20) {
-							d.addClass('limit')
+				.then(data => {
+					data.sort((a, b) => {
+						let aLast = ((a.posts ?? []).length > 0) ? a.posts[a.posts.length - 1] : a.thread
+						let bLast = ((b.posts ?? []).length > 0) ? b.posts[b.posts.length - 1] : b.thread
+						return bLast.postTime - aLast.postTime
+					})
+					data.forEach((entry, i) => {
+						if (i > 0) {
+							const d = $('<div/>').addClass('divider').appendTo($('#main'))
+							if (i === 20) {
+								d.addClass('limit')
+							}
 						}
-					}
-					const op = renderOP(entry.thread).appendTo($('#main'))
-					entry.posts.forEach(post => renderPost(post).appendTo(op))
-				}))
+						const op = renderOP(entry.thread).appendTo($('#main'))
+						entry.posts.forEach(post => renderPost(post).appendTo(op))
+					})
+				})
 		}
 
 		function showNotFound() {
