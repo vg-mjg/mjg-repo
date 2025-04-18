@@ -113,6 +113,10 @@ textarea {
 	margin-right: 12px;
 	margin-left: 12px;
 	cursor: pointer;
+	max-width: 90%;
+}
+
+.thumbnail {
 	max-width: 200px;
 	max-height: 200px;
 }

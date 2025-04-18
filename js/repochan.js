@@ -174,11 +174,13 @@ function renderSharedData(container, data) {
 	container.find('.meta .data').text(`(${toReadableFileSize(data.imageData.fileSize)}, ${data.imageData.dimensions[0]}x${data.imageData.dimensions[1]})`);
 	const image = $('<img/>').attr('src', imageUrl(data._id, true)).prependTo(container.find('.body'));
 	image[0].classList.add("postimage");
+	image[0].classList.add("thumbnail");
 	image.on('click', function () {
 		const expand = !$(this).data('expanded');
 		console.log(expand);
 		$(this).data('expanded', expand);
 		$(this).attr('src', imageUrl(data._id, !expand));
+		this.classList.toggle('thumbnail');
 	})
 
 	container.find('.meta').after(image);
