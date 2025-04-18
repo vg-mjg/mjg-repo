@@ -536,7 +536,9 @@
 			}
 			image.on('click', function () {
 				const expand = !$(this).data('expanded')
-				image.toggleClass('spoiler', !expand)
+				if (data.imageData.spoiler) {
+					image.toggleClass('spoiler', !expand)
+				}
 				$(this).data('expanded', expand)
 				$(this).attr('src', imageUrl(data._id, !expand))
 			})
@@ -698,10 +700,12 @@
 							res.text().then(text => $('.error').text(text))
 							return
 						}
+						$(e.target).trigger('reset')
 						if (!data.threadId) {
 							res.text().then(text => window.location = '/' + text)
 							return
 						}
+						window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" })
 						$('.error').text("")
 					})
 					.catch(err => console.log(err));
