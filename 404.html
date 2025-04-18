@@ -141,6 +141,7 @@
 
 		.bannerImage {
 			max-width: 400px;
+			cursor: pointer;
 		}
 
 		.divider {
@@ -608,6 +609,10 @@
 			return false
 		}
 
+		function randomBannerUrl() {
+			return 'https://repo.riichi.moe/boards/banners/' + banners[banners.length * Math.random() | 0]
+		}
+
 		var submission_inflight = false;
 		$(() => {
 			$('form').trigger('reset')
@@ -654,7 +659,9 @@
 				window.location.reload();
 			})
 
-			$('.bannerImage').attr('src', 'https://repo.riichi.moe/boards/banners/' + banners[banners.length * Math.random() | 0])
+			$('.bannerImage')
+				.attr('src', randomBannerUrl())
+				.on('click', (e) => e.target.setAttribute('src', randomBannerUrl()))
 
 			$('form').on('submit', function (e) {
 				e.preventDefault()
