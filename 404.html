@@ -777,6 +777,9 @@
 					if (globalData.threadId !== resp.threadId) {
 						scrollToPost(globalData.threadId)
 					}
+					if (resp.title) {
+						document.title = resp.title + " - 4han"
+					}
 					globalData.threadId = resp.threadId
 				})
 				$('.header .reply').addClass('hidden')
