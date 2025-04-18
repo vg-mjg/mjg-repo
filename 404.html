@@ -369,6 +369,7 @@
 			container.find('.header .date').text(new Date(data.postTime).toLocaleString())
 			container.find('.header .link').attr('href', data.postNumber)
 			container.find('.header .link').attr('id', data.postNumber)
+			container.find('.header .link').attr('name', `p${data.postNumber}`)
 			container.find('.header .numbers').text(data.postNumber).on('click', (e) => {
 				if (!getThreadId()) {
 					window.location = '/' + data.postNumber
@@ -526,6 +527,7 @@
 		function scrollToPost(postNumber) {
 			const post = document.querySelectorAll(`[data-post="${postNumber}"]`)[0]
 			if (post) {
+				history.pushState(`#p${postNumber}`, "")
 				post.scrollIntoView({ behavior: "smooth" })
 				return true
 			}
