@@ -792,10 +792,10 @@
 			$('form').on('submit', function (e) {
 				e.preventDefault()
 
-				if (globalData.submission_inflight) {
+				if (globalData.submissionInflight) {
 					return
 				}
-				globalData.submission_inflight = true
+				globalData.submissionInflight = true
 
 				const formData = new FormData(e.target)
 				formData.append('deleteId', deleteId)
@@ -809,7 +809,7 @@
 					body: formData
 				})
 					.then(res => {
-						globalData.submission_inflight = false
+						globalData.submissionInflight = false
 
 						if (res.status !== 200) {
 							res.text().then(text => $('.error').text(text))
