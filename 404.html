@@ -190,7 +190,8 @@
 			min-height: 70px;
 		}
 
-		.body {
+		.post .body,
+		.thread .body {
 			padding-left: 24px;
 			padding-bottom: 8px;
 			padding-top: 15px;
@@ -262,6 +263,10 @@
 			padding: 0px 12px;
 		}
 
+		.control .spread {
+			flex: 1;
+		}
+
 		.control .notification {
 			flex: 1;
 			text-align: right;
@@ -297,6 +302,31 @@
 
 		.icon.minus::before {
 			content: '－';
+		}
+
+		#catalog {
+			padding: 16px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 16px;
+		}
+
+		#catalog .catalog-item {
+			text-align: center;
+		}
+
+		#catalog .catalog-item .replies {
+			font-size: 12px;
+		}
+
+		#catalog .catalog-item .image {
+			max-width: 190px;
+			cursor: pointer;
+		}
+
+		#catalog .catalog-item .body .title {
+			font-weight: bold;
 		}
 	</style>
 </head>
@@ -338,11 +368,11 @@
 			"31.png",
 			"32.gif",
 		];
-		const dev = window.location.hostname === 'localhost ';
+		const dev = window.location.hostname === 'localhost';
 		const baseUrl = dev ? "http://localhost:9515/" : "https://riichi.moe/api/";
 
 		function imageUrl(id, thumb) {
-			if (dev === 'localhost') {
+			if (dev) {
 				return `http://localhost:8080/${thumb ? '/thumb' : '/full'}/${id}`
 			}
 			return `${baseUrl}bulletin/images${thumb ? '/thumb' : '/full'}/${id}`
@@ -639,6 +669,31 @@
 				})
 		}
 
+		function loadCatalog() {
+			return fetch(baseUrl + "bulletin/catalog", {
+				headers: authHeaders
+			})
+				.then(body => body.json())
+				.then(data => {
+					$("#catalog").removeClass('hidden')
+					for (const thread of data) {
+						const item = $(".catalog-item.template")
+							.clone()
+							.removeClass('template')
+						$('<img/>').addClass('image').attr('src', imageUrl(thread._id, true)).on('click', () => {
+							window.location = '/' + thread.postNumber
+						}).prependTo(item)
+
+						item.find('.replies').text(`${thread.totalReplies ?? 0} Replies`)
+						if (thread.title) {
+							item.find('.body .title').html(thread.title + ':')
+						}
+						item.find('.body .content').html(thread.body)
+						item.appendTo($("#catalog"))
+					}
+				})
+		}
+
 		function startRefreshTimer(data, max = 10, current = max) {
 			$('.timer').text(current)
 			if (current === 0) {
@@ -787,6 +842,11 @@
 			}
 			$('.control .reply').addClass('hidden')
 
+			if (window.location.pathname === "/catalog") {
+				loadCatalog()
+				return
+			}
+
 			loadIndex()
 		})
 	</script>
@@ -849,6 +909,13 @@
 			</div>
 		</div>
 	</div>
+	<div class="catalog-item template">
+		<div class="replies"></div>
+		<div class="body">
+			<span class="title"></span>
+			<span class="content"></span>
+		</div>
+	</div>
 	<div class="banner">
 		<div class="title">4han</div>
 		<img class="bannerImage">
@@ -887,9 +954,14 @@
 		<span class="bottom button">Bottom</span>
 		<span class="reply button">Reply</span>
 		<span class="update button">Update</span>
+		<span class="spread"></span>
+		<span class="catalog button"><a href="/catalog">Catalog</a></span>
 	</div>
 	<div class="divider"></div>
 	<div id="main">
+	</div>
+	<div id="catalog" class="hidden">
+
 	</div>
 	<div class="divider"></div>
 
@@ -951,6 +1023,7 @@
 			</div>
 		</form>
 	</div>
+
 </body>
 
 </html>
