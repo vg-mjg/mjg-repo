@@ -320,6 +320,7 @@ function get_preferred_stylesheet(){
   ).attr('title') || null;
 }
 
+setStylesheetFromLocalStorage();
 $(() => {
 	setStylesheetFromLocalStorage();
 	$('form').trigger('reset');
