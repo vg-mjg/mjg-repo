@@ -712,6 +712,10 @@
 				loadUpdate(data.threadId, data.lastPostNumber).then(n => {
 					data.lastPostNumber = n.lastPostNumber
 					if (n.postsLoaded) {
+						globalData.originalTitle = globalData.originalTitle ?? document.title
+						globalData.unreadPosts = (globalData.unreadPosts ?? 0) + n.postsLoaded
+						document.title = `(${globalData.unreadPosts}) ${globalData.originalTitle}`
+
 						data.refreshTimer = setTimeout(() => {
 							startRefreshTimer(data)
 						}, 1000)
@@ -834,6 +838,17 @@
 					return;
 				}
 				startRefreshTimer(globalData, 0)
+			})
+
+			$(document).on('scroll', (e) => {
+				if (globalData.unreadPosts) {
+					const doc = document.documentElement;
+					if (doc.scrollTop + doc.clientHeight >= doc.scrollHeight - 100) {
+						document.title = globalData.originalTitle
+						globalData.unreadPosts = 0
+						globalData.originalTitle = undefined
+					}
+				}
 			})
 
 			if (globalData.threadId) {
