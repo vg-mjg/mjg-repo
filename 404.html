@@ -453,7 +453,7 @@
 				window.location = "/" + postNumber
 			})
 			container.find('.header .title').html(data.title)
-			container.find('.header .name').text(data.name ?? "Jyanshi")
+			container.find('.header .name').html(data.name ?? "Jyanshi")
 			container.find('.header .date').text(new Date(data.postTime).toLocaleString())
 			container.find('.header .link').attr('href', data.postNumber)
 			container.find('.header .link').attr('id', data.postNumber)
