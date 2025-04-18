@@ -609,6 +609,7 @@
 						}
 						$('.error').text("")
 						$('.form.floating').addClass('hidden')
+						$(e.target).trigger('reset')
 						loadUpdate(data.threadId, data.lastPostNumber).then(n => data.lastPostNumber = n.lastPostNumber)
 					})
 					.catch(err => console.log(err));
