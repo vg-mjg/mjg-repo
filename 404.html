@@ -187,7 +187,7 @@
 			border-right: 1px solid #c1c7d9;
 			padding: 4px 8px;
 			max-width: 80%;
-			min-width: 30%;
+			min-width: 600px;
 			min-height: 70px;
 		}
 
@@ -269,6 +269,35 @@
 			font-weight: bold;
 			color: red;
 		}
+
+		.expander-link {
+			color: blue;
+			cursor: pointer;
+		}
+
+		.collapser-icon {
+			display: inline-block;
+			color: white;
+			font-weight: bold;
+			font-size: 16px;
+			line-height: 16px;
+			height: 16px;
+			width: 16px;
+			text-align: center;
+			background-color: #9198ce;
+			border: 2px solid #323151;
+			border-radius: 3px;
+			cursor: pointer;
+		}
+
+		.collapser-icon.plus::before {
+			content: '＋';
+		}
+
+
+		.collapser-icon.minus::before {
+			content: '－';
+		}
 	</style>
 </head>
 
@@ -309,7 +338,15 @@
 			"31.png",
 			"32.gif",
 		];
-		const baseUrl = window.location.hostname === 'localhost' ? "http://localhost:9515/" : "https://riichi.moe/api/";
+		const dev = window.location.hostname === 'localhost ';
+		const baseUrl = dev ? "http://localhost:9515/" : "https://riichi.moe/api/";
+
+		function imageUrl(id, thumb) {
+			if (dev === 'localhost') {
+				return `http://localhost:8080/${thumb ? '/thumb' : '/full'}/${id}`
+			}
+			return `${baseUrl}bulletin/images${thumb ? '/thumb' : '/full'}/${id}`
+		}
 
 		function uuidv4() {
 			return "10000000-1000-4000-8000-100000000000".replace(/[018]/g, c =>
@@ -329,6 +366,17 @@
 			return newDeleteId
 		}
 
+		function getThreadId() {
+			const match = window.location.pathname.match(/(\d+)\/?/)
+			if (!match) {
+				return null
+			}
+			return match[0]
+		}
+
+		const globalData = {
+			threadId: getThreadId()
+		}
 		const deleteId = getDeleteId()
 		const authToken = localStorage.getItem('authToken')
 		const authHeaders = authToken ? {
@@ -345,17 +393,33 @@
 			return fileSize + "B"
 		}
 
-		function imageUrl(id, thumb) {
-			if (window.location.hostname === 'localhost') {
-				return `http://localhost:8080/${thumb ? '/thumb' : '/full'}/${id}`
-			}
-			return `${baseUrl}bulletin/images${thumb ? '/thumb' : '/full'}/${id}`
-		}
-
 		function renderOP(entry) {
 			const newThread = $('.thread.template').clone()
 			newThread.removeClass('template')
+			const ommittedReplies = entry.totalReplies - 5
 			renderSharedData(newThread, entry)
+
+			if (ommittedReplies <= 0 || globalData.threadId) {
+				return newThread;
+			}
+
+			newThread.find('.expander').removeClass('hidden')
+			newThread.find('.expander .replies-count').text(`${ommittedReplies} replies omitted.`)
+			newThread.find('.expander .collapser-icon, .expander-link').on('click', () => {
+				fetch(baseUrl + "bulletin/" + entry.postNumber, {
+					headers: authHeaders
+				})
+					.then(body => body.json())
+					.then(data => {
+						newThread.find('.post').remove();
+						newThread.find('.expander').addClass('hidden')
+						data.posts.forEach(post => {
+							const newPost = renderPost(post)
+							newPost.appendTo(newThread);
+						})
+					});
+			})
+
 			return newThread
 		}
 
@@ -533,7 +597,7 @@
 				.catch(() => showNotFound())
 				.then(body => body.json())
 				.then(data => {
-					const op = renderOP(data.thread).appendTo($('#main'))
+					const op = renderOP(data.thread, data.posts).appendTo($('#main'))
 					data.posts.forEach(entry => {
 						renderPost(entry).appendTo(op)
 					})
@@ -548,15 +612,6 @@
 						title: data.thread.title
 					}
 				})
-		}
-
-
-		function getThreadId() {
-			const match = window.location.pathname.match(/(\d+)\/?/)
-			if (!match) {
-				return null
-			}
-			return match[0]
 		}
 
 		function loadUpdate(threadId, lastPostId) {
@@ -613,69 +668,62 @@
 			return 'https://repo.riichi.moe/boards/banners/' + banners[banners.length * Math.random() | 0]
 		}
 
-		var submission_inflight = false;
 		$(() => {
 			$('form').trigger('reset')
 			$('input[type=checkbox]').prop('checked', false);
 			$('.form.floating .x').on('click', () => $('.form.floating').addClass('hidden'))
 
-			const data = {
-				threadId: getThreadId()
-			}
-
 			$('html')
 				.on("mousemove", function (e) {
-					if (!data.isDragging) {
+					if (!globalData.isDragging) {
 						return
 					}
-					$('.form.floating').css('top', e.pageY - data.topPos)
-					$('.form.floating').css('left', e.pageX - data.leftPos)
+					$('.form.floating').css('top', e.pageY - globalData.topPos)
+					$('.form.floating').css('left', e.pageX - globalData.leftPos)
 					e.preventDefault()
 				})
 				.mouseup(function () {
-					data.isDragging = false
+					globalData.isDragging = false
 				})
 			$(".form.floating .drag")
 				.mousedown(function (e) {
-					data.isDragging = true
+					globalData.isDragging = true
 					const offset = $(this).offset()
-					data.leftPos = e.pageX - offset.left
-					data.topPos = e.pageY - offset.top
+					globalData.leftPos = e.pageX - offset.left
+					globalData.topPos = e.pageY - offset.top
 					e.preventDefault()
 				})
-
-			$('.control .top').on('click', () => window.scrollTo({ top: 0, behavior: "smooth" }))
-			$('.control .bottom').on('click', () => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" }))
-
-			$('.control .reply').on('click', (e) => {
-				$('.form.top textarea').append(">>" + data.threadId + "\r\n").focus()
-			})
-
-			$('.update').on('click', () => {
-				if (data.threadId) {
-					loadUpdate(data.threadId, data.lastPostNumber).then(n => data.lastPostNumber = n.lastPostNumber)
-					return;
-				}
-				window.location.reload();
-			})
 
 			$('.bannerImage')
 				.attr('src', randomBannerUrl())
 				.on('click', (e) => e.target.setAttribute('src', randomBannerUrl()))
 
+			$('.control .top').on('click', () => window.scrollTo({ top: 0, behavior: "smooth" }))
+			$('.control .bottom').on('click', () => window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" }))
+			$('.control .reply').on('click', (e) => {
+				$('.form.top textarea').append(">>" + globalData.threadId + "\r\n").focus()
+			})
+			$('.control .update').on('click', () => {
+				if (globalData.threadId) {
+					loadUpdate(globalData.threadId, globalData.lastPostNumber).then(n => globalData.lastPostNumber = n.lastPostNumber)
+					return;
+				}
+				window.location.reload();
+			})
+
 			$('form').on('submit', function (e) {
 				e.preventDefault()
 
-				if (submission_inflight) {
+				if (globalData.submission_inflight) {
 					return
 				}
-				submission_inflight = true
+				globalData.submission_inflight = true
 
 				const formData = new FormData(e.target)
 				formData.append('deleteId', deleteId)
 				let url = baseUrl + "bulletin"
-				if (data.threadId) {
-					url += '/' + data.threadId
+				if (globalData.threadId) {
+					url += '/' + globalData.threadId
 				}
 				fetch(url, {
 					method: "post",
@@ -683,14 +731,14 @@
 					body: formData
 				})
 					.then(res => {
-						submission_inflight = false
+						globalData.submission_inflight = false
 
 						if (res.status !== 200) {
 							res.text().then(text => $('.error').text(text))
 							return
 						}
 						$(e.target).trigger('reset')
-						if (!data.threadId) {
+						if (!globalData.threadId) {
 							res.text().then(text => window.location = '/' + text)
 							return
 						}
@@ -698,7 +746,7 @@
 						$('.error').text("")
 						$('.form.floating').addClass('hidden')
 						$(e.target).trigger('reset')
-						loadUpdate(data.threadId, data.lastPostNumber).then(n => data.lastPostNumber = n.lastPostNumber)
+						loadUpdate(globalData.threadId, globalData.lastPostNumber).then(n => globalData.lastPostNumber = n.lastPostNumber)
 					})
 					.catch(err => console.log(err));
 			})
@@ -706,22 +754,22 @@
 			$('#refresh').on('input', (e) => {
 				if (!e.target.checked) {
 					$('.timer').text("")
-					if (data.refreshTimer) {
-						clearTimeout(data.refreshTimer);
+					if (globalData.refreshTimer) {
+						clearTimeout(globalData.refreshTimer);
 					}
 					return;
 				}
-				startRefreshTimer(data, 0)
+				startRefreshTimer(globalData, 0)
 			})
 
-			if (data.threadId) {
-				loadThread(data.threadId).then((resp) => {
-					data.lastPostNumber = resp.lastPostNumber
+			if (globalData.threadId) {
+				loadThread(globalData.threadId).then((resp) => {
+					globalData.lastPostNumber = resp.lastPostNumber
 
-					if (data.threadId !== resp.threadId) {
-						scrollToPost(data.threadId)
+					if (globalData.threadId !== resp.threadId) {
+						scrollToPost(globalData.threadId)
 					}
-					data.threadId = resp.threadId
+					globalData.threadId = resp.threadId
 				})
 				$('.header .reply').addClass('hidden')
 				return;
@@ -752,9 +800,14 @@
 					<div class="delete">Delete</div>
 				</div>
 			</span>
-
 		</span>
 		<div class="body"></div>
+		<div class="expander hidden">
+			<div class="collapser-icon plus"></div>
+			<span class="replies-count"></span>
+			<span class="expander-link">Click here</span>
+			<span> to view.</span>
+		</div>
 	</div>
 	<div class="post template">
 		<span class="arrows">>></span>
