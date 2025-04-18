@@ -387,6 +387,7 @@
 		];
 		const dev = window.location.hostname === 'localhost';
 		const baseUrl = dev ? "http://localhost:9515/" : "https://riichi.moe/api/";
+		const maxFileSize = 1024 * 1024;
 
 		function imageUrl(id, thumb) {
 			if (dev) {
@@ -844,6 +845,16 @@
 						loadUpdate(globalData.threadId, globalData.lastPostNumber).then(n => globalData.lastPostNumber = n.lastPostNumber)
 					})
 					.catch(err => console.log(err));
+			})
+
+			$('form input[type="file"]').on('change', (e) => {
+				const files = Array.from(e.target.files)
+				if (files.length && files[0].size > maxFileSize) {
+					$(e.target).parent().find('.error').text(`This file exceeds ${maxFileSize} bytes`)
+					e.target.value = null
+				} else {
+					$(e.target).parent().find('.error').text('')
+				}
 			})
 
 			$('#refresh').on('input', (e) => {
