@@ -342,40 +342,45 @@
 	<script>
 		const banners = [
 			"0.png",
-			"1.png",
-			"2.jpg",
-			"3.png",
-			"4.png",
-			"5.png",
-			"6.png",
-			"7.png",
-			"8.png",
-			"9.png",
-			"10.jpg",
 			"11.png",
-			"12.jpg",
 			"13.jpg",
-			"14.jpg",
 			"15.jpg",
-			"16.png",
 			"17.jpg",
-			"18.jpg",
 			"19.jpg",
 			"20.jpg",
-			"21.jpg",
 			"22.jpg",
-			"23.jpg",
 			"24.png",
-			"25.png",
 			"26.png",
-			"27.png",
 			"28.png",
+			"2.jpg",
+			"31.png",
+			"3.png",
+			"4.png",
+			"6.png",
+			"8.png",
+			"10.jpg",
+			"12.jpg",
+			"14.jpg",
+			"16.png",
+			"18.jpg",
+			"1.png",
+			"21.jpg",
+			"23.jpg",
+			"25.png",
+			"27.png",
 			"29.png",
 			"30.png",
-			"31.png",
 			"32.gif",
+			"5.png",
+			"7.png",
+			"9.png",
+			"4han/0.gif",
+			"4han/1.png",
+			"4han/2.gif",
+			"4han/3.gif",
+			"4han/4.png",
 		];
-		const dev = window.location.hostname === 'localhost ';
+		const dev = window.location.hostname === 'localhost';
 		const baseUrl = dev ? "http://localhost:9515/" : "https://riichi.moe/api/";
 
 		function imageUrl(id, thumb) {
@@ -627,10 +632,10 @@
 
 		function updateCount(count) {
 			$('.control.bottom .count').text(count)
-			if (count > 450) {
-				$('.control.bottom .notification').text("Thread is nearing post limit")
-			} else if (count >= 500) {
-				$('.control.bottom .notification').text("Post limit reached")
+			if (count > 275) {
+				$('.control.bottom .notification').text("Thread is nearing bump limit")
+			} else if (count >= 300) {
+				$('.control.bottom .notification').text("Bump limit reached")
 			}
 		}
 
@@ -931,8 +936,9 @@
 		</div> -->
 		<div>[<a href="https://repo.riichi.moe/index2.html" class="repo">Repo</a>]</div>
 		<div class="announcements">
-			<span>Sorry for any deleted posts, it was probably an accident. 4hanX creator please repost or upload to
-				repo.</span>
+			<div>Sorry for any deleted posts, it was probably an accident. 4hanX creator please repost or upload to
+				repo.</div>
+			<div>Bump Limit set to 300 posts, thread limit at ~40 threads.</div>
 		</div>
 		<div class="form top">
 			<form>
