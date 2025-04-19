@@ -591,17 +591,20 @@
 		}
 
 		function renderOP(entry) {
-			const newThread = $('.thread.template').clone()
-			newThread.removeClass('template')
-			renderSharedData(newThread, entry)
+			const newThread = $('.thread.template').clone();
+			newThread.removeClass('template');
+			if(!'imageData' in Object.keys(entry)){
+				newThread.find('.meta').addClass('hidden');
+			}
+			renderSharedData(newThread, entry);
 
-			const ommittedReplies = entry.replies - 5
+			const ommittedReplies = entry.replies - 5;
 			if (!entry.replies || ommittedReplies <= 0 || globalData.threadId) {
 				return newThread;
 			}
 
-			newThread.find('.expander').removeClass('hidden')
-			newThread.find('.expander .replies-count').text(`${ommittedReplies} replies omitted.`)
+			newThread.find('.expander').removeClass('hidden');
+			newThread.find('.expander .replies-count').text(`${ommittedReplies} replies omitted.`);
 			newThread.find('.expander .icon.plus, .expander .link').on('click', () => {
 				fetch(baseUrl + "bulletin/" + entry.postNumber, {
 					headers: authHeaders
@@ -616,15 +619,15 @@
 							newPost.appendTo(newThread);
 						})
 					});
-			})
+			});
 
 			newThread.find('.collapser .icon.minus, .collapser .link').on('click', () => {
 				newThread.find('.post').slice(0, -5).remove();
 				newThread.find('.expander').removeClass('hidden')
 				newThread.find('.collapser').addClass('hidden')
-			})
+			});
 
-			return newThread
+			return newThread;
 		}
 
 		function loadIndex() {
@@ -890,13 +893,13 @@
 				.then(data => {
 					const divider = $('<div/>').addClass('divider')
 					const threads = data.flatMap((entry) => {
-						const op = renderOP(entry)
+						const op = renderOP(entry);
 						return [
 							$('<div/>').addClass('divider'),
 							op,
 						]
-					}).slice(1)
-					$('#main').append(threads)
+					}).slice(1);
+					$('#main').append(threads);
 				})
 		}
 
