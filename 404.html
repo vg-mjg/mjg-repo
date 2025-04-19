@@ -597,7 +597,7 @@
 		function renderOP(entry) {
 			const newThread = $('.thread.template').clone();
 			newThread.removeClass('template');
-			if(!('imageData' in Object.keys(entry))){
+			if(!(Object.keys(entry).includes('imageData'))){
 				newThread.find('.meta').addClass('hidden');
 			}
 			renderSharedData(newThread, entry);
@@ -788,7 +788,7 @@
 			container.find('.meta a').attr('filename', data.imageData.fileName)
 			container.find('.meta .data').text(`(${toReadableFileSize(data.imageData.fileSize)}, ${data.imageData.dimensions[0]}x${data.imageData.dimensions[1]})`)
 			const imageWrapper = $('<a>', { href: imageUrl(data._id), onclick: 'return false' })
-			const [tn_width, tn_height] = getThumbSizes(...data.imageData.dimensions);
+			const [tn_width, tn_height] = getThumbSizes(...data.imageData.dimensions, Object.keys(data).includes('lastTouchedTime'));
 			const image = $('<img>', { class: 'image', src: imageUrl(data._id, true) }).attr('width', tn_width).attr('height', tn_height).appendTo(imageWrapper);
 			if (data.imageData.spoiler) {
 				image.addClass('spoiler')
@@ -1179,13 +1179,13 @@
 		function restoreScrollPos(){
 			const scrollpos = localStorage.getItem('scrollpos');
 			if (scrollpos){
-				window.scrollTo(0, scrollpos);
+				window.scrollTo(0, scrollpos - 256);
 			}
 		}
 
-		function getThumbSizes(width, height){
+		function getThumbSizes(width, height, isOp){
 			// Just provide them on the endpoint...
-			const MAX = 512;
+			const MAX = isOp? 512: 256;
 			if (width < MAX && height < MAX){
 				return [width, height];
 			}
