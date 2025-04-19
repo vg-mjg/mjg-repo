@@ -970,7 +970,7 @@
 			$(document).on('mouseenter', '.reference', (e) => {
 				const elem = $(e.target)
 				const postNumber = parseInt(elem.text().slice(2), 10)
-				const targetNumbers = $(`.post .numbers[data-post="${postNumber}"]`)
+				const targetNumbers = $(`.post .numbers[data-post="${postNumber}"]`).first()
 				if (!targetNumbers) {
 					return
 				}
