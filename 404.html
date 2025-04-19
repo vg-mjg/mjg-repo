@@ -672,8 +672,13 @@
 					window.location = '/' + data.postNumber
 					return;
 				}
+				let textArea = $('.form.floating textarea')
+				if ($('.form.floating').hasClass('hidden')) {
+					textArea.text('')
+				}
 				$('.form.floating').removeClass('hidden').css('top', e.pageY).css('left', e.pageX);
-				$('.form.floating textarea').append(">>" + data.postNumber + "\r\n").focus()
+				textArea.append(">>" + data.postNumber + "\r\n").focus()
+				textArea.prop('selectionStart', textArea.val().length)
 			})
 
 			container.find('.header .reply a').attr('href', '/' + data.postNumber)
