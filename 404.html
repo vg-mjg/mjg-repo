@@ -822,6 +822,10 @@
 		}
 
 		function loadCatalog() {
+			$('.control .update').remove()
+			$('.control #refresh').remove()
+			$('.control label[for="refresh"]').remove()
+
 			return fetch(baseUrl + "bulletin/catalog", {
 				headers: authHeaders
 			})
