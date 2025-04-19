@@ -805,6 +805,9 @@
 		}
 
 		function loadThread(threadId) {
+			$('.control #refresh').removeClass('hidden')
+			$('.control label[for="refresh"]').removeClass('hidden')
+
 			return fetch(baseUrl + "bulletin/" + threadId, {
 				headers: authHeaders
 			})
@@ -846,10 +849,6 @@
 		}
 
 		function loadCatalog() {
-			$('.control .update').remove()
-			$('.control #refresh').remove()
-			$('.control label[for="refresh"]').remove()
-
 			return fetch(baseUrl + "bulletin/catalog", {
 				headers: authHeaders
 			})
@@ -1269,8 +1268,8 @@
 		<span class="top button">Top</span>
 		<span class="reply button">Reply</span>
 		<span class="update button">Update</span>
-		<input type="checkbox" name="refresh" id="refresh" checked="false">
-		<label for="refresh">Auto</label>
+		<input class="hidden" type="checkbox" name="refresh" id="refresh" checked="false">
+		<label class="hidden" for="refresh">Auto</label>
 		<span class="timer"></span>
 		<span id="refresh-error"></span>
 		<span class="notification"></span>
