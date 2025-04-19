@@ -1190,9 +1190,9 @@
 				return [width, height];
 			}
 			if (width > height){
-				return [MAX, Math.ceil(height / MAX * width)];
+				return [MAX, Math.ceil(MAX / width * height)];
 			}
-			return [Math.ceil(width / MAX * height), MAX];
+			return [Math.ceil(MAX / height * width), MAX];
 		}
 	</script>
 	<div class="thread template">
