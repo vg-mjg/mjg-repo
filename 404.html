@@ -574,8 +574,10 @@
 		}
 
 		const globalData = {
-			threadId: getThreadId()
-		}
+			threadId: getThreadId(),
+			imagesTotal: 0,
+			imagesLoaded: 0,
+		};
 		const deleteId = getDeleteId()
 		const authToken = localStorage.getItem('authToken')
 		const authHeaders = authToken ? {
@@ -599,6 +601,9 @@
 			newThread.removeClass('template');
 			if(!(Object.keys(entry).includes('imageData'))){
 				newThread.find('.meta').addClass('hidden');
+			}
+			if(Object.keys(entry).includes('lastTouchedTime')){
+				globalData.realThreadId = entry.postNumber;
 			}
 			renderSharedData(newThread, entry);
 
@@ -706,7 +711,7 @@
 					textArea.text('')
 				}
 				$('.form.floating').removeClass('hidden').css('top', e.pageY).css('left', e.pageX);
-				textArea.append(">>" + data.postNumber + "\r\n").focus()
+				textArea.append("&gt;&gt;" + data.postNumber + "\r\n").focus()
 				textArea.prop('selectionStart', textArea.val().length)
 			})
 
@@ -788,29 +793,29 @@
 			container.find('.meta a').attr('filename', data.imageData.fileName)
 			container.find('.meta .data').text(`(${toReadableFileSize(data.imageData.fileSize)}, ${data.imageData.dimensions[0]}x${data.imageData.dimensions[1]})`)
 			const imageWrapper = $('<a>', { href: imageUrl(data._id), onclick: 'return false' })
-			const [tn_width, tn_height] = getThumbSizes(...data.imageData.dimensions, Object.keys(data).includes('lastTouchedTime'));
-			const image = $('<img>', { class: 'image', src: imageUrl(data._id, true) }).attr('width', tn_width).attr('height', tn_height).appendTo(imageWrapper);
+			const image = $('<img>', { class: 'image', src: imageUrl(data._id, true) }).appendTo(imageWrapper);
 			if (data.imageData.spoiler) {
-				image.addClass('spoiler')
+				image.addClass('spoiler');
 			}
 			image.on('click', function () {
-				const expand = !$(this).data('expanded')
-				if (!expand){
-					this.setAttribute('width', tn_width);
-					this.setAttribute('height', tn_height);
-				}
-				else{
-					this.removeAttribute('width');
-					this.removeAttribute('height');
-				}
+				const expand = !$(this).data('expanded');
 				if (data.imageData.spoiler) {
-					image.toggleClass('spoiler', !expand)
+					image.toggleClass('spoiler', !expand);
 				}
-				$(this).data('expanded', expand)
-				$(this).attr('src', imageUrl(data._id, !expand))
-			})
+				$(this).data('expanded', expand);
+				$(this).attr('src', imageUrl(data._id, !expand));
+			});
+			globalData.imagesTotal += 1;
+			image.on('load', function (){
+				globalData.imagesLoaded += 1;
+				if (globalData.imagesLoaded == globalData.imagesTotal){
+					if (globalData.threadId == globalData.realThreadId) {
+						restoreScrollPos();
+					}
+				}
+			});
 
-			container.find('.meta').after(imageWrapper)
+			container.find('.meta').after(imageWrapper);
 		}
 
 		function updateCount(replies = 0, totalReplies = 0) {
@@ -1147,9 +1152,6 @@
 					if (parseInt(globalData.threadId) !== resp.threadId) {
 						scrollToPost(globalData.threadId);
 					}
-					else {
-						restoreScrollPos();
-					}
 					if (resp.title) {
 						const decodedTitle = $("<div/>").html(resp.title).text();
 						document.title = decodedTitle + " - 4han";
@@ -1179,20 +1181,8 @@
 		function restoreScrollPos(){
 			const scrollpos = localStorage.getItem('scrollpos');
 			if (scrollpos){
-				window.scrollTo(0, scrollpos - 256);
+				window.scrollTo(0, scrollpos);
 			}
-		}
-
-		function getThumbSizes(width, height, isOp){
-			// Just provide them on the endpoint...
-			const MAX = isOp? 512: 256;
-			if (width < MAX && height < MAX){
-				return [width, height];
-			}
-			if (width > height){
-				return [MAX, Math.ceil(MAX / width * height)];
-			}
-			return [Math.ceil(MAX / height * width), MAX];
 		}
 	</script>
 	<div class="thread template">
