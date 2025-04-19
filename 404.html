@@ -784,12 +784,21 @@
 			container.find('.meta a').attr('filename', data.imageData.fileName)
 			container.find('.meta .data').text(`(${toReadableFileSize(data.imageData.fileSize)}, ${data.imageData.dimensions[0]}x${data.imageData.dimensions[1]})`)
 			const imageWrapper = $('<a>', { href: imageUrl(data._id), onclick: 'return false' })
-			const image = $('<img>', { class: 'image', src: imageUrl(data._id, true) }).appendTo(imageWrapper)
+			const [tn_width, tn_height] = getThumbSizes(...data.imageData.dimensions);
+			const image = $('<img>', { class: 'image', src: imageUrl(data._id, true) }).attr('width', tn_width).attr('height', tn_height).appendTo(imageWrapper);
 			if (data.imageData.spoiler) {
 				image.addClass('spoiler')
 			}
 			image.on('click', function () {
 				const expand = !$(this).data('expanded')
+				if (!expand){
+					this.setAttribute('width', tn_width);
+					this.setAttribute('height', tn_height);
+				}
+				else{
+					this.removeAttribute('width');
+					this.removeAttribute('height');
+				}
 				if (data.imageData.spoiler) {
 					image.toggleClass('spoiler', !expand)
 				}
@@ -1127,35 +1136,60 @@
 			})
 
 			if (globalData.threadId) {
+				$('.header .reply').addClass('hidden');
 				loadThread(globalData.threadId).then((resp) => {
-					globalData.lastPostNumber = resp.lastPostNumber
+					globalData.lastPostNumber = resp.lastPostNumber;
 
-					if (globalData.threadId !== resp.threadId) {
-						scrollToPost(globalData.threadId)
+					if (parseInt(globalData.threadId) !== resp.threadId) {
+						scrollToPost(globalData.threadId);
+					}
+					else {
+						restoreScrollPos();
 					}
 					if (resp.title) {
-						const decodedTitle = $("<div/>").html(resp.title).text()
-						document.title = decodedTitle + " - 4han"
+						const decodedTitle = $("<div/>").html(resp.title).text();
+						document.title = decodedTitle + " - 4han";
 					}
-					globalData.threadId = resp.threadId
+					globalData.threadId = resp.threadId;
 				})
-				$('.header .reply').addClass('hidden')
+				window.onbeforeunload = function(e) {
+					localStorage.setItem('scrollpos', window.scrollY);
+				};
 				return;
 			}
-			$('.control .reply').addClass('hidden')
+			$('.control .reply').addClass('hidden');
 
 			if (window.location.pathname === "/catalog") {
-				loadCatalog()
-				return
+				loadCatalog();
+				return;
 			}
 
 			if (window.location.pathname === "/latest") {
-				loadLatest()
-				return
+				loadLatest();
+				return;
 			}
 
-			loadIndex()
-		})
+			loadIndex();
+		});
+
+		function restoreScrollPos(){
+			const scrollpos = localStorage.getItem('scrollpos');
+			if (scrollpos){
+				window.scrollTo(0, scrollpos);
+			}
+		}
+
+		function getThumbSizes(width, height){
+			// Just provide them on the endpoint...
+			const MAX = 512;
+			if (width < MAX && height < MAX){
+				return [width, height];
+			}
+			if (width > height){
+				return [MAX, Math.ceil(height / MAX * width)];
+			}
+			return [Math.ceil(width / MAX * height), MAX];
+		}
 	</script>
 	<div class="thread template">
 		<div class="meta">
