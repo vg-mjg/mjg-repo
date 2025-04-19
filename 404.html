@@ -788,9 +788,8 @@
 				.then(body => body.json())
 				.then(data => {
 					const op = renderOP(data.thread, data.posts).appendTo($('#main'))
-					data.posts.forEach(entry => {
-						renderPost(entry).appendTo(op)
-					})
+					const posts = data.posts.map((entry) => renderPost(entry))
+					op.append(posts)
 					let url = data.thread.postNumber;
 					if (threadId !== data.thread.postNumber) {
 						url += "#" + threadId
@@ -844,6 +843,24 @@
 						item.find('.body .content').html(thread.body)
 						item.appendTo($("#catalog"))
 					}
+				})
+		}
+
+		function loadLatest() {
+			return fetch(baseUrl + "bulletin/latest", {
+				headers: authHeaders
+			})
+				.then(body => body.json())
+				.then(data => {
+					const divider = $('<div/>').addClass('divider')
+					const threads = data.flatMap((entry) => {
+						const op = renderOP(entry)
+						return [
+							$('<div/>').addClass('divider'),
+							op,
+						]
+					}).slice(1)
+					$('#main').append(threads)
 				})
 		}
 
@@ -1062,6 +1079,11 @@
 
 			if (window.location.pathname === "/catalog") {
 				loadCatalog()
+				return
+			}
+
+			if (window.location.pathname === "/latest") {
+				loadLatest()
 				return
 			}
 
