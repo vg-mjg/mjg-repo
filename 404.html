@@ -807,7 +807,7 @@
 				.then(body => body.json())
 				.then(data => {
 					data.posts.forEach((post) => {
-						renderPost(post).appendTo($('.thread'))
+						renderPost(post).appendTo($('.thread:not(.template)'))
 					})
 					updateCount(data.thread.replies, data.thread.totalReplies)
 					return {
