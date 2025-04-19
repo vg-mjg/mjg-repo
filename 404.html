@@ -502,7 +502,7 @@
 			"4han/12.gif",
 			"4han/13.png",
 		];
-		const dev = window.location.hostname === 'localhost';
+		const dev = window.location.hostname === 'localhost ';
 		const baseUrl = dev ? "http://localhost:9515/" : "https://riichi.moe/api/";
 		const maxFileSize = 1024 * 1024;
 
@@ -603,21 +603,17 @@
 			})
 				.then(body => body.json())
 				.then(data => {
-					data.sort((a, b) => {
-						let aLast = ((a.posts ?? []).length > 0) ? a.posts[a.posts.length - 1] : a.thread
-						let bLast = ((b.posts ?? []).length > 0) ? b.posts[b.posts.length - 1] : b.thread
-						return bLast.postTime - aLast.postTime
-					})
-					data.forEach((entry, i) => {
-						if (i > 0) {
-							const d = $('<div/>').addClass('divider').appendTo($('#main'))
-							if (i === 20) {
-								d.addClass('limit')
-							}
-						}
-						const op = renderOP(entry.thread).appendTo($('#main'))
-						entry.posts.forEach(post => renderPost(post).appendTo(op))
-					})
+					const divider = $('<div/>').addClass('divider')
+					const threads = data.flatMap((entry) => {
+						const op = renderOP(entry.thread)
+						const posts = entry.posts.map(post => renderPost(post))
+						op.append(posts)
+						return [
+							$('<div/>').addClass('divider'),
+							op,
+						]
+					}).slice(1)
+					$('#main').append(threads)
 				})
 		}
 
