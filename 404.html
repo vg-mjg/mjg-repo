@@ -286,6 +286,11 @@
 			color: red;
 		}
 
+		.control #refresh-error {
+			color: red;
+			font-weight: bold;
+		}
+
 		.expander .link,
 		.collapser .link {
 			color: blue;
@@ -417,6 +422,9 @@
 		}
 		body#dark-theme .divider.new-posts-line {
 			border-color: #ce0000;
+		}
+		body#dark-theme .control #refresh-error {
+			color: #ce0000;
 		}
 	</style>
 </head>
@@ -806,6 +814,7 @@
 				const oldLastPost = $('.thread .post:last-child')
 
 				loadUpdate(data.threadId, data.lastPostNumber).then(n => {
+					$('#refresh-error').text('')
 					data.lastPostNumber = n.lastPostNumber
 					if (n.postsLoaded) {
 						if (!globalData.unreadPosts) {
@@ -822,6 +831,11 @@
 					}
 					data.refreshTimer = setTimeout(() => {
 						startRefreshTimer(data, max + 10)
+					}, 1000)
+				}).catch(e => {
+					$('#refresh-error').text(e)
+					data.refreshTimer = setTimeout(() => {
+						startRefreshTimer(data, 300)
 					}, 1000)
 				})
 				return;
@@ -1139,6 +1153,7 @@
 		<input type="checkbox" name="refresh" id="refresh" checked="false">
 		<label for="refresh">Auto</label>
 		<span class="timer"></span>
+		<span id="refresh-error"></span>
 		<span class="notification"></span>
 		<span class="count"></span>
 		<span class="theme-selector-box">
