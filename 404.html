@@ -780,7 +780,8 @@
 			container.find('.meta a').attr('download', true)
 			container.find('.meta a').attr('filename', data.imageData.fileName)
 			container.find('.meta .data').text(`(${toReadableFileSize(data.imageData.fileSize)}, ${data.imageData.dimensions[0]}x${data.imageData.dimensions[1]})`)
-			const image = $('<img/>').addClass('image').attr('src', imageUrl(data._id, true)).prependTo(container.find('.body'))
+			const imageWrapper = $('<a>', { href: imageUrl(data._id), onclick: 'return false' })
+			const image = $('<img>', { class: 'image', src: imageUrl(data._id, true) }).appendTo(imageWrapper)
 			if (data.imageData.spoiler) {
 				image.addClass('spoiler')
 			}
@@ -793,7 +794,7 @@
 				$(this).attr('src', imageUrl(data._id, !expand))
 			})
 
-			container.find('.meta').after(image)
+			container.find('.meta').after(imageWrapper)
 		}
 
 		function updateCount(replies = 0, totalReplies = 0) {
