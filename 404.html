@@ -146,7 +146,8 @@
 			margin: 4px 0px;
 		}
 
-		.divider.limit, .divider.new-posts-line {
+		.divider.limit,
+		.divider.new-posts-line {
 			border-color: red;
 		}
 
@@ -217,7 +218,10 @@
 			position: absolute;
 			display: inline-block;
 		}
-		.post-preview, .post-preview .header, .post-preview .meta {
+
+		.post-preview,
+		.post-preview .header,
+		.post-preview .meta {
 			white-space: normal;
 		}
 
@@ -362,67 +366,85 @@
 			background-color: #1d2021;
 			color: #dfdfdf;
 		}
+
 		body#dark-theme a,
 		body#dark-theme span.link {
 			color: #458588;
 		}
+
 		body#dark-theme .greentext {
 			color: #789922;
 		}
+
 		body#dark-theme .banner,
 		body#dark-theme .control {
 			background-color: #282828;
 			border-color: #4b4b4b;
 		}
-		body#dark-theme .control > span {
+
+		body#dark-theme .control>span {
 			color: #458588;
 			text-decoration: none;
 		}
-		body#dark-theme .control > span.button:hover {
+
+		body#dark-theme .control>span.button:hover {
 			text-decoration: underline;
 		}
+
 		body#dark-theme .form {
 			background-color: #282828;
 			border-color: #4b4b4b;
 		}
-		body#dark-theme form > textarea,
+
+		body#dark-theme form>textarea,
 		body#dark-theme input {
 			background-color: #1d2021;
 			border-color: #4b4b4b;
 			color: #dfdfdf;
 		}
+
 		body#dark-theme .drag {
 			border-bottom-color: #4b4b4b;
 		}
+
 		body#dark-theme .thread {
 			background-color: #1d2021;
 			border-color: #4b4b4b;
 		}
+
 		body#dark-theme .header .title {
 			color: #ce0000;
 		}
+
 		body#dark-theme .header .name {
 			color: #458588;
 		}
+
 		body#dark-theme .header .date {
 			color: gray;
 		}
+
 		body#dark-theme .header .numbers {
 			color: #458588;
 		}
+
 		body#dark-theme .reference {
 			color: #458588;
 		}
+
 		body#dark-theme .post .content {
 			background-color: #282828;
 			border-color: #4b4b4b;
 		}
+
 		body#dark-theme .divider {
 			border-bottom-color: #4b4b4b;
 		}
+
 		body#dark-theme .divider.new-posts-line {
 			border-color: #ce0000;
 		}
+
 		body#dark-theme .control #refresh-error {
 			color: #ce0000;
 		}
@@ -543,8 +565,8 @@
 			newThread.removeClass('template')
 			renderSharedData(newThread, entry)
 
-			const ommittedReplies = entry.totalReplies - 5
-			if (!entry.totalReplies || ommittedReplies <= 0 || globalData.threadId) {
+			const ommittedReplies = entry.replies - 5
+			if (!entry.replies || ommittedReplies <= 0 || globalData.threadId) {
 				return newThread;
 			}
 
@@ -741,11 +763,18 @@
 			container.find('.meta').after(image)
 		}
 
-		function updateCount(count) {
-			$('.control.bottom .count').text(count)
-			if (count >= 300) {
+		function updateCount(replies = 0, totalReplies = 0) {
+			$('.control.bottom .count').text(totalReplies + " Replies")
+			const deleted = totalReplies - replies
+			if (deleted > 0) {
+				$('.control.bottom .deleted').text(deleted + " Deleted")
+			} else {
+				$('.control.bottom .deleted').text("")
+			}
+
+			if (totalReplies >= 300) {
 				$('.control.bottom .notification').text("Bump limit reached")
-			} else if (count > 275) {
+			} else if (totalReplies > 275) {
 				$('.control.bottom .notification').text("Thread is nearing bump limit")
 			}
 		}
@@ -765,7 +794,7 @@
 					if (threadId !== data.thread.postNumber) {
 						url += "#" + threadId
 					}
-					updateCount(data.thread.totalReplies)
+					updateCount(data.thread.replies, data.thread.totalReplies)
 					return {
 						lastPostNumber: data.posts.length && data.posts[data.posts.length - 1].postNumber,
 						threadId: data.thread.postNumber,
@@ -784,7 +813,7 @@
 					data.posts.forEach((post) => {
 						renderPost(post).appendTo($('.thread'))
 					})
-					updateCount(data.thread.totalReplies)
+					updateCount(data.thread.replies, data.thread.totalReplies)
 					return {
 						lastPostNumber: data.posts.length ? data.posts[data.posts.length - 1].postNumber : lastPostId,
 						postsLoaded: data.posts.length
@@ -807,7 +836,7 @@
 							window.location = '/' + thread.postNumber
 						}).prependTo(item)
 
-						item.find('.replies').text(`${thread.totalReplies ?? 0} Replies`)
+						item.find('.replies').text(`${thread.replies ?? 0} Replies`)
 						if (thread.title) {
 							item.find('.body .title').html(thread.title + ':')
 						}
@@ -1165,6 +1194,7 @@
 		<span id="refresh-error"></span>
 		<span class="notification"></span>
 		<span class="count"></span>
+		<span class="deleted"></span>
 		<span class="theme-selector-box">
 			<label for="theme-selector">Theme</label>
 			<select id="theme-selector">
