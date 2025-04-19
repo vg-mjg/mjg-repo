@@ -725,11 +725,10 @@
 		}
 
 		function updateCount(count) {
-			$('.control.bottom .count').text(count)
-			if (count > 275) {
-				$('.control.bottom .notification').text("Thread is nearing bump limit")
-			} else if (count >= 300) {
+			if (count >= 300) {
 				$('.control.bottom .notification').text("Bump limit reached")
+			} else if (count > 275) {
+				$('.control.bottom .notification').text("Thread is nearing bump limit")
 			}
 		}
 
