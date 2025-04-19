@@ -866,23 +866,24 @@
 			})
 				.then(body => body.json())
 				.then(data => {
-					$("#catalog").removeClass('hidden')
+					$("#catalog").removeClass('hidden');
 					for (const thread of data) {
 						const item = $(".catalog-item.template")
 							.clone()
-							.removeClass('template')
-						$('<img/>').addClass('image').attr('src', imageUrl(thread._id, true)).on('click', () => {
-							window.location = '/' + thread.postNumber
-						}).prependTo(item)
+							.removeClass('template');
+						const link = document.createElement("a");
+						link.setAttribute("href", `/${thread.postNumber}`);
+						$('<img/>').addClass('image').attr('src', imageUrl(thread._id, true)).prependTo(link);
+						item.prepend(link);
 
-						item.find('.replies').text(`${thread.replies ?? 0} Replies`)
+						item.find('.replies').text(`${thread.replies ?? 0} Replies`);
 						if (thread.title) {
-							item.find('.body .title').html(thread.title + ':')
+							item.find('.body .title').html(thread.title + ':');
 						}
-						item.find('.body .content').html(thread.body)
-						item.appendTo($("#catalog"))
+						item.find('.body .content').html(thread.body);
+						item.appendTo($("#catalog"));
 					}
-				})
+				});
 		}
 
 		function loadLatest() {
@@ -1192,7 +1193,7 @@
 		</div>
 	</div>
 	<div class="post template">
-		<span class="arrows">>></span>
+		<span class="arrows">&gt;&gt;</span>
 		<div class="content">
 			<div class="header">
 				<span class="name"></span>
