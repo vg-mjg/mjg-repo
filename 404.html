@@ -188,6 +188,7 @@
 			margin-top: 12px;
 			border-bottom: 1px solid #c1c7d9;
 			border-right: 1px solid #c1c7d9;
+			color: black;
 			padding: 4px 8px;
 			max-width: 80%;
 			min-width: 600px;
@@ -207,16 +208,31 @@
 			color: green;
 		}
 
-		.post .content .body .reference {
+		.reference {
 			color: #a10000;
 			cursor: pointer;
 			text-decoration: underline;
+			position: relative;
 		}
 
-		.post .content .body .post-preview {
+		.header .quotes {
+			word-wrap: break-word;
+			position: relative;
+		}
+
+		.quotes .reference {
+			display: inline-block;
+			margin-right: 4px;
+		}
+
+		.post-preview {
 			z-index: 1;
 			position: absolute;
 			display: inline-block;
+		}
+
+		.post-preview.right {
+			right: 0;
 		}
 
 		.post-preview,
@@ -502,7 +518,7 @@
 			"4han/12.gif",
 			"4han/13.png",
 		];
-		const dev = window.location.hostname === 'localhost ';
+		const dev = window.location.hostname === 'localhost';
 		const baseUrl = dev ? "http://localhost:9515/" : "https://riichi.moe/api/";
 		const maxFileSize = 1024 * 1024;
 
@@ -628,9 +644,9 @@
 			return newPost;
 		}
 
-		const openTag = '<span class="reference">'
-		const closeTag = '</span>'
-		const insertionLength = openTag.length + closeTag.length
+		const openQuoteTag = '<span class="reference">'
+		const closeQuoteTag = '</span>'
+		const insertionLength = openQuoteTag.length + closeQuoteTag.length
 		function renderSharedData(container, data) {
 			container.find('.body').html(data.body.split(/\r?\n/).map(line => {
 				line = line.trim()
@@ -642,9 +658,9 @@
 				let insertions = 0;
 				for (const match of matches) {
 					line = line.slice(0, match[0] + insertions)
-						+ openTag
+						+ openQuoteTag
 						+ line.slice(match[0] + insertions, match[1] + insertions)
-						+ closeTag
+						+ closeQuoteTag
 						+ line.slice(match[1] + insertions)
 					insertions += insertionLength;
 				}
@@ -653,14 +669,6 @@
 				}
 				return line
 			}).join("\r\n"))
-
-			container.find('.body .reference').on('click', function () {
-				const postNumber = $(this).text().slice(2);
-				if (scrollToPost(postNumber)) {
-					return
-				}
-				window.location = "/" + postNumber
-			})
 
 			container.find('.header .title').html(data.title)
 			container.find('.header .name').html(data.name ?? "Jyanshi")
@@ -740,6 +748,14 @@
 					})
 				})
 			})
+
+			if (data.quotes) {
+				const quotes =
+					data.quotes.map((quote) =>
+						$(openQuoteTag).text(">>" + quote)
+					)
+				container.find('.quotes').append(quotes)
+			}
 
 			if (!data.imageData) {
 				return
@@ -1044,7 +1060,23 @@
 				}
 			})
 
+			$(document).on('click', '.reference', function (e) {
+				const postNumber = $(this).text().slice(2);
+				if (scrollToPost(postNumber)) {
+					return
+				}
+				window.location = "/" + postNumber
+			})
+
+
+
 			$(document).on('mouseenter', '.reference', (e) => {
+				if (globalData.referencePreview) {
+					return
+				}
+
+				globalData.referencePreview = true
+				// $('.post-preview').remove()
 				const elem = $(e.target)
 				const postNumber = parseInt(elem.text().slice(2), 10)
 				const targetNumbers = $(`.post .numbers[data-post="${postNumber}"]`).first()
@@ -1052,17 +1084,23 @@
 					return
 				}
 
-				const targetPost = targetNumbers.parent().parent()
-				if (!targetPost.hasClass('content')) {
+				const targetPost = targetNumbers.parents('.content').first()
+				if (!targetPost) {
 					return
 				}
 
 				const preview = $('<div>', { class: 'post post-preview' })
-				preview.append(targetPost.clone()).insertAfter(elem)
+				preview.append(targetPost.clone()).appendTo(elem)
+
+				if ($(window).width() - preview.offset().left < preview.width()) {
+					preview.addClass('right')
+				}
 			})
+
 			$(document).on('mouseleave', '.reference', (e) => {
-				const elem = $(e.target)
-				elem.parent().find('.post-preview').remove()
+				const elem = $(e.currentTarget)
+				globalData.referencePreview = false
+				elem.find('.post-preview').remove()
 			})
 
 			if (globalData.threadId) {
@@ -1117,6 +1155,7 @@
 					<div class="delete">Delete</div>
 				</div>
 			</span>
+			<span class="quotes"></span>
 		</span>
 		<div class="body"></div>
 		<div class="expander hidden">
@@ -1145,6 +1184,8 @@
 						<div class="delete">Delete</div>
 					</div>
 				</span>
+				<span class="quotes"></span>
+
 			</div>
 			<div class="meta hidden">
 				<span>File:</span>
