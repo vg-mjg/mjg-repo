@@ -747,7 +747,8 @@
 			container.find('.meta').removeClass('hidden')
 			container.find('.meta a').text(data.imageData.fileName)
 			container.find('.meta a').attr('href', imageUrl(data._id))
-			container.find('.meta a').attr('download', data.imageData.fileName)
+			container.find('.meta a').attr('download', true)
+			container.find('.meta a').attr('filename', data.imageData.fileName)
 			container.find('.meta .data').text(`(${toReadableFileSize(data.imageData.fileSize)}, ${data.imageData.dimensions[0]}x${data.imageData.dimensions[1]})`)
 			const image = $('<img/>').addClass('image').attr('src', imageUrl(data._id, true)).prependTo(container.find('.body'))
 			if (data.imageData.spoiler) {
