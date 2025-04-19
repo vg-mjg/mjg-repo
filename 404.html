@@ -522,7 +522,7 @@
 			"4han/12.gif",
 			"4han/13.png",
 		];
-		const dev = window.location.hostname === 'localhost';
+		const dev = window.location.hostname === 'localhost ';
 		const baseUrl = dev ? "http://localhost:9515/" : "https://riichi.moe/api/";
 		const maxFileSize = 1024 * 1024;
 
@@ -1065,7 +1065,12 @@
 			})
 
 			$(document).on('click', '.reference', function (e) {
-				const postNumber = $(this).text().slice(2);
+				const postNumber = $(this)
+					.clone()
+					.children()
+					.remove()
+					.end()
+					.text().slice(2);
 				if (scrollToPost(postNumber)) {
 					return
 				}
