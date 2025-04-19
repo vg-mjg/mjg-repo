@@ -593,7 +593,7 @@
 		function renderOP(entry) {
 			const newThread = $('.thread.template').clone();
 			newThread.removeClass('template');
-			if(!'imageData' in Object.keys(entry)){
+			if(!('imageData' in Object.keys(entry))){
 				newThread.find('.meta').addClass('hidden');
 			}
 			renderSharedData(newThread, entry);
