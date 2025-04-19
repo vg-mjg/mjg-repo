@@ -41,7 +41,6 @@
 			border: 1px solid #c1c7d9;
 		}
 
-
 		.form form {
 			padding: 4px;
 			display: inline-block;
@@ -340,6 +339,72 @@
 		#catalog .catalog-item .body .title {
 			font-weight: bold;
 		}
+
+		.theme-selector-box {
+			padding-left: 10px;
+		}
+
+		body#dark-theme {
+			background-color: #1d2021;
+			color: #dfdfdf;
+		}
+		body#dark-theme a,
+		body#dark-theme span.link {
+			color: #458588;
+		}
+		body#dark-theme .greentext {
+			color: #789922;
+		}
+		body#dark-theme .banner,
+		body#dark-theme .control {
+			background-color: #282828;
+			border-color: #4b4b4b;
+		}
+		body#dark-theme .control > span {
+			color: #458588;
+			text-decoration: none;
+		}
+		body#dark-theme .control > span.button:hover {
+			text-decoration: underline;
+		}
+		body#dark-theme .form {
+			background-color: #282828;
+			border-color: #4b4b4b;
+		}
+		body#dark-theme .form > textarea,
+		body#dark-theme input {
+			border-color: #4b4b4b;
+			color: #dfdfdf;
+		}
+		body#dark-theme .drag {
+			border-bottom-color: #4b4b4b;
+		}
+		body#dark-theme .thread {
+			background-color: #1d2021;
+			border-color: #4b4b4b;
+		}
+		body#dark-theme .header .title {
+			color: #ce0000;
+		}
+		body#dark-theme .header .name {
+			color: #458588;
+		}
+		body#dark-theme .header .date {
+			color: gray;
+		}
+		body#dark-theme .header .numbers {
+			color: #458588;
+		}
+		body#dark-theme .reference {
+			color: #458588;
+		}
+		body#dark-theme .post .content {
+			background-color: #282828;
+			border-color: #4b4b4b;
+		}
+		body#dark-theme .divider {
+			border-bottom-color: #4b4b4b;
+		}
 	</style>
 </head>
 
@@ -430,6 +495,8 @@
 		const authHeaders = authToken ? {
 			"Authorization": `Bearer ${authToken}`
 		} : {}
+
+		$('body').attr('id', localStorage.getItem('theme') ?? '');
 
 		function toReadableFileSize(fileSize) {
 			if (fileSize > 1000000) {
@@ -790,6 +857,13 @@
 					e.preventDefault()
 				})
 
+			$('#theme-selector').val(localStorage.getItem('theme'));
+			$('#theme-selector').change((ev) => {
+				let theme = `${ev.target.value}`;
+				$('body').attr('id', theme);
+				localStorage.setItem('theme', theme);
+			});
+
 			$('.bannerImage')
 				.attr('src', randomBannerUrl())
 				.on('click', (e) => e.target.setAttribute('src', randomBannerUrl()))
@@ -1032,6 +1106,13 @@
 		<span class="timer"></span>
 		<span class="notification"></span>
 		<span class="count"></span>
+		<span class="theme-selector-box">
+			<label for="theme-selector">Theme</label>
+			<select id="theme-selector">
+				<option value="default-theme" selected="selected">Default</option>
+				<option value="dark-theme">Dark</option>
+			</select>
+		</span>
 	</div>
 	<div class="divider"></div>
 	<div class="form-container">
