@@ -1198,6 +1198,12 @@
 				elem.find('.post-preview').remove()
 			})
 
+			document.addEventListener('keyup', (e) => {
+				if (e.key == 'Escape') {
+					$('.form.floating').addClass('hidden')
+				}
+			})
+
 			if (globalData.threadId) {
 				$('.header .reply').addClass('hidden');
 				loadThread(globalData.threadId).then((resp) => {
