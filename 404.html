@@ -536,7 +536,7 @@
 			"4han/15.png",
 			"4han/16.png",
 		];
-		const dev = window.location.hostname === 'localhost ';
+		const dev = window.location.hostname === 'localhost';
 		const baseUrl = dev ? "http://localhost:9515/" : "https://riichi.moe/api/";
 		const maxFileSize = 1024 * 1024;
 
@@ -1004,7 +1004,7 @@
 				.then(body => body.json())
 				.then(data => {
 					const divider = $('<div/>').addClass('divider')
-					const threads = data.flatMap((entry) => {
+					const threads = data.posts.flatMap((entry) => {
 						const op = renderOP(entry);
 						return [
 							$('<div/>').addClass('divider'),
