@@ -25,6 +25,8 @@
 
 			--control-color: inherit;
 
+			--selected-post-background-color: #d6bad0;
+
 			--post-name-color: green;
 			--post-date-color: inherit;
 			--post-title-color: #a10000;
@@ -49,6 +51,8 @@
 			--fourhan-logo-title: #a10000;
 
 			--control-color: #458588;
+
+			--selected-post-background-color: #505050;
 
 			--post-name-color: #458588;
 			--post-date-color: gray;
@@ -80,6 +84,7 @@
 		a,
 		span.link {
 			color: var(--link-color);
+			outline: 0;
 		}
 
 		/* Page Header (banner for name collision avoidance) */
@@ -316,6 +321,10 @@
 			margin-top: 12px;
 			margin-right: 4px;
 			user-select: none;
+		}
+
+		.content:has(a:target) {
+			background-color: var(--selected-post-background-color);
 		}
 
 		.post .content {
@@ -565,8 +574,6 @@
 
 		const globalData = {
 			threadId: getThreadId(),
-			imagesTotal: 0,
-			imagesLoaded: 0,
 			selectedText: '',
 			authoredPostIds: new Set(),
 		};
@@ -593,13 +600,13 @@
 			const [path, scrollPos] = JSON.parse(localStorage.getItem('scrollpos'))
 			localStorage.removeItem('scrollpos')
 
-			if (path == location.pathname && scrollPos){
+			if (path == location.pathname && scrollPos) {
 				globalData.deferredScroll = { position: scrollPos }
 			}
-		} catch {}
+		} catch { }
 
 		function saveScrollPosOnRefresh() {
-			window.onbeforeunload = function(e) {
+			window.onbeforeunload = function (e) {
 				localStorage.setItem('scrollpos', JSON.stringify([location.pathname, window.scrollY]))
 			}
 		}
@@ -715,11 +722,20 @@
 			return newPost;
 		}
 
+		function getReferenceHref(referenceId) {
+			if (!globalData.threadId
+				|| !globalData?.postIds?.[referenceId]) {
+				return '/' + referenceId;
+			}
+			return '/' + globalData.threadId + "#" + referenceId;
+		}
+
 		function renderSharedData(container, data) {
 			container.find('.body').html(data.body.split(/\r?\n/).map(line => {
 				line = line.trim().replace(/&gt;&gt;(\d+)/g, (_, id) => {
-					let you = globalData.authoredPostIds.has(parseInt(id, 10)) ? ' (You)' : ''
-					return `<span class="reference">&gt;&gt;${id}${you}</span>`
+					const you = globalData.authoredPostIds.has(parseInt(id, 10)) ? ' (You)' : ''
+
+					return `<a class="reference" href=${getReferenceHref(id)}>&gt;&gt;${id}${you}</a>`
 				})
 				if (line.match(/^&gt;/)) {
 					return `<span class="greentext">${line}</span>`;
@@ -739,7 +755,7 @@
 			container.find('.header .title').html(data.title)
 			container.find('.header .name').html(data.name ?? "Jyanshi")
 			container.find('.header .date').text(new Date(data.postTime).toLocaleString())
-			container.find('.header .link').attr('href', data.postNumber)
+			container.find('.header .link').attr('href', getReferenceHref(data.postNumber))
 			container.find('.header .link').attr('id', data.postNumber)
 			container.find('.header .numbers').text(data.postNumber).on('click', (e) => {
 				if (!getThreadId()) {
@@ -832,7 +848,7 @@
 				const quotes =
 					data.quotes.map((quote) => {
 						let you = globalData.authoredPostIds.has(parseInt(quote, 10)) ? ' (You)' : ''
-						return $('<span>', { class: 'reference' }).text(">>" + quote + you)
+						return $('<a>', { class: 'reference', href: getReferenceHref(quote) }).text(">>" + quote + you)
 					})
 				container.find('.quotes').append(quotes)
 			}
@@ -858,13 +874,6 @@
 				}
 				$(this).data('expanded', expand);
 				$(this).attr('src', imageUrl(data._id, !expand));
-			});
-			globalData.imagesTotal += 1;
-			image.on('load', function () {
-				globalData.imagesLoaded += 1;
-				if (globalData.imagesLoaded == globalData.imagesTotal) {
-					restoreScrollPos()
-				}
 			});
 			image.appendTo(imageWrapper);
 
@@ -898,14 +907,19 @@
 				.catch(() => showNotFound())
 				.then(body => body.json())
 				.then(data => {
+					if (threadId.toString() !== data.thread.postNumber.toString()) {
+						const url = data.thread.postNumber + "#" + threadId
+						history.replaceState(null, "", "/" + url)
+					}
+					globalData.postIds = data.posts.reduce((total, next) => (total[next.postNumber] = true, total), { [data.thread.postNumber]: true })
 					const op = renderOP(data.thread, data.posts).appendTo($('#main'))
 					const posts = data.posts.map((entry) => renderPost(entry))
 					op.append(posts)
-					let url = data.thread.postNumber;
-					if (threadId != data.thread.postNumber) {
-						url += "#" + threadId
-						globalData.deferredScroll = globalData.deferredScroll ?? { post: threadId }
+
+					if (window.location.hash) {
+						window.location.hash = window.location.hash
 					}
+
 					updateCount(data.thread.replies, data.thread.totalReplies)
 					return {
 						lastPostNumber: data.posts.length && data.posts[data.posts.length - 1].postNumber,
@@ -923,6 +937,7 @@
 				.then(body => body.json())
 				.then(data => {
 					data.posts.forEach((post) => {
+						globalData.posts[post.postNumber] = true
 						renderPost(post).appendTo($('.thread:not(.template)'))
 					})
 					updateCount(data.thread.replies, data.thread.totalReplies)
@@ -1014,15 +1029,6 @@
 			data.refreshTimer = setTimeout(() => {
 				startRefreshTimer(data, max, current - 1)
 			}, 1000)
-		}
-
-		function scrollToPost(postNumber) {
-			const post = document.querySelectorAll(`[data-post="${postNumber}"]`)[0]
-			if (post) {
-				post.scrollIntoView({ behavior: "smooth" })
-				return true
-			}
-			return false
 		}
 
 		function randomBannerUrl() {
@@ -1153,23 +1159,6 @@
 				}
 			})
 
-			$(document).on('click', '.reference', function (e) {
-				const postNumber = $(this)
-					.clone()
-					.children()
-					.remove()
-					.end()
-					.text()
-					.replace(/>>(\d+).*/, (_, id) => id);
-				if (document.querySelector(`[data-post="${postNumber}"]`)) {
-					history.pushState(postNumber, '')
-				}
-				if (scrollToPost(postNumber)) {
-					return
-				}
-				window.location = "/" + postNumber
-			})
-
 			$(document).on('selectionchange', function (e) {
 				let selection = document.getSelection()
 				let startBody = $(selection.anchorNode).parents('.body').first()
@@ -1190,7 +1179,6 @@
 				}
 
 				globalData.referencePreview = true
-				// $('.post-preview').remove()
 				const elem = $(e.target)
 				const postNumber = parseInt(elem.text().slice(2), 10)
 				const targetNumbers = $(`.post .numbers[data-post="${postNumber}"]`).first()
@@ -1204,7 +1192,7 @@
 				}
 
 				const preview = $('<div>', { class: 'post post-preview' })
-				preview.append(targetPost.clone()).appendTo(elem)
+				preview.append(targetPost.clone()).appendTo(elem).find('a').removeAttr('id')
 
 				if ($(window).width() - preview.offset().left < preview.width()) {
 					preview.addClass('right')
@@ -1292,6 +1280,7 @@
 	<div class="post template">
 		<span class="arrows">&gt;&gt;</span>
 		<div class="content">
+			<a></a>
 			<div class="header">
 				<span class="name"></span>
 				<span class="title"></span>
