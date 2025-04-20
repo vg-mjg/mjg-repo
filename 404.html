@@ -599,6 +599,7 @@
 			imagesTotal: 0,
 			imagesLoaded: 0,
 			selectedText: '',
+			authoredPostIds: new Set(),
 		};
 		const deleteId = getDeleteId()
 		const authToken = localStorage.getItem('authToken')
@@ -616,6 +617,34 @@
 				return Math.round(fileSize / 1000) + "KB"
 			}
 			return fileSize + "B"
+		}
+
+		function reloadAuthoredPostIds() {
+			try {
+				JSON.parse(localStorage.getItem('authoredPostIds')).forEach(id => globalData.authoredPostIds.add(id))
+			} catch {}
+		}
+		reloadAuthoredPostIds()
+
+		function addAuthoredPostId(id) {
+			id = parseInt(id.trim(), 10)
+			if (isNaN(id)) {
+				console.warn("invalid authoredPostId", id)
+				return
+			}
+
+			let oldIds;
+			try {
+				oldIds = JSON.parse(localStorage.getItem('authoredPostIds'))
+			} catch {
+				oldIds = []
+			}
+			oldIds.push(id)
+			if (oldIds.length > 500) {
+				oldIds = oldIds.slice(oldIds.length - 500)
+			}
+			localStorage.setItem('authoredPostIds', JSON.stringify(oldIds))
+			globalData.authoredPostIds.add(id)
 		}
 
 		function renderOP(entry) {
@@ -689,26 +718,12 @@
 			return newPost;
 		}
 
-		const openQuoteTag = '<span class="reference">';
-		const closeQuoteTag = '</span>';
-		const insertionLength = openQuoteTag.length + closeQuoteTag.length
 		function renderSharedData(container, data) {
 			container.find('.body').html(data.body.split(/\r?\n/).map(line => {
-				line = line.trim();
-				const re = /&gt;&gt;(\d+)/g;
-				const matches = [];
-				while ((match = re.exec(line)) != null) {
-					matches.push([match.index, re.lastIndex]);
-				}
-				let insertions = 0;
-				for (const match of matches) {
-					line = line.slice(0, match[0] + insertions)
-						+ openQuoteTag
-						+ line.slice(match[0] + insertions, match[1] + insertions)
-						+ closeQuoteTag
-						+ line.slice(match[1] + insertions)
-					insertions += insertionLength;
-				}
+				line = line.trim().replace(/&gt;&gt;(\d+)/g, (_, id) => {
+					let you = globalData.authoredPostIds.has(parseInt(id, 10)) ? ' (You)' : ''
+					return `<span class="reference">&gt;&gt;${id}${you}</span>`
+				})
 				if (line.match(/^&gt;/)) {
 					return `<span class="greentext">${line}</span>`;
 				}
@@ -818,9 +833,10 @@
 
 			if (data.quotes) {
 				const quotes =
-					data.quotes.map((quote) =>
-						$(openQuoteTag).text(">>" + quote)
-					)
+					data.quotes.map((quote) => {
+						let you = globalData.authoredPostIds.has(parseInt(quote, 10)) ? ' (You)' : ''
+						return $('<span>', { class: 'reference' }).text(">>" + quote + you)
+					})
 				container.find('.quotes').append(quotes)
 			}
 
@@ -1100,6 +1116,7 @@
 						$('.error').text("")
 						$('.form.floating').addClass('hidden')
 						$(e.target).trigger('reset')
+						res.text().then(addAuthoredPostId)
 						loadUpdate(globalData.threadId, globalData.lastPostNumber).then(n => globalData.lastPostNumber = n.lastPostNumber)
 					})
 					.catch(err => console.log(err));
@@ -1144,7 +1161,8 @@
 					.children()
 					.remove()
 					.end()
-					.text().slice(2);
+					.text()
+					.replace(/>>(\d+).*/, (_, id) => id);
 				if (scrollToPost(postNumber)) {
 					return
 				}
