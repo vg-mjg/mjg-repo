@@ -661,6 +661,11 @@
 			globalData.authoredPostIds.add(id)
 		}
 
+		function renderReference(id) {
+			const you = globalData.authoredPostIds.has(parseInt(id, 10)) ? ' (You)' : ''
+			return `<a class="reference" href=${getReferenceHref(id)}>&gt;&gt;${id}${you}</a>`
+		}
+
 		function renderOP(entry) {
 			const newThread = $('.thread.template').clone();
 			newThread.removeClass('template');
@@ -742,11 +747,7 @@
 
 		function renderSharedData(container, data) {
 			container.find('.body').html(data.body.split(/\r?\n/).map(line => {
-				line = line.trim().replace(/&gt;&gt;(\d+)/g, (_, id) => {
-					const you = globalData.authoredPostIds.has(parseInt(id, 10)) ? ' (You)' : ''
-
-					return `<a class="reference" href=${getReferenceHref(id)}>&gt;&gt;${id}${you}</a>`
-				})
+				line = line.trim().replace(/&gt;&gt;(\d+)/g, (_, id) => renderReference(id))
 				if (line.match(/^&gt;/)) {
 					return `<span class="greentext">${line}</span>`;
 				}
@@ -855,11 +856,7 @@
 			})
 
 			if (data.quotes) {
-				const quotes =
-					data.quotes.map((quote) => {
-						let you = globalData.authoredPostIds.has(parseInt(quote, 10)) ? ' (You)' : ''
-						return $('<a>', { class: 'reference', href: getReferenceHref(quote) }).text(">>" + quote + you)
-					})
+				const quotes = data.quotes.map(renderReference)
 				container.find('.quotes').append(quotes)
 			}
 
@@ -952,7 +949,12 @@
 				.then(body => body.json())
 				.then(data => {
 					data.posts.forEach((post) => {
-						globalData.postIds[post.postNumber] = true
+						globalData.postIds[post.postNumber] = true;
+						post.body.matchAll(/&gt;&gt;(\d+)/g).forEach(([_, quotedId]) => {
+							$(`.post:not(.post-preview) .numbers[data-post="${quotedId}"]`)
+								.siblings('.quotes')
+								.append(renderReference(post.postNumber))
+						})
 						renderPost(post).appendTo($('.thread:not(.template)'))
 					})
 					updateCount(data.thread.replies, data.thread.totalReplies)
