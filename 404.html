@@ -14,7 +14,7 @@
 		/* In Page appearance order */
 		/* Theme Variables */
 		:root {
-			--backgound-color: aliceblue;
+			--background-color: aliceblue;
 			--color: black;
 			--inlay-background-color: #d8daef;
 			--border-color: #c1c7d9;
@@ -41,7 +41,7 @@
 		}
 
 		body#dark-theme {
-			--backgound-color: #1d2021;
+			--background-color: #1d2021;
 			--color: #dfdfdf;
 			--inlay-background-color: #282828;
 			--border-color: #4b4b4b;
@@ -70,7 +70,7 @@
 		/* General Styles */
 
 		body {
-			background-color: var(--backgound-color);
+			background-color: var(--background-color);
 			color: var(--color);
 			font-family: 'Helvetica', 'Arial', sans-serif;
 			margin: 0;
@@ -159,7 +159,7 @@
 
 		form textarea,
 		form input {
-			background-color: var(--backgound-color);
+			background-color: var(--background-color);
 			border-color: var(--border-color);
 			color: var(--color);
 		}
@@ -425,7 +425,7 @@
 			height: 16px;
 			width: 16px;
 			text-align: center;
-			background-color: var(--icon-backgound-color);
+			background-color: var(--icon-background-color);
 			border: 2px solid var(--icon-border-color);
 			border-radius: 3px;
 			cursor: pointer;
@@ -536,7 +536,7 @@
 			"4han/15.png",
 			"4han/16.png",
 		];
-		const dev = window.location.hostname === 'localhost';
+		const dev = window.location.hostname === 'localhost ';
 		const baseUrl = dev ? "http://localhost:9515/" : "https://riichi.moe/api/";
 		const maxFileSize = 1024 * 1024;
 
