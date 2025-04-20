@@ -367,6 +367,7 @@
 
 		.post-preview {
 			z-index: 1;
+			margin-top: 20px;
 			position: absolute;
 			display: inline-block;
 		}
@@ -1204,7 +1205,9 @@
 				}
 
 				const preview = $('<div>', { class: 'post post-preview' })
-				preview.append(targetPost.clone()).appendTo(elem).find('a').removeAttr('id')
+				preview.append(targetPost.clone())
+				preview.find('a').removeAttr('id')
+				preview.insertBefore(elem)
 
 				if ($(window).width() - preview.offset().left < preview.width()) {
 					preview.addClass('right')
@@ -1214,7 +1217,7 @@
 			$(document).on('mouseleave', '.reference', (e) => {
 				const elem = $(e.currentTarget)
 				globalData.referencePreview = false
-				elem.find('.post-preview').remove()
+				elem.parent().find('.post-preview').remove()
 			})
 
 			document.addEventListener('keyup', (e) => {
