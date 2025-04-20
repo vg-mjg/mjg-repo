@@ -788,7 +788,7 @@
 
 			container.find('.header .numbers').attr('data-post', data.postNumber)
 
-			container.find('.header .id').text(data.posterIp)
+			container.find('.header .id').text(data.posterId)
 
 			container.find('.menu').on('click', function () {
 				$(this).find('.options').toggleClass('hidden')
@@ -1023,7 +1023,7 @@
 				loadUpdate(data.threadId, data.lastPostNumber).then(n => {
 					$('#refresh-error').text('')
 					data.lastPostNumber = n.lastPostNumber
-					
+
 					if (n.newYous) {
 						if (!globalData.originalFavicon) {
 							globalData.originalFavicon = $('link[rel="icon"]')
