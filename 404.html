@@ -1134,6 +1134,9 @@
 					.end()
 					.text()
 					.replace(/>>(\d+).*/, (_, id) => id);
+				if (document.querySelector(`[data-post="${postNumber}"]`)) {
+					history.pushState(postNumber, '')
+				}
 				if (scrollToPost(postNumber)) {
 					return
 				}
