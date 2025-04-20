@@ -866,7 +866,7 @@
 			image.on('load', function (){
 				globalData.imagesLoaded += 1;
 				if (globalData.imagesLoaded == globalData.imagesTotal){
-					if (globalData.requestedThreadId == globalData.threadId) {
+					if (globalData.threadId && globalData.requestedThreadId == globalData.threadId) {
 						restoreScrollPos();
 					}
 				}
