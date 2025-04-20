@@ -565,7 +565,6 @@
 
 		const globalData = {
 			threadId: getThreadId(),
-			requestedThreadId: getThreadId(),
 			imagesTotal: 0,
 			imagesLoaded: 0,
 			selectedText: '',
@@ -587,6 +586,34 @@
 				return Math.round(fileSize / 1000) + "KB"
 			}
 			return fileSize + "B"
+		}
+
+		// NB: For resetting the scroll position on page refresh
+		try {
+			const [path, scrollPos] = JSON.parse(localStorage.getItem('scrollpos'))
+			localStorage.removeItem('scrollpos')
+
+			if (path == location.pathname && scrollPos){
+				globalData.deferredScroll = { position: scrollPos }
+			}
+		} catch {}
+
+		function saveScrollPosOnRefresh() {
+			window.onbeforeunload = function(e) {
+				localStorage.setItem('scrollpos', JSON.stringify([location.pathname, window.scrollY]))
+			}
+		}
+
+		// NB: This is invoked when all the images have finished loading to
+		// either restore the scroll position after a refresh, or to jump
+		// down to the post that was linked.
+		function restoreScrollPos() {
+			if (globalData.deferredScroll?.position) {
+				window.scrollTo(0, globalData.deferredScroll.position)
+			} else if (globalData.deferredScroll?.post) {
+				scrollToPost(globalData.deferredScroll.post)
+			}
+			globalData.deferredScroll = undefined
 		}
 
 		function reloadAuthoredPostIds() {
@@ -836,9 +863,7 @@
 			image.on('load', function () {
 				globalData.imagesLoaded += 1;
 				if (globalData.imagesLoaded == globalData.imagesTotal) {
-					if (globalData.threadId && globalData.requestedThreadId == globalData.threadId) {
-						restoreScrollPos();
-					}
+					restoreScrollPos()
 				}
 			});
 			image.appendTo(imageWrapper);
@@ -865,6 +890,7 @@
 		function loadThread(threadId) {
 			$('.control #refresh').removeClass('hidden')
 			$('.control label[for="refresh"]').removeClass('hidden')
+			saveScrollPosOnRefresh()
 
 			return fetch(baseUrl + "bulletin/" + threadId, {
 				headers: authHeaders
@@ -876,8 +902,9 @@
 					const posts = data.posts.map((entry) => renderPost(entry))
 					op.append(posts)
 					let url = data.thread.postNumber;
-					if (threadId !== data.thread.postNumber) {
+					if (threadId != data.thread.postNumber) {
 						url += "#" + threadId
+						globalData.deferredScroll = globalData.deferredScroll ?? { post: threadId }
 					}
 					updateCount(data.thread.replies, data.thread.totalReplies)
 					return {
@@ -1210,9 +1237,6 @@
 					}
 					globalData.threadId = resp.threadId;
 				})
-				window.onbeforeunload = function (e) {
-					localStorage.setItem('scrollpos', window.scrollY);
-				};
 				return;
 			}
 			$('.control .reply').addClass('hidden');
@@ -1229,13 +1253,6 @@
 
 			loadIndex();
 		});
-
-		function restoreScrollPos() {
-			const scrollpos = localStorage.getItem('scrollpos');
-			if (scrollpos) {
-				window.scrollTo(0, scrollpos);
-			}
-		}
 	</script>
 	<div class="thread template">
 		<div class="meta">
