@@ -11,38 +11,102 @@
 
 
 	<style>
+		/* In Page appearance order */
+		/* Theme Variables */
+		:root {
+			--backgound-color: aliceblue;
+			--color: black;
+			--inlay-background-color: #d8daef;
+			--border-color: #c1c7d9;
+			--alert-color: red;
+			--link-color: blue;
+
+			--fourhan-logo-title: #a10000;
+
+			--control-color: inherit;
+
+			--post-name-color: green;
+			--post-date-color: inherit;
+			--post-title-color: #a10000;
+			--reference-color: #a10000;
+			--greentext-color: green;
+
+			--icon-color: white;
+			--icon-background-color: #9198ce;
+			--icon-border-color: #323151;
+
+			--spoiler-color: black;
+		}
+
+		body#dark-theme {
+			--backgound-color: #1d2021;
+			--color: #dfdfdf;
+			--inlay-background-color: #282828;
+			--border-color: #4b4b4b;
+			--alert-color: #ce0000;
+			--link-color: #458588;
+
+			--fourhan-logo-title: #a10000;
+
+			--control-color: #458588;
+
+			--post-name-color: #458588;
+			--post-date-color: gray;
+			--post-title-color: #ce0000;
+			--reference-color: #458588;
+			--greentext-color: #789922;
+
+			--icon-color: white;
+			--icon-background-color: #9198ce;
+			--icon-border-color: #323151;
+
+			--spoiler-color: #dfdfdf;
+		}
+
+		/* General Styles */
+
 		body {
-			background-color: aliceblue;
+			background-color: var(--backgound-color);
+			color: var(--color);
 			font-family: 'Helvetica', 'Arial', sans-serif;
 			margin: 0;
 		}
 
-		#main {}
+		.template,
+		.hidden {
+			display: none !important;
+		}
+
+		a,
+		span.link {
+			color: var(--link-color);
+		}
+
+		/* Page Header (banner for name collision avoidance) */
+
+		.banner {
+			text-align: center;
+		}
+
+		.banner .title>a {
+			font-family: 'Impact', sans-serif;
+			text-decoration: none;
+			color: var(--fourhan-logo-title);
+			font-size: 64px;
+			font-weight: bold;
+		}
 
 		.repo h3 {
 			display: inline;
 		}
 
-		.thread {
-			padding: 8px;
-			display: block;
-			margin-top: 8px;
-		}
-
-		.thread .title {}
-
-		.thread::after {
-			content: "";
-			display: block;
-			height: 0;
-			clear: both;
-		}
+		/* Post Creation Form */
 
 		.form {
 			margin-top: 8px;
 			display: inline-block;
-			background-color: #d8daef;
-			border: 1px solid #c1c7d9;
+			background-color: var(--inlay-background-color);
+			border: 1px solid var(--border-color);
 		}
 
 		.form form {
@@ -58,7 +122,7 @@
 		}
 
 		.form.floating .drag {
-			border-bottom: 1px solid #c1c7d9;
+			border-bottom: 1px solid var(--border-color);
 			text-align: right;
 			padding-right: 4px;
 		}
@@ -79,7 +143,7 @@
 			margin-bottom: 12px;
 		}
 
-		textarea {
+		.form textarea {
 			resize: vertical;
 			display: block;
 			width: 100%;
@@ -88,41 +152,114 @@
 			min-height: 100px;
 		}
 
+		form textarea,
+		form input {
+			background-color: var(--backgound-color);
+			border-color: var(--border-color);
+			color: var(--color);
+		}
+
 		.row label {
 			min-width: 50px;
 			margin-right: 4px;
 		}
 
-		.row input[type=text] {
+		.form .row input[type=text] {
 			flex: 1;
 		}
 
 
-		.row input[type=file] {
+		.form .row input[type=file] {
 			min-width: 80px;
 			flex-basis: 80px;
 			flex: 1;
 		}
 
-		.row .error {
+		.form .row .error {
 			margin: 0px 4px;
 			font-weight: bold;
-			color: red;
+			color: var(--alert-color);
+		}
+
+		/* Control Bar */
+
+
+		.control {
+			color: var(--control-color);
+			display: flex;
+			user-select: none;
+			gap: 4px;
+			padding: 0px 12px;
+		}
+
+		.control .spread {
+			flex: 1;
+		}
+
+		.control>span {
+			text-decoration: none;
+		}
+
+		.control .button {
+			cursor: pointer;
+			color: var(--link-color);
+		}
+
+		.control>span.button:hover {
+			text-decoration: underline;
+		}
+
+
+		.control .notification {
+			flex: 1;
+			text-align: right;
+			font-weight: bold;
+			color: var(--alert-color);
+		}
+
+		.control #refresh-error {
+			color: var(--alert-color);
+			font-weight: bold;
+		}
+
+		/* Posts and Threads */
+
+		.thread {
+			padding: 8px;
+			display: block;
+			margin-top: 8px;
+		}
+
+		.thread::after {
+			content: "";
+			display: block;
+			height: 0;
+			clear: both;
 		}
 
 		.header .name {
 			font-weight: bold;
-			color: green;
+			color: var(--post-name-color);
 		}
 
 		.header .title {
 			font-weight: bold;
-			color: #a10000;
+			color: var(--post-title-color);
+		}
+
+
+		.header .date {
+			color: var(--post-date-color);
 		}
 
 		.header .numbers {
-			color: blue;
+			color: var(--link-color);
 			cursor: pointer;
+		}
+
+		.header .quotes {
+			word-wrap: break-word;
+			position: relative;
 		}
 
 		.banner .start {
@@ -146,13 +283,13 @@
 		}
 
 		.divider {
-			border-bottom: 2px solid #c1c7d9;
+			border-bottom: 2px solid var(--border-color);
 			margin: 4px 0px;
 		}
 
 		.divider.limit,
 		.divider.new-posts-line {
-			border-color: red;
+			border-color: var(--alert-color);
 		}
 
 		.divider.new-posts-line {
@@ -169,7 +306,8 @@
 		}
 
 		span.spoiler {
-			background: #000;
+			background: var(--spoiler-color);
+			color: var(--spoiler-color);
 		}
 
 		span.spoiler:hover {
@@ -188,7 +326,7 @@
 		}
 
 		.post .arrows {
-			color: #c1c7d9;
+			color: var(--border-color);
 			float: left;
 			margin-top: 12px;
 			margin-right: 4px;
@@ -197,11 +335,11 @@
 
 		.post .content {
 			display: inline-block;
-			background-color: #d8daef;
+			background-color: var(--inlay-background-color);
 			margin-top: 12px;
-			border-bottom: 1px solid #c1c7d9;
-			border-right: 1px solid #c1c7d9;
-			color: black;
+			border-bottom: 1px solid var(--border-color);
+			border-right: 1px solid var(--border-color);
+			color: var(--color);
 			padding: 4px 8px;
 			max-width: 80%;
 			min-width: 600px;
@@ -218,18 +356,13 @@
 		}
 
 		.body .greentext {
-			color: green;
+			color: var(--greentext-color);
 		}
 
 		.reference {
-			color: #a10000;
+			color: var(--reference-color);
 			cursor: pointer;
 			text-decoration: underline;
-			position: relative;
-		}
-
-		.header .quotes {
-			word-wrap: break-word;
 			position: relative;
 		}
 
@@ -265,83 +398,40 @@
 			position: absolute;
 			top: 100%;
 			left: 0;
-			background-color: #d8daef;
+			background-color: var(--inlay-background-color);
 			font-size: 16px;
 		}
 
 		.menu .options>* {
-			border-bottom: 1px solid #c1c7d9;
+			border-bottom: 1px solid var(--border-color);
 			padding: 2px 4px;
 		}
 
 		.banned {
-			color: red;
-			font-weight: bold;
-		}
-
-		.template,
-		.hidden {
-			display: none;
-		}
-
-		.banner {
-			text-align: center;
-		}
-
-		.banner .title {
-			font-family: 'Impact', sans-serif;
-			color: #a10000;
-			font-size: 64px;
-			font-weight: bold;
-		}
-
-		.control .button {
-			cursor: pointer;
-			color: blue;
-			text-decoration: underline;
-		}
-
-		.control {
-			display: flex;
-			user-select: none;
-			gap: 4px;
-			padding: 0px 12px;
-		}
-
-		.control .spread {
-			flex: 1;
-		}
-
-		.control .notification {
-			flex: 1;
-			text-align: right;
-			font-weight: bold;
-			color: red;
-		}
-
-		.control #refresh-error {
-			color: red;
+			color: var(--alert-color);
 			font-weight: bold;
 		}
 
 		.expander .link,
 		.collapser .link {
-			color: blue;
+			color: var(--link-color);
 			cursor: pointer;
 		}
+
+		/* Icons */
 
 		.icon.minus,
 		.icon.plus {
 			display: inline-block;
-			color: white;
+			color: var(--icon-color);
 			font-weight: bold;
 			font-size: 16px;
 			line-height: 16px;
 			height: 16px;
 			width: 16px;
 			text-align: center;
-			background-color: #9198ce;
-			border: 2px solid #323151;
+			background-color: var(--backgound-color);
+			border: 2px solid var(--icon-border-color);
 			border-radius: 3px;
 			cursor: pointer;
 		}
@@ -353,6 +443,8 @@
 		.icon.minus::before {
 			content: '－';
 		}
+
+		/* Catalog Page */
 
 		#catalog {
 			padding: 16px;
@@ -391,113 +483,6 @@
 
 		.theme-selector-box {
 			padding-left: 10px;
-		}
-
-		body#dark-theme {
-			background-color: #1d2021;
-			color: #dfdfdf;
-		}
-
-		body#dark-theme a,
-		body#dark-theme span.link {
-			color: #458588;
-		}
-
-		body#dark-theme .greentext {
-			color: #789922;
-		}
-
-		body#dark-theme .banner,
-		body#dark-theme .control {
-			background-color: #282828;
-			border-color: #4b4b4b;
-		}
-
-		body#dark-theme .control>span {
-			color: #458588;
-			text-decoration: none;
-		}
-
-		body#dark-theme .control>span.button:hover {
-			text-decoration: underline;
-		}
-
-		body#dark-theme .form {
-			background-color: #282828;
-			border-color: #4b4b4b;
-		}
-
-		body#dark-theme form>textarea,
-		body#dark-theme input {
-			background-color: #1d2021;
-			border-color: #4b4b4b;
-			color: #dfdfdf;
-		}
-
-		body#dark-theme .drag {
-			border-bottom-color: #4b4b4b;
-		}
-
-		body#dark-theme .thread {
-			background-color: #1d2021;
-			border-color: #4b4b4b;
-		}
-
-		body#dark-theme .header .title {
-			color: #ce0000;
-		}
-
-		body#dark-theme .header .name {
-			color: #458588;
-		}
-
-		body#dark-theme .header .date {
-			color: gray;
-		}
-
-		body#dark-theme .header .numbers {
-			color: #458588;
-		}
-
-		body#dark-theme .reference {
-			color: #458588;
-		}
-
-		body#dark-theme .content {
-			color: #dfdfdf;
-		}
-
-		body#dark-theme .post .content {
-			background-color: #282828;
-			border-color: #4b4b4b;
-		}
-
-		body#dark-theme .divider {
-			border-bottom-color: #4b4b4b;
-		}
-
-		body#dark-theme .divider.new-posts-line {
-			border-color: #ce0000;
-		}
-
-		body#dark-theme .control #refresh-error {
-			color: #ce0000;
-		}
-		
-		body#dark-theme .menu .options {
-			background-color: #282828;
-		}
-
-		body#dark-theme .menu .options>* {
-			border: 1px solid #4b4b4b;
-		}
-
-		body#dark-theme span.spoiler {
-			background: #dfdfdf;
-		}
-
-		body#dark-theme span.spoiler:hover {
-			background: inherit;
 		}
 	</style>
 </head>
@@ -622,7 +607,7 @@
 		function reloadAuthoredPostIds() {
 			try {
 				JSON.parse(localStorage.getItem('authoredPostIds')).forEach(id => globalData.authoredPostIds.add(id))
-			} catch {}
+			} catch { }
 		}
 		reloadAuthoredPostIds()
 
@@ -650,7 +635,7 @@
 		function renderOP(entry) {
 			const newThread = $('.thread.template').clone();
 			newThread.removeClass('template');
-			if(!(Object.keys(entry).includes('imageData'))){
+			if (!(Object.keys(entry).includes('imageData'))) {
 				newThread.find('.meta').addClass('hidden');
 			}
 			renderSharedData(newThread, entry);
@@ -754,7 +739,7 @@
 					textArea.val('')
 				}
 				$('.form.floating').removeClass('hidden').css('top', e.pageY).css('left', e.pageX);
-				textArea.val(textArea.val()+">>" + data.postNumber + "\r\n")
+				textArea.val(textArea.val() + ">>" + data.postNumber + "\r\n")
 
 				if (globalData.selectedText) {
 					let quote = '>' + globalData.selectedText.trim().replace(/\r?\n/g, "\r\n>")
@@ -784,7 +769,7 @@
 					.removeClass('delete')
 					.addClass('ban')
 					.text('U sure?')
-					.on('click', () => {})
+					.on('click', () => { })
 					.prependTo(container.find('.menu .options'));
 				container.find('.menu .delete')
 					.clone()
@@ -863,9 +848,9 @@
 				$(this).attr('src', imageUrl(data._id, !expand));
 			});
 			globalData.imagesTotal += 1;
-			image.on('load', function (){
+			image.on('load', function () {
 				globalData.imagesLoaded += 1;
-				if (globalData.imagesLoaded == globalData.imagesTotal){
+				if (globalData.imagesLoaded == globalData.imagesTotal) {
 					if (globalData.threadId && globalData.requestedThreadId == globalData.threadId) {
 						restoreScrollPos();
 					}
@@ -1169,7 +1154,7 @@
 				window.location = "/" + postNumber
 			})
 
-			$(document).on('selectionchange', function(e) {
+			$(document).on('selectionchange', function (e) {
 				let selection = document.getSelection()
 				let startBody = $(selection.anchorNode).parents('.body').first()
 				let endBody = $(selection.focusNode).parents('.body').first()
@@ -1236,7 +1221,7 @@
 					}
 					globalData.threadId = resp.threadId;
 				})
-				window.onbeforeunload = function(e) {
+				window.onbeforeunload = function (e) {
 					localStorage.setItem('scrollpos', window.scrollY);
 				};
 				return;
@@ -1256,9 +1241,9 @@
 			loadIndex();
 		});
 
-		function restoreScrollPos(){
+		function restoreScrollPos() {
 			const scrollpos = localStorage.getItem('scrollpos');
-			if (scrollpos){
+			if (scrollpos) {
 				window.scrollTo(0, scrollpos);
 			}
 		}
@@ -1333,12 +1318,14 @@
 		</div>
 	</div>
 	<div class="banner">
-		<div class="title">4han</div>
+		<div class="title"><a href="/">4han</a></div>
 		<img class="bannerImage">
 		<!-- <div class="start">
 			[<span>Start a New Thread</span>]
 		</div> -->
-		<div>[<a href="https://repo.riichi.moe/index2.html" class="repo"><h3>Actual Repo here</h3></a>]</div>
+		<div>[<a href="https://repo.riichi.moe/index2.html" class="repo">
+				<h3>Actual Repo here</h3>
+			</a>]</div>
 		<div class="announcements">
 			<div>Sorry for any deleted posts, it was probably an accident. 4hanX creator please repost or upload to
 				repo.</div>
@@ -1387,7 +1374,6 @@
 		<span class="top button">Top</span>
 		<span class="reply button">Reply</span>
 		<span class="update button">Update</span>
-		<span class="catalog button"><a href="/catalog">Catalog</a></span>
 		<input class="hidden" type="checkbox" name="refresh" id="refresh" checked="false">
 		<label class="hidden" for="refresh">Auto</label>
 		<span class="timer"></span>
@@ -1402,6 +1388,7 @@
 				<option value="dark-theme">Dark</option>
 			</select>
 		</span>
+		<span class="catalog button"><a href="/catalog">Catalog</a></span>
 	</div>
 	<div class="divider"></div>
 	<div class="form-container">
@@ -1441,9 +1428,8 @@
 			</div>
 			<textarea type="textarea" id="body" name="body"></textarea>
 			<div class="row">
-				<!-- <input type="checkbox" name="spoiler" id="spoiler">
-
-				<label for="spoiler">Spoiler</label> -->
+				<input type="checkbox" name="spoiler" id="spoiler">
+				<label for="spoiler">Spoiler</label>
 				<input type="file" id="image" name="image">
 				<span class="error"></span>
 				<input type="submit" value="Post">
