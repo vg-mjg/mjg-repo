@@ -8,7 +8,7 @@
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
 		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
+	<link rel="icon" href="/favicon.ico" />
 
 	<style>
 		/* In Page appearance order */
@@ -944,6 +944,7 @@
 			})
 				.then(body => body.json())
 				.then(data => {
+					let newYous = 0
 					data.posts.forEach((post) => {
 						if (globalData.postIds[post.postNumber]) {
 							return
@@ -951,6 +952,9 @@
 
 						globalData.postIds[post.postNumber] = true;
 						post.body.matchAll(/&gt;&gt;(\d+)/g).forEach(([_, quotedId]) => {
+							if (globalData.authoredPostIds.has(parseInt(quotedId, 10))) {
+								newYous += 1
+							}
 							$(`.post:not(.post-preview) .numbers[data-post="${quotedId}"]`)
 								.siblings('.quotes')
 								.append(renderReference(post.postNumber))
@@ -960,7 +964,8 @@
 					updateCount(data.thread.replies, data.thread.totalReplies)
 					return {
 						lastPostNumber: data.posts.length ? data.posts[data.posts.length - 1].postNumber : lastPostId,
-						postsLoaded: data.posts.length
+						postsLoaded: data.posts.length,
+						newYous,
 					}
 				})
 		}
@@ -1018,6 +1023,19 @@
 				loadUpdate(data.threadId, data.lastPostNumber).then(n => {
 					$('#refresh-error').text('')
 					data.lastPostNumber = n.lastPostNumber
+					
+					if (n.newYous) {
+						if (!globalData.originalFavicon) {
+							globalData.originalFavicon = $('link[rel="icon"]')
+							globalData.originalFavicon.remove()
+							$('<link>', {
+								rel: 'icon',
+								type: 'image/gif',
+								href: '/gifs/meido-alert.gif',
+							}).appendTo('head')
+						}
+					}
+
 					if (n.postsLoaded) {
 						if (!globalData.unreadPosts) {
 							$('<div>', { class: "divider new-posts-line" }).insertAfter(oldLastPost)
@@ -1029,11 +1047,11 @@
 						data.refreshTimer = setTimeout(() => {
 							startRefreshTimer(data)
 						}, 1000)
-						return
+					} else {
+						data.refreshTimer = setTimeout(() => {
+							startRefreshTimer(data, max + 10)
+						}, 1000)
 					}
-					data.refreshTimer = setTimeout(() => {
-						startRefreshTimer(data, max + 10)
-					}, 1000)
 				}).catch(e => {
 					$('#refresh-error').text(e)
 					data.refreshTimer = setTimeout(() => {
@@ -1172,6 +1190,11 @@
 						document.title = globalData.originalTitle
 						globalData.unreadPosts = 0
 						globalData.originalTitle = undefined
+
+						if (globalData.originalFavicon) {
+							$('link[rel="icon"]').replaceWith(globalData.originalFavicon)
+							delete globalData.originalFavicon
+						}
 					}
 				}
 			})
