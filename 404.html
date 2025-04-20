@@ -598,6 +598,7 @@
 			requestedThreadId: getThreadId(),
 			imagesTotal: 0,
 			imagesLoaded: 0,
+			selectedText: '',
 		};
 		const deleteId = getDeleteId()
 		const authToken = localStorage.getItem('authToken')
@@ -738,8 +739,14 @@
 					textArea.val('')
 				}
 				$('.form.floating').removeClass('hidden').css('top', e.pageY).css('left', e.pageX);
-				textArea.val(textArea.val()+">>" + data.postNumber + "\r\n").focus()
-				textArea.prop('selectionStart', textArea.val().length)
+				textArea.val(textArea.val()+">>" + data.postNumber + "\r\n")
+
+				if (globalData.selectedText) {
+					let quote = '>' + globalData.selectedText.trim().replace(/\r?\n/g, "\r\n>")
+					textArea.val(textArea.val() + quote + "\r\n")
+				}
+
+				textArea.prop('selectionStart', textArea.val().length).focus()
 			})
 
 			container.find('.header .reply a').attr('href', '/' + data.postNumber)
@@ -1144,7 +1151,19 @@
 				window.location = "/" + postNumber
 			})
 
+			$(document).on('selectionchange', function(e) {
+				let selection = document.getSelection()
+				let startBody = $(selection.anchorNode).parents('.body').first()
+				let endBody = $(selection.focusNode).parents('.body').first()
 
+				if (selection.focusNode.parentElement?.classList?.contains('numbers')) {
+					// ignore the click to open the reply form
+				} else if (startBody.length && endBody.length && startBody[0] == endBody[0]) {
+					globalData.selectedText = selection.toString()
+				} else {
+					globalData.selectedText = ''
+				}
+			})
 
 			$(document).on('mouseenter', '.reference', (e) => {
 				if (globalData.referencePreview) {
