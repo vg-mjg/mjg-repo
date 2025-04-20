@@ -1011,7 +1011,7 @@
 		function startRefreshTimer(data, max = 10, current = max) {
 			$('.timer').text(current)
 			if (current === 0) {
-				const oldLastPost = $('.thread .post:last-child')
+				const oldLastPost = $('.thread .post:not(.post-preview):last-child').first()
 
 				loadUpdate(data.threadId, data.lastPostNumber).then(n => {
 					$('#refresh-error').text('')
