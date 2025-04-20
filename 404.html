@@ -945,6 +945,10 @@
 				.then(body => body.json())
 				.then(data => {
 					data.posts.forEach((post) => {
+						if (globalData.postIds[post.postNumber]) {
+							return
+						}
+
 						globalData.postIds[post.postNumber] = true;
 						post.body.matchAll(/&gt;&gt;(\d+)/g).forEach(([_, quotedId]) => {
 							$(`.post:not(.post-preview) .numbers[data-post="${quotedId}"]`)
