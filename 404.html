@@ -587,6 +587,7 @@
 
 		const globalData = {
 			threadId: getThreadId(),
+			requestedThreadId: getThreadId(),
 			imagesTotal: 0,
 			imagesLoaded: 0,
 		};
@@ -613,9 +614,6 @@
 			newThread.removeClass('template');
 			if(!(Object.keys(entry).includes('imageData'))){
 				newThread.find('.meta').addClass('hidden');
-			}
-			if(Object.keys(entry).includes('lastTouchedTime')){
-				globalData.realThreadId = entry.postNumber;
 			}
 			renderSharedData(newThread, entry);
 
@@ -837,7 +835,7 @@
 			image.on('load', function (){
 				globalData.imagesLoaded += 1;
 				if (globalData.imagesLoaded == globalData.imagesTotal){
-					if (globalData.threadId == globalData.realThreadId) {
+					if (globalData.requestedThreadId == globalData.threadId) {
 						restoreScrollPos();
 					}
 				}
