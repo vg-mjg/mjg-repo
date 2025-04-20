@@ -917,10 +917,11 @@
 						const item = $(".catalog-item.template")
 							.clone()
 							.removeClass('template');
-						const link = document.createElement("a");
-						link.setAttribute("href", `/${thread.postNumber}`);
-						$('<img/>').addClass('image').attr('src', imageUrl(thread._id, true)).prependTo(link);
-						item.prepend(link);
+						item.find('a')
+							.attr('href', `/${thread.postNumber}`)
+							.find('img')
+							.addClass('image')
+							.attr('src', imageUrl(thread._id, true));
 
 						item.find('.replies').text(`${thread.replies ?? 0} Replies`);
 						if (thread.title) {
@@ -1296,6 +1297,7 @@
 		</div>
 	</div>
 	<div class="catalog-item template">
+		<a><img></a>
 		<div class="replies"></div>
 		<div class="body">
 			<span class="title"></span>
