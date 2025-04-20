@@ -735,7 +735,7 @@
 				}
 				let textArea = $('.form.floating textarea')
 				if ($('.form.floating').hasClass('hidden')) {
-					textArea.text('')
+					textArea.val('')
 				}
 				$('.form.floating').removeClass('hidden').css('top', e.pageY).css('left', e.pageX);
 				textArea.val(textArea.val()+">>" + data.postNumber + "\r\n").focus()
