@@ -951,7 +951,7 @@
 						}
 
 						globalData.postIds[post.postNumber] = true;
-						post.body.matchAll(/&gt;&gt;(\d+)/g).forEach(([_, quotedId]) => {
+						post.body?.matchAll(/&gt;&gt;(\d+)/g).forEach(([_, quotedId]) => {
 							if (globalData.authoredPostIds.has(parseInt(quotedId, 10))) {
 								newYous += 1
 							}
