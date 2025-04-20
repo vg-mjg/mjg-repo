@@ -295,6 +295,11 @@
 			max-width: 95%;
 		}
 
+		.image {
+			min-height: 256px;
+			min-width: 256px;
+		}
+
 		span.spoiler {
 			background: var(--spoiler-color);
 			color: var(--spoiler-color);
@@ -535,7 +540,7 @@
 			"4han/15.png",
 			"4han/16.png",
 		];
-		const dev = window.location.hostname === 'localhost';
+		const dev = window.location.hostname === 'localhost ';
 		const baseUrl = dev ? "http://localhost:9515/" : "https://riichi.moe/api/";
 		const maxFileSize = 1024 * 1024;
 
@@ -597,17 +602,23 @@
 
 		// NB: For resetting the scroll position on page refresh
 		try {
-			const [path, scrollPos] = JSON.parse(localStorage.getItem('scrollpos'))
+			const scrollPos = JSON.parse(sessionStorage.getItem('scrollpos'))
 			localStorage.removeItem('scrollpos')
-
-			if (path == location.pathname && scrollPos) {
+			const pageAccessedByReload = (
+				(window.performance.navigation && window.performance.navigation.type === 1) ||
+				window.performance
+					.getEntriesByType('navigation')
+					.map((nav) => nav.type)
+					.includes('reload')
+			);
+			if (pageAccessedByReload) {
 				globalData.deferredScroll = { position: scrollPos }
 			}
 		} catch { }
 
 		function saveScrollPosOnRefresh() {
 			window.onbeforeunload = function (e) {
-				localStorage.setItem('scrollpos', JSON.stringify([location.pathname, window.scrollY]))
+				sessionStorage.setItem('scrollpos', JSON.stringify(window.scrollY))
 			}
 		}
 
@@ -616,11 +627,10 @@
 		// down to the post that was linked.
 		function restoreScrollPos() {
 			if (globalData.deferredScroll?.position) {
+				console.log(globalData.deferredScroll?.position)
 				window.scrollTo(0, globalData.deferredScroll.position)
-			} else if (globalData.deferredScroll?.post) {
-				scrollToPost(globalData.deferredScroll.post)
 			}
-			globalData.deferredScroll = undefined
+			delete globalData.deferredScroll
 		}
 
 		function reloadAuthoredPostIds() {
@@ -927,6 +937,7 @@
 					if (window.location.hash) {
 						window.location.hash = window.location.hash
 					}
+					restoreScrollPos();
 
 					updateCount(data.thread.replies, data.thread.totalReplies)
 				})
