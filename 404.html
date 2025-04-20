@@ -729,7 +729,7 @@
 					textArea.text('')
 				}
 				$('.form.floating').removeClass('hidden').css('top', e.pageY).css('left', e.pageX);
-				textArea.append("&gt;&gt;" + data.postNumber + "\r\n").focus()
+				textArea.val(textArea.val()+">>" + data.postNumber + "\r\n").focus()
 				textArea.prop('selectionStart', textArea.val().length)
 			})
 
