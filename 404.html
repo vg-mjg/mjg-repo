@@ -577,6 +577,7 @@
 			threadId: getThreadId(),
 			selectedText: '',
 			authoredPostIds: new Set(),
+			postIds: new Set(),
 		};
 		const deleteId = getDeleteId()
 		const authToken = localStorage.getItem('authToken')
@@ -660,7 +661,7 @@
 		function renderReference(id) {
 			id = parseInt(id, 10)
 			let extra = globalData.authoredPostIds.has(parseInt(id, 10)) ? ' (You)' : ''
-			if (!globalData?.postIds?.[id]) {
+			if (!globalData.postIds.has(id)) {
 				extra = `${extra}&rarr;`
 			}
 			return `<a class="reference" href=${getReferenceHref(id)}>&gt;&gt;${id}${extra}</a>`
@@ -739,7 +740,7 @@
 
 		function getReferenceHref(referenceId) {
 			if (!globalData.threadId
-				|| !globalData?.postIds?.[referenceId]) {
+				|| !globalData.postIds.has(referenceId)) {
 				return '/' + referenceId;
 			}
 			return '/' + globalData.threadId + "#" + referenceId;
@@ -927,7 +928,9 @@
 						globalData.threadId = data.thread.postNumber
 						history.replaceState(null, "", "/" + url)
 					}
-					globalData.postIds = data.posts.reduce((total, next) => (total[next.postNumber] = true, total), { [data.thread.postNumber]: true })
+					globalData.postIds.add(data.thread.postNumber)
+					data.posts.forEach(post => globalData.postIds.add(post.postNumber))
+
 					const op = renderOP(data.thread, data.posts).appendTo($('#main'))
 					const posts = data.posts.map((entry) => renderPost(entry))
 					op.append(posts)
@@ -949,16 +952,23 @@
 				.then(body => body.json())
 				.then(data => {
 					let newYous = 0
+					let newPostIds = new Set();
+					// NB: Pre-emptively note all the new post numbers so backend-provided
+					// quotes are considered in-thread.
+					data.posts.forEach(post => {
+						newPostIds.add(post.postNumber)
+						globalData.postIds.add(post.postNumber)
+					})
 					data.posts.forEach((post) => {
-						if (globalData.postIds[post.postNumber]) {
-							return
-						}
-						globalData.postIds[post.postNumber] = true;
-
 						if (post.body?.matchAll instanceof Function) {
 							post.body.matchAll(/&gt;&gt;(\d+)/g).forEach(([_, quotedId]) => {
-								if (globalData.authoredPostIds.has(parseInt(quotedId, 10))) {
+								quotedId = parseInt(quotedId, 10)
+								if (globalData.authoredPostIds.has(quotedId)) {
 									newYous += 1
+								}
+								if (newPostIds.has(quotedId)) {
+									// Posts received in this batch will already have quotes set.
+									return
 								}
 								$(`.post:not(.post-preview) .numbers[data-post="${quotedId}"]`)
 									.siblings('.quotes')
@@ -968,6 +978,7 @@
 
 						renderPost(post).appendTo($('.thread:not(.template)'))
 					})
+
 					updateCount(data.thread.replies, data.thread.totalReplies)
 					return {
 						lastPostNumber: data.posts.length ? data.posts[data.posts.length - 1].postNumber : lastPostId,
