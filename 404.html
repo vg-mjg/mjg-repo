@@ -443,6 +443,29 @@
 			content: '－';
 		}
 
+		/* Page Selector */
+		.pages {
+			padding: 0px 12px 8px;
+			text-align: right;
+		}
+
+		.pages .page-link {
+			margin-left: 4px;
+		}
+
+		.pages .page-link a {
+			padding: 2px;
+		}
+
+
+		.pages .page-link.current a {
+			text-decoration: none;
+		}
+
+		.pages .page-link.current {
+			font-weight: bold;
+		}
+
 		/* Catalog Page */
 
 		#catalog {
@@ -577,8 +600,14 @@
 			return match[0]
 		}
 
+		function getPageNumber() {
+			const urlParams = new URLSearchParams(window.location.search);
+			return urlParams.get('page') ?? 1;
+		}
+
 		const globalData = {
 			threadId: getThreadId(),
+			pageNumber: getPageNumber(),
 			selectedText: '',
 			authoredPostIds: new Set(),
 			postIds: new Set(),
@@ -711,13 +740,26 @@
 		}
 
 		function loadIndex() {
-			fetch(baseUrl + "bulletin", {
+			fetch(baseUrl + "bulletin?pageNumber=" + globalData.pageNumber, {
 				headers: authHeaders
 			})
 				.then(body => body.json())
 				.then(data => {
 					const divider = $('<div/>').addClass('divider')
-					const threads = data.flatMap((entry) => {
+
+					const pageLinks = [...Array(data.pageCount)]
+						.map((_, i) =>
+							$('.page-link.template')
+								.clone()
+								.toggleClass('current', (i + 1).toString() === globalData.pageNumber)
+								.removeClass('template')
+								.find('a')
+								.text(i + 1)
+								.attr('href', '/?page=' + (i + 1))
+								.end()
+						)
+					$('.pages').removeClass('hidden').append(pageLinks)
+					const threads = data.page.flatMap((entry) => {
 						const op = renderOP(entry.thread)
 						const posts = entry.posts.map(post => renderPost(post))
 						op.append(posts)
@@ -1473,6 +1515,8 @@
 		<span class="catalog button"><a href="/catalog">Catalog</a></span>
 	</div>
 	<div class="divider"></div>
+	<span class="page-link template">[<a></a>]</span>
+	<div class="pages hidden"></div>
 	<div class="form-container">
 		<div class="form bottom">
 			<form>
