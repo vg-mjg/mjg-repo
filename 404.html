@@ -1228,22 +1228,33 @@
 				globalData.referencePreview = true
 				const elem = $(e.target)
 				const postNumber = parseInt(elem.text().slice(2), 10)
-				const targetNumbers = $(`.post .numbers[data-post="${postNumber}"]`).first()
-				if (!targetNumbers) {
-					return
+				let targetNumbers = $(`.post .numbers[data-post="${postNumber}"]`).first()
+				let preview;
+
+				if (targetNumbers.length) {
+					const targetPost = targetNumbers.parents('.content').first()
+					if (targetPost) {
+						preview = $('<div>', { class: 'post post-preview' })
+						preview.append(targetPost.clone())
+						preview.find('a').removeAttr('id')
+						preview.insertBefore(elem)		
+					}
+				} else {
+					// Might be the OP		
+					targetNumbers = $(`.header .numbers[data-post="${postNumber}"]`).first()
+					if (!targetNumbers.length) {
+						return
+					}
+					
+					preview = $('<div>', { class: 'post post-preview' })
+					let content = $('<div>', { class: 'content' }).appendTo(preview)
+					content.append($('.thread:not(.template) > .header').clone())
+					content.append($('.thread:not(.template) > a > .image').clone())
+					content.append($('.thread:not(.template) > .body').clone())
+					preview.insertBefore(elem)
 				}
 
-				const targetPost = targetNumbers.parents('.content').first()
-				if (!targetPost) {
-					return
-				}
-
-				const preview = $('<div>', { class: 'post post-preview' })
-				preview.append(targetPost.clone())
-				preview.find('a').removeAttr('id')
-				preview.insertBefore(elem)
-
-				if ($(window).width() - preview.offset().left < preview.width()) {
+				if (preview && $(window).width() - preview.offset().left < preview.width()) {
 					preview.addClass('right')
 				}
 			})
