@@ -783,7 +783,7 @@
 					: data.postNumber
 			).on('click', (e) => {
 				if (!getThreadId()) {
-					window.location = '/' + data.postNumber
+					window.location = getReferenceHref(data.postNumber, data.parentThreadNumber)
 					return;
 				}
 				let textArea = $('.form.floating textarea')
