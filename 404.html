@@ -1287,8 +1287,15 @@
 					preview.insertBefore(elem)
 				}
 
-				if (preview && $(window).width() - preview.offset().left < preview.width()) {
-					preview.addClass('right')
+
+				if (preview) {
+					const windowWidth = $(window).width()
+					const previewWidth = preview.width()
+					const previewPosition = preview.offset().left;
+					if (previewPosition + previewWidth > windowWidth && previewPosition - previewWidth > 0) {
+						preview.addClass('right')
+
+					}
 				}
 			})
 
