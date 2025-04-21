@@ -364,6 +364,12 @@
 			position: relative;
 		}
 
+		.reference.deleted {
+			text-decoration: line-through;
+			cursor: inherit;
+			color: var(--alert-color)
+		}
+
 		.quotes .reference {
 			display: inline-block;
 			margin-right: 4px;
@@ -563,7 +569,7 @@
 			"4han/15.png",
 			"4han/16.png",
 		];
-		const dev = window.location.hostname === 'localhost';
+		const dev = window.location.hostname === 'localhost ';
 		const baseUrl = dev ? "http://localhost:9515/" : "https://riichi.moe/api/";
 		const maxFileSize = 1024 * 1024;
 
@@ -781,6 +787,22 @@
 			newPost.removeClass('template')
 			renderSharedData(newPost, post)
 			return newPost;
+		}
+
+		function renderPreview(targetPost, reference) {
+			const preview = $('<div>', { class: 'post post-preview' })
+				.append(targetPost)
+				.find('a').removeAttr('id').end()
+				.insertBefore(reference)
+
+			const windowWidth = $(window).width()
+			const previewWidth = preview.width()
+			const previewPosition = preview.offset().left;
+			if (previewPosition + previewWidth > windowWidth && previewPosition - previewWidth > 0) {
+				preview.addClass('right')
+			}
+
+			return preview
 		}
 
 		function getReferenceHref(referenceId, parentThreadNumber) {
@@ -1301,44 +1323,44 @@
 				globalData.referencePreview = true
 				const elem = $(e.target)
 				const postNumber = parseInt(elem.text().slice(2), 10)
-				let targetNumbers = $(`.post .numbers[data-post="${postNumber}"]`).first()
-				let preview;
+				const targetNumbers = $(`.numbers[data-post="${postNumber}"]`).first()
 
-				if (targetNumbers.length) {
-					const targetPost = targetNumbers.parents('.content').first()
-					if (targetPost) {
-						preview = $('<div>', { class: 'post post-preview' })
-						preview.append(targetPost.clone())
-						preview.find('a').removeAttr('id')
-						preview.insertBefore(elem)
-					}
-				} else {
-					// Might be the OP		
-					targetNumbers = $(`.header .numbers[data-post="${postNumber}"]`).first()
-					if (!targetNumbers.length) {
-						return
-					}
 
-					let targetThread = targetNumbers.parents('.thread').first()
+				if (!targetNumbers.length) {
+					fetch(baseUrl + '/bulletin/preview/' + postNumber)
+						.then(data => {
+							if (data.status === 404) {
+								elem.addClass('deleted').removeAttr('href').text('>>' + postNumber)
+								return
+							}
 
-					preview = $('<div>', { class: 'post post-preview' })
-					let content = $('<div>', { class: 'content' }).appendTo(preview)
-					content.append(targetThread.children('.header').clone())
-					content.append(targetThread.children('a').clone())
-					content.append(targetThread.children('.body').clone())
-					preview.insertBefore(elem)
+							if (data.status !== 200) {
+								return;
+							}
+
+							return data.json()
+						})
+						.then(post => post && renderPreview(
+							renderPost(post).find('.content'),
+							elem
+						))
+					return;
 				}
 
-
-				if (preview) {
-					const windowWidth = $(window).width()
-					const previewWidth = preview.width()
-					const previewPosition = preview.offset().left;
-					if (previewPosition + previewWidth > windowWidth && previewPosition - previewWidth > 0) {
-						preview.addClass('right')
-
-					}
+				const post = targetNumbers.parents('.content').first()
+				if (post.length) {
+					renderPreview(post.clone(), elem)
+					return
 				}
+
+				const thread = targetNumbers.parents('.thread').first()
+				renderPreview(
+					$('<div>', { class: 'content' }).append(
+						thread.children('.meta, .header, a, .body').clone()
+					),
+					elem
+				)
+
 			})
 
 			$(document).on('mouseleave', '.reference', (e) => {
