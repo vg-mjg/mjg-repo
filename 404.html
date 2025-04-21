@@ -741,8 +741,13 @@
 			return newPost;
 		}
 
-		function getReferenceHref(referenceId) {
-			if (!globalData.threadId
+		function getReferenceHref(referenceId, parentThreadNumber) {
+			if (parentThreadNumber) {
+				return '/' + parentThreadNumber + "#" + referenceId;
+			}
+
+			if (
+				!globalData.threadId
 				|| !globalData.postIds.has(referenceId)) {
 				return '/' + referenceId;
 			}
@@ -770,9 +775,13 @@
 			container.find('.header .title').html(data.title)
 			container.find('.header .name').html(data.name ?? "Jyanshi")
 			container.find('.header .date').text(new Date(data.postTime).toLocaleString())
-			container.find('.header .link').attr('href', getReferenceHref(data.postNumber))
+			container.find('.header .link').attr('href', getReferenceHref(data.postNumber, data.parentThreadNumber))
 			container.find('.header .link').attr('id', data.postNumber)
-			container.find('.header .numbers').text(data.postNumber).on('click', (e) => {
+			container.find('.header .numbers').text(
+				data.parentThreadNumber
+					? data.parentThreadNumber + "#" + data.postNumber
+					: data.postNumber
+			).on('click', (e) => {
 				if (!getThreadId()) {
 					window.location = '/' + data.postNumber
 					return;
