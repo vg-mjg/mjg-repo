@@ -658,8 +658,12 @@
 		}
 
 		function renderReference(id) {
-			const you = globalData.authoredPostIds.has(parseInt(id, 10)) ? ' (You)' : ''
-			return `<a class="reference" href=${getReferenceHref(id)}>&gt;&gt;${id}${you}</a>`
+			id = parseInt(id, 10)
+			let extra = globalData.authoredPostIds.has(parseInt(id, 10)) ? ' (You)' : ''
+			if (!globalData?.postIds?.[id]) {
+				extra = `${extra}&rarr;`
+			}
+			return `<a class="reference" href=${getReferenceHref(id)}>&gt;&gt;${id}${extra}</a>`
 		}
 
 		function renderOP(entry) {
