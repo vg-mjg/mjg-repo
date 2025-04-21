@@ -970,15 +970,15 @@
 					})
 					data.posts.forEach((post) => {
 						for (const [_, quotedId] of [...post.body.matchAll(/&gt;&gt;(\d+)/g)]) {
-							quotedId = parseInt(quotedId, 10)
-							if (globalData.authoredPostIds.has(quotedId)) {
+							const parsedId = parseInt(quotedId, 10)
+							if (globalData.authoredPostIds.has(parsedId)) {
 								newYous += 1
 							}
-							if (newPostIds.has(quotedId)) {
+							if (newPostIds.has(parsedId)) {
 								// Posts received in this batch will already have quotes set.
 								return
 							}
-							$(`.post:not(.post-preview) .numbers[data-post="${quotedId}"]`)
+							$(`.post:not(.post-preview) .numbers[data-post="${parsedId}"]`)
 								.siblings('.quotes')
 								.append(renderReference(post.postNumber))
 						}
