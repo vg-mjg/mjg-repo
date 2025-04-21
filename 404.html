@@ -949,16 +949,19 @@
 						if (globalData.postIds[post.postNumber]) {
 							return
 						}
-
 						globalData.postIds[post.postNumber] = true;
-						post.body?.matchAll(/&gt;&gt;(\d+)/g).forEach(([_, quotedId]) => {
-							if (globalData.authoredPostIds.has(parseInt(quotedId, 10))) {
-								newYous += 1
-							}
-							$(`.post:not(.post-preview) .numbers[data-post="${quotedId}"]`)
-								.siblings('.quotes')
-								.append(renderReference(post.postNumber))
-						})
+
+						if (post.body?.matchAll instanceof Function) {
+							post.body.matchAll(/&gt;&gt;(\d+)/g).forEach(([_, quotedId]) => {
+								if (globalData.authoredPostIds.has(parseInt(quotedId, 10))) {
+									newYous += 1
+								}
+								$(`.post:not(.post-preview) .numbers[data-post="${quotedId}"]`)
+									.siblings('.quotes')
+									.append(renderReference(post.postNumber))
+							})
+						}
+
 						renderPost(post).appendTo($('.thread:not(.template)'))
 					})
 					updateCount(data.thread.replies, data.thread.totalReplies)
