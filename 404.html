@@ -1325,7 +1325,6 @@
 				const postNumber = parseInt(elem.text().slice(2), 10)
 				const targetNumbers = $(`.numbers[data-post="${postNumber}"]`).first()
 
-
 				if (!targetNumbers.length) {
 					fetch(baseUrl + '/bulletin/preview/' + postNumber)
 						.then(data => {
@@ -1340,7 +1339,7 @@
 
 							return data.json()
 						})
-						.then(post => post && renderPreview(
+						.then(post => post && globalData.referencePreview && renderPreview(
 							renderPost(post).find('.content'),
 							elem
 						))
