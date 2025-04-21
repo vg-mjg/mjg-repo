@@ -27,6 +27,8 @@
 
 			--selected-post-background-color: #d6bad0;
 
+			--form-input-background-color: white;
+
 			--post-name-color: green;
 			--post-date-color: inherit;
 			--post-title-color: #a10000;
@@ -53,6 +55,8 @@
 			--control-color: #458588;
 
 			--selected-post-background-color: #505050;
+
+			--form-input-background-color: #1d2021;
 
 			--post-name-color: #458588;
 			--post-date-color: gray;
@@ -158,8 +162,8 @@
 		}
 
 		form textarea,
-		form input {
-			background-color: var(--background-color);
+		form input[type=text] {
+			background-color: var(--form-input-background-color);
 			border-color: var(--border-color);
 			color: var(--color);
 		}
@@ -536,7 +540,7 @@
 			"4han/15.png",
 			"4han/16.png",
 		];
-		const dev = window.location.hostname === 'localhost ';
+		const dev = window.location.hostname === 'localhost';
 		const baseUrl = dev ? "http://localhost:9515/" : "https://riichi.moe/api/";
 		const maxFileSize = 1024 * 1024;
 
@@ -624,7 +628,6 @@
 		// down to the post that was linked.
 		function restoreScrollPos() {
 			if (globalData.deferredScroll?.position) {
-				console.log(globalData.deferredScroll?.position)
 				window.scrollTo(0, globalData.deferredScroll.position)
 			}
 			delete globalData.deferredScroll
@@ -646,7 +649,7 @@
 
 			let oldIds;
 			try {
-				oldIds = JSON.parse(localStorage.getItem('authoredPostIds'))
+				oldIds = JSON.parse(localStorage.getItem('authoredPostIds')) ?? []
 			} catch {
 				oldIds = []
 			}
@@ -888,7 +891,9 @@
 			container.find('.meta').after(imageWrapper);
 		}
 
-		function updateCount(replies = 0, totalReplies = 0) {
+		function updateCount(replies = 0, totalReplies = 0, uniqueReplies = 0,) {
+			$('.control.bottom .unique').text(uniqueReplies + " Unique Posters")
+
 			$('.control.bottom .count').text(totalReplies + " Replies")
 			const deleted = totalReplies - replies
 			if (deleted > 0) {
@@ -940,7 +945,11 @@
 					}
 					restoreScrollPos();
 
-					updateCount(data.thread.replies, data.thread.totalReplies)
+					updateCount(
+						data.thread.replies,
+						data.thread.totalReplies,
+						data.thread.uniqueReplies,
+					)
 				})
 		}
 
@@ -960,26 +969,28 @@
 						globalData.postIds.add(post.postNumber)
 					})
 					data.posts.forEach((post) => {
-						if (post.body?.matchAll instanceof Function) {
-							post.body.matchAll(/&gt;&gt;(\d+)/g).forEach(([_, quotedId]) => {
-								quotedId = parseInt(quotedId, 10)
-								if (globalData.authoredPostIds.has(quotedId)) {
-									newYous += 1
-								}
-								if (newPostIds.has(quotedId)) {
-									// Posts received in this batch will already have quotes set.
-									return
-								}
-								$(`.post:not(.post-preview) .numbers[data-post="${quotedId}"]`)
-									.siblings('.quotes')
-									.append(renderReference(post.postNumber))
-							})
+						for (const [_, quotedId] of [...post.body.matchAll(/&gt;&gt;(\d+)/g)]) {
+							quotedId = parseInt(quotedId, 10)
+							if (globalData.authoredPostIds.has(quotedId)) {
+								newYous += 1
+							}
+							if (newPostIds.has(quotedId)) {
+								// Posts received in this batch will already have quotes set.
+								return
+							}
+							$(`.post:not(.post-preview) .numbers[data-post="${quotedId}"]`)
+								.siblings('.quotes')
+								.append(renderReference(post.postNumber))
 						}
 
 						renderPost(post).appendTo($('.thread:not(.template)'))
 					})
 
-					updateCount(data.thread.replies, data.thread.totalReplies)
+					updateCount(
+						data.thread.replies,
+						data.thread.totalReplies,
+						data.thread.uniqueReplies,
+					)
 					return {
 						lastPostNumber: data.posts.length ? data.posts[data.posts.length - 1].postNumber : lastPostId,
 						postsLoaded: data.posts.length,
@@ -1248,7 +1259,7 @@
 						preview = $('<div>', { class: 'post post-preview' })
 						preview.append(targetPost.clone())
 						preview.find('a').removeAttr('id')
-						preview.insertBefore(elem)		
+						preview.insertBefore(elem)
 					}
 				} else {
 					// Might be the OP		
@@ -1258,7 +1269,7 @@
 					}
 
 					let targetThread = targetNumbers.parents('.thread').first()
-					
+
 					preview = $('<div>', { class: 'post post-preview' })
 					let content = $('<div>', { class: 'content' }).appendTo(preview)
 					content.append(targetThread.children('.header').clone())
@@ -1434,6 +1445,7 @@
 		<span class="timer"></span>
 		<span id="refresh-error"></span>
 		<span class="notification"></span>
+		<span class="unique"></span>
 		<span class="count"></span>
 		<span class="deleted"></span>
 		<span class="theme-selector-box">
