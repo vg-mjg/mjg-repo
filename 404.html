@@ -569,15 +569,24 @@
 			"4han/15.png",
 			"4han/16.png",
 		];
-		const dev = window.location.hostname === 'localhost ';
+
+		const dev = window.location.hostname === 'localhost';
 		const baseUrl = dev ? "http://localhost:9515/" : "https://riichi.moe/api/";
+		const imageBaseUrl = dev ? 'http://localhost:8080' : `${baseUrl}bulletin/images`
 		const maxFileSize = 1024 * 1024;
 
-		function imageUrl(id, thumb) {
-			if (dev) {
-				return `http://localhost:8080/${thumb ? '/thumb' : '/full'}/${id}`
+		function imageUrl(id, imageData, thumb) {
+			if (!imageData.extension) {
+				return `${imageBaseUrl}/${thumb ? 'thumb' : 'full'}/${id}`
 			}
-			return `${baseUrl}bulletin/images${thumb ? '/thumb' : '/full'}/${id}`
+
+			if (!thumb) {
+				return `${imageBaseUrl}/full/${id}.${imageData.extension}`
+			}
+
+			const thumbIsScaled = imageData.dimensions[0] !== imageData.thumbDimensions[0]
+				|| imageData.dimensions[1] !== imageData.thumbDimensions[1];
+			return `${imageBaseUrl}/thumb/${id}.${thumbIsScaled ? 'webp' : imageData.extension}`
 		}
 
 		function uuidv4() {
@@ -942,12 +951,16 @@
 			}
 			container.find('.meta').removeClass('hidden')
 			container.find('.meta a').text(data.imageData.fileName)
-			container.find('.meta a').attr('href', imageUrl(data._id))
+			container.find('.meta a').attr('href', imageUrl(data._id, data.imageData))
 			container.find('.meta a').attr('download', true)
 			container.find('.meta a').attr('filename', data.imageData.fileName)
 			container.find('.meta .data').text(`(${toReadableFileSize(data.imageData.fileSize)}, ${data.imageData.dimensions[0]}x${data.imageData.dimensions[1]})`)
-			const imageWrapper = $('<a>', { href: imageUrl(data._id), onclick: 'return false' })
-			const image = $('<img>', { class: 'image', src: imageUrl(data._id, true) });
+			const imageWrapper = $('<a>', { href: imageUrl(data._id, data.imageData), onclick: 'return false' })
+			const image = $('<img>', { class: 'image', src: imageUrl(data._id, data.imageData, true) });
+			if (data.imageData.thumbDimensions?.length) {
+				image.css('min-width', data.imageData.thumbDimensions[0])
+				image.css('min-height', data.imageData.thumbDimensions[1])
+			}
 			if (data.imageData.spoiler) {
 				image.addClass('spoiler');
 			}
@@ -957,7 +970,7 @@
 					image.toggleClass('spoiler', !expand);
 				}
 				$(this).data('expanded', expand);
-				$(this).attr('src', imageUrl(data._id, !expand));
+				$(this).attr('src', imageUrl(data._id, data.imageData, !expand));
 			});
 			image.appendTo(imageWrapper);
 
@@ -1087,7 +1100,7 @@
 							.attr('href', `/${thread.postNumber}`)
 							.find('img')
 							.addClass('image')
-							.attr('src', imageUrl(thread._id, true));
+							.attr('src', imageUrl(thread._id, thread.imageData, true));
 
 						item.find('.replies').text(`${thread.replies ?? 0} Replies`);
 						if (thread.title) {
@@ -1306,7 +1319,7 @@
 				let startBody = $(selection.anchorNode).parents('.body').first()
 				let endBody = $(selection.focusNode).parents('.body').first()
 
-				if (selection.focusNode.parentElement?.classList?.contains('numbers')) {
+				if (selection?.focusNode?.parentElement?.classList?.contains('numbers')) {
 					// ignore the click to open the reply form
 				} else if (startBody.length && endBody.length && startBody[0] == endBody[0]) {
 					globalData.selectedText = selection.toString()
