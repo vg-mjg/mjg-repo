@@ -1256,12 +1256,14 @@
 					if (!targetNumbers.length) {
 						return
 					}
+
+					let targetThread = targetNumbers.parents('.thread').first()
 					
 					preview = $('<div>', { class: 'post post-preview' })
 					let content = $('<div>', { class: 'content' }).appendTo(preview)
-					content.append($('.thread:not(.template) > .header').clone())
-					content.append($('.thread:not(.template) > a > .image').clone())
-					content.append($('.thread:not(.template) > .body').clone())
+					content.append(targetThread.children('.header').clone())
+					content.append(targetThread.children('a').clone())
+					content.append(targetThread.children('.body').clone())
 					preview.insertBefore(elem)
 				}
 
