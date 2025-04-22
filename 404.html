@@ -1062,7 +1062,7 @@
 							}
 							if (newPostIds.has(parsedId)) {
 								// Posts received in this batch will already have quotes set.
-								return
+								continue
 							}
 							$(`.post:not(.post-preview) .numbers[data-post="${parsedId}"]`)
 								.siblings('.quotes')
