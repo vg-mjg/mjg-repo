@@ -256,9 +256,27 @@
 			color: var(--post-title-color);
 		}
 
-
 		.header .date {
+			position: relative;
+			display: inline-block;
 			color: var(--post-date-color);
+		}
+
+		.tooltiptext {
+			position: absolute;
+			display: none;
+			bottom: 100%;
+			width: 100%;
+			background-color: rgb(70, 70, 70);
+			color: #fff;
+			text-align: center;
+			padding: 5px;
+			font-size: 12px;
+			z-index: 9999;
+		}
+
+		.header .date:hover .tooltiptext {
+			display: block;
 		}
 
 		.header .numbers {
@@ -847,9 +865,55 @@
 				)
 			);
 
+			const epochMilliseconds = data.postTime;
+			const postDate = new Date(epochMilliseconds);
+			const dayOfWeek = ["Sun","Mon","Tue","Wed","Thur","Fri","Sat"];
+			let weekday = dayOfWeek[postDate.getDay()];
+			const [month, day, year, hour, minutes, seconds] = [
+				String(postDate.getMonth() + 1).padStart(2, '0'),
+				String(postDate.getDate()).padStart(2, '0'),
+				postDate.getFullYear(),
+				String(postDate.getHours()).padStart(2, '0'),
+				String(postDate.getMinutes()).padStart(2, '0'),
+				String(postDate.getSeconds()).padStart(2, '0'),
+			];
+
+			function calculateTimeAgo() {
+				const now = Date.now();
+				const past = data.postTime;
+				const seconds = Math.round((now - past) / 1000);
+				const minutes = Math.round(seconds / 60);
+				const hours = Math.round(minutes / 60);
+				const days = Math.round(hours / 24);
+
+				if (seconds < 60) {
+					return seconds <= 0 ? "just now" : `${seconds} seconds ago`;
+				} else if (minutes < 60) {
+					return `${minutes} minute${minutes === 1 ? '' : 's'} ago`;
+				} else if (hours < 24) {
+					return `${hours} hour${hours === 1 ? '' : 's'} ago`;
+				} else {
+					return `${days} day${days === 1 ? '' : 's'} ago`;
+				}
+			};
+			
+			const timeSincePost = calculateTimeAgo()
+			const displayDate = `${year}/${month}/${day} (${weekday}) ${hour}:${minutes}:${seconds}`;
+
+			const styledDate = `<div class="date">${displayDate}		
+										<span class="tooltiptext">${timeSincePost}</span>	
+								</div>`;
+				
+			//currently does nothing
+
+			$('.header .date').on('mousemove', (e) => {
+				const timeSincePost = calculateTimeAgo();
+				console.log(5+6);
+			});
+
 			container.find('.header .title').html(data.title)
 			container.find('.header .name').html(data.name ?? "Jyanshi")
-			container.find('.header .date').text(new Date(data.postTime).toLocaleString())
+			container.find('.header .date').html(styledDate)
 			container.find('.header .link').attr('href', getReferenceHref(data.postNumber, data.parentThreadNumber))
 			container.find('.header .link').attr('id', data.postNumber)
 			container.find('.header .numbers').text(
@@ -1418,8 +1482,11 @@
 		<span class="header">
 			<span class="name"></span>
 			<span class="title"></span>
-			<span class="date"></span>
+			<div class="date">
+				<span class="tooltiptext"></span> 
+			</div>		
 			<a class="link">No.</a>
+			
 			<span class="numbers"></span>
 			<span class="id"></span>
 			<span class="reply">
@@ -1461,7 +1528,6 @@
 					</div>
 				</span>
 				<span class="quotes"></span>
-
 			</div>
 			<div class="meta hidden">
 				<span>File:</span>
