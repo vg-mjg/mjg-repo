@@ -852,13 +852,12 @@
 		}
 
 		function calculateTimeAgo(postTime) {
-			const now = Date.now();
+			let now = Date.now();
 			const past = postTime;
-			const seconds = Math.round((now - past) / 1000);
-			const minutes = Math.round(seconds / 60);
-			const hours = Math.round(minutes / 60);
-			const days = Math.round(hours / 24);
-
+			let seconds = Math.round((now - past) / 1000);
+			let minutes = Math.round(seconds / 60);
+			let hours = Math.round(minutes / 60);
+			let days = Math.round(hours / 24);
 			if (seconds < 60) {
 				return seconds <= 0 ? "just now" : `${seconds} seconds ago`;
 			} else if (minutes < 60) {
@@ -867,9 +866,9 @@
 				return `${hours} hour${hours === 1 ? '' : 's'} ago`;
 			} else {
 				return `${days} day${days === 1 ? '' : 's'} ago`;
-			}
+			};		
 		};
-
+	
 		function renderSharedData(container, data) {
 			container.find('.body').html(data.body.split(/\r?\n/).map(line => {
 				line = line.trim().replace(/&gt;&gt;(\d+)/g, (_, id) => renderReference(id))
@@ -900,20 +899,17 @@
 				String(postDate.getSeconds()).padStart(2, '0'),
 			];
 
-			const timeSincePost = calculateTimeAgo(data.postTime)
+			let timeSincePost = calculateTimeAgo(data.postTime)
 			const displayDate = `${year}/${month}/${day} (${weekday}) ${hour}:${minutes}:${seconds}`;
 
-			const styledDate = `<div class="date">${displayDate}		
+			let styledDate = `<div class="date">${displayDate}		
 										<span class="tooltiptext">${timeSincePost}</span>	
 								</div>`;
-
-			$('.header .date').on('mousemove', (e) => {
-				const timeSincePost = calculateTimeAgo(data.postTime);
-			});
 
 			container.find('.header .title').html(data.title)
 			container.find('.header .name').html(data.name ?? "Jyanshi")
 			container.find('.header .date').html(styledDate)
+			container.find('.header .date')[0].addEventListener('mouseenter', (e) =>{container.find('.header .date .tooltiptext').text(calculateTimeAgo(data.postTime))})
 			container.find('.header .link').attr('href', getReferenceHref(data.postNumber, data.parentThreadNumber))
 			container.find('.header .link').attr('id', data.postNumber)
 			container.find('.header .numbers').text(
@@ -1255,7 +1251,7 @@
 			$('form').trigger('reset')
 			$('input[type=checkbox]').prop('checked', false);
 			$('.form.floating .x').on('click', () => $('.form.floating').addClass('hidden'))
-
+	
 			$('html')
 				.on("mousemove", function (e) {
 					if (!globalData.isDragging) {
