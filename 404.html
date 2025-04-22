@@ -597,6 +597,8 @@
 		const imageBaseUrl = dev ? 'http://localhost:8080' : `${baseUrl}bulletin/images`
 		const maxFileSize = 1024 * 1024;
 
+		const dayOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+
 		function imageUrl(id, imageData, thumb) {
 			if (!imageData.extension) {
 				return `${imageBaseUrl}/${thumb ? 'thumb' : 'full'}/${id}`
@@ -849,6 +851,25 @@
 			return '/' + globalData.threadId + "#" + referenceId;
 		}
 
+		function calculateTimeAgo() {
+			const now = Date.now();
+			const past = data.postTime;
+			const seconds = Math.round((now - past) / 1000);
+			const minutes = Math.round(seconds / 60);
+			const hours = Math.round(minutes / 60);
+			const days = Math.round(hours / 24);
+
+			if (seconds < 60) {
+				return seconds <= 0 ? "just now" : `${seconds} seconds ago`;
+			} else if (minutes < 60) {
+				return `${minutes} minute${minutes === 1 ? '' : 's'} ago`;
+			} else if (hours < 24) {
+				return `${hours} hour${hours === 1 ? '' : 's'} ago`;
+			} else {
+				return `${days} day${days === 1 ? '' : 's'} ago`;
+			}
+		};
+
 		function renderSharedData(container, data) {
 			container.find('.body').html(data.body.split(/\r?\n/).map(line => {
 				line = line.trim().replace(/&gt;&gt;(\d+)/g, (_, id) => renderReference(id))
@@ -869,7 +890,6 @@
 
 			const epochMilliseconds = data.postTime;
 			const postDate = new Date(epochMilliseconds);
-			const dayOfWeek = ["Sun","Mon","Tue","Wed","Thur","Fri","Sat"];
 			let weekday = dayOfWeek[postDate.getDay()];
 			const [month, day, year, hour, minutes, seconds] = [
 				String(postDate.getMonth() + 1).padStart(2, '0'),
@@ -880,37 +900,15 @@
 				String(postDate.getSeconds()).padStart(2, '0'),
 			];
 
-			function calculateTimeAgo() {
-				const now = Date.now();
-				const past = data.postTime;
-				const seconds = Math.round((now - past) / 1000);
-				const minutes = Math.round(seconds / 60);
-				const hours = Math.round(minutes / 60);
-				const days = Math.round(hours / 24);
-
-				if (seconds < 60) {
-					return seconds <= 0 ? "just now" : `${seconds} seconds ago`;
-				} else if (minutes < 60) {
-					return `${minutes} minute${minutes === 1 ? '' : 's'} ago`;
-				} else if (hours < 24) {
-					return `${hours} hour${hours === 1 ? '' : 's'} ago`;
-				} else {
-					return `${days} day${days === 1 ? '' : 's'} ago`;
-				}
-			};
-			
 			const timeSincePost = calculateTimeAgo()
 			const displayDate = `${year}/${month}/${day} (${weekday}) ${hour}:${minutes}:${seconds}`;
 
 			const styledDate = `<div class="date">${displayDate}		
 										<span class="tooltiptext">${timeSincePost}</span>	
 								</div>`;
-				
-			//currently does nothing
 
 			$('.header .date').on('mousemove', (e) => {
 				const timeSincePost = calculateTimeAgo();
-				console.log(5+6);
 			});
 
 			container.find('.header .title').html(data.title)
@@ -1485,10 +1483,10 @@
 			<span class="name"></span>
 			<span class="title"></span>
 			<div class="date">
-				<span class="tooltiptext"></span> 
-			</div>		
+				<span class="tooltiptext"></span>
+			</div>
 			<a class="link">No.</a>
-			
+
 			<span class="numbers"></span>
 			<span class="id"></span>
 			<span class="reply">
