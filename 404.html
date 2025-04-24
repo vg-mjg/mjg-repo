@@ -326,6 +326,18 @@
 			background: inherit;
 		}
 
+        span.spoiler a {
+            color: inherit;
+        }
+
+        span.spoiler:hover a {
+            color: revert;
+        }
+
+        span.spoiler:hover a.reference {
+            color: var(--reference-color);
+        }
+
 		.image.spoiler {
 			width: 128px;
 			height: 128px;
