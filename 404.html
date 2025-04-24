@@ -317,6 +317,11 @@
 			max-width: 95%;
 		}
 
+		.thumb {
+			max-width: 256px;
+			max-height: 256px;
+		}
+
 		span.spoiler {
 			background: var(--spoiler-color);
 			color: var(--spoiler-color);
@@ -1034,20 +1039,33 @@
 			container.find('.meta a').attr('filename', data.imageData.fileName)
 			container.find('.meta .data').text(`(${toReadableFileSize(data.imageData.fileSize)}, ${data.imageData.dimensions[0]}x${data.imageData.dimensions[1]})`)
 			const imageWrapper = $('<a>', { href: imageUrl(data._id, data.imageData), onclick: 'return false' })
-			const image = $('<img>', { class: 'image', src: imageUrl(data._id, data.imageData, true) });
-			if (data.imageData.thumbDimensions?.length) {
-				image.css('min-width', data.imageData.thumbDimensions[0])
-				image.css('min-height', data.imageData.thumbDimensions[1])
+			const image = $('<img>', { class: 'image thumb', src: imageUrl(data._id, data.imageData, true) });
+			if (data.imageData.thumbDimensions?.length && data.imageData.thumbDimensions[0] < 256 && data.imageData.thumbDimensions[1] < 256) {
+				image[0].setAttribute('width', data.imageData.thumbDimensions[0]);
+				image[0].setAttribute('height', data.imageData.thumbDimensions[1]);
 			}
 			if (data.imageData.spoiler) {
 				image.addClass('spoiler');
 			}
+			image.addClass('thumb');
 			image.on('click', function () {
 				const expand = !$(this).data('expanded');
 				if (data.imageData.spoiler) {
 					image.toggleClass('spoiler', !expand);
 				}
 				$(this).data('expanded', expand);
+				if (expand){
+					$(this)[0].removeAttribute('width');
+					$(this)[0].removeAttribute('height');
+					$(this).removeClass('thumb');
+				}
+				else{
+					if(data.imageData.thumbDimensions[0] < 256 && data.imageData.thumbDimensions[1] < 256) {
+						$(this)[0].setAttribute('width', data.imageData.thumbDimensions[0]);
+						$(this)[0].setAttribute('height', data.imageData.thumbDimensions[1]);
+					}
+					$(this).addClass('thumb');
+				}
 				$(this).attr('src', imageUrl(data._id, data.imageData, !expand));
 			});
 			image.appendTo(imageWrapper);
