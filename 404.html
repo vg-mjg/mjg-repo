@@ -899,10 +899,10 @@
 				String(postDate.getSeconds()).padStart(2, '0'),
 			];
 
-			let timeSincePost = calculateTimeAgo(data.postTime)
+			const timeSincePost = calculateTimeAgo(data.postTime)
 			const displayDate = `${year}/${month}/${day} (${weekday}) ${hour}:${minutes}:${seconds}`;
 
-			let styledDate = `<div class="date">${displayDate}		
+			const styledDate = `<div class="date">${displayDate}		
 										<span class="tooltiptext">${timeSincePost}</span>	
 								</div>`;
 
