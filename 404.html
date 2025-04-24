@@ -1204,6 +1204,38 @@
 						}
 						item.find('.body .content').html(thread.body);
 						item.appendTo($("#catalog"));
+
+                        const body = item.find('.body')[0];
+                        const content = item.find('.body .content')[0];
+
+                        if (content.offsetHeight > body.offsetHeight) {
+                            const c = content.textContent;
+                            const words = Array.from(c.matchAll(/\s*[^\s]+/g).map(x => x.index));
+                            let l = 0;
+                            let r = words.length - 1;
+                            let m;
+
+                            while (l <= r) {
+                                m = Math.floor((l + r) / 2);
+                                content.textContent = c.slice(0, words[m]);
+
+                                if (content.offsetHeight > body.offsetHeight) {
+                                    r = m - 1;
+                                } else {
+                                    l = m + 1;
+                                }
+                            }
+
+                            content.textContent += '…';
+
+                            if (content.offsetHeight > body.offsetHeight) {
+                                if (m > 0) {
+                                    content.textContent = c.slice(0, words[m - 1]) + '…';
+                                } else {
+                                    content.textContent = content.textContent.slice(0, -1) + '…';
+                                }
+                            }
+                        }
 					}
 				});
 		}
