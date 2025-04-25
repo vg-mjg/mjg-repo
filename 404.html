@@ -1232,7 +1232,22 @@
                                 if (m > 0) {
                                     content.textContent = c.slice(0, words[m - 1]) + '…';
                                 } else {
-                                    content.textContent = content.textContent.slice(0, -2) + '…';
+                                    l = 0;
+                                    r = c.length - 1;
+                                    m = c.length;
+
+                                    while (l <= r) {
+                                        m = Math.floor((l + r) / 2);
+                                        content.textContent = c.slice(0, m);
+
+                                        if (content.offsetHeight > body.offsetHeight) {
+                                            r = m - 1;
+                                        } else {
+                                            l = m + 1;
+                                        }
+                                    }
+
+                                    content.textContent = content.textContent.slice(0, m - 1) + '…';
                                 }
                             }
                         }
