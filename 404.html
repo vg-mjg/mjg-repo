@@ -331,17 +331,17 @@
 			background: inherit;
 		}
 
-        span.spoiler a {
-            color: inherit;
-        }
+		span.spoiler a {
+			color: inherit;
+		}
 
-        span.spoiler:hover a {
-            color: revert;
-        }
+		span.spoiler:hover a {
+			color: revert;
+		}
 
-        span.spoiler:hover a.reference {
-            color: var(--reference-color);
-        }
+		span.spoiler:hover a.reference {
+			color: var(--reference-color);
+		}
 
 		.image.spoiler {
 			width: 128px;
@@ -620,27 +620,27 @@
 
 		const dayOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
 
-        const newPostObserver = new IntersectionObserver((entries, observer) => {
-            for (const entry of entries) {
-                if (entry.isIntersecting) {
-                    globalData.unreadPosts--;
-                    observer.unobserve(entry.target);
-                }
-            }
+		const newPostObserver = new IntersectionObserver((entries, observer) => {
+			for (const entry of entries) {
+				if (entry.isIntersecting) {
+					globalData.unreadPosts--;
+					observer.unobserve(entry.target);
+				}
+			}
 
-            if (globalData.unreadPosts) {
-                document.title = `(${globalData.unreadPosts}) ${globalData.originalTitle}`;
-            } else {
-                $(".thread .new-posts-line").remove();
-                document.title = globalData.originalTitle;
-                globalData.originalTitle = undefined;
+			if (globalData.unreadPosts) {
+				document.title = `(${globalData.unreadPosts}) ${globalData.originalTitle}`;
+			} else {
+				$(".thread .new-posts-line").remove();
+				document.title = globalData.originalTitle;
+				globalData.originalTitle = undefined;
 
-                if (globalData.originalFavicon) {
-                    $('link[rel="icon"]').replaceWith(globalData.originalFavicon);
-                    delete globalData.originalFavicon;
-                }
-            }
-        }, {threshold: 1.0});
+				if (globalData.originalFavicon) {
+					$('link[rel="icon"]').replaceWith(globalData.originalFavicon);
+					delete globalData.originalFavicon;
+				}
+			}
+		}, { threshold: 1.0 });
 
 		function imageUrl(id, imageData, thumb) {
 			if (!imageData.extension) {
@@ -1076,13 +1076,13 @@
 					image.toggleClass('spoiler', !expand);
 				}
 				$(this).data('expanded', expand);
-				if (expand){
+				if (expand) {
 					$(this)[0].removeAttribute('width');
 					$(this)[0].removeAttribute('height');
 					$(this).removeClass('thumb');
 				}
-				else{
-					if(data.imageData.thumbDimensions[0] < 256 && data.imageData.thumbDimensions[1] < 256) {
+				else {
+					if (data.imageData.thumbDimensions[0] < 256 && data.imageData.thumbDimensions[1] < 256) {
 						$(this)[0].setAttribute('width', data.imageData.thumbDimensions[0]);
 						$(this)[0].setAttribute('height', data.imageData.thumbDimensions[1]);
 					}
@@ -1187,8 +1187,8 @@
 								.append(renderReference(post.postNumber))
 						}
 
-                        const newPost = renderPost(post);
-                        newPostObserver.observe(newPost[0]);
+						const newPost = renderPost(post);
+						newPostObserver.observe(newPost[0]);
 						newPost.appendTo($('.thread:not(.template)'))
 					})
 
@@ -1592,7 +1592,7 @@
 		<div class="announcements">
 			<h1>The future of 4han</h1>
 			<div>Thank you all the anons who helped write this site. Archive anon, frontend anons, banner anons,
-				repomain in chief et al.</div>
+				repomaid in chief et al.</div>
 			<h2>4han will continue</h2>
 			<div>I'm not deleting a perfectly working site that everyone put their effort in.</div>
 			<div>Especially considering 4chan could still have a second tragic accident.</div>
