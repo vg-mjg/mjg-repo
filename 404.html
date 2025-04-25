@@ -1216,7 +1216,7 @@
 							.addClass('image')
 							.attr('src', imageUrl(thread._id, thread.imageData, true));
 
-						item.find('.replies').text(`${thread.replies ?? 0} Replies`);
+						item.find('.replies').text(`${thread.replies ?? 0} ${thread.replies === 1 ? 'Reply' : 'Replies'}`);
 
 						fetch(baseUrl + "bulletin/" + thread.postNumber, {
 							headers: authHeaders
@@ -1224,7 +1224,7 @@
 							.then(body => body.json())
 							.then(data => {
 								images = data.posts.filter(x => x.hasOwnProperty('imageData')).length
-								item.find('.images').text(`${images ?? 0} Images`)
+								item.find('.images').text(`${images ?? 0} Image${images === 1 ? '' : 's'}`)
 							});
 
 						if (thread.title) {
