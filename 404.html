@@ -623,7 +623,9 @@
 		const newPostObserver = new IntersectionObserver((entries, observer) => {
 			for (const entry of entries) {
 				if (entry.isIntersecting) {
-					globalData.unreadPosts--;
+					if (globalData.unreadPosts) {
+						globalData.unreadPosts--;
+					}
 					observer.unobserve(entry.target);
 				}
 			}
