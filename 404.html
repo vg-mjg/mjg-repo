@@ -331,17 +331,17 @@
 			background: inherit;
 		}
 
-        span.spoiler a {
-            color: inherit;
-        }
+		span.spoiler a {
+			color: inherit;
+		}
 
-        span.spoiler:hover a {
-            color: revert;
-        }
+		span.spoiler:hover a {
+			color: revert;
+		}
 
-        span.spoiler:hover a.reference {
-            color: var(--reference-color);
-        }
+		span.spoiler:hover a.reference {
+			color: var(--reference-color);
+		}
 
 		.image.spoiler {
 			width: 128px;
@@ -528,6 +528,10 @@
 			font-size: 12px;
 		}
 
+		#catalog .catalog-item .images {
+			font-size: 12px;
+		}
+
 		#catalog .catalog-item .image {
 			width: 190px;
 			height: 190px;
@@ -619,6 +623,7 @@
 		const maxFileSize = 1024 * 1024;
 
 		const dayOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+		let images = 0
 
 		function imageUrl(id, imageData, thumb) {
 			if (!imageData.extension) {
@@ -773,7 +778,16 @@
 			}
 
 			newThread.find('.expander').removeClass('hidden');
-			newThread.find('.expander .replies-count').text(`${ommittedReplies} replies omitted.`);
+			newThread.find('.expander .replies-count').text(`${ommittedReplies} replies and `);
+			fetch(baseUrl + "bulletin/" + entry.postNumber, {
+				headers: authHeaders
+			})
+				.then(body => body.json())
+				.then(data => {
+					images = data.posts.slice(0, -5).filter(x => x.hasOwnProperty('imageData')).length
+					newThread.find('.expander .images-count').text(`${images} images omitted `)
+				});
+
 			newThread.find('.expander .icon.plus, .expander .link').on('click', () => {
 				fetch(baseUrl + "bulletin/" + entry.postNumber, {
 					headers: authHeaders
@@ -1054,13 +1068,13 @@
 					image.toggleClass('spoiler', !expand);
 				}
 				$(this).data('expanded', expand);
-				if (expand){
+				if (expand) {
 					$(this)[0].removeAttribute('width');
 					$(this)[0].removeAttribute('height');
 					$(this).removeClass('thumb');
 				}
-				else{
-					if(data.imageData.thumbDimensions[0] < 256 && data.imageData.thumbDimensions[1] < 256) {
+				else {
+					if (data.imageData.thumbDimensions[0] < 256 && data.imageData.thumbDimensions[1] < 256) {
 						$(this)[0].setAttribute('width', data.imageData.thumbDimensions[0]);
 						$(this)[0].setAttribute('height', data.imageData.thumbDimensions[1]);
 					}
@@ -1074,12 +1088,13 @@
 		}
 
 		function updateCount(replies = 0, totalReplies = 0, uniqueReplies = 0,) {
-			$('.control.bottom .unique').text(uniqueReplies + " Unique Posters")
+			$('.control.bottom .unique').text("/ " + uniqueReplies + " Unique Posters")
 
 			$('.control.bottom .count').text(totalReplies + " Replies")
 			const deleted = totalReplies - replies
+
 			if (deleted > 0) {
-				$('.control.bottom .deleted').text(deleted + " Deleted")
+				$('.control.bottom .deleted').text("/ " + deleted + " Deleted")
 			} else {
 				$('.control.bottom .deleted').text("")
 			}
@@ -1089,6 +1104,8 @@
 			} else if (totalReplies > 275) {
 				$('.control.bottom .notification').text("Thread is nearing bump limit")
 			}
+
+			$('.control.bottom .images').text("/ " + images + " images")
 		}
 
 		function loadThread(threadId) {
@@ -1117,7 +1134,7 @@
 					}
 					globalData.postIds.add(data.thread.postNumber)
 					data.posts.forEach(post => globalData.postIds.add(post.postNumber))
-
+					images = data.posts.filter(x => x.hasOwnProperty('imageData')).length
 					const op = renderOP(data.thread, data.posts).appendTo($('#main'))
 					const posts = data.posts.map((entry) => renderPost(entry))
 					op.append(posts)
@@ -1167,6 +1184,7 @@
 
 						renderPost(post).appendTo($('.thread:not(.template)'))
 					})
+					images += data.posts.filter(x => x.hasOwnProperty('imageData')).length
 
 					updateCount(
 						data.thread.replies,
@@ -1199,6 +1217,16 @@
 							.attr('src', imageUrl(thread._id, thread.imageData, true));
 
 						item.find('.replies').text(`${thread.replies ?? 0} Replies`);
+
+						fetch(baseUrl + "bulletin/" + thread.postNumber, {
+							headers: authHeaders
+						})
+							.then(body => body.json())
+							.then(data => {
+								images = data.posts.filter(x => x.hasOwnProperty('imageData')).length
+								item.find('.images').text(`${images ?? 0} Images`)
+							});
+
 						if (thread.title) {
 							item.find('.body .title').html(thread.title + ':');
 						}
@@ -1533,6 +1561,7 @@
 		<div class="expander hidden">
 			<div class="icon plus"></div>
 			<span class="replies-count"></span>
+			<span class="images-count"></span>
 			<span class="link">Click here</span>
 			<span> to view.</span>
 		</div>
@@ -1570,7 +1599,8 @@
 	</div>
 	<div class="catalog-item template">
 		<a><img></a>
-		<div class="replies"></div>
+		<span class="replies"></span>
+		<span class="images"></span>
 		<div class="body">
 			<span class="title"></span>
 			<span class="content"></span>
@@ -1633,8 +1663,9 @@
 		<span class="timer"></span>
 		<span id="refresh-error"></span>
 		<span class="notification"></span>
-		<span class="unique"></span>
 		<span class="count"></span>
+		<span class="images"></span>
+		<span class="unique"></span>
 		<span class="deleted"></span>
 		<span class="theme-selector-box">
 			<label for="theme-selector">Theme</label>
