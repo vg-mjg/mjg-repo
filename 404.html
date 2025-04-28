@@ -916,7 +916,7 @@
 			}).join("\r\n"));
 			container.find('.body').html(
 				container.find('.body').html().replace(
-					/\[spoiler\]([^<]*?)\[\/spoiler\]/,
+					/\[spoiler\]([^<]*?)\[\/spoiler\]/g,
 					'<span class="spoiler">$1</span>'
 				).replace(
 					/(https?:\/\/[^\s<,]+)/g,
