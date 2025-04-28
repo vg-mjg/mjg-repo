@@ -630,18 +630,6 @@
 				}
 			}
 
-			if (globalData.unreadPosts) {
-				document.title = `(${globalData.unreadPosts}) ${globalData.originalTitle}`;
-			} else {
-				$(".thread .new-posts-line").remove();
-				document.title = globalData.originalTitle;
-				globalData.originalTitle = undefined;
-
-				if (globalData.originalFavicon) {
-					$('link[rel="icon"]').replaceWith(globalData.originalFavicon);
-					delete globalData.originalFavicon;
-				}
-			}
 		}, { threshold: 1.0 });
 
 		function imageUrl(id, imageData, thumb) {
