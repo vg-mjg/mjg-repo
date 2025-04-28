@@ -831,6 +831,10 @@
 								.end()
 						)
 					$('.pages').removeClass('hidden').append(pageLinks)
+					data.page.flatMap((entry) => {
+						globalData.postIds.add(entry.thread.postNumber)
+						entry.posts.forEach(post => globalData.postIds.add(post.postNumber))
+					});
 					const threads = data.page.flatMap((entry) => {
 						const op = renderOP(entry.thread)
 						const posts = entry.posts.map(post => renderPost(post))
@@ -1229,6 +1233,9 @@
 				.then(body => body.json())
 				.then(data => {
 					const divider = $('<div/>').addClass('divider')
+					data.posts.flatMap((entry) => {
+						globalData.postIds.add(entry.postNumber)
+					});
 					const threads = data.posts.flatMap((entry) => {
 						const op = renderOP(entry);
 						return [
