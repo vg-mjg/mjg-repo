@@ -1129,9 +1129,7 @@
 			return fetch(baseUrl + "bulletin/" + threadId, {
 				headers: authHeaders
 			})
-				.catch(() => render404())
-				.then(body => body.json())
-				.catch(() => render404())
+				.then(body => body.json(), () => render404())
 				.then(data => {
 					globalData.lastPostNumber = data.posts.length && data.posts[data.posts.length - 1].postNumber;
 
@@ -1163,7 +1161,7 @@
 						data.thread.totalReplies,
 						data.thread.uniqueReplies,
 					)
-				})
+				}, () => render404())
 		}
 
 		function loadUpdate(threadId, lastPostId) {
@@ -1528,7 +1526,6 @@
 				loadIndex();
 				return;
 			}
-
 			render404();
 		});
 
