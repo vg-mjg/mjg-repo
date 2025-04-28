@@ -11,6 +11,24 @@
 	<link rel="icon" href="/favicon.ico" />
 
 	<style>
+		.bg_404 {
+			/* The image used */
+			background-image: url("/background/404.jpg");
+
+			/* Full height */
+			height: 100%;
+
+			/* Center and scale the image nicely */
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+		.body_404 {
+			height: 100%;
+			padding: 0;
+		}
+
 		/* In Page appearance order */
 		/* Theme Variables */
 		:root {
@@ -843,13 +861,9 @@
 							$('<div/>').addClass('divider'),
 							op,
 						]
-					}).slice(1)
-					$('#main').append(threads)
+					}).slice(1);
+					$('#main').append(threads);
 				})
-		}
-
-		function showNotFound() {
-
 		}
 
 		function renderPost(post) {
@@ -1115,8 +1129,9 @@
 			return fetch(baseUrl + "bulletin/" + threadId, {
 				headers: authHeaders
 			})
-				.catch(() => showNotFound())
+				.catch(() => render404())
 				.then(body => body.json())
+				.catch(() => render404())
 				.then(data => {
 					globalData.lastPostNumber = data.posts.length && data.posts[data.posts.length - 1].postNumber;
 
@@ -1509,9 +1524,22 @@
 				return;
 			}
 
-			loadIndex();
+			if (window.location.pathname === "/index" || window.location.pathname === ""){
+				loadIndex();
+				return;
+			}
+
+			render404();
 		});
+
+		function render404(){
+			document.getElementById("imageboard").classList.add("hidden");
+			document.getElementById("bg_404").classList.remove("hidden");
+			document.getElementsByTagName("body")[0].classList.add("body_404");
+			document.getElementsByTagName("html")[0].classList.add("body_404");
+		}
 	</script>
+	<div id="imageboard">
 	<div class="thread template">
 		<div class="meta">
 			<span>File:</span>
@@ -1710,6 +1738,11 @@
 			</div>
 		</form>
 	</div>
+	</div>
+	<div id="bg_404" class="bg_404 hidden"></div>
+	<noscript>
+		<div class="bg_404"></div>
+	</noscript>
 
 </body>
 
