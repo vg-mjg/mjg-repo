@@ -1461,8 +1461,13 @@
 
 				const post = targetNumbers.parents('.content').first()
 				if (post.length) {
-					renderPreview(post.clone(), elem)
-					return
+					if(post.parent().hasClass('hidden')){
+						post.parent().parent()[0].removeChild(post.parent()[0]);
+						renderPreview(post, elem);
+						return;
+					}
+					renderPreview(post.clone(), elem);
+					return;
 				}
 
 				const thread = targetNumbers.parents('.thread').first()
@@ -1478,7 +1483,7 @@
 			$(document).on('mouseleave', '.reference', (e) => {
 				const elem = $(e.currentTarget)
 				globalData.referencePreview = false
-				elem.parent().find('.post-preview').remove()
+				elem.parent().find('.post-preview').addClass('hidden')
 			})
 
 			document.addEventListener('keyup', (e) => {
