@@ -2,8 +2,8 @@
 // @name         /mjg/ Tiler
 // @namespace    http://repo.riichi.moe/
 // @icon         https://files.catbox.moe/iz2zh3.png
-// @version      1.2.3
-// @description  Highlights tile notation. Hover over text to view image. Double click to freeze the image for saving and whatnot.
+// @version      1.2.4
+// @description  Highlights tile notation. Hover over text to view image.
 // @author       anon
 // @match        *://boards.4chan.org/*/thread/*
 // @run-at       document-start
@@ -19,26 +19,25 @@ const scale = 0.375;
 GM_addStyle(`
 .mjgTilemaker{
   position: relative;
-  display: run-in;
+  display: inline-block;
   border-bottom: 1px dotted black;
 }
-
+ 
 .mjgTilemakerBox{
-  visibility: visible;
+  visibility: hidden;
   text-align: center;
-  overflow: hidden;
+  overflow: visible;
   border-radius: 3px;
-
-  position: relative;
-  transform: translate(0, 0);
-  padding: 0px;
-  bottom: 0;
-  left: 0;
-
-  opacity: 1;
+ 
+  position: absolute;
+  transform: translate(-50%, 0);
+  bottom: 125%;
+  left: 50%;
+ 
+  opacity: 0;
   transition: opacity 0.3s;
 }
-
+ 
 .mjgTilemaker:hover .mjgTilemakerBox {
   visibility: visible;
   opacity: 1;
@@ -76,7 +75,7 @@ var atlas_img;
                         } else {
                             let newElement = document.createElement("span");
                             let tileBox = document.createElement("span");
-                            //newElement.innerHTML = result;
+                            newElement.innerHTML = result;
                             newElement.className = "mjgTilemaker";
                             newElement.ondblclick = () => {
                                 let tileBox = document.getElementById('mjgTilebox'+post.id);
