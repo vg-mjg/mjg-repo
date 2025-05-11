@@ -7,6 +7,12 @@
   },
   "updates": [
     {
+      "title": "/mjg/ userscripts and userstyles",
+      "link": "https://repo.riichi.moe/library.html#resources-mjg",
+      "category": "/mjg/ project",
+      "description": "Uploaded some userscripts (emote replacer) and a userstyle (4han theme) that were contributed by various Anons."
+    },
+    {
       "title": "4han.moe",
       "link": "https://4han.moe/",
       "category": "/mjg/ project",
