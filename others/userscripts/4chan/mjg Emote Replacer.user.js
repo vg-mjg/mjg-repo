@@ -7,7 +7,7 @@
 // @author       Ling and Anon
 // @match        *://boards.4chan.org/vg/thread/*
 // @grant        none
-// @downloadURL  https://github.com/vg-mjg/mjg-repo/raw/refs/heads/master/others/userscripts/4chan/mjg%20Emote%20Replacer.user.js
+// @downloadURL  https://repo.riichi.moe/others/userscripts/4chan/mjg%20Emote%20Replacer.user.js
 // @run-at       document-idle
 // @license      MIT
 // ==/UserScript==
