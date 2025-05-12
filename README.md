@@ -8,9 +8,15 @@
 
 [**/mjg/ Repo Constitution**](https://github.com/vg-mjg/mjg-repo/blob/master/CONSTITUTION.md) <sub>no one reads this</sub>
 
-[**Team page**](https://github.com/vg-mjg/discussions/discussions) <sub><sup>facebook...</sup></sub>
 
-Want your implement your own shit that nobody can deny? Hate github and shan't ever make an account? As usual just win a tourney/league/whatever and make the request, as stated in the repo constitution article 4 section 4.
+
+BE A REPO MAID TODAY
+
+GET YOUR FREE MEIDO
+
+PULL REQUEST PULL REQUEST
+
+and also READ THE CONSTITUTION
 
 \>repo constitution
 
