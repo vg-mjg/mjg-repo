@@ -7,6 +7,12 @@
   },
   "updates": [
     {
+      "title": "Added Valentines 2025 to tourneys",
+      "link": "https://repo.riichi.moe/tourneys.html#tourneys-solo",
+      "category": "Tourneys",
+      "description": "Added the valentines tourney. If the repo forgot a tourney hosted, please post it in the thread!!"
+    },
+    {
       "title": "/mjg/ userscripts and userstyles",
       "link": "https://repo.riichi.moe/library.html#resources-mjg",
       "category": "/mjg/ project",
