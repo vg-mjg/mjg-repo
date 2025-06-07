@@ -19,6 +19,7 @@ function PickImage() {
     images[16] = "repobanner/15.png";
     images[17] = "repobanner/16.png";
     images[18] = "repobanner/17.gif";
+    images[19] = "repobanner/18.png";
     var randomnumber = Math.random() ;
     var rand1 = Math.round( (images.length-1) * randomnumber) + 1;
     var image = images[rand1];

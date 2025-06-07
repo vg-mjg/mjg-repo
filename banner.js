@@ -1,5 +1,5 @@
 function pickimg(){
-    var imagenumber = 17 ;
+    var imagenumber = 18 ;
     var randomnumber = Math.random() ;
     var rand1 = Math.round( (imagenumber-1) * randomnumber) + 1;
     images = new Array
@@ -20,6 +20,7 @@ function pickimg(){
     images[15] = "repobanner/14.png"
     images[16] = "repobanner/15.png"
     images[17] = "repobanner/16.png"
+    images[18] = "repobanner/18.png"
     var image = images[rand1]
     document.randimg.src = image
     }
