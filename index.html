@@ -30,6 +30,32 @@
     .spine-player-button-icon-spine-logo {
         display: none
     }
+    .game-container {
+      position: relative;
+      width: 300px;
+      height: 100px;
+      border: 2px solid #222;
+      background: #fff;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      user-select: none;
+    }
+
+    #gameCanvas {
+      display: block;
+    }
+
+    .score {
+      position: absolute;
+      left: 8px;
+      bottom: 4px;
+      font-size: 16px;
+      color: #333;
+      font-weight: bold;
+      background: rgba(255,255,255,0.7);
+      padding: 2px 6px;
+      border-radius: 4px;
+      pointer-events: none;
+        }
   </style>
 
 </head>
@@ -67,9 +93,13 @@
       <br>
       <div class="col-sm-4">
         
-        <a title="Click to change" id="ChangeImage">
+        <!-- <a title="Click to change" id="ChangeImage">
           <img src="repobanner/18.png" class="pt-1 pb-1" id="randimg" border="0">
-        </a>
+        </a> -->
+        <div class="game-container" id="gameContainer">
+          <canvas id="gameCanvas" width="300" height="100"></canvas>
+          <div class="score" id="scoreCounter">0</div>
+        </div>
         <audio controls>
           <source src="https://files.riichi.moe/mjg/oc/music/mjg%20sings%20Netsuretsu%20Kangei%20Wonderland.mp3"
             type="audio/mp3">
@@ -728,6 +758,7 @@
           backgroundColor: "#00000000"
       });
     </script>
+     <script src="game.js"></script>
 </body>
 
 </html>
