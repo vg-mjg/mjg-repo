@@ -93,7 +93,7 @@ function showBanner() {
   const container = document.getElementById('mahjong-sim-container');
   container.innerHTML = `
     <div id="mahjong-banner" tabindex="0" style="width:300px;height:100px;padding:0;border:none;outline:none;overflow:hidden;display:flex;">
-      <img src="game_assets/banner.png" alt="Mahjong Banner"
+      <img src="game_assets/banner2.png" alt="Mahjong Banner"
         style="width:300px;height:100px;object-fit:cover;display:block;border:none;margin:0;padding:0;"/>
     </div>
   `;
