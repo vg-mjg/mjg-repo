@@ -1,0 +1,140 @@
+#mahjong-sim-container {
+  width: 300px;
+  height: 100px;
+  border: 2px solid #b47d36;
+  border-radius: 0;
+  font-family: 'Segoe UI', 'Noto Sans JP', 'Meiryo', Arial, sans-serif;
+  font-size: 13.2px;
+  background: linear-gradient(115deg,#fffdf5 70%,#f5e4cc 100%);
+  box-shadow: 0 2px 16px #a9833e19;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#mahjong-banner {
+  width: 300px;
+  height: 100px;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-items: stretch;
+  justify-content: stretch;
+  background: #fffbe6;
+  cursor: pointer;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+#mahjong-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  background: #fffdf4;
+  display: block;
+}
+
+#mahjong-banner .mahjong-banner-title,
+#mahjong-banner .mahjong-banner-caption {
+  display: none;
+}
+
+#mahjong-sim-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+  min-height: 20px;
+}
+
+#mahjong-sim-status {
+  font-weight: bold;
+  color: #b84c00;
+}
+#mahjong-sim-points {
+  font-weight: bold;
+  color: #b00;
+}
+#mahjong-sim-dealer {
+  font-size: 11px;
+  margin-left: 2px;
+}
+#mahjong-sim-choices {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 3px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.mahjong-sim-btn {
+  background: #fffbe6;
+  border: 1px solid #fdc34f;
+  border-radius: 5px;
+  padding: 3px 10px;
+  cursor: pointer;
+  font-size: 12.5px;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 3px #e3ba6333;
+  margin-bottom: 2px;
+  outline: none;
+}
+.mahjong-sim-btn:hover:not(:disabled) {
+  background: #ffefcc;
+  box-shadow: 0 2px 5px #fcd76c33;
+}
+.mahjong-sim-btn:disabled {
+  color: #aaa;
+  border-color: #ddd;
+  background: #faf8f3;
+  cursor: not-allowed;
+}
+#mahjong-sim-events {
+  margin: 2px 0 2px 0;
+  min-height: 18px;
+  color: #6b4629;
+  font-size: 13.5px;
+  text-align: center;
+}
+#mahjong-sim-spinner {
+  height: 18px;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 2px;
+  min-height: 18px;
+  text-align: center;
+}
+#mahjong-sim-footer {
+  position: absolute;
+  bottom: 2px;
+  width: 95%;
+  left: 0;
+  text-align: right;
+  font-size: 11.2px;
+  color: #a58c60;
+  padding-left: 4px;
+  pointer-events: none;
+}
+.dealer-badge {
+  background: #ffe9a2;
+  color: #a15e0c;
+  padding: 0 4px;
+  border-radius: 3px;
+  font-size: 10.5px;
+  margin-left: 2px;
+  vertical-align: middle;
+  border: 1px solid #f5c55c;
+}
+.mahjong-sim-btn:active {
+  background: #ffe29b;
+}
