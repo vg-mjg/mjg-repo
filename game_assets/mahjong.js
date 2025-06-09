@@ -145,7 +145,7 @@ function updateHeader() {
 }
 
 function updateFooter() {
-  sim('footer').innerHTML = `<span style="color:#a58c60;background:#f7ecd7;border-radius:3px;padding:0 4px;">${state.finished ? "Game Over. Refresh to play again." : `Round ${state.roundIdx + 1}/8`}</span>`;
+  sim('footer').innerHTML = `<span style="color:#a58c60;background:#f7ecd7;border-radius:3px;padding:0 4px;">${state.finished ? "kyaaaapp..." : `Round ${state.roundIdx + 1}/8`}</span>`;
 }
 
 function resetUI() {
