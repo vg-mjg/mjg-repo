@@ -41,10 +41,15 @@ const pointsTable = {
   ]
 };
 
-// LESSENED RYUUKOKU CHANCE OVERALL
+// Outcome chances: [ron win, tsumo win, deal in (ron), tsumo against, ryuukyoku]
 const outcomeSpinners = {
   "Push for High Value": [0.13, 0.13, 0.30, 0.19, 0.25],
-  "Fold":                [0.04, 0.04, 0.13, 0.14, 0.65],
+  // PATCH: Lower chance to deal in (ron), increase chance to tsumo against, keep total 1.00
+  // Old:                        [0.04, 0.04, 0.13, 0.14, 0.65]
+  // New:                        [0.04, 0.04, 0.07, 0.20, 0.65]
+  // Let's rebalance more:       [0.04, 0.04, 0.07, 0.20, 0.65] sums to 1.00
+  // Maybe slightly less ryuukyoku for more action: [0.04, 0.04, 0.07, 0.22, 0.63]
+  "Fold":                [0.04, 0.04, 0.07, 0.22, 0.63],
   "Aim for Speed":       [0.24, 0.24, 0.08, 0.22, 0.22],
   "Standard Pinfu Hand": [0.20, 0.18, 0.19, 0.19, 0.24]
 };
@@ -88,7 +93,7 @@ function showBanner() {
   const container = document.getElementById('mahjong-sim-container');
   container.innerHTML = `
     <div id="mahjong-banner" tabindex="0" style="width:300px;height:100px;padding:0;border:none;outline:none;overflow:hidden;display:flex;">
-      <img src="game_assets/banner2.png" alt="Mahjong Banner"
+      <img src="game_assets/banner.png" alt="Mahjong Banner"
         style="width:300px;height:100px;object-fit:cover;display:block;border:none;margin:0;padding:0;"/>
     </div>
   `;
@@ -140,7 +145,7 @@ function updateHeader() {
 }
 
 function updateFooter() {
-  sim('footer').innerHTML = `<span style="color:#a58c60;background:#f7ecd7;border-radius:3px;padding:0 4px;">${state.finished ? "kyap..." : `Round ${state.roundIdx + 1}/8`}</span>`;
+  sim('footer').innerHTML = `<span style="color:#a58c60;background:#f7ecd7;border-radius:3px;padding:0 4px;">${state.finished ? "Game Over. Refresh to play again." : `Round ${state.roundIdx + 1}/8`}</span>`;
 }
 
 function resetUI() {
