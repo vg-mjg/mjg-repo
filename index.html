@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="css/spine-player.min.css">
 
   <!-- What the fuck is this? It's autism. -->
-  <style>
+  <!-- <style>
     .rant {
       word-wrap: break-word;
       padding: 0 20%;
@@ -46,9 +46,9 @@
       display: block;
       border-radius: 6px;
     }
-  </style>
-  </style>
-  <link rel="stylesheet" href="game_assets/mahjong.css">
+  </style> -->
+  <!-- <link rel="stylesheet" href="game_assets/mahjong.css"> -->
+  <link rel="stylesheet" href="takyuu/style.css">
 
 </head>
 
@@ -95,10 +95,17 @@
         </div> -->
         <!-- <div id="mahjong-sim-container"></div>
         <script src="game_assets/mahjong.js"></script> -->
-        <div id="game-container">
+        <!-- <div id="game-container">
         <canvas id="game" width="300" height="100"></canvas>
   </div>
-  <script src="game.js"></script>
+  <script src="game.js"></script> -->
+        <div id="game-container" class="banner-active">
+            <canvas id="gameCanvas" width="300" height="200"></canvas>
+            <div id="score">
+                <span id="playerScore">0</span> - <span id="aiScore">0</span>
+            </div>
+        </div>
+        <script src="script.js"></script>
         <audio controls>
           <source src="https://files.riichi.moe/mjg/oc/music/mjg%20sings%20Netsuretsu%20Kangei%20Wonderland.mp3"
             type="audio/mp3">

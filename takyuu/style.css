@@ -1,0 +1,80 @@
+
+#game-container {
+    position: relative;
+    border: 3px solid #34495e;
+    background-color: #27ae60;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-left: auto;
+      margin-right: auto;
+}
+
+#gameCanvas {
+    display: block;
+    background-color: #27ae60;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+     margin-left: auto;
+      margin-right: auto;
+}
+
+/* When banner is showing, resize container to exactly fit banner */
+.banner-active {
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    width: 300px !important;
+    height: 100px !important;
+}
+
+.banner-active #gameCanvas {
+    background-color: transparent;
+    border: none;
+    display: block;
+}
+
+#score {
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(44, 62, 80, 0.9);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 1px 6px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    border: 1px solid #27ae60;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 40px;
+    justify-content: center;
+}
+
+.banner-active #score {
+    display: none;
+}
+
+#score span {
+    display: inline-block;
+    min-width: 10px;
+    text-align: center;
+}
+
+#playerScore {
+    color: #3498db;
+    font-size: 10px;
+}
+
+#aiScore {
+    color: #e74c3c;
+    font-size: 10px;
+}
+
+#game-container:hover #gameCanvas {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
