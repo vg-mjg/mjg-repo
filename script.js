@@ -56,7 +56,11 @@ class TableTennisGame {
         this.playerPaddle = {
             x: 290,
             y: 90,
-            speed: 0
+            speed: 0,
+            prevX: 290,
+            prevY: 90,
+            velocityX: 0,
+            velocityY: 0
         };
         
         // AI paddle (can move anywhere)
@@ -66,7 +70,11 @@ class TableTennisGame {
             speed: 3.2,
             targetY: 90,
             randomTimer: 0,
-            lastBallDirection: 0 // Track ball direction to prevent following backwards
+            lastBallDirection: 0,
+            prevX: 7,
+            prevY: 90,
+            velocityX: 0,
+            velocityY: 0
         };
         
         // Store original positions
@@ -183,6 +191,12 @@ class TableTennisGame {
             }
         }
         
+        // Track paddle velocities before updating positions
+        this.playerPaddle.prevX = this.playerPaddle.x;
+        this.playerPaddle.prevY = this.playerPaddle.y;
+        this.aiPaddle.prevX = this.aiPaddle.x;
+        this.aiPaddle.prevY = this.aiPaddle.y;
+        
         // Player paddle follows mouse (constrained to right half)
         let px = this.mouseX - this.paddleWidth / 2;
         let py = this.mouseY - this.paddleHeight / 2;
@@ -193,6 +207,10 @@ class TableTennisGame {
         if (py > this.canvas.height - this.paddleHeight) py = this.canvas.height - this.paddleHeight;
         this.playerPaddle.x = px;
         this.playerPaddle.y = py;
+        
+        // Calculate paddle velocities
+        this.playerPaddle.velocityX = this.playerPaddle.x - this.playerPaddle.prevX;
+        this.playerPaddle.velocityY = this.playerPaddle.y - this.playerPaddle.prevY;
 
         // AI paddle behavior - always move when it's AI's turn or ball is in motion
         if (this.ball.speedX !== 0 || this.ball.speedY !== 0 || this.whoServes === 'ai') {
@@ -254,6 +272,10 @@ class TableTennisGame {
             }
         }
         
+        // Calculate AI paddle velocities
+        this.aiPaddle.velocityX = this.aiPaddle.x - this.aiPaddle.prevX;
+        this.aiPaddle.velocityY = this.aiPaddle.y - this.aiPaddle.prevY;
+        
         // Constrain AI paddle to left half
         if (this.aiPaddle.x < 0) this.aiPaddle.x = 0;
         if (this.aiPaddle.x > 150 - this.paddleWidth) this.aiPaddle.x = 150 - this.paddleWidth;
@@ -267,13 +289,17 @@ class TableTennisGame {
         this.ball.x += this.ball.speedX;
         this.ball.y += this.ball.speedY;
         
-        // Ball collision with top and bottom walls - improved collision detection
+        // Ball collision with top and bottom walls - improved to prevent edge sticking
         if (this.ball.y - this.ball.radius <= 0) {
-            this.ball.y = this.ball.radius;
+            this.ball.y = this.ball.radius + 1; // Extra buffer
             this.ball.speedY = Math.abs(this.ball.speedY);
+            // Add slight randomization to prevent infinite edge bouncing
+            this.ball.speedX += (Math.random() - 0.5) * 0.1;
         } else if (this.ball.y + this.ball.radius >= this.canvas.height) {
-            this.ball.y = this.canvas.height - this.ball.radius;
+            this.ball.y = this.canvas.height - this.ball.radius - 1; // Extra buffer
             this.ball.speedY = -Math.abs(this.ball.speedY);
+            // Add slight randomization to prevent infinite edge bouncing
+            this.ball.speedX += (Math.random() - 0.5) * 0.1;
         }
         
         // Check if ball goes out of bounds (scoring) - FIXED scoring logic
@@ -379,13 +405,22 @@ class TableTennisGame {
                     this.ball.speedX = -4; // Increased from -3
                     this.ball.speedY = (Math.random() - 0.5) * 3; // Increased from 2
                 } else {
-                    // Normal collision - ensure ball bounces away
+                    // Normal collision - ensure ball bounces away with paddle influence
                     this.ball.speedX = -Math.abs(this.ball.speedX); // Force negative speed
                     const hitPos = (this.ball.y - this.playerPaddle.y) / this.paddleHeight;
                     this.ball.speedY += (hitPos - 0.5) * 2;
+                    
+                    // Add horizontal momentum from paddle movement
+                    this.ball.speedX += this.playerPaddle.velocityX * 0.3;
+                    this.ball.speedY += this.playerPaddle.velocityY * 0.4;
+                    
                     // Speed up slightly
                     this.ball.speedX *= 1.01;
                     this.ball.speedY *= 1.01;
+                    
+                    // Add slight randomization to prevent perfect loops
+                    this.ball.speedX += (Math.random() - 0.5) * 0.1;
+                    this.ball.speedY += (Math.random() - 0.5) * 0.1;
                 }
                 // Cap velocity after collision
                 this.capBallVelocity();
@@ -416,7 +451,7 @@ class TableTennisGame {
                     this.ball.speedX = 4; // Increased from 3
                     this.ball.speedY = (Math.random() - 0.5) * 3; // Increased from 2
                 } else {
-                    // Improved AI collision - more strategic ball direction
+                    // Improved AI collision - more strategic ball direction with paddle influence
                     this.ball.speedX = Math.abs(this.ball.speedX); // Force positive speed
                     const hitPos = (this.ball.y - this.aiPaddle.y) / this.paddleHeight;
                     
@@ -429,9 +464,17 @@ class TableTennisGame {
                         this.ball.speedY += (hitPos - 0.5) * 3;
                     }
                     
+                    // Add horizontal momentum from AI paddle movement
+                    this.ball.speedX += this.aiPaddle.velocityX * 0.3;
+                    this.ball.speedY += this.aiPaddle.velocityY * 0.4;
+                    
                     // Speed up more aggressively
                     this.ball.speedX *= 1.02;
                     this.ball.speedY *= 1.02;
+                    
+                    // Add slight randomization to prevent perfect loops
+                    this.ball.speedX += (Math.random() - 0.5) * 0.1;
+                    this.ball.speedY += (Math.random() - 0.5) * 0.1;
                 }
                 // Cap velocity after collision
                 this.capBallVelocity();
