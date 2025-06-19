@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         /mjg/ Emote Replacer
 // @namespace    http://repo.riichi.moe/
-// @version      1.3.7
+// @version      1.3.8
 // @description  Detects emote strings in imageless posts in /mjg/ threads, and displays them as fake images posts.
 // @icon         https://files.catbox.moe/3sh459.png
 // @author       Ling and Anon
@@ -20,7 +20,7 @@
     // Sources for MJS and RC emotes
     const EMOTE_BASE_URLS = [
         'https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/',
-        'https://files.riichi.moe/pr/game%20resources%20and%20tools/Riichi%20City/emotes_new/'                  // maybe move to /mjg when the PR is merged?
+        'https://tanoshii.moe/images/riichi_city_emotes/'
     ];
 
     const EMOTE_REGEX = /\b(([a-zA-Z0-9\-\.]+-\d+[cehjk]?t?d?|mooncakes\/\d)\.(?:png|jpg|jpeg|gif))\b/i;
