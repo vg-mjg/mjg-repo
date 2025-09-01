@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         /mjg/ Emote Replacer
 // @namespace    http://repo.riichi.moe/
-// @version      1.3.9
+// @version      1.3.10
 // @description  Detects emote strings in imageless posts in /mjg/ threads, and displays them as fake images posts.
 // @icon         https://files.catbox.moe/3sh459.png
 // @author       Ling and Anon
@@ -24,7 +24,7 @@
         'https://tanoshii.moe/images/riichi_city_emotes/'
     ];
 
-    const EMOTE_REGEX = /\b(([a-zA-Z0-9\-\.]+-\d+[a-zA-Z]{0,10}|mooncakes\/\d)\.(?:png|jpg|jpeg|gif))\b/i;
+    const EMOTE_REGEX = /\b(([a-zA-Z0-9\&\-\.]+-\d+[a-zA-Z]{0,10}|mooncakes\/\d)\.(?:png|jpg|jpeg|gif))\b/i;
     const PROCESSED_MARKER = 'data-mjg-emote-processed'; // Values: 'true' (success), 'has-file', 'no-message', 'limit-not-reached', 'emote-not-found', 'checking'
 
     // --- Helper: Check if remote image exists (tries multiple URLs) ---
