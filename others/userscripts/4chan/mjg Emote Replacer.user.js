@@ -20,40 +20,36 @@
     // Sources for MJS and RC emotes
     const EMOTE_BASE_URLS = [
         'https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/',
-        'https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/emote%20edits/',
-        'https://tanoshii.moe/images/riichi_city_emotes/'
+        'https://files.riichi.moe/mjg/game%20resources%20and%20tools/Riichi%20City/emotes_new/'
     ];
-
-    const EMOTE_REGEX = /\b(([a-zA-Z0-9\-\.]+-\d+[a-zA-Z]{0,10}|mooncakes\/\d)\.(?:png|jpg|jpeg|gif))\b/i;
+    const EMOTE_REGEX = /\b(([a-zA-Z0-9\&\-\.]+-\d+[a-z]{0,4}|mooncakes\/\d)\.(?:png|jpg|jpeg|gif))\b/i;
     const PROCESSED_MARKER = 'data-mjg-emote-processed'; // Values: 'true' (success), 'has-file', 'no-message', 'limit-not-reached', 'emote-not-found', 'checking'
 
-    // --- Helper: Check if remote image exists (tries multiple URLs) ---
-    function checkImageExists(urls) {
-        return new Promise(async resolve => {
-            for (const url of urls) {
-                try {
-                    const img = new Image();
-                    const result = await new Promise(resolve => {
-                        img.onload = () => resolve(true);  // Image loaded successfully
-                        img.onerror = () => resolve(false);  // Image failed to load (404, CORS block, invalid etc.)
-                        img.onabort = () => resolve(false);  // Handle aborts as well
-                        try {
-                            img.src = url;
-                        } catch (e) {
-                            console.error("/mjg/ Emote Replacer: Error synchronously thrown while setting src for " + url, e);
-                            resolve(false);
-                        }
-                    });
-                    if (result) {
-                        resolve({ exists: true, url: url });
-                        return;
-                    }
-                } catch (e) {
-                    // Continue to next URL
-                }
+    // --- Helper: Check if remote image exists ---
+    function checkImageExists(url) {
+        return new Promise(resolve => {
+            const img = new Image();
+            img.onload = () => resolve(true); // Image loaded successfully
+            img.onerror = (err) => resolve(false); // Image failed to load (404, CORS block, invalid etc.)
+            img.onabort = () => resolve(false); // Handle aborts as well
+            try {
+                img.src = url;
+            } catch (e) {
+                console.error("/mjg/ Emote Replacer: Error synchronously thrown while setting src for " + url, e);
+                resolve(false);
             }
-            resolve({ exists: false, url: null });
         });
+    }
+
+    // --- Helper: Find if the emote exists in any of the base folders
+    async function findImageUrl(emoteString) {
+        for (const baseURL of EMOTE_BASE_URLS) {
+            const fullImageUrl = baseURL + encodeURIComponent(emoteString);
+            if (await checkImageExists(fullImageUrl)) {
+                return fullImageUrl;
+            }
+        }
+        return null;
     }
 
     // --- Helper: Find Emote String by Traversing Nodes (Recursive) ---
@@ -80,7 +76,7 @@
         return null;
     }
 
-    // --- 1. Check if this is the correct type of thread ---
+    // --- Check if this is the correct type of thread ---
     function isMjgThread() {
         const opSubjectElement = document.querySelector('.opContainer .postInfo .subject, .opContainer .postInfoM .subject');
         if (!opSubjectElement) return false;
@@ -88,7 +84,7 @@
         return subjectText.includes('mjg') || subjectText.includes('mahjong');
     }
 
-    // --- 2. Get current image count ---
+    // --- Get current image count ---
     function getImageCount() {
         let fileCountElement = document.getElementById('file-count');
         if (!fileCountElement) {
@@ -102,8 +98,8 @@
         return -1;
     }
 
-    // --- 3. Create and inject fake image HTML ---
-    function addFakeImage(postElement, emoteString, resolvedUrl) {
+    // --- Create and inject fake image HTML ---
+    function addFakeImage(postElement, emoteString, fullImageUrl) {
         const postId = postElement.id ? postElement.id.substring(1) : null;
         if (!postId) {
             console.warn("/mjg/ Emote Replacer: Could not get post ID for", postElement);
@@ -112,7 +108,6 @@
         // Double check file doesn't exist (in case of race condition)
         if (postElement.querySelector('.file')) return;
 
-        const fullImageUrl = resolvedUrl;
         const uniqueFileId = `f${postId}-emote`;
         const uniqueFileTextId = `fT${postId}-emote`;
 
@@ -173,7 +168,7 @@
     }
 
 
-    // --- 4. Process a single post ---
+    // --- Process a single post ---
     async function processPost(postElement) {
         // Basic checks first
         const postId = postElement?.id || 'unknown-element';
@@ -207,8 +202,6 @@
         const emoteString = findEmoteInNodes(postMessageElement);
 
         if (emoteString) {
-            // Generate all candidate URLs for this emote
-            const candidateUrls = EMOTE_BASE_URLS.map(base => base + encodeURIComponent(emoteString));
 
             // Mark as checking to prevent concurrent checks from observer
             postElement.setAttribute(PROCESSED_MARKER, 'checking');
@@ -219,10 +212,11 @@
             if (postElement.getAttribute(PROCESSED_MARKER) !== 'checking') return; // State changed during await
 
             // Check if the remote image actually exists
-            const imageExists = await checkImageExists(candidateUrls);
+            const fullImageUrl = await findImageUrl(emoteString);
             if (postElement.getAttribute(PROCESSED_MARKER) !== 'checking') return; // State changed during check
-            if (imageExists.exists) {
-                addFakeImage(postElement, emoteString, imageExists.url);
+
+            if (fullImageUrl) {
+                addFakeImage(postElement, emoteString, fullImageUrl);
                 postElement.setAttribute(PROCESSED_MARKER, 'true');
             } else {
                 // Mark as processed but note that the emote was not found
@@ -234,7 +228,7 @@
         }
     }
 
-    // --- 5. Initial Scan ---
+    // --- Initial Scan ---
     function initialScan() {
         const posts = document.querySelectorAll('.postContainer.replyContainer .post.reply');
         posts.forEach(post => {
@@ -246,7 +240,7 @@
         });
     }
 
-    // --- 6. Observe for new posts ---
+    // --- Observe for new posts ---
     function observeNewPosts() {
         const threadElement = document.querySelector('.thread');
         if (!threadElement) {
