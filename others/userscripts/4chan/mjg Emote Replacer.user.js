@@ -1,7 +1,8 @@
 // ==UserScript==
 // @name         /mjg/ Emote Replacer
 // @namespace    http://repo.riichi.moe/
-// @version      1.3.9
+// @namespace    http://repo.riichi.moe/
+// @version      1.3.10
 // @description  Detects emote strings in imageless posts in /mjg/ threads, and displays them as fake images posts.
 // @icon         https://files.catbox.moe/3sh459.png
 // @author       Ling and Anon
@@ -25,31 +26,143 @@
     const EMOTE_REGEX = /\b(([a-zA-Z0-9\&\-\.]+-\d+[a-z]{0,4}|mooncakes\/\d)\.(?:png|jpg|jpeg|gif))\b/i;
     const PROCESSED_MARKER = 'data-mjg-emote-processed'; // Values: 'true' (success), 'has-file', 'no-message', 'limit-not-reached', 'emote-not-found', 'checking'
 
-    // --- Helper: Check if remote image exists ---
-    function checkImageExists(url) {
-        return new Promise(resolve => {
-            const img = new Image();
-            img.onload = () => resolve(true); // Image loaded successfully
-            img.onerror = (err) => resolve(false); // Image failed to load (404, CORS block, invalid etc.)
-            img.onabort = () => resolve(false); // Handle aborts as well
-            try {
-                img.src = url;
-            } catch (e) {
-                console.error("/mjg/ Emote Replacer: Error synchronously thrown while setting src for " + url, e);
-                resolve(false);
-            }
+    // --- Main Execution ---
+    if (isMjgThread()) {
+        requestAnimationFrame(() => {
+            initialScan();
+            observeNewPosts();
         });
     }
 
-    // --- Helper: Find if the emote exists in any of the base folders
-    async function findImageUrl(emoteString) {
-        for (const baseURL of EMOTE_BASE_URLS) {
-            const fullImageUrl = baseURL + encodeURIComponent(emoteString);
-            if (await checkImageExists(fullImageUrl)) {
-                return fullImageUrl;
-            }
+    // --- Check if this is the correct type of thread ---
+    function isMjgThread() {
+        const opSubjectElement = document.querySelector('.opContainer .postInfo .subject, .opContainer .postInfoM .subject');
+        if (!opSubjectElement) return false;
+        const subjectText = opSubjectElement.textContent.toLowerCase();
+        return subjectText.includes('mjg') || subjectText.includes('mahjong');
+    }
+
+    // --- Initial Scan ---
+    function initialScan() {
+        const posts = document.querySelectorAll('.postContainer.replyContainer .post.reply');
+        posts.forEach(post => {
+            processPost(post).catch(e => {
+                console.error("/mjg/ Emote Replacer: Error during async processPost in initial scan:", post?.id, e);
+                // Mark post to avoid retrying on error.
+                if (post) post.setAttribute(PROCESSED_MARKER, 'error');
+            });
+        });
+    }
+
+    // --- Observe for new posts ---
+    function observeNewPosts() {
+        const threadElement = document.querySelector('.thread');
+        if (!threadElement) {
+            console.error('/mjg/ Emote Replacer: Could not find thread element to observe.');
+            return;
         }
-        return null;
+        const observer = new MutationObserver(mutations => {
+            let postsToProcess = new Set();
+            mutations.forEach(mutation => {
+                mutation.addedNodes.forEach(node => {
+                    if (node.nodeType === Node.ELEMENT_NODE) {
+                        if (node.matches('.postContainer.replyContainer')) {
+                            const postElement = node.querySelector('.post.reply');
+                            if (postElement) postsToProcess.add(postElement);
+                        } else {
+                            node.querySelectorAll('.postContainer.replyContainer .post.reply').forEach(postElement => {
+                                postsToProcess.add(postElement);
+                            });
+                        }
+                    }
+                });
+            });
+
+            if (postsToProcess.size > 0) {
+                postsToProcess.forEach(postElement => {
+                    processPost(postElement).catch(e => {
+                        console.error("/mjg/ Emote Replacer: Error during async processPost from observer:", postElement?.id, e);
+                        if (postElement) postElement.setAttribute(PROCESSED_MARKER, 'error');
+                    });
+                });
+            }
+        });
+
+        observer.observe(threadElement, { childList: true, subtree: true });
+    }
+
+    // --- Process a single post ---
+    async function processPost(postElement) {
+        // Basic checks first
+        const postId = postElement?.id || 'unknown-element';
+        if (!postElement || !postElement.matches || !postElement.matches('.post.reply')) return;
+
+        // Prevent re-processing or processing posts currently being checked
+        const currentState = postElement.getAttribute(PROCESSED_MARKER);
+        // Already processed, has file, no message, emote not found, or currently checking
+        if (currentState && currentState !== 'limit-not-reached') return;
+
+        // Check if it already has a *real* file attachment
+        if (postElement.querySelector('.file')) { postElement.setAttribute(PROCESSED_MARKER, 'has-file'); return; }
+
+        // Check if image limit is reached *now*
+        const currentImageCount = getImageCount();
+        if (currentImageCount === -1 || currentImageCount < IMAGE_LIMIT) {
+            postElement.setAttribute(PROCESSED_MARKER, 'limit-not-reached'); // Mark temporarily
+            return;
+        }
+        // If limit was previously not reached, clear that temporary state
+        if (currentState === 'limit-not-reached') {
+            postElement.removeAttribute(PROCESSED_MARKER);
+        }
+
+        const postMessageElement = postElement.querySelector('.postMessage');
+        if (!postMessageElement) {
+            postElement.setAttribute(PROCESSED_MARKER, 'no-message');
+            return;
+        }
+
+        const emoteString = findEmoteInNodes(postMessageElement);
+
+        if (emoteString) {
+
+            // Mark as checking to prevent concurrent checks from observer
+            postElement.setAttribute(PROCESSED_MARKER, 'checking');
+
+            // Small delay might prevent rare race conditions.
+            await new Promise(resolve => setTimeout(resolve, 50));
+
+            if (postElement.getAttribute(PROCESSED_MARKER) !== 'checking') return; // State changed during await
+
+            // Check if the remote image actually exists
+            const fullImageUrl = await findImageUrl(emoteString);
+            if (postElement.getAttribute(PROCESSED_MARKER) !== 'checking') return; // State changed during check
+
+            if (fullImageUrl) {
+                addFakeImage(postElement, emoteString, fullImageUrl);
+                postElement.setAttribute(PROCESSED_MARKER, 'true');
+            } else {
+                // Mark as processed but note that the emote was not found
+                postElement.setAttribute(PROCESSED_MARKER, 'emote-not-found');
+            }
+        } else {
+            // No emote string found in this post, mark it as processed for this state
+            postElement.setAttribute(PROCESSED_MARKER, 'no-emote-found');
+        }
+    }
+
+    // --- Get current image count ---
+    function getImageCount() {
+        let fileCountElement = document.getElementById('file-count');
+        if (!fileCountElement) {
+            const threadStatsDiv = document.querySelector('.thread-stats .ts-images');
+            if (threadStatsDiv) fileCountElement = threadStatsDiv;
+        }
+        if (fileCountElement?.textContent) {
+            const count = parseInt(fileCountElement.textContent.trim(), 10);
+            return isNaN(count) ? -1 : count;
+        }
+        return -1;
     }
 
     // --- Helper: Find Emote String by Traversing Nodes (Recursive) ---
@@ -76,26 +189,31 @@
         return null;
     }
 
-    // --- Check if this is the correct type of thread ---
-    function isMjgThread() {
-        const opSubjectElement = document.querySelector('.opContainer .postInfo .subject, .opContainer .postInfoM .subject');
-        if (!opSubjectElement) return false;
-        const subjectText = opSubjectElement.textContent.toLowerCase();
-        return subjectText.includes('mjg') || subjectText.includes('mahjong');
+    // --- Helper: Find if the emote exists in any of the base folders
+    async function findImageUrl(emoteString) {
+        for (const baseURL of EMOTE_BASE_URLS) {
+            const fullImageUrl = baseURL + encodeURIComponent(emoteString);
+            if (await checkImageExists(fullImageUrl)) {
+                return fullImageUrl;
+            }
+        }
+        return null;
     }
 
-    // --- Get current image count ---
-    function getImageCount() {
-        let fileCountElement = document.getElementById('file-count');
-        if (!fileCountElement) {
-            const threadStatsDiv = document.querySelector('.thread-stats .ts-images');
-            if (threadStatsDiv) fileCountElement = threadStatsDiv;
-        }
-        if (fileCountElement?.textContent) {
-            const count = parseInt(fileCountElement.textContent.trim(), 10);
-            return isNaN(count) ? -1 : count;
-        }
-        return -1;
+    // --- Helper: Check if remote image exists ---
+    function checkImageExists(url) {
+        return new Promise(resolve => {
+            const img = new Image();
+            img.onload = () => resolve(true); // Image loaded successfully
+            img.onerror = (err) => resolve(false); // Image failed to load (404, CORS block, invalid etc.)
+            img.onabort = () => resolve(false); // Handle aborts as well
+            try {
+                img.src = url;
+            } catch (e) {
+                console.error("/mjg/ Emote Replacer: Error synchronously thrown while setting src for " + url, e);
+                resolve(false);
+            }
+        });
     }
 
     // --- Create and inject fake image HTML ---
@@ -164,125 +282,6 @@
         } else {
             postElement.appendChild(fileDiv);
         }
-        // console.log(`/mjg/ Emote Replacer: Added fake image for ${emoteString} to post ${postId}`);
-    }
-
-
-    // --- Process a single post ---
-    async function processPost(postElement) {
-        // Basic checks first
-        const postId = postElement?.id || 'unknown-element';
-        if (!postElement || !postElement.matches || !postElement.matches('.post.reply')) return;
-
-        // Prevent re-processing or processing posts currently being checked
-        const currentState = postElement.getAttribute(PROCESSED_MARKER);
-        // Already processed, has file, no message, emote not found, or currently checking
-        if (currentState && currentState !== 'limit-not-reached') return;
-
-        // Check if it already has a *real* file attachment
-        if (postElement.querySelector('.file')) { postElement.setAttribute(PROCESSED_MARKER, 'has-file'); return; }
-
-        // Check if image limit is reached *now*
-        const currentImageCount = getImageCount();
-        if (currentImageCount === -1 || currentImageCount < IMAGE_LIMIT) {
-            postElement.setAttribute(PROCESSED_MARKER, 'limit-not-reached'); // Mark temporarily
-            return;
-        }
-        // If limit was previously not reached, clear that temporary state
-        if (currentState === 'limit-not-reached') {
-            postElement.removeAttribute(PROCESSED_MARKER);
-        }
-
-        const postMessageElement = postElement.querySelector('.postMessage');
-        if (!postMessageElement) {
-            postElement.setAttribute(PROCESSED_MARKER, 'no-message');
-            return;
-        }
-
-        const emoteString = findEmoteInNodes(postMessageElement);
-
-        if (emoteString) {
-
-            // Mark as checking to prevent concurrent checks from observer
-            postElement.setAttribute(PROCESSED_MARKER, 'checking');
-
-            // Small delay might prevent rare race conditions.
-            await new Promise(resolve => setTimeout(resolve, 50));
-
-            if (postElement.getAttribute(PROCESSED_MARKER) !== 'checking') return; // State changed during await
-
-            // Check if the remote image actually exists
-            const fullImageUrl = await findImageUrl(emoteString);
-            if (postElement.getAttribute(PROCESSED_MARKER) !== 'checking') return; // State changed during check
-
-            if (fullImageUrl) {
-                addFakeImage(postElement, emoteString, fullImageUrl);
-                postElement.setAttribute(PROCESSED_MARKER, 'true');
-            } else {
-                // Mark as processed but note that the emote was not found
-                postElement.setAttribute(PROCESSED_MARKER, 'emote-not-found');
-            }
-        } else {
-            // No emote string found in this post, mark it as processed for this state
-            postElement.setAttribute(PROCESSED_MARKER, 'no-emote-found');
-        }
-    }
-
-    // --- Initial Scan ---
-    function initialScan() {
-        const posts = document.querySelectorAll('.postContainer.replyContainer .post.reply');
-        posts.forEach(post => {
-            processPost(post).catch(e => {
-                console.error("/mjg/ Emote Replacer: Error during async processPost in initial scan:", post?.id, e);
-                // Mark post to avoid retrying on error.
-                if (post) post.setAttribute(PROCESSED_MARKER, 'error');
-            });
-        });
-    }
-
-    // --- Observe for new posts ---
-    function observeNewPosts() {
-        const threadElement = document.querySelector('.thread');
-        if (!threadElement) {
-            console.error('/mjg/ Emote Replacer: Could not find thread element to observe.');
-            return;
-        }
-        const observer = new MutationObserver(mutations => {
-            let postsToProcess = new Set();
-            mutations.forEach(mutation => {
-                mutation.addedNodes.forEach(node => {
-                    if (node.nodeType === Node.ELEMENT_NODE) {
-                        if (node.matches('.postContainer.replyContainer')) {
-                            const postElement = node.querySelector('.post.reply');
-                            if (postElement) postsToProcess.add(postElement);
-                        } else {
-                            node.querySelectorAll('.postContainer.replyContainer .post.reply').forEach(postElement => {
-                                postsToProcess.add(postElement);
-                            });
-                        }
-                    }
-                });
-            });
-
-            if (postsToProcess.size > 0) {
-                postsToProcess.forEach(postElement => {
-                    processPost(postElement).catch(e => {
-                        console.error("/mjg/ Emote Replacer: Error during async processPost from observer:", postElement?.id, e);
-                        if (postElement) postElement.setAttribute(PROCESSED_MARKER, 'error');
-                    });
-                });
-            }
-        });
-
-        observer.observe(threadElement, { childList: true, subtree: true });
-    }
-
-    // --- Main Execution ---
-    if (isMjgThread()) {
-        requestAnimationFrame(() => {
-            initialScan();
-            observeNewPosts();
-        });
     }
 
 })();
