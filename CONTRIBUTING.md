@@ -35,4 +35,30 @@ It's still a good idea to make pull requests if you do something big.
 
 If you're a brainlet there is https://desktop.github.com/ to make things easier.
 
+## How to use the file server
+
+If you want to provide larger media files along with your pull request (that is, larger than a random small image to embed on the repo), do it via [files.riichi.moe](https://github.com/vg-mjg/mjg-repo/blob/master/CONTRIBUTING.md). Go there and log in with your github account.
+<img width="509" height="640" alt="image" src="https://github.com/user-attachments/assets/1f67430c-349b-45f8-9323-bda98f31d6c0" />
+
+Once you authorize it, you will be granted write access to a new directory.
+<img width="495" height="200" alt="image" src="https://github.com/user-attachments/assets/0cd83d30-c90e-49ab-a799-8412cd3b19bb" />
+
+You could already upload your files here, but you'll make repoanon's lives easier by creating a directory structure that mimics the location of where within the `/mjg/` share you want your files to be.
+<img width="665" height="359" alt="image" src="https://github.com/user-attachments/assets/6368213e-e8b2-4e76-8ce9-ffa99735697a" />
+
+Upload your files by either drag&dropping or navigating to `🚀` and choosing `Upload`.
+<img width="801" height="521" alt="image" src="https://github.com/user-attachments/assets/049bf88a-ba1e-4930-a2a3-7677ed12e8cd" />
+
+Now you can reference URLs to these files or directories (or archives, by appending `?zip=utf8` to a directory URL) in the code portion of your pull request, as explained earlier.
+
+**You must replace the `/pr/>name/` portion of the URL with `/mjg/`**. For example:
+```diff
+# instead of
+- <img src="https://files.riichi.moe/pr/>name/emotes/fujitakana-4hahi.png" />
+# change it to this
++ <img src="https://files.riichi.moe/mjg/emotes/fujitakana-4hahi.png" />
+```
+
+Once (you) become a repoanon, you will be granted direct access to `/mjg/`.
+
 Good luck.
