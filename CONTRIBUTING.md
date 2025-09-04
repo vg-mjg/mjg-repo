@@ -37,7 +37,7 @@ If you're a brainlet there is https://desktop.github.com/ to make things easier.
 
 ## How to use the file server
 
-If you want to provide larger media files along with your pull request (that is, larger than a random small image to embed on the repo), do it via [files.riichi.moe](https://github.com/vg-mjg/mjg-repo/blob/master/CONTRIBUTING.md). Go there and log in with your github account.
+If you want to provide larger media files along with your pull request (that is, larger than a random small image to embed on the repo), do it via [files.riichi.moe](https://files.riichi.moe). Go there and log in with your github account.
 <img width="509" height="640" alt="image" src="https://github.com/user-attachments/assets/1f67430c-349b-45f8-9323-bda98f31d6c0" />
 
 Once you authorize it, you will be granted write access to a new directory.
