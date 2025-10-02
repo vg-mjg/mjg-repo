@@ -1,6 +1,5 @@
 // I'd love to build the array by looping the directory, but GitHub pages doesn't allow it.
 function pickimg(){
-    // We are wasting cycles by manually adding each entry. Just make a fat list.
     let images = [
     "repobanner/0.png",
     "repobanner/1.png",
