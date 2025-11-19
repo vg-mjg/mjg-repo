@@ -7,22 +7,22 @@
   },
   "updates": [
         {
-      "title": "Majsoul emotes (Update 2025-10-22)",
+      "title": "Majsoul emotes (Update 2025-11-19)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
       "category": "Resource",
       "description": "New package with all, upscaled majsoul emotes."
+    },
+    {
+      "title": "Waifu 2x (Update 2025-11-19)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/emotes/Waifu2x%202025-11-19.mspr",
+      "category": "Majsoul+ mod",
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the Idle Hours streetwear event (RIP Halloween event this year)"
     },
     {
       "title": "Change buttons (Update 2025-10-22)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/utilities/Change%20buttons%202025-10-22.mspr",
       "category": "Majsoul+ mod",
       "description": "Replaces 'Riichi', 'Ron' and 'Tsumo' prompts with 'Free Sex', 'Rekt' and 'Skill' respectively. Fixed for the Gintama collab, as they added a new gamemode which broke it"
-    },
-    {
-      "title": "Waifu 2x (Update 2025-10-22)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/emotes/Waifu2x%202025-10-22.mspr",
-      "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the Gintama collab"
     },
     {
       "title": "Sanma book 1 (The Secrets to Three-Player Mahjong) - Owata",
