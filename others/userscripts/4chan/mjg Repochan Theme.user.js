@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         /mjg/ Repochan Theme
 // @namespace    /mjg/
-// @version      1.0
+// @version      1.1
 // @description  Makes /mjg/ look like Repochan
 // @icon         https://raw.githubusercontent.com/vg-mjg/mjg-repo/refs/heads/master/favicon.ico
 // @match        https://boards.4chan.org/vg/thread/*
