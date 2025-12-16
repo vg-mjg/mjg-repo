@@ -200,7 +200,7 @@
       
       /* Reply Box */
       
-      #quickReply, #qrHeader {
+      #quickReply, #qrHeader, :root.burichan .dialog {
         background-color: var(--secondary-bg);
         border: 1px var(--border-color) solid !important;
         color: var(--text-color);
@@ -227,7 +227,18 @@
         border: 1px var(--color-bg) solid;
       }
 
+      /* Captcha */
+      .captcha-container {
+        background: var(--secondary-bg) !important;
+        color: var(--text-color) !important;
+        scrollbar-color: var(--text-color) var(--border-color);
+      }
+
       /* 4chanX */
+
+      .fourchan-x #qr .captcha-container > div {
+        width: auto;
+      }
       
       .fourchan-x #header-bar {
         background: var(--secondary-bg) !important;
@@ -236,7 +247,7 @@
         border-bottom: 1px var(--border-color) solid;
       }
 
-      .fourchan-x .dialog {
+      .fourchan-x .dialog, .fourchan-x #qr .move {
         background: var(--secondary-bg);
         color: var(--text-color) !important;
       }

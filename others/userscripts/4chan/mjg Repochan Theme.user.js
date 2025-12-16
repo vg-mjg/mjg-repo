@@ -17,7 +17,7 @@
   function randomBannerUrl() {
     return 'https://repo.riichi.moe/boards/banners/' + banners[banners.length * Math.random() | 0]
   }
-  
+
   function repochanTheme() {
     // Only Run on /mjg/
     const subject = document.querySelector(".subject");
@@ -44,7 +44,7 @@
         });
       }, 1000);
     }
-    
+
     // Changes board name to /mjg/
     document.querySelector('.boardTitle').textContent = '/mjg/ - Mahjong General';
 
@@ -81,7 +81,7 @@
       }
 
       /* General */
-      
+
       body,
       html {
         background: var(--bg-color);
@@ -101,40 +101,40 @@
       a:hover {
         text-decoration: underline;
       }
-      
+
       img {
   		max-width: 100% !important;
 	  }
-      
+
       /* Top Nav Bar */
-      
+
       #boardNavDesktop {
         font-size: 14px !important;
         color: var(--text-color) !important;
         margin-bottom: 10px;
       }
-      
+
       /* Banner */
-      
+
       .boardBanner, .closed {
         background: var(--secondary-bg);
         border: 2px dashed var(--border-color);
         padding: 10px 15px;
         margin-bottom: 10px;
       }
-      
+
       .boardTitle {
         color: var(--post-title-color);
         font-family: var(--font-family) !important;
         letter-spacing: 0px !important;
     	}
-      
+
       form[name='post'], .abovePostForm, #blotter, .aboveMidAd, .middlead.center, .middlead.center + hr, #toggleMsgBtn, #globalMessage, hr[style='clear: both;'], .adl, #op {
         display:none;
       }
 
-      /* Top of Thread Nav */  
-      
+      /* Top of Thread Nav */
+
       .navLinks.desktop {
         background: var(--secondary-bg);
         border: 1px var(--border-color) solid;
@@ -142,11 +142,11 @@
         margin: 0 auto 10px auto;
         padding:10px
       }
-      
+
       .navLinks.desktop + hr {
   		display: none;
       }
-       
+
 	  /* Column */
 
       .thread {
@@ -157,13 +157,13 @@
         max-width: 900px;
         margin: 0 auto 10px auto !important;
 	  }
-      
+
      	/* OP */
-      
+
       .nameBlock > .name {
       	color: var(--link-color) !important;
       }
-      
+
       .postInfo.desktop > .subject {
         color: var(--post-title-color) !important;
         display: none;
@@ -175,11 +175,11 @@
         text-decoration: none;
         font-family: 'Liberation Mono', monospace;
       }
-      
+
       .quote {
       	color: #789922 !important;
       }
-      
+
       div.post div.postInfo span.postNum > a, div.post div.postInfo span.postNum > a:hover {
         color: var(--text-color) !important;
       }
@@ -187,11 +187,11 @@
       div.post div.postInfo span.postNum > a:hover {
         text-decoration: underline;
       }
-      
+
       .post.op > .postMessage {
       	overflow: auto;
       }
-      
+
       a.quotelink, .postInfo.desktop > .backlink a, .backlink.deadlink {
         color: var(--link-color) !important;
         text-decoration: none;
@@ -201,14 +201,14 @@
       a.quotelink:hover, .postInfo.desktop > .backlink a:hover {
         color: var(--link-color) !important;
         text-decoration: underline;
-      } 
-      
+      }
+
       .postContainer.opContainer + div {
       	border-top: 1px solid var(--border-color);
       }
 
       /* Reply */
-      
+
       .sideArrows, .postInfo.desktop > input {
         display:none;
       }
@@ -216,54 +216,54 @@
       .postContainer.replyContainer {
         margin-top: 12px;
       }
-      
+
       .post.reply {
         background: var(--secondary-bg);
         border: none;
       }
-      
+
 
       .post.reply:not(#quote-preview.post.reply) {
       	width: 100%;
 	  }
-      
+
       .fileThumb {
         margin-left: 0px !important;
       }
-      
+
       .postMessage {
       	margin-left: 0px;
       }
 
-            
+
       #quote-preview {
       	background: var(--secondary-bg) !important;
        	border: 1px var(--border-color) solid !important;
         font-family: var(--mono-font);
       }
-      
+
       div#quote-preview.highlight.post.reply {
       	border: 1px var(--border-color) solid !important;
       }
-      
+
       .reply:target, .reply.highlight {
   		background: rgba(0, 0, 0, .14) !important;
   		border:none !important;
 	  }
-      
+
       .post.reply.highlight-anti {
   		background: rgba(0, 0, 0, .28) !important;
 	  }
-      
+
       /* Bottom Nav */
-      
+
       .thread + hr, .adl + hr, .bottomCtrl.desktop, #boardNavDesktopFoot, #absbot  {
       	display: none;
       }
-      
+
       /* Reply Box */
-      
-      #quickReply, #qrHeader {
+
+      #quickReply, #qrHeader, :root.burichan .dialog {
         background-color: var(--secondary-bg);
         border: 1px var(--border-color) solid !important;
         color: var(--text-color);
@@ -279,19 +279,30 @@
         font-family: var(--mono-font) !important;
         border: 1px var(--border-color) solid !important;
       }
-      
+
       #quickReply input[type="submit"] {
     	margin-top: 2px !important;;
       }
-      
+
       /* Settings */
       .extPanel.reply {
       	background: var(--secondary-bg);
         border: 1px var(--color-bg) solid;
       }
 
+      /* Captcha */
+      .captcha-container {
+        background: var(--secondary-bg) !important;
+        color: var(--text-color) !important;
+        scrollbar-color: var(--text-color) var(--border-color);
+      }
+
       /* 4chanX */
-      
+
+      .fourchan-x #qr .captcha-container > div {
+        width: auto;
+      }
+
       .fourchan-x #header-bar {
         background: var(--secondary-bg) !important;
         color: var(--text-color);
@@ -299,7 +310,7 @@
         border-bottom: 1px var(--border-color) solid;
       }
 
-      .fourchan-x .dialog {
+      .fourchan-x .dialog, .fourchan-x #qr .move {
         background: var(--secondary-bg);
         color: var(--text-color) !important;
       }
@@ -307,7 +318,7 @@
       .fourchan-x .focused.entry {
         background: rgb(0,0,0,.33);
       }
-      
+
       :root.fourchan-x > body div.boardTitle {
         color: var(--post-title-color);
         font-family: var(--font-family) !important;
@@ -315,20 +326,20 @@
         text-shadow: none;
         font-weight: bold !important;
       }
-      
+
       .fourchan-x .globalMessage + hr {
       	display:none;
       }
-      
+
       .fourchan-x .watch-thread-link {
   		opacity: 100%;
   		color: var(--link-color);
 	  }
-      
+
       .fourchan-x .post.op {
       	border-bottom: 1px var(--border-color) solid;
       }
-      
+
       .fourchan-x .postContainer.replyContainer {
         display:flex !important;;
       }
@@ -336,7 +347,7 @@
       .fourchan-x .postContainer.replyContainer > .post.reply {
         margin-top: 0px !important;
       }
-      
+
       .fourchan-x  .fileText {
         margin-left: 0px !important;;
       }
@@ -349,17 +360,17 @@
       .fourchan-x #hoverUI  > .dialog > .postContainer.replyContainer {
         margin: 0px;
       }
-      
+
       .fourchan-x .qphl {
         background: rgba(0, 0, 0, .14) !important;
         outline:none !important;
       }
-      
+
       .fourchan-x .inline {
         border: 1px var(--border-color) solid !important;
         background: rgba(0, 0, 0, .14);
       }
-      
+
       .fourchan-x .qr-link-container-bottom {
         text-align: center;
         width: 200px;
@@ -368,7 +379,7 @@
         left: -100px;
         transform: none;
       }
-      
+
       .fourchan-x #qr {
         border: 1px var(--border-color) solid;
 
@@ -389,7 +400,7 @@
       }
 
       .fourchan-x #qr .field:focus {
-        border-color: var(--link-color) !important; 
+        border-color: var(--link-color) !important;
       }
 
       .fourchan-x #qr .qr-button {
@@ -401,7 +412,7 @@
       .fourchan-x #qr #qr-filename {
         color: var(--text-color);
       }
-      
+
       #fcsp-container {
       	background: var(--secondary-bg) !important;
       	border: 1px var(--border-color) solid !important;
@@ -443,7 +454,7 @@
       	background: var(--link-color) !important;
       }
       `;
-    
+
     document.head.append(style);
   }
 
