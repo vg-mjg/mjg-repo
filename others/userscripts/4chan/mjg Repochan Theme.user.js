@@ -291,9 +291,9 @@
       }
 
       /* Captcha */
-      .captcha-container {
-        background: var(--secondary-bg) !important;
-        color: var(--text-color) !important;
+      .captcha-root > div {
+        background: unset !important;
+        color: unset !important;
         scrollbar-color: var(--text-color) var(--border-color);
       }
 
