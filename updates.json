@@ -6,17 +6,17 @@
     "description": ""
   },
   "updates": [
-        {
-      "title": "Majsoul emotes (Update 2026-01-14)",
+    {
+      "title": "Majsoul emotes (Update 2026-02-11)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
       "category": "Resource",
       "description": "New package with all, upscaled majsoul emotes. Includes updated emotes, old emotes can still be found on the file repo."
     },
     {
-      "title": "Waifu 2x (Update 2026-01-14)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/emotes/Waifu2x%202026-01-14.mspr",
+      "title": "Waifu 2x (Update 2026-02-11)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/mods/emotes/Waifu2x%202026-02-11.mspr",
       "category": "Majsoul+ mod",
-      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the 2026 Susurrus of Blue event"
+      "description": "A mod that uses larger waifu2x versions of every characters emotes instead of the shitty 120x120 emotes that's normally used in game. Updated for the 2026 Chinese New Year event"
     },
     {
       "title": "Change buttons (Update 2025-10-22)",
