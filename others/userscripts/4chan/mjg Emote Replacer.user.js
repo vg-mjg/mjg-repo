@@ -2,8 +2,8 @@
 // @name         /mjg/ Emote Replacer
 // @namespace    http://repo.riichi.moe/
 // @namespace    http://repo.riichi.moe/
-// @version      1.3.11
-// @description  Detects emote strings in imageless posts in /mjg/ threads, and displays them as fake images posts.
+// @version      1.3.12
+// @description  Detects emote strings in imageless posts in /mjg/ threads, and displays them as fake image posts.
 // @icon         https://files.catbox.moe/3sh459.png
 // @author       Ling and Anon
 // @match        *://boards.4chan.org/vg/thread/*
@@ -16,7 +16,8 @@
 (function () {
     'use strict';
 
-    const IMAGE_LIMIT = 0; // Change this to 375 if you want the script to only work after the thread has hit the image limit
+    const IMAGE_LIMIT = 0; // Change this to 375 if you want the script to only work after the thread has hit the image limit.
+    const MULTI_FILE_MODE = true; // Allow fake emotes to be shown alongside real images if an emote string was detected in a real image post.
 
     // Sources for MJS and RC emotes
     const EMOTE_BASE_URLS = [
@@ -103,8 +104,8 @@
         // Already processed, has file, no message, emote not found, or currently checking
         if (currentState && currentState !== 'limit-not-reached') return;
 
-        // Check if it already has a *real* file attachment
-        if (postElement.querySelector('.file')) { postElement.setAttribute(PROCESSED_MARKER, 'has-file'); return; }
+        // Check if it already has a *real* file attachment if multi file mode is disabled
+        if (postElement.querySelector('.file') && !MULTI_FILE_MODE) { postElement.setAttribute(PROCESSED_MARKER, 'has-file'); return; }
 
         // Check if image limit is reached *now*
         const currentImageCount = getImageCount();
@@ -224,25 +225,34 @@
             console.warn("/mjg/ Emote Replacer: Could not get post ID for", postElement);
             return; // Should not happen if called after check
         }
-        // Double check file doesn't exist (in case of race condition)
-        if (postElement.querySelector('.file')) return;
+        // Double check file doesn't exist (in case of race condition) in case multi file mode is disabled
+        if (postElement.querySelector('.file') && !MULTI_FILE_MODE) return;
 
         const uniqueFileId = `f${postId}-emote`;
         const uniqueFileTextId = `fT${postId}-emote`;
+        let existingFile = true;
+        let fileDiv = postElement.querySelector('.file');
+        let fileTextSeparator = 'File: ';
 
-        const fileDiv = document.createElement('div');
-        fileDiv.className = 'file';
-        fileDiv.id = uniqueFileId;
+        if (fileDiv) {
+            existingFile = true;
+            fileTextSeparator = ', ';
+        } else {
+            existingFile = false;
+            fileDiv = document.createElement('div');
+            fileDiv.className = 'file';
+            fileDiv.id = uniqueFileId;
+        }
 
         const fileTextDiv = document.createElement('div');
         fileTextDiv.className = 'fileText';
         fileTextDiv.id = uniqueFileTextId;
         fileTextDiv.innerHTML = `
             <span class="file-info">
-                File: <a href="${fullImageUrl}" target="_blank">${emoteString}</a> (Emote)
+                ${fileTextSeparator}<a href="${fullImageUrl}" target="_blank">${emoteString}</a> (Emote)
             </span>
             <span class="fileText-original" style="display: none;">
-                File: <a href="${fullImageUrl}" target="_blank">${emoteString}</a> (Emote)
+                ${fileTextSeparator}<a href="${fullImageUrl}" target="_blank">${emoteString}</a> (Emote)
             </span>`;
 
         const fileThumbLink = document.createElement('a');
@@ -274,14 +284,21 @@
         const insertionPoint = postInfoDesktop || postInfoMobile;
         const blockquote = postElement.querySelector('blockquote.postMessage');
 
-        if (insertionPoint && insertionPoint.nextSibling) {
-            postElement.insertBefore(fileDiv, insertionPoint.nextSibling);
-        } else if (blockquote) {
-            postElement.insertBefore(fileDiv, blockquote);
-        } else if (insertionPoint) {
-            insertionPoint.parentNode.appendChild(fileDiv);
+        if (existingFile) {
+            fileThumbLink.style.marginLeft = "-15px";
+            postElement.querySelector('.fileText').style.display = "flex";
+            postElement.querySelector('.fileText').appendChild(fileTextDiv);
+            postElement.querySelector('.fileThumb').after(fileThumbLink);
         } else {
-            postElement.appendChild(fileDiv);
+            if (insertionPoint && insertionPoint.nextSibling) {
+                postElement.insertBefore(fileDiv, insertionPoint.nextSibling);
+            } else if (blockquote) {
+                postElement.insertBefore(fileDiv, blockquote);
+            } else if (insertionPoint) {
+                insertionPoint.parentNode.appendChild(fileDiv);
+            } else {
+                postElement.appendChild(fileDiv);
+            }
         }
     }
 
