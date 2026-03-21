@@ -7,6 +7,12 @@
   },
   "updates": [
     {
+      "title": "Mahjong Soul asset viewer",
+      "link": "https://vg-mjg.github.io/MajsoulData",
+      "category": "Resource",
+      "description": "Alternative to asset dumps. Has text for character voice lines and CatChats, all nicely organized and in every language."
+    },
+    {
       "title": "/mjg/ Character Survey Results 2026",
       "link": "https://repo.riichi.moe/others/charactersurvey/index.html",
       "category": "/mjg/ project",
