@@ -7,6 +7,18 @@
   },
   "updates": [
     {
+      "title": "Shin Janki 5 English subs",
+      "link": "https://files.riichi.moe/mjg/movies%20and%20other%20media/shin%20janki/subs",
+      "category": "Movies",
+      "description": "Shin Janki 5 English subs provided by anon, now we have subs for movies 1, 2, 3, 4, 5, 11 and 12!"
+    },
+    {
+      "title": "Majsoul emotes (Update 2026-04-10)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
+      "category": "Resource",
+      "description": "New package with all, upscaled majsoul emotes. Updated for the 2 new hot springs outfit emotes for Xenia and Chihori (apologies for the late update)"
+    },
+    {
       "title": "MJS book 1",
       "link": "https://files.riichi.moe/mjg/movies%20and%20other%20media/%E9%9B%80%E9%AD%82%20%E4%B8%80%E5%A7%AB%E3%81%A8%E6%BC%AB%E7%94%BB%E3%81%A7%E3%83%AB%E3%83%BC%E3%83%AB%E3%82%92%E8%A6%9A%E3%81%88%E3%82%8B%E3%80%80%E9%BA%BB%E9%9B%80%E3%81%97%E3%82%88%E3%81%86%E3%81%AB%E3%82%83%EF%BC%81%20%28mjs%20book%201%29/",
       "category": "Manga",
@@ -23,12 +35,6 @@
       "link": "https://repo.riichi.moe/others/charactersurvey/index.html",
       "category": "/mjg/ project",
       "description": "The results of the character survey from January are finally here"
-    },
-    {
-      "title": "Majsoul emotes (Update 2026-02-11)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
-      "category": "Resource",
-      "description": "New package with all, upscaled majsoul emotes. Includes updated emotes, old emotes can still be found on the file repo."
     },
     {
       "title": "Waifu 2x (Update 2026-02-11)",
