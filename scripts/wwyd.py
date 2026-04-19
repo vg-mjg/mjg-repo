@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 f"""
-usage: wwyd.py [-h] [--input-csv INPUT_CSV | --input-url INPUT_URL] [--date DATE] [--output OUTPUT]
+usage: wwyd.py [-h] [--input-csv INPUT_CSV | --input-url INPUT_URL] [--output OUTPUT]
 
-This script converts a CSV of WWYD mahjong puzzles into JSON format.
-You can now optionally specify a date (YYYY-MM-DD) to extract a single puzzle.
+This script will convert a CSV file with transcribed problems from wwyd-chan books into JSON for repo's WWYD.
+Sheet with existing WWYDs is available at https://docs.google.com/spreadsheets/d/178CFLNJJ9aCNkkkFgfX_qeywnIcBICLfzJQHRN48ICk/edit#gid=0
+Date determines when a given WWYD will be displayed. It was chosen over incremental IDs to make it easier to add new ones in a stable way. 
+Comments may contain mahjong tile notation, which will be converted into actual tiles.
+Text between [] in the commments will be bold, but the tile notation inside it will not be converted.
+To work around it, make the tiles separate, ex. `[cut 4p to keep chitoi open]` -> `[cut] 4p [to keep chitoi open]`.
 """
 
 import argparse
@@ -29,6 +33,7 @@ def parse_tile_notation(text):
             result.append(f"{char}{suit}")
         else:
             suit = char
+
     result.reverse()
     return result
 
@@ -66,7 +71,12 @@ def parse_wwyd_csv(data):
         for row in reader
     }
     return wwyd
+    
+def read_wwyd_csv(path):
+    with path.open("r") as f:
+        parse_wwyd_csv(f)
 
+# 'custom' json writer that writes one row per entry
 def write_wwyd_json(wwyd, path):
     with path.open("w") as f:
         f.write("{\n")
@@ -88,7 +98,7 @@ def write_wwyd_json(wwyd, path):
 
         f.write("}\n")
 
-def download_csv(url=DEFAULT_SHEET_URL):
+def download_csv(url = DEFAULT_SHEET_URL):
     response = urllib.request.urlopen(url)
     lines = [l.decode("utf-8") for l in response.readlines()]
     return lines
@@ -98,27 +108,19 @@ def main():
     input_group = parser.add_mutually_exclusive_group()
     input_group.add_argument("--input-csv", type=Path, help="CSV file with WWYDs")
     input_group.add_argument("--input-url", default=DEFAULT_SHEET_URL, help="URL to CSV file with WWYDs")
-    parser.add_argument("--date", help="Specific date (YYYY-MM-DD) to extract a single WWYD")
-    parser.add_argument("--output", type=Path, default=Path("wwyd.json"), help="Where to write the resulting JSON file")
+    parser.add_argument("--output", type=Path, default=Path("wwyd.json"), help="where to write the resulting JSON file")
     args = parser.parse_args()
 
+    wwyd = None
     if args.input_csv:
         print("input file:", args.input_csv)
-        with args.input_csv.open("r") as f:
-            wwyd = parse_wwyd_csv(f)
-    else:
+        wwyd = read_wwyd_tsv(in_file)
+    elif args.input_url:
         print("input url:", args.input_url)
         csv_contents = download_csv(args.input_url)
         wwyd = parse_wwyd_csv(csv_contents)
 
-    if args.date:
-        if args.date in wwyd:
-            wwyd = {args.date: wwyd[args.date]}
-        else:
-            print(f"No WWYD found for date {args.date}")
-            return
-
-    print(f"parsed {len(wwyd)} row(s)")
+    print(f"parsed {len(wwyd)} rows")
     print("output file:", args.output)
     write_wwyd_json(wwyd, args.output)
 
