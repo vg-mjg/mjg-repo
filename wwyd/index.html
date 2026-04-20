@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>WWYD Showcase</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/light.css">
+  <link rel="stylesheet" href="/css/general.css">
+  <link rel="stylesheet" href="/wwyd/wwyd.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    h3 {
+      text-align: center;
+      margin: 0;
+      font-family: monospace;
+    }
+
+    section {
+      border-top: 1px solid #e5e7eb;
+      padding-top: 1rem;
+      margin-top: 2rem;
+    }
+
+    .dropdown {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    .dropdown select {
+      font-family: monospace;
+      max-width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="theme-switch-row">
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="ThemeSwitch">
+      <label class="custom-control-label" for="ThemeSwitch">おはよう</label>
+    </div>
+  </div>
+  <h1>WWYD test page</h1>
+
+  <section>
+    <h3>discard</h3>
+    <div class="dropdown"><select id="select-discard"></select></div>
+    <div id="wwyd-discard" class="wwyd"></div>
+    </div>
+
+    <section>
+      <h3>riichi</h3>
+      <div class="dropdown"><select id="select-riichi"></select></div>
+      <div id="wwyd-riichi" class="wwyd"></div>
+    </section>
+
+    <section>
+      <h3>pon</h3>
+      <div class="dropdown"><select id="select-pon"></select></div>
+      <div id="wwyd-pon" class="wwyd"></div>
+    </section>
+
+    <section>
+      <h3>chii</h3>
+      <div class="dropdown"><select id="select-chii"></select></div>
+      <div id="wwyd-chii" class="wwyd"></div>
+    </section>
+
+    <section>
+      <h3>kan</h3>
+      <div class="dropdown"><select id="select-kan"></select></div>
+      <div id="wwyd-kan" class="wwyd"></div>
+    </section>
+
+    <script type="module">
+      import { App, wwyds } from "/wwyd/wwyd.js"
+
+      function hasVariant(wwyd, kind) {
+        return wwyd.variants.some(e => e[0] == kind)
+      }
+
+      function summarize(wwyd) {
+        const hand = Array.isArray(wwyd.hand[0]) ? wwyd.hand[0] : wwyd.hand
+        return `${hand.join(" ")} + ${wwyd.draw}`
+      }
+
+      function setupSection(kind) {
+        const selectEl = document.getElementById(`select-${kind}`)
+        const targetEl = document.getElementById(`wwyd-${kind}`)
+        const items = []
+
+        for (const [date, wwyd] of Object.entries(wwyds)) {
+          if (hasVariant(wwyd, kind)) {
+            items.push({ label: `${date}: ${summarize(wwyd)}`, data: wwyd })
+          }
+        }
+
+        items.forEach((item, i) => {
+          const opt = document.createElement("option")
+          opt.value = String(i)
+          opt.textContent = item.label
+          selectEl.appendChild(opt)
+        })
+
+        let current = null
+        function load() {
+          if (current) current.destroy()
+          const idx = Number(selectEl.value)
+          current = new App(targetEl, items[idx].data)
+        }
+        selectEl.addEventListener("change", load)
+        if (items.length > 0) load()
+      }
+
+      setupSection("discard")
+      setupSection("riichi")
+      setupSection("pon")
+      setupSection("chii")
+      setupSection("kan")
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"></script>
+    <script>
+      function SwitchLight() {
+        localStorage.setItem("theme", "light");
+        $("link[rel='stylesheet']")[1].href = "/css/light.css";
+        $("label[for='ThemeSwitch']").html("おやすみ");
+      }
+      function SwitchDark() {
+        localStorage.setItem("theme", "dark");
+        $("link[rel='stylesheet']")[1].href = "/css/dark.css";
+        $("label[for='ThemeSwitch']").html("おはよう");
+      }
+      function ChangeTheme() {
+        if (localStorage.getItem("theme") == "dark") SwitchLight();
+        else SwitchDark();
+      }
+      $(document).ready(function() {
+        if (localStorage.getItem("theme") === null) localStorage.setItem("theme", "dark");
+        if (localStorage.getItem("theme") == "light") { SwitchLight(); $("#ThemeSwitch").prop('checked', true); }
+        else SwitchDark();
+      });
+      $("#ThemeSwitch").click(ChangeTheme);
+    </script>
+</body>
+
+</html>
