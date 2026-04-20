@@ -231,7 +231,6 @@
 }
 
 .wwyd-actions button.wwyd-action-selected {
-    transform: translateY(-3px);
     background-color: #fde68a;
     border-color: #f59e0b;
     box-shadow: 0 0 0 2px #f59e0b;
@@ -254,12 +253,14 @@
 }
 
 .wwyd-call-shape {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
     font: inherit;
     cursor: pointer;
     padding: 0.5rem;
     background: transparent;
     border: 1px solid #ccc;
-    border-radius: 0.5rem;
 }
 
 .wwyd-call-shape.wwyd-action-selected {
