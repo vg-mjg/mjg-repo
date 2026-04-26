@@ -149,6 +149,7 @@ function richTextNode(chunks, className) {
   return el("span", { class: className }, chunks.map(chunk => {
     if (typeof chunk === "string") return el("span", null, [chunk])
     if (chunk[0] === "<b>") return el("strong", null, [chunk[1]])
+    if (chunk[0] === "<g>") return el("span", { class: "greentext" }, [chunk[1]])
     return tileGroupNode(chunk)
   }))
 }
@@ -241,23 +242,14 @@ class App {
   }
 
   buildRoundInfo(wwyd) {
-    const indicators = Array.isArray(wwyd.indicator) ? wwyd.indicator : [wwyd.indicator]
+    const indicators = Array.isArray(wwyd.indicator) ? wwyd.indicator : (wwyd.indicator ? [wwyd.indicator] : [])
+    const doraTiles = ["0z", "0z", ...indicators.slice(0, 5)]
+    while (doraTiles.length < 7) doraTiles.push("0z")
     return el("span", { class: "wwyd-round" }, [
-      el("span", null, [
-        el("p", { class: "wwyd-round-value" }, [wwyd.round]),
+      el("span", { class: "wwyd-round-info" }, [
+        el("span", null, [`${wwyd.round}, ${wwyd.seat}, Turn ${wwyd.turn}`]),
       ]),
-      el("span", null, [
-        el("p", { class: "wwyd-round-value" }, [wwyd.seat]),
-        el("p", null, ["Seat"]),
-      ]),
-      el("span", null, [
-        el("p", null, ["Turn"]),
-        el("p", { class: "wwyd-round-value" }, [wwyd.turn]),
-      ]),
-      el("span", null, [
-        el("p", null, ["Dora indicator"]),
-        el("div", { class: "tile-group" }, indicators.map(t => tileNode(t))),
-      ]),
+      el("div", { class: "tile-group wwyd-dora-tiles" }, doraTiles.map(t => tileNode(t))),
     ])
   }
 

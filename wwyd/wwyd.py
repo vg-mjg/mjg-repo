@@ -24,8 +24,10 @@ tile_notation_pattern = re.compile(r"(?:[0-9]+[mpsz])+")
 tile_notation_pattern_exact = re.compile(f"^{tile_notation_pattern.pattern}$")
 bold_text_pattern = re.compile(r"\[.+?\]")
 bold_text_pattern_exact = re.compile(f"^{bold_text_pattern.pattern}$")
+green_text_pattern = re.compile(r"\>.+?\<")
+green_text_pattern_exact = re.compile(f"^{green_text_pattern.pattern}$")
 split_pattern = re.compile(
-    f"({bold_text_pattern.pattern}|{tile_notation_pattern.pattern})"
+    f"({green_text_pattern.pattern}|{bold_text_pattern.pattern}|{tile_notation_pattern.pattern})"
 )
 
 
@@ -48,13 +50,20 @@ def parse_tile_notation(text):
 
 def parse_bold_text(text):
     if text.startswith("[") and text.endswith("]"):
-        return ["<b>", text.lstrip("[").rstrip("]")]
+        return ["<b>", text.removeprefix("[").removesuffix("]")]
     else:
         return text
 
+def parse_green_text(text):
+    if text.startswith(">") and text.endswith("<"):
+        return ["<g>", text.removeprefix(">").removesuffix("<")]
+    else:
+        return text
 
 def parse_chunk(text):
-    if bold_text_pattern_exact.match(text):
+    if green_text_pattern_exact.match(text):
+        return parse_green_text(text)
+    elif bold_text_pattern_exact.match(text):
         return parse_bold_text(text)
     elif tile_notation_pattern_exact.match(text):
         return parse_tile_notation(text)
@@ -67,8 +76,11 @@ def parse_answer(text):
     for row in text.splitlines():
         row = row.split()
         kind = row[0].strip()
-        tiles = parse_tile_notation(row[1])
-        result.append([kind, tiles])
+        if kind == "skip":
+            result.append(["skip"])
+        else:
+            tiles = parse_tile_notation(row[1])
+            result.append([kind, tiles])
 
     return result
 
