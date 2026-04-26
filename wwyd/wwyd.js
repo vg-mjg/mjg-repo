@@ -247,7 +247,7 @@ class App {
     while (doraTiles.length < 7) doraTiles.push("0z")
     return el("span", { class: "wwyd-round" }, [
       el("span", { class: "wwyd-round-info" }, [
-        el("span", null, [`${wwyd.round}, ${wwyd.seat}, Turn ${wwyd.turn}`]),
+        el("span", null, [`${wwyd.round}, ${wwyd.seat} Seat, Turn ${wwyd.turn}`]),
       ]),
       el("div", { class: "tile-group wwyd-dora-tiles" }, doraTiles.map(t => tileNode(t))),
     ])
