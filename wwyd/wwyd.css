@@ -190,7 +190,7 @@
 }
 
 .wwyd-dora-tiles>*+* {
-    margin-left: 1px;
+    margin-left: 0.125rem;
 }
 
 .wwyd-answer .tile-group,
