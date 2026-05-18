@@ -304,7 +304,7 @@ class App {
     }, [img])
     btn.addEventListener("click", () => {
       if (btn.hasAttribute("disabled")) return
-      playActionSound(action)
+      if (!btn.classList.contains("wwyd-action-selected")) playActionSound(action)
       onClick()
     })
     this.refs.actionButtons[refKey || action] = btn
