@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Team — /mjg/ League 7</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="team.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-inner">
+            <span class="top-bar-item">Seven years worth of league made a glopping noise as it flowed endlessly into /mjg/...</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="header-logo">
+                <div>
+                    <h1>/mjg/ League 7</h1>
+                    <span class="header-season">The Last League</span>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="../index.html">Home</a>
+                <a href="https://riichi.moe/">Standings</a>
+                <a href="https://docs.google.com/spreadsheets/d/1q966qVcYL3EjGuY5ed4r5YiDz3ckhYwYQzKa4JJYZQ4/edit?usp=sharing">Main Sheet</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="tab-nav">
+        <div class="tab-nav-inner">
+            <a href="../index.html#teams" class="tab-btn">← Back to Teams</a>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <main class="content-area">
+            <div class="post-container">
+                <div class="post" id="p1">
+                    <div class="post-header">
+                        <span class="post-name">Test Team</span>
+                        <a class="post-no" href="#p1">No.&nbsp;1</a>
+                    </div>
+                    <div class="post-body">
+                        <div class="post-thumb">
+                            <a href="../logos/t1.png"><img src="../logos/t1.png" alt="Test Team"></a>
+                        </div>
+                        <div class="post-text">
+                            <p>test intro</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OC Tabs -->
+            <div class="oc-tabs">
+                <button class="oc-tab-btn active" data-oc="videos">Videos</button>
+                <button class="oc-tab-btn" data-oc="images">Images</button>
+                <button class="oc-tab-btn" data-oc="others">Others</button>
+            </div>
+
+            <!-- Videos Tab -->
+            <div class="oc-tab-content active" id="oc-videos">
+                <div class="oc-video-grid">
+                    <!-- Add more video cards by copying this block -->
+                    <div class="oc-video-card">
+                        <div class="oc-video-thumb">
+                            <video controls preload="metadata">
+                                <source src="https://files.catbox.moe/djp2r9.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="oc-video-body">
+                            <div class="oc-video-title">Team Intro</div>
+                        </div>
+                    </div>
+                    <!-- /end video card -->
+                     <div class="oc-video-card">
+                        <div class="oc-video-thumb">
+                            <iframe src="https://www.youtube.com/embed/qNx5PLb4P_M" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="oc-video-body">
+                            <span class="oc-video-source">YouTube</span>
+                            <div class="oc-video-title">Persona 3 Reload - Color Your Night</div>
+                        </div>
+                    </div>
+
+                    <!-- YouTube template — copy and fill in -->
+                    <!--
+                    <div class="oc-video-card">
+                        <div class="oc-video-thumb">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen loading="lazy"></iframe>
+                        </div>
+                        <div class="oc-video-body">
+                            <span class="oc-video-source">YouTube</span>
+                            <div class="oc-video-title">Video Title Here</div>
+                        </div>
+                    </div>
+                    -->
+                    <!-- /YouTube template -->
+
+                </div>
+            </div>
+
+            <!-- Images Tab -->
+            <div class="oc-tab-content" id="oc-images">
+                <div class="oc-image-grid">
+                    <!-- Add more image cards by copying this block -->
+                    <div class="oc-image-card">
+                        <a href="../t1/cure%20arcana%20shadow%20wp.png"><img src="../t1/cure%20arcana%20shadow%20wp.png" alt="OC Image"></a>
+                        <div class="oc-image-label">Cure Arcana Shadow</div>
+                    </div>
+                    <!-- /end image card -->
+                    <div class="oc-image-card">
+                        <a href="../t1/6654530_mahiru_yura_cure_arcana_shadow,moria_luluka.jpg"><img src="../t1/6654530_mahiru_yura_cure_arcana_shadow,moria_luluka.jpg" alt="OC Image"></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Others Tab -->
+            <div class="oc-tab-content" id="oc-others">
+                <div class="section-placeholder">Testing site to see how things would look like</div>
+            </div>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <button class="sidebar-toggle" onclick="this.parentElement.classList.toggle('sidebar-open')">☰ Sidebar</button>
+            <div class="sidebar-sections">
+
+            <div class="sidebar-section">
+                <img class="sidebar-team-logo" src="../logos/t1.png" alt="Test Team">
+                <div class="sidebar-team-name">Test Team</div>
+                <span class="sidebar-team-region">Testing, testing</span>
+                <hr class="sidebar-divider">
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Team Members</h3>
+                <ul>
+                    <li><strong>Captain:</strong> TESTER</li>
+                    <li><hr class="sidebar-divider"></li>
+                    <li>Member 1</li>
+                    <li>Member 2</li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <ul>
+                    <li><a href="../index.html#teams">← Back to Main</a></li>
+                </ul>
+            </div>
+
+            </div><!-- /sidebar-sections -->
+
+            </div><!-- /sidebar-sections -->
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span>/mjg/ League 7</span>
+                <p>Nanananananananananananan</p>
+            </div>
+            <div class="footer-links">
+                <a href="#" onclick="event.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' });">Back to Top</a>
+            </div>
+            <div class="footer-copy">
+                <p>site maintained by a repo maid, shout in the thread <br>if you have new updates</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="team.js"></script>
+</body>
+</html>

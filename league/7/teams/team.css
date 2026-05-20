@@ -1,0 +1,289 @@
+/* ==============================================
+   Team Page Shared Styles — /mjg/ League 7
+   Used by all teams/t1.html through teams/t16.html
+   ============================================== */
+
+/* --- 4chan-style reply post --- */
+.post-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.post {
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    margin-bottom: 4px;
+}
+
+.post-header {
+    background: var(--bg-dark);
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+}
+
+.post-subject {
+    color: var(--red);
+    font-weight: 700;
+}
+
+.post-name {
+    color: var(--green);
+    font-weight: 600;
+}
+
+.post-date {
+    color: var(--text-dim);
+}
+
+.post-no {
+    color: var(--link);
+    text-decoration: none;
+    margin-left: auto;
+}
+
+.post-body {
+    padding: 16px;
+    overflow: hidden; /* clearfix for float thumb */
+}
+
+.post-thumb {
+    float: left;
+    width: 175px;
+    height: 175px;
+    margin: 2px 16px 8px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.post-thumb a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.post-thumb img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Expanded: full-size image, breaks float so text moves below */
+.post-thumb.expanded {
+    float: none;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    margin: 2px 0 12px 0;
+}
+
+.post-thumb.expanded img {
+    max-width: 100%;
+    max-height: none;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.post-text {
+    flex: 1;
+    min-width: 0;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text);
+}
+
+.post-text .quote {
+    color: var(--orange);
+}
+
+.post-text .greentext {
+    color: var(--green);
+}
+
+.post-reply-btn {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 11px;
+    color: var(--link);
+    text-decoration: none;
+}
+
+.post-reply-btn:hover {
+    color: var(--link-hover);
+}
+
+/* --- Placeholder sections --- */
+.section-placeholder {
+    background: var(--bg-light);
+    border: 1px dashed var(--border);
+    padding: 32px;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 13px;
+    margin-top: 24px;
+}
+
+/* --- OC Section Tabs --- */
+.oc-tabs {
+    display: flex;
+    gap: 0;
+    margin-top: 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+.oc-tab-btn {
+    background: transparent;
+    color: var(--text-dim);
+    border: none;
+    padding: 10px 24px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.oc-tab-btn:hover {
+    color: var(--text);
+}
+
+.oc-tab-btn.active {
+    color: var(--text);
+    border-bottom-color: var(--green);
+}
+
+.oc-tab-content {
+    display: none;
+}
+
+.oc-tab-content.active {
+    display: block;
+}
+
+/* --- OC Video Grid --- */
+.oc-video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.oc-video-card {
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.oc-video-thumb {
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-bottom: 1px solid var(--border);
+}
+
+.oc-video-thumb iframe,
+.oc-video-thumb video {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    object-fit: contain;
+}
+
+.oc-video-body {
+    padding: 12px 14px;
+}
+
+.oc-video-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.oc-video-meta {
+    font-size: 11px;
+    color: var(--text-dim);
+}
+
+.oc-video-source {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 4px;
+}
+
+/* --- OC Image Grid --- */
+.oc-image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.oc-image-card {
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.oc-image-card a {
+    display: block;
+}
+
+.oc-image-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.2s;
+}
+
+.oc-image-card img:hover {
+    opacity: 0.8;
+}
+
+.oc-image-label {
+    padding: 8px 12px;
+    font-size: 11px;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+}
+
+/* --- Sidebar Team Brand --- */
+.sidebar-team-logo {
+    display: block;
+    width: 100%;
+    max-width: 120px;
+    margin: 0 auto 12px;
+}
+
+.sidebar-team-name {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.sidebar-team-region {
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-dim);
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: block;
+}
