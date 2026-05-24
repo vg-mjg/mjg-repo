@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Fu &amp; Scoring Calculator — /mjg/ Repository</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/light.css" id="theme-css">
+  <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="wwyd/wwyd.css">
+  <style>
+    /* ── Tile picker tiles ── */
+    .tile-pick {
+      cursor: pointer; margin: 2px;
+      width: 1.8rem; height: 2.7rem; padding: 0.1rem;
+      transition: transform .1s;
+    }
+    .tile-pick:hover { transform: translateY(-4px); }
+    .tile-pick:active { transform: translateY(-1px); }
+
+    /* ── Hand display tiles ── */
+    .tile-hand { cursor: pointer; margin: 3px; }
+    .tile-hand.sel     { box-shadow: 0 0 0 3px #ffc107 !important; transform: translateY(-4px); }
+    .tile-hand.in-meld { opacity: .32; cursor: default; }
+    .tile-hand.in-pair { box-shadow: 0 0 0 3px #28a745 !important; }
+    .tile-hand.is-win  { box-shadow: 0 0 0 3px #dc3545 !important; transform: translateY(-4px); }
+
+    /* ── Meld-block tiles ── */
+    .tile-sm { width: 1.5rem; height: 2.25rem; padding: 0.08rem; margin: 1px; }
+
+    /* ── Meld block ── */
+    .meld-block {
+      display: inline-flex; align-items: center; flex-wrap: wrap;
+      border: 1px solid #6c757d; border-radius: 6px;
+      padding: 4px 8px; margin: 3px; gap: 3px;
+    }
+
+    /* ── Stepper ── */
+    .stepper { display: inline-flex; align-items: center; gap: 4px; }
+    .stepper-val { min-width: 26px; text-align: center; font-weight: 700; }
+
+    /* ── Results panel ── */
+    .results-card { border-left: 4px solid #17a2b8; }
+    .points-big { font-size: 1.65rem; font-weight: 700; text-align: center; }
+    .fu-table td, .han-table td { font-size: .875rem; padding: 2px 6px; }
+
+    /* ── Misc ── */
+    .sec-label {
+      font-size: .7rem; text-transform: uppercase; letter-spacing: .07em;
+      color: #6c757d; font-weight: 700; margin-bottom: 3px;
+    }
+    .btn-xs { font-size: .7rem; padding: 1px 6px; }
+    .action-row { min-height: 34px; }
+    #hand-display { min-height: 56px; display: flex; flex-wrap: wrap; align-items: flex-end; }
+
+    /* ── Dark-mode overrides ─────────────────────────────────────────────── */
+    body.dark-mode .card                { background-color: #252525; border-color: #444; }
+    body.dark-mode .card-header         { background-color: #2e2e2e; border-color: #444; color: #e0e0e0; }
+    body.dark-mode .card-body           { color: #e0e0e0; }
+    body.dark-mode .table               { color: #e0e0e0; }
+    body.dark-mode .table td,
+    body.dark-mode .table th            { border-color: #484848; }
+    body.dark-mode .table-bordered,
+    body.dark-mode .table-bordered td,
+    body.dark-mode .table-bordered th  { border-color: #484848; }
+    body.dark-mode .thead-dark          { background-color: #1a1a1a !important; }
+    body.dark-mode .thead-dark th       { color: #d0d0d0 !important; border-color: #333 !important; }
+    body.dark-mode .form-control        { background-color: #2a2a2a; color: #e0e0e0; border-color: #555; }
+    body.dark-mode select option        { background-color: #2a2a2a; color: #e0e0e0; }
+    body.dark-mode .input-group-text    { background-color: #333; border-color: #555; color: #ccc; }
+    body.dark-mode .btn-outline-secondary       { color: #aaa; border-color: #666; }
+    body.dark-mode .btn-outline-secondary:hover { background-color: #555; color: #eee; border-color: #888; }
+    body.dark-mode .btn-outline-danger          { color: #f88; border-color: #f88; }
+    body.dark-mode .btn-outline-danger:hover    { background-color: #7a1a1a; }
+    body.dark-mode .btn-warning         { color: #111; }
+    body.dark-mode .meld-block          { border-color: #555; }
+    body.dark-mode .alert-info          { background-color: #0d3040; border-color: #1a5070; color: #7dd3ef; }
+    body.dark-mode .alert-warning       { background-color: #382900; border-color: #5a4500; color: #ffc107; }
+    body.dark-mode .text-muted          { color: #888 !important; }
+    body.dark-mode .sec-label           { color: #888; }
+    body.dark-mode .badge-secondary     { background-color: #555; }
+    body.dark-mode .badge-dark          { background-color: #111; color: #ccc; border: 1px solid #444; }
+    body.dark-mode .badge-success       { background-color: #154a25; }
+    body.dark-mode .badge-warning       { color: #111; }
+    body.dark-mode .badge-info          { background-color: #0c3a4a; color: #7dcfea; }
+    body.dark-mode #library-header      { color: #e0e0e0; }
+    body.dark-mode hr                   { background-image: linear-gradient(to right, #ccc, #333, #ccc); }
+    /* tiles keep their own bg — they look fine in both modes */
+  </style>
+</head>
+<body>
+
+<!-- ── Header ─────────────────────────────────────────────────────────────── -->
+<div id="library-header" class="container-fluid border-bottom text-center mt-2 pb-2">
+  <div class="d-flex align-items-center justify-content-center">
+    <img src="pics/haruna.png" height="80" alt="" class="mr-3">
+    <div>
+      <h1 class="mb-0">Fu &amp; Scoring Calculator</h1>
+      <small class="font-italic text-muted">点数計算</small>
+    </div>
+    <img src="pics/haruna.png" height="80" alt="" class="ml-3" style="transform:scaleX(-1)">
+  </div>
+  <p class="mb-1 mt-1"><a href="index.html">← Back to Home</a></p>
+  <div class="row text-left">
+    <div class="custom-control custom-switch ml-3">
+      <input type="checkbox" class="custom-control-input" id="ThemeSwitch">
+      <label class="custom-control-label" for="ThemeSwitch">おはよう</label>
+    </div>
+  </div>
+</div>
+
+<!-- ── Main ───────────────────────────────────────────────────────────────── -->
+<div class="container-fluid mt-3 mb-5">
+  <div class="row">
+
+    <!-- LEFT: Hand input + structure ───────────────────────────────────── -->
+    <div class="col-lg-7 mb-3">
+
+      <!-- Tile Picker card -->
+      <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between align-items-center py-2">
+          <span class="font-weight-bold">Tile Picker</span>
+          <span>
+            <span id="hand-count" class="badge badge-secondary">0 / 14</span>
+            <button class="btn btn-xs btn-outline-danger ml-2" onclick="clearHand()">Clear all</button>
+          </span>
+        </div>
+        <div class="card-body py-2">
+
+          <!-- Notation input -->
+          <div class="mb-2">
+            <div class="input-group input-group-sm">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Notation</span>
+              </div>
+              <input type="text" class="form-control" id="notation-input"
+                     placeholder="e.g. 123m456p789s 1z1z (Enter to set hand)"
+                     onkeydown="if(event.key==='Enter') applyNotation()"
+                     oninput="notationLiveHint(this.value)">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" onclick="applyNotation()" title="Replace hand with notation">Set</button>
+              </div>
+            </div>
+            <small class="text-muted">m=Man · p=Pin · s=Sou · z=Honors (1z–4z winds, 5z=Haku 6z=Hatsu 7z=Chun) · Both inputs work together</small>
+            <div id="notation-hint" class="small text-danger"></div>
+          </div>
+
+          <!-- Tile buttons -->
+          <div id="tile-picker"></div>
+        </div>
+      </div>
+
+      <!-- Hand Display card -->
+      <div class="card mb-3">
+        <div class="card-header py-2 font-weight-bold">Hand Display &amp; Meld Builder</div>
+        <div class="card-body py-2">
+          <div id="hand-display" class="mb-2">
+            <small class="text-muted">Add tiles above to build your hand.</small>
+          </div>
+          <div id="action-row" class="action-row mb-1"></div>
+          <div class="small text-muted">
+            Click tiles to select →
+            <strong>3–4 tiles</strong>: group as meld &nbsp;|&nbsp;
+            <strong>2 identical</strong>: set as pair &nbsp;|&nbsp;
+            <strong>1 tile</strong>: set win tile or remove
+          </div>
+        </div>
+      </div>
+
+      <!-- Declared Structure card -->
+      <div class="card mb-3">
+        <div class="card-header py-2 font-weight-bold">Declared Structure</div>
+        <div class="card-body py-2" id="structure-panel">
+          <small class="text-muted">No structure declared yet.</small>
+        </div>
+      </div>
+
+    </div><!-- /left col -->
+
+    <!-- RIGHT: Context + Results ────────────────────────────────────────── -->
+    <div class="col-lg-5">
+
+      <!-- Match Context -->
+      <div class="card mb-3">
+        <div class="card-header py-2 font-weight-bold">Match Context</div>
+        <div class="card-body py-2">
+
+          <div class="form-row mb-2">
+            <div class="col-auto">
+              <div class="sec-label">Win Type</div>
+              <div class="btn-group btn-group-sm">
+                <button class="btn btn-dark active" id="btn-ron"   onclick="setWinType('ron')">Ron ロン</button>
+                <button class="btn btn-outline-secondary" id="btn-tsumo" onclick="setWinType('tsumo')">Tsumo 自摸</button>
+              </div>
+            </div>
+            <div class="col-auto ml-3">
+              <div class="sec-label">Seat Status</div>
+              <div class="btn-group btn-group-sm">
+                <button class="btn btn-dark active" id="btn-nondealer" onclick="setDealer(false)">Non-dealer 子</button>
+                <button class="btn btn-outline-secondary" id="btn-dealer" onclick="setDealer(true)">Dealer 親</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row mb-2">
+            <div class="col">
+              <div class="sec-label">Round Wind</div>
+              <select class="form-control form-control-sm" id="round-wind"
+                      onchange="ctx.roundWind=this.value; recalculate()">
+                <option value="1z">East 東</option>
+                <option value="2z">South 南</option>
+                <option value="3z">West 西</option>
+                <option value="4z">North 北</option>
+              </select>
+            </div>
+            <div class="col">
+              <div class="sec-label">Seat Wind</div>
+              <select class="form-control form-control-sm" id="seat-wind"
+                      onchange="ctx.seatWind=this.value; recalculate()">
+                <option value="1z">East 東</option>
+                <option value="2z">South 南</option>
+                <option value="3z">West 西</option>
+                <option value="4z">North 北</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row mb-2">
+            <div class="col-auto">
+              <div class="sec-label">Riichi</div>
+              <div class="btn-group btn-group-sm">
+                <button class="btn btn-dark active"       id="btn-r0" onclick="setRiichi(0)">None</button>
+                <button class="btn btn-outline-secondary" id="btn-r1" onclick="setRiichi(1)">Riichi +1</button>
+                <button class="btn btn-outline-secondary" id="btn-r2" onclick="setRiichi(2)">Double +2</button>
+              </div>
+            </div>
+            <div class="col-auto ml-3">
+              <div class="sec-label">Ippatsu</div>
+              <button class="btn btn-sm btn-outline-secondary" id="btn-ippatsu"
+                      disabled onclick="toggleIppatsu()">Ippatsu +1</button>
+            </div>
+          </div>
+
+          <div class="form-row mb-2">
+            <div class="col">
+              <div class="sec-label">Situational <small class="text-muted font-weight-normal">(standard but state-dependent)</small></div>
+              <div class="d-flex flex-wrap" style="gap:4px">
+                <button class="btn btn-sm btn-outline-secondary" id="btn-haitei"  onclick="toggleSit('haitei')"  title="Win on last tile by tsumo">Haitei</button>
+                <button class="btn btn-sm btn-outline-secondary" id="btn-houtei"  onclick="toggleSit('houtei')"  title="Win on last tile by ron">Houtei</button>
+                <button class="btn btn-sm btn-outline-secondary" id="btn-rinshan" onclick="toggleSit('rinshan')" title="Win on supplemental draw after kan">Rinshan</button>
+                <button class="btn btn-sm btn-outline-secondary" id="btn-chankan" onclick="toggleSit('chankan')" title="Rob a kan">Chankan</button>
+                <button class="btn btn-sm btn-outline-secondary" id="btn-tenhou"  onclick="toggleSit('tenhou')"  title="Dealer wins on initial draw — Yakuman">Tenhou 天和</button>
+                <button class="btn btn-sm btn-outline-secondary" id="btn-chiihou" onclick="toggleSit('chiihou')" title="Non-dealer wins on first draw — Yakuman">Chiihou 地和</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row mb-1">
+            <div class="col">
+              <div class="sec-label">Dora Indicators <small class="text-muted font-weight-normal">— click tiles below to add; auto-counts in hand</small></div>
+              <div id="dora-ind-tiles" class="d-flex flex-wrap align-items-center mt-1" style="gap:3px;min-height:2.5rem">
+                <small id="dora-ind-empty" class="text-muted">none selected</small>
+              </div>
+              <button class="btn btn-xs btn-outline-secondary mt-1" onclick="toggleEl('dora-ind-picker')">± Indicator picker</button>
+              <div id="dora-ind-picker" class="mt-1 p-1" style="display:none"></div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="col-auto">
+              <div class="sec-label">Dora <small class="text-muted font-weight-normal">(extra)</small></div>
+              <div class="stepper">
+                <button class="btn btn-sm btn-outline-secondary" onclick="step('dora',-1)">−</button>
+                <span class="stepper-val" id="v-dora">0</span>
+                <button class="btn btn-sm btn-outline-secondary" onclick="step('dora',1)">+</button>
+              </div>
+            </div>
+            <div class="col-auto ml-3">
+              <div class="sec-label">Ura Dora</div>
+              <div class="stepper">
+                <button class="btn btn-sm btn-outline-secondary" onclick="step('uraDora',-1)">−</button>
+                <span class="stepper-val" id="v-uradora">0</span>
+                <button class="btn btn-sm btn-outline-secondary" onclick="step('uraDora',1)">+</button>
+              </div>
+            </div>
+            <div class="col-auto ml-3">
+              <div class="sec-label">Aka Dora</div>
+              <div class="stepper">
+                <button class="btn btn-sm btn-outline-secondary" onclick="step('akaDora',-1)">−</button>
+                <span class="stepper-val" id="v-akadora">0</span>
+                <button class="btn btn-sm btn-outline-secondary" onclick="step('akaDora',1)">+</button>
+              </div>
+            </div>
+            <div class="col-auto ml-3">
+              <div class="sec-label">Honba</div>
+              <div class="stepper">
+                <button class="btn btn-sm btn-outline-secondary" onclick="step('honba',-1)">−</button>
+                <span class="stepper-val" id="v-honba">0</span>
+                <button class="btn btn-sm btn-outline-secondary" onclick="step('honba',1)">+</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /context -->
+
+      <!-- Local Yaku -->
+      <div class="card mb-3">
+        <div class="card-header py-2 d-flex justify-content-between align-items-center">
+          <div style="cursor:pointer" onclick="toggleEl('local-yaku-body')">
+            <span class="font-weight-bold">Local / Non-standard Yaku</span>
+            <small class="text-muted ml-2">非公式役 — click to expand</small>
+          </div>
+          <div class="custom-control custom-switch" onclick="event.stopPropagation()">
+            <input type="checkbox" class="custom-control-input" id="local-yaku-enable"
+                   onchange="toggleLocalYakuEnabled(this.checked)">
+            <label class="custom-control-label" for="local-yaku-enable">Enable</label>
+          </div>
+        </div>
+        <div id="local-yaku-body" style="display:none">
+          <div class="card-body p-2">
+            <p class="small text-muted mb-2">Non-standard yaku that vary by ruleset. Toggle <em>Enable</em> above first.</p>
+            <div id="local-yaku-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="card results-card">
+        <div class="card-header py-2 font-weight-bold">Results</div>
+        <div class="card-body py-2" id="results-panel">
+          <p class="text-muted small mb-0">Declare your hand and context above.</p>
+        </div>
+      </div>
+
+    </div><!-- /right col -->
+  </div><!-- /row -->
+
+  <!-- Reference section -->
+  <div class="row mt-2">
+    <div class="col">
+      <div class="card">
+        <div class="card-header py-2" style="cursor:pointer" onclick="toggleEl('info-body')">
+          <span class="font-weight-bold">ℹ Reference &amp; Notes</span>
+          <small class="text-muted ml-2">click to expand</small>
+        </div>
+        <div id="info-body" style="display:none">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <h6>Fu Rules</h6>
+                <ul class="small pl-3">
+                  <li><strong>Base:</strong> 20 fu (open/tsumo) · 30 fu (closed ron)</li>
+                  <li><strong>Tsumo:</strong> +2 fu (skip for Pinfu)</li>
+                  <li><strong>Menzen ron:</strong> +10 fu</li>
+                  <li>Open sequence: 0 · Closed sequence: 0</li>
+                  <li>Open triplet simples: 2 · terminals/honors: 4</li>
+                  <li>Closed triplet simples: 4 · terminals/honors: 8</li>
+                  <li>Open quad simples: 8 · terminals/honors: 16</li>
+                  <li>Closed quad simples: 16 · terminals/honors: 32</li>
+                  <li>Dragon pair: 2 · single yakuhai wind: 2 · double yakuhai: 4</li>
+                  <li>Kanchan / Penchan / Tanki wait: +2 fu</li>
+                  <li>Round up to nearest 10 fu</li>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <h6>Special Overrides</h6>
+                <ul class="small pl-3">
+                  <li><strong>Chiitoitsu:</strong> fixed 25 fu, no rounding</li>
+                  <li><strong>Pinfu tsumo:</strong> fixed 20 fu</li>
+                  <li><strong>Kokushi:</strong> no fu — tick in yaku list</li>
+                  <li>Dora does <em>not</em> affect fu</li>
+                </ul>
+                <h6>Scoring Limits</h6>
+                <ul class="small pl-3">
+                  <li><strong>Mangan:</strong> 5+ han, or basic pts ≥ 2000</li>
+                  <li><strong>Haneman:</strong> 6–7 han (×1.5)</li>
+                  <li><strong>Baiman:</strong> 8–10 han (×2)</li>
+                  <li><strong>Sanbaiman:</strong> 11–12 han (×3)</li>
+                  <li><strong>Yakuman:</strong> 13+ han (×4)</li>
+                </ul>
+              </div>
+              <div class="col-md-4">
+                <h6>Notation Legend</h6>
+                <ul class="small pl-3">
+                  <li><strong>m</strong> = Man / Characters (1m–9m)</li>
+                  <li><strong>p</strong> = Pin / Circles (1p–9p)</li>
+                  <li><strong>s</strong> = Sou / Bamboo (1s–9s)</li>
+                  <li><strong>z</strong> = Honors (1z–7z)</li>
+                  <li>1z East · 2z South · 3z West · 4z North</li>
+                  <li>5z Haku (白) · 6z Hatsu (発) · 7z Chun (中)</li>
+                  <li>Example: <code>123m456p789s 1z1z</code></li>
+                </ul>
+                <h6>Honba</h6>
+                <p class="small">Each honba: +100 pts per payer (tsumo) or +300 pts total (ron).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+  crossorigin="anonymous"></script>
+<script>
+// ═══════════════════════════════════════════════════════════════
+//  TILE META
+// ═══════════════════════════════════════════════════════════════
+const TN = {
+  '1m':'1 Man','2m':'2 Man','3m':'3 Man','4m':'4 Man','5m':'5 Man',
+  '6m':'6 Man','7m':'7 Man','8m':'8 Man','9m':'9 Man','0m':'Red 5 Man',
+  '1p':'1 Pin','2p':'2 Pin','3p':'3 Pin','4p':'4 Pin','5p':'5 Pin',
+  '6p':'6 Pin','7p':'7 Pin','8p':'8 Pin','9p':'9 Pin','0p':'Red 5 Pin',
+  '1s':'1 Sou','2s':'2 Sou','3s':'3 Sou','4s':'4 Sou','5s':'5 Sou',
+  '6s':'6 Sou','7s':'7 Sou','8s':'8 Sou','9s':'9 Sou','0s':'Red 5 Sou',
+  '1z':'East','2z':'South','3z':'West','4z':'North',
+  '5z':'Haku','6z':'Hatsu','7z':'Chun'
+};
+
+// Build SVG tile HTML; cls is extra classes for sizing/state.
+function tileHtml(type, cls) {
+  const c = cls ? ` ${cls}` : '';
+  return `<span class="tile${c}" title="${TN[type] || type}"><svg><use href="others/tiles.svg#${type}"></use></svg></span>`;
+}
+
+const suit     = t => t.slice(-1);
+const num      = t => { const n = parseInt(t); return n === 0 ? 5 : n; };
+const honor    = t => suit(t) === 'z';
+const terminal = t => !honor(t) && (num(t) === 1 || num(t) === 9);
+const termOrHonor = t => terminal(t) || honor(t);
+const simple   = t => !termOrHonor(t);
+const dragon   = t => honor(t) && num(t) >= 5;
+const wind     = t => honor(t) && num(t) <= 4;
+const isAka    = t => t[0] === '0';
+
+// ═══════════════════════════════════════════════════════════════
+//  YAKU LIST
+// ═══════════════════════════════════════════════════════════════
+// Local (non-standard) yaku — manually ticked when enabled
+const LOCAL_YAKU = [
+  {id:'renhou',    name:'Renhou 人和',              h:5,  note:'Non-dealer wins on first-round ron (before their own draw). Often treated as mangan (5 han) or yakuman depending on club rules.'},
+  {id:'openriichi',name:'Open Riichi 開立直',        h:1,  note:'Declare riichi on an open hand. Very rare; found in some Kansai club rules.'},
+  {id:'nagashi',   name:'Nagashi Mangan 流し満貫',   h:5,  note:'All your discards were terminals/honors and none were called. Counts as tsumo mangan on an exhaustive draw.'},
+  {id:'paarenchan',name:'Paarenchan 八連荘',         h:13, note:'Dealer wins 8 consecutive hands. Yakuman in most rulesets; double yakuman in some.'},
+  {id:'shiiaru',   name:'Shiiaraisou 四喜和 (local)', h:13, note:'Some rulesets treat any suushii (small or big four winds) as a single local yakuman separate from the standard list.'},
+  {id:'uupin',     name:'Uupin Kaihou 五筒摸月',     h:1,  note:'Win by tsumo on the 5 of Pin specifically. Niche local rule; usually 1 han.'},
+]; // Auto-detectable local yaku (enabled via toggle, no checkbox needed):
+   //   Sanrenkou 三連刻  — three consecutive same-suit triplets (2 han)
+   //   Daisharin/Daichikurin/Daisuurin — all-pair hand in 22-88 of one suit (yakuman)
+
+// ═══════════════════════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════════════════════
+let uidCtr = 0;
+let hand   = [];   // [{uid, type, status:'free'|'meld'|'pair'|'win'}]
+let melds  = [];   // [{uids, types, open, meldType}]
+let pairUids = [];
+let winUid   = null;
+let waitType = 'ryanmen';
+
+const ctx = {
+  winType:'ron', isDealer:false, roundWind:'1z', seatWind:'1z',
+  riichi:0, ippatsu:false, dora:0, uraDora:0, akaDora:0, honba:0,
+  haitei:false, houtei:false, rinshan:false, chankan:false,
+  tenhou:false, chiihou:false,
+  localYakuEnabled:false, localYaku:{}
+};
+let sel = new Set();
+
+// ═══════════════════════════════════════════════════════════════
+//  NOTATION PARSING
+// ═══════════════════════════════════════════════════════════════
+function parseNotation(str) {
+  const tiles = []; const errs = [];
+  const re = /([0-9]+)([mpsz])/gi;
+  let m;
+  while ((m = re.exec(str)) !== null) {
+    for (const ch of m[1]) {
+      const t = ch + m[2].toLowerCase();
+      if (TN[t]) tiles.push(t);
+      else errs.push(t);
+    }
+  }
+  return {tiles, errs};
+}
+
+function applyNotation() {
+  const val = document.getElementById('notation-input').value.trim();
+  if (!val) return;
+  const {tiles, errs} = parseNotation(val);
+  const hintEl = document.getElementById('notation-hint');
+  if (errs.length) { hintEl.textContent = `Unknown tiles: ${errs.join(' ')}`; return; }
+  hintEl.textContent = '';
+  clearHand();
+  tiles.forEach(t => addTile(t));
+}
+
+function notationLiveHint(val) {
+  const hintEl = document.getElementById('notation-hint');
+  if (!val.trim()) { hintEl.textContent = ''; return; }
+  const {errs} = parseNotation(val);
+  hintEl.textContent = errs.length ? `Unknown: ${errs.join(' ')}` : '';
+}
+
+function handToNotation() {
+  const suits = ['m','p','s','z'];
+  let out = '';
+  suits.forEach(s => {
+    const nums = hand.filter(t => t.type.endsWith(s)).map(t => t.type[0]).sort().join('');
+    if (nums) out += nums + s + ' ';
+  });
+  return out.trim();
+}
+
+function updateNotationBox() {
+  const el = document.getElementById('notation-input');
+  if (!el || document.activeElement === el) return;
+  el.value = handToNotation();
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  DORA INDICATOR
+// ═══════════════════════════════════════════════════════════════
+let doraIndicators = [];
+
+function doraNext(type) {
+  const n = num(type), s = suit(type);
+  if (s === 'z') return (n<=4 ? n%4+1 : (n-5)%3+5) + 'z';
+  return (n===9 ? 1 : n+1) + s;
+}
+
+function doraFromIndicators() {
+  if (!doraIndicators.length) return 0;
+  const doraTiles = doraIndicators.map(doraNext);
+  return hand.reduce((sum, t) => {
+    const eff = (t.type[0]==='0') ? '5'+t.type[1] : t.type;
+    return sum + doraTiles.filter(d=>d===eff).length;
+  }, 0);
+}
+
+function addDoraIndicator(type) {
+  if (doraIndicators.length >= 4) return;
+  doraIndicators.push(type);
+  renderDoraIndicators();
+  recalculate();
+}
+
+function removeDoraIndicator(i) {
+  doraIndicators.splice(i, 1);
+  renderDoraIndicators();
+  recalculate();
+}
+
+function renderDoraIndicators() {
+  const row = document.getElementById('dora-ind-tiles');
+  const empty = document.getElementById('dora-ind-empty');
+  if (!doraIndicators.length) {
+    row.innerHTML = '<small id="dora-ind-empty" class="text-muted">none selected</small>';
+    return;
+  }
+  let html = '';
+  doraIndicators.forEach((ind, i) => {
+    const dora = doraNext(ind);
+    html += `<span class="d-inline-flex align-items-center mr-2" style="gap:2px">
+      <span onclick="removeDoraIndicator(${i})" style="cursor:pointer" title="Remove">${tileHtml(ind,'tile-sm')}</span>
+      <small class="text-muted">→</small>
+      ${tileHtml(dora,'tile-sm')}
+    </span>`;
+  });
+  row.innerHTML = html;
+}
+
+function initDoraIndicatorPicker() {
+  const c = document.getElementById('dora-ind-picker');
+  const groups = [
+    {label:'Man',  tiles:['1m','2m','3m','4m','5m','6m','7m','8m','9m']},
+    {label:'Pin',  tiles:['1p','2p','3p','4p','5p','6p','7p','8p','9p']},
+    {label:'Sou',  tiles:['1s','2s','3s','4s','5s','6s','7s','8s','9s']},
+    {label:'Wind', tiles:['1z','2z','3z','4z']},
+    {label:'Dragon',tiles:['5z','6z','7z']},
+  ];
+  groups.forEach(g => {
+    const row = document.createElement('div');
+    row.className = 'd-flex align-items-center flex-wrap mb-1';
+    row.innerHTML = `<span class="sec-label mr-1" style="min-width:46px;font-size:0.75rem">${g.label}</span>`;
+    g.tiles.forEach(t => {
+      const sp = document.createElement('span');
+      sp.innerHTML = tileHtml(t, 'tile-sm tile-pick');
+      sp.firstChild.style.cursor = 'pointer';
+      sp.firstChild.onclick = () => addDoraIndicator(t);
+      row.appendChild(sp);
+    });
+    c.appendChild(row);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  TILE PICKER
+// ═══════════════════════════════════════════════════════════════
+function initPicker() {
+  const c = document.getElementById('tile-picker');
+  const groups = [
+    {label:'Man 萬',       tiles:['1m','2m','3m','4m','5m','6m','7m','8m','9m']},
+    {label:'Pin 筒',       tiles:['1p','2p','3p','4p','5p','6p','7p','8p','9p']},
+    {label:'Sou 索',       tiles:['1s','2s','3s','4s','5s','6s','7s','8s','9s']},
+    {label:'Winds 風牌',   tiles:['1z','2z','3z','4z']},
+    {label:'Dragons 三元', tiles:['5z','6z','7z']},
+    {label:'Aka 赤牌',     tiles:['0m','0p','0s']},
+  ];
+  groups.forEach(g => {
+    const row = document.createElement('div');
+    row.className = 'd-flex align-items-center flex-wrap mb-1';
+    row.innerHTML = `<span class="sec-label mr-2" style="min-width:76px">${g.label}</span>`;
+    g.tiles.forEach(t => {
+      const sp = document.createElement('span');
+      sp.innerHTML = tileHtml(t, 'tile-pick');
+      sp.firstChild.onclick = () => addTile(t);
+      row.appendChild(sp);
+    });
+    c.appendChild(row);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  HAND OPERATIONS
+// ═══════════════════════════════════════════════════════════════
+function countType(type) { return hand.filter(t => t.type === type).length; }
+
+function addTile(type) {
+  // If the notation box has unapplied content, sync it to the hand first
+  const notEl = document.getElementById('notation-input');
+  if (notEl && notEl.value.trim() && notEl.value.trim() !== handToNotation()) {
+    const {tiles, errs} = parseNotation(notEl.value.trim());
+    if (!errs.length && tiles.length) {
+      hand = []; melds = []; pairUids = []; winUid = null; sel.clear();
+      tiles.forEach(t => hand.push({uid: uidCtr++, type: t, status: 'free'}));
+    }
+  }
+  if (hand.length >= 16) return;
+  if (countType(type) >= 4) return;
+  hand.push({uid: uidCtr++, type, status:'free'});
+  if (isAka(type)) step('akaDora', 1);
+  renderHand(); recalculate();
+}
+
+function clearHand() {
+  hand = []; melds = []; pairUids = []; winUid = null; sel.clear();
+  renderHand(); renderStructure(); recalculate();
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  SELECTION
+// ═══════════════════════════════════════════════════════════════
+function clickTile(u) {
+  const t = hand.find(x => x.uid === u);
+  if (!t || t.status === 'meld') return;
+  sel.has(u) ? sel.delete(u) : sel.add(u);
+  renderHand();
+}
+function clearSel() { sel.clear(); renderHand(); }
+
+// ═══════════════════════════════════════════════════════════════
+//  MELD TYPE DETECTION
+// ═══════════════════════════════════════════════════════════════
+function detectMeld(types) {
+  const n = types.length;
+  if (n === 4 && types.every(t => t === types[0])) return 'kantsu';
+  if (n === 3) {
+    if (types.every(t => t === types[0])) return 'kotsu';
+    const s = types.map(suit);
+    if (s[0]===s[1] && s[1]===s[2] && s[0]!=='z') {
+      const ns = types.map(num).sort((a,b)=>a-b);
+      if (ns[1]===ns[0]+1 && ns[2]===ns[0]+2) return 'shuntsu';
+    }
+  }
+  return null;
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  GROUPING ACTIONS
+// ═══════════════════════════════════════════════════════════════
+function groupMeld(open) {
+  const arr = [...sel];
+  const types = arr.map(u => hand.find(t=>t.uid===u).type);
+  const mt = detectMeld(types);
+  if (!mt)          { alert('Invalid meld — must be a sequence (3), triplet (3), or quad (4).'); return; }
+  if (melds.length >= 4) { alert('Maximum 4 melds already declared.'); return; }
+  arr.forEach(u => { hand.find(t=>t.uid===u).status = 'meld'; });
+  melds.push({uids:arr, types, open, meldType:mt});
+  sel.clear(); renderHand(); renderStructure(); recalculate();
+}
+
+function setPair() {
+  const arr = [...sel];
+  if (arr.length !== 2) return;
+  const types = arr.map(u => hand.find(t=>t.uid===u).type);
+  if (types[0] !== types[1]) { alert('Pair must be two identical tiles.'); return; }
+  pairUids.forEach(u => { const t=hand.find(x=>x.uid===u); if(t) t.status='free'; });
+  pairUids = arr;
+  arr.forEach(u => { hand.find(t=>t.uid===u).status = 'pair'; });
+  sel.clear(); renderHand(); renderStructure(); recalculate();
+}
+
+function setWin() {
+  const arr = [...sel];
+  if (arr.length !== 1) return;
+  if (winUid !== null) { const t=hand.find(x=>x.uid===winUid); if(t) t.status='free'; }
+  winUid = arr[0];
+  hand.find(t=>t.uid===winUid).status = 'win';
+  sel.clear(); renderHand(); renderStructure(); recalculate();
+}
+
+function removeSelTile() {
+  const arr = [...sel];
+  if (arr.length !== 1) return;
+  const u = arr[0];
+  const tile = hand.find(t=>t.uid===u);
+  if (tile?.status !== 'free') {
+    alert('Remove the meld/pair/win assignment first before removing this tile.'); return;
+  }
+  if (isAka(tile.type)) step('akaDora', -1);
+  hand = hand.filter(t=>t.uid!==u);
+  sel.clear(); renderHand(); renderStructure(); recalculate();
+}
+
+function removeMeld(i) {
+  melds[i].uids.forEach(u=>{ const t=hand.find(x=>x.uid===u); if(t) t.status='free'; });
+  melds.splice(i,1);
+  renderHand(); renderStructure(); recalculate();
+}
+function toggleOpen(i) { melds[i].open=!melds[i].open; renderStructure(); recalculate(); }
+
+function clearPair() {
+  pairUids.forEach(u=>{ const t=hand.find(x=>x.uid===u); if(t) t.status='free'; });
+  pairUids=[]; renderHand(); renderStructure(); recalculate();
+}
+function clearWin() {
+  if (winUid!==null){ const t=hand.find(x=>x.uid===winUid); if(t) t.status='free'; winUid=null; }
+  renderHand(); renderStructure(); recalculate();
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  RENDER HAND DISPLAY
+// ═══════════════════════════════════════════════════════════════
+function renderHand() {
+  const disp = document.getElementById('hand-display');
+  const cnt  = document.getElementById('hand-count');
+  cnt.textContent = `${hand.length} / 14`;
+  cnt.className   = hand.length===14 ? 'badge badge-success' : 'badge badge-secondary';
+
+  if (!hand.length) {
+    disp.innerHTML = '<small class="text-muted align-self-center">Add tiles above to build your hand.</small>';
+  } else {
+    disp.innerHTML = hand.map(t => {
+      let extra = 'tile-hand';
+      if (sel.has(t.uid)) extra += ' sel';
+      else if (t.status==='meld') extra += ' in-meld';
+      else if (t.status==='pair') extra += ' in-pair';
+      else if (t.status==='win')  extra += ' is-win';
+      const tile = tileHtml(t.type, extra);
+      // wrap in a span that handles clicks
+      return `<span onclick="clickTile(${t.uid})">${tile}</span>`;
+    }).join('');
+  }
+
+  // Action buttons
+  const arr  = [...sel];
+  let btns = '';
+  if (arr.length >= 3 && arr.length <= 4) {
+    const types = arr.map(u=>hand.find(t=>t.uid===u).type);
+    const mt = detectMeld(types);
+    if (mt) {
+      btns += `<button class="btn btn-sm btn-warning mr-1" onclick="groupMeld(false)">Closed ${mt}</button>`;
+      btns += `<button class="btn btn-sm btn-info    mr-1" onclick="groupMeld(true)">Open ${mt}</button>`;
+    }
+  }
+  if (arr.length === 2) {
+    const types = arr.map(u=>hand.find(t=>t.uid===u).type);
+    if (types[0]===types[1])
+      btns += `<button class="btn btn-sm btn-success mr-1" onclick="setPair()">♦ Set as Pair</button>`;
+  }
+  if (arr.length === 1) {
+    btns += `<button class="btn btn-sm btn-danger       mr-1" onclick="setWin()">★ Win Tile</button>`;
+    btns += `<button class="btn btn-sm btn-outline-secondary mr-1" onclick="removeSelTile()">✕ Remove</button>`;
+  }
+  if (arr.length > 0)
+    btns += `<button class="btn btn-sm btn-outline-secondary" onclick="clearSel()">Deselect</button>`;
+  document.getElementById('action-row').innerHTML = btns;
+
+  updateNotationBox();
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  RENDER STRUCTURE PANEL
+// ═══════════════════════════════════════════════════════════════
+function renderStructure() {
+  const el = document.getElementById('structure-panel');
+  let html = '';
+
+  melds.forEach((m,i) => {
+    const tiles = m.types.map(t => tileHtml(t,'tile-sm')).join('');
+    html += `<div class="meld-block">
+      <strong>Meld ${i+1}:</strong> ${tiles}
+      <span class="badge badge-dark">${m.meldType}</span>
+      <button class="btn btn-xs ${m.open?'btn-info':'btn-secondary'} ml-1"
+              onclick="toggleOpen(${i})" title="Click to toggle open/closed">${m.open?'Open ↺':'Closed ↺'}</button>
+      <button class="btn btn-xs btn-outline-danger ml-1" onclick="removeMeld(${i})">✕</button>
+    </div>`;
+  });
+
+  if (pairUids.length === 2) {
+    const pt = hand.find(t=>t.uid===pairUids[0])?.type;
+    if (pt) html += `<div class="meld-block">
+      <strong>Pair:</strong> ${tileHtml(pt,'tile-sm')}${tileHtml(pt,'tile-sm')}
+      <small class="text-muted">${TN[pt]}</small>
+      <button class="btn btn-xs btn-outline-danger" onclick="clearPair()">✕</button>
+    </div>`;
+  }
+
+  if (winUid !== null) {
+    const wt = hand.find(t=>t.uid===winUid)?.type;
+    if (wt) {
+      html += `<div class="meld-block">
+        <strong>Win tile:</strong> <span style="filter:drop-shadow(0 0 4px #dc3545)">${tileHtml(wt,'tile-sm')}</span>
+        <small class="text-muted">${TN[wt]}</small>
+        <button class="btn btn-xs btn-outline-danger" onclick="clearWin()">✕</button>
+      </div>
+      <div class="mt-2">
+        <span class="sec-label mr-1">Wait type:</span>
+        <select class="form-control form-control-sm d-inline-block w-auto"
+                onchange="waitType=this.value; recalculate()">
+          <option value="ryanmen" ${waitType==='ryanmen'?'selected':''}>Ryanmen 両面 — 0 fu</option>
+          <option value="shanpon" ${waitType==='shanpon'?'selected':''}>Shanpon 双碰 — 0 fu</option>
+          <option value="kanchan" ${waitType==='kanchan'?'selected':''}>Kanchan 嵌張 — +2 fu</option>
+          <option value="penchan" ${waitType==='penchan'?'selected':''}>Penchan 辺張 — +2 fu</option>
+          <option value="tanki"   ${waitType==='tanki'  ?'selected':''}>Tanki 単騎 — +2 fu</option>
+        </select>
+      </div>`;
+    }
+  }
+
+  el.innerHTML = html || '<small class="text-muted">Select tiles above, then use the action buttons to group them.</small>';
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  LOCAL YAKU
+// ═══════════════════════════════════════════════════════════════
+function initLocalYaku() {
+  const el = document.getElementById('local-yaku-list');
+  LOCAL_YAKU.forEach(y => {
+    const div = document.createElement('div');
+    div.className = 'custom-control custom-checkbox mb-2 local-yaku-row';
+    div.innerHTML = `<input type="checkbox" class="custom-control-input" id="lck-${y.id}"
+        onchange="ctx.localYaku['${y.id}']=this.checked; recalculate()" disabled>
+      <label class="custom-control-label" for="lck-${y.id}">
+        <strong>${y.name}</strong> <span class="badge badge-secondary">${y.h} han</span>
+        <small class="text-muted d-block">${y.note}</small>
+      </label>`;
+    el.appendChild(div);
+  });
+}
+function toggleLocalYakuEnabled(v) {
+  ctx.localYakuEnabled = v;
+  document.querySelectorAll('.local-yaku-row input').forEach(el => {
+    el.disabled = !v;
+    if (!v) { el.checked=false; ctx.localYaku[el.id.replace('lck-','')]=false; }
+  });
+  recalculate();
+}
+function toggleSit(key) {
+  ctx[key] = !ctx[key];
+  const btn = document.getElementById('btn-'+key);
+  btn.className = ctx[key] ? 'btn btn-sm btn-warning' : 'btn btn-sm btn-outline-secondary';
+  recalculate();
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  CONTEXT CONTROLS
+// ═══════════════════════════════════════════════════════════════
+function setWinType(v) {
+  ctx.winType = v;
+  document.getElementById('btn-ron').className   = v==='ron'   ? 'btn btn-sm btn-dark active' : 'btn btn-sm btn-outline-secondary';
+  document.getElementById('btn-tsumo').className = v==='tsumo' ? 'btn btn-sm btn-dark active' : 'btn btn-sm btn-outline-secondary';
+  recalculate();
+}
+function setDealer(v) {
+  ctx.isDealer = v;
+  document.getElementById('btn-dealer').className    = v  ? 'btn btn-sm btn-dark active' : 'btn btn-sm btn-outline-secondary';
+  document.getElementById('btn-nondealer').className = !v ? 'btn btn-sm btn-dark active' : 'btn btn-sm btn-outline-secondary';
+  recalculate();
+}
+function setRiichi(n) {
+  ctx.riichi = n;
+  [0,1,2].forEach(i => {
+    document.getElementById(`btn-r${i}`).className = i===n ? 'btn btn-sm btn-dark active' : 'btn btn-sm btn-outline-secondary';
+  });
+  const ip = document.getElementById('btn-ippatsu');
+  ip.disabled = (n===0);
+  if (n===0) { ctx.ippatsu=false; ip.className='btn btn-sm btn-outline-secondary'; }
+  recalculate();
+}
+function toggleIppatsu() {
+  if (!ctx.riichi) return;
+  ctx.ippatsu = !ctx.ippatsu;
+  document.getElementById('btn-ippatsu').className = ctx.ippatsu ? 'btn btn-sm btn-warning' : 'btn btn-sm btn-outline-secondary';
+  recalculate();
+}
+function step(key, d) {
+  const ids = {dora:'v-dora',uraDora:'v-uradora',akaDora:'v-akadora',honba:'v-honba'};
+  ctx[key] = Math.max(0, Math.min(13, (ctx[key]||0)+d));
+  document.getElementById(ids[key]).textContent = ctx[key];
+  recalculate();
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  HAND TYPE DETECTION
+// ═══════════════════════════════════════════════════════════════
+function handType() {
+  if (hand.length===14 && melds.length===0) {
+    const ORPHANS = ['1m','9m','1p','9p','1s','9s','1z','2z','3z','4z','5z','6z','7z'];
+    const types = hand.map(t=>t.type);
+    if (types.every(t=>ORPHANS.includes(t))) {
+      const counts = {};
+      types.forEach(t=>{ counts[t]=(counts[t]||0)+1; });
+      if (ORPHANS.every(o=>(counts[o]||0)>=1) && Object.values(counts).some(v=>v>=2)) return 'kokushi';
+    }
+    if (pairUids.length===0) {
+      const counts2 = {};
+      types.forEach(t=>{ counts2[t]=(counts2[t]||0)+1; });
+      const vals = Object.values(counts2);
+      if (vals.length===7 && vals.every(v=>v===2)) return 'chiitoitsu';
+    }
+  }
+  return 'standard';
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  FU CALCULATION
+// ═══════════════════════════════════════════════════════════════
+function pairFu(type) {
+  if (dragon(type)) return 2;
+  if (wind(type)) {
+    const r = type===ctx.roundWind, s = type===ctx.seatWind;
+    if (r&&s) return 4; if (r||s) return 2;
+  }
+  return 0;
+}
+function meldFu(m) {
+  if (m.meldType==='shuntsu') return 0;
+  const th = termOrHonor(m.types[0]);
+  if (m.meldType==='kotsu')  return m.open ? (th?4:2) : (th?8:4);
+  if (m.meldType==='kantsu') return m.open ? (th?16:8) : (th?32:16);
+  return 0;
+}
+function checkPinfu(isOpen) {
+  return !isOpen && melds.length===4 && melds.every(m=>m.meldType==='shuntsu')
+      && pairUids.length===2 && pairFu(hand.find(t=>t.uid===pairUids[0])?.type)===0
+      && waitType==='ryanmen';
+}
+function calcFu() {
+  const ht = handType();
+  if (ht==='kokushi')    return {fu:null, breakdown:[], ht};
+  if (ht==='chiitoitsu') return {fu:25, raw:25, breakdown:[{l:'Chiitoitsu (fixed)',v:25}], ht};
+
+  const isOpen = melds.some(m=>m.open);
+  let fu=0; const bd=[];
+
+  if (ctx.winType==='tsumo'||isOpen) { fu+=20; bd.push({l:'Base fu',v:20}); }
+  else                               { fu+=30; bd.push({l:'Base fu — closed ron',v:30}); }
+
+  const pf = checkPinfu(isOpen);
+  if (ctx.winType==='tsumo' && !pf) { fu+=2; bd.push({l:'Tsumo',v:2}); }
+  if (ctx.winType==='ron'   && !isOpen) { fu+=10; bd.push({l:'Menzen ron',v:10}); }
+
+  if (pairUids.length===2) {
+    const pt = hand.find(t=>t.uid===pairUids[0])?.type;
+    if (pt) { const pf2=pairFu(pt); if(pf2>0){fu+=pf2; bd.push({l:`Pair — ${TN[pt]}`,v:pf2});} }
+  }
+  melds.forEach(m=>{
+    const mf=meldFu(m);
+    if (mf>0){ fu+=mf; bd.push({l:`${m.open?'Open':'Closed'} ${m.meldType} — ${m.types.join(' ')}`,v:mf}); }
+  });
+  if (winUid!==null && ['kanchan','penchan','tanki'].includes(waitType)) {
+    fu+=2; bd.push({l:`Wait — ${waitType}`,v:2});
+  }
+
+  const raw=fu;
+  if (pf && ctx.winType==='tsumo') return {fu:20, raw:20, breakdown:[{l:'Pinfu tsumo (fixed)',v:20}], ht, pf:true};
+  fu = Math.ceil(fu/10)*10;
+  return {fu, raw, breakdown:bd, ht, pf};
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  HAN CALCULATION
+// ═══════════════════════════════════════════════════════════════
+function calcHan() {
+  const isOpen = melds.some(m=>m.open);
+  const ht = handType();
+  let han=0; const src=[];
+
+  if (ctx.tenhou  && ctx.isDealer)          { han+=13; src.push({l:'Tenhou — Yakuman',h:13}); }
+  if (ctx.chiihou && !ctx.isDealer)         { han+=13; src.push({l:'Chiihou — Yakuman',h:13}); }
+  if (ctx.riichi===1)                       { han+=1;  src.push({l:'Riichi',h:1}); }
+  if (ctx.riichi===2)                       { han+=2;  src.push({l:'Double Riichi',h:2}); }
+  if (ctx.ippatsu && ctx.riichi>0)          { han+=1;  src.push({l:'Ippatsu',h:1}); }
+  if (ctx.winType==='tsumo' && !isOpen)     { han+=1;  src.push({l:'Menzen Tsumo',h:1}); }
+  if (ctx.haitei  && ctx.winType==='tsumo') { han+=1;  src.push({l:'Haitei Raoyue',h:1}); }
+  if (ctx.houtei  && ctx.winType==='ron')   { han+=1;  src.push({l:'Houtei Raoyui',h:1}); }
+  if (ctx.rinshan && ctx.winType==='tsumo') { han+=1;  src.push({l:'Rinshan Kaihou',h:1}); }
+  if (ctx.chankan && ctx.winType==='ron')   { han+=1;  src.push({l:'Chankan',h:1}); }
+  if (ht==='chiitoitsu')                    { han+=2;  src.push({l:'Chiitoitsu',h:2}); }
+
+  autoYaku(isOpen, ht).forEach(y=>{ han+=y.h; src.push(y); });
+
+  const indDora = doraFromIndicators();
+  if (indDora>0)    { han+=indDora;     src.push({l:`Dora ×${indDora} (from indicators)`,h:indDora}); }
+  if (ctx.dora>0)   { han+=ctx.dora;    src.push({l:`Dora ×${ctx.dora} (extra)`,h:ctx.dora}); }
+  if (ctx.riichi>0 && ctx.uraDora>0) { han+=ctx.uraDora; src.push({l:`Ura Dora ×${ctx.uraDora}`,h:ctx.uraDora}); }
+  if (ctx.akaDora>0)                 { han+=ctx.akaDora; src.push({l:`Aka Dora ×${ctx.akaDora}`,h:ctx.akaDora}); }
+
+  if (ctx.localYakuEnabled) {
+    LOCAL_YAKU.forEach(y => {
+      if (ctx.localYaku[y.id] && y.h>0) { han+=y.h; src.push({l:`${y.name} (local)`,h:y.h,id:y.id}); }
+    });
+  }
+  return {han, src};
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  HAND DECOMPOSER  (used when melds are not explicitly declared)
+// ═══════════════════════════════════════════════════════════════
+function normT(t) { return t[0]==='0' ? '5'+t[1] : t; }
+
+// Partition sorted tile array into groups of 3.  Returns array of meld arrays.
+function findMeldPartitions(tiles) {
+  if (tiles.length === 0) return [[]];
+  const first = tiles[0];
+  const results = [];
+
+  // Try kotsu (need 3 identical at front of sorted array)
+  if (tiles.length >= 3 && tiles[1]===first && tiles[2]===first) {
+    const rest = tiles.slice(3);
+    findMeldPartitions(rest).forEach(s => results.push([{mt:'kotsu',t:[first,first,first]},...s]));
+  }
+
+  // Try shuntsu (consecutive, non-honor)
+  if (suit(first) !== 'z') {
+    const n = num(first), sv = suit(first);
+    if (n <= 7) {
+      const t2 = (n+1)+sv, t3 = (n+2)+sv;
+      let i2=-1, i3=-1;
+      for (let i=1; i<tiles.length; i++) { if (i2===-1 && tiles[i]===t2) { i2=i; continue; } }
+      if (i2 !== -1) {
+        for (let i=i2+1; i<tiles.length; i++) { if (i3===-1 && tiles[i]===t3) { i3=i; } }
+      }
+      if (i2 !== -1 && i3 !== -1) {
+        const rest = tiles.filter((_,i) => i!==0 && i!==i2 && i!==i3);
+        findMeldPartitions(rest).forEach(s => results.push([{mt:'shuntsu',t:[first,t2,t3]},...s]));
+      }
+    }
+  }
+  return results;
+}
+
+// Returns all {pair, melds} decompositions of a 14-tile closed hand.
+function decomposeHand(tileTypes) {
+  const norm = tileTypes.map(normT).sort();
+  const results = [], seenPairs = new Set();
+  for (let i=0; i<norm.length-1; i++) {
+    const p = norm[i];
+    if (p === norm[i+1] && !seenPairs.has(p)) {
+      seenPairs.add(p);
+      const rest = norm.filter((_,j) => j!==i && j!==i+1);
+      findMeldPartitions(rest).forEach(melds => results.push({pair:p, melds}));
+    }
+  }
+  return results;
+}
+
+// Score a decomposition by han value of its yaku (used to pick the best one)
+function scoreDecomp(d, isOpen, ht, all, hasZ) {
+  const vm = d.melds.map(m=>({types:m.t, meldType:m.mt, open:false}));
+  return structureYaku(vm, d.pair, isOpen, ht, all, hasZ).reduce((s,y)=>s+y.h, 0);
+}
+
+// Structure-based yaku from explicit meld list + pair type
+function structureYaku(wm, wp, isOpen, ht, all, hasZ) {
+  if (!wm || wm.length!==4 || !wp) return [];
+  const res = [];
+
+  // Yakuhai
+  wm.forEach((m,i)=>{
+    if (m.meldType==='kotsu'||m.meldType==='kantsu') {
+      const b=m.types[0];
+      if (dragon(b)||b===ctx.seatWind||b===ctx.roundWind) {
+        const nm = dragon(b) ? `${TN[b]||b} dragon`
+          : (b===ctx.seatWind&&b===ctx.roundWind) ? `${TN[b]||b} seat+round wind`
+          : b===ctx.seatWind ? `${TN[b]||b} seat wind` : `${TN[b]||b} round wind`;
+        res.push({l:`Yakuhai — ${nm}`,h:1,id:`yakuhai_${i}`});
+      }
+    }
+  });
+
+  // Pinfu (declared structure only — needs waitType)
+  if (!isOpen && wm===melds) {
+    if (checkPinfu(false)) res.push({l:'Pinfu',h:1,id:'pinfu'});
+  }
+
+  // Iipeiko / Ryanpeiko
+  if (!isOpen) {
+    const sc={};
+    wm.filter(m=>m.meldType==='shuntsu').forEach(m=>{ const k=[...m.types].sort().join(','); sc[k]=(sc[k]||0)+1; });
+    const pairs=Object.values(sc).filter(v=>v>=2);
+    const allS=wm.every(m=>m.meldType==='shuntsu');
+    if (allS && pairs.length===2) res.push({l:'Ryanpeiko',h:3,id:'ryanpeiko'});
+    else if (pairs.length>=1)     res.push({l:'Iipeiko',h:1,id:'iipeiko'});
+  }
+
+  // Toitoi
+  if (wm.every(m=>m.meldType==='kotsu'||m.meldType==='kantsu')) res.push({l:'Toitoi',h:2,id:'toitoi'});
+
+  // San Ankou / Suu Ankou
+  const ct = wm.filter(m=>!m.open&&(m.meldType==='kotsu'||m.meldType==='kantsu'));
+  if      (ct.length===4) res.push({l:'Suu Ankou',h:13,id:'suuankou'});
+  else if (ct.length===3) res.push({l:'San Ankou',h:2, id:'sanankou'});
+
+  // Sankantsu / Suukantsu
+  const kans=wm.filter(m=>m.meldType==='kantsu');
+  if      (kans.length===4) res.push({l:'Suukantsu',h:13,id:'suukantsu'});
+  else if (kans.length>=3)  res.push({l:'Sankantsu',h:2, id:'sankantsu'});
+
+  // Ittsu
+  for (const s of ['m','p','s']) {
+    const starts=wm.filter(m=>m.meldType==='shuntsu'&&m.types.every(t=>suit(t)===s)).map(m=>Math.min(...m.types.map(num)));
+    if (starts.includes(1)&&starts.includes(4)&&starts.includes(7)) { res.push({l:'Ittsu',h:isOpen?1:2,id:'ittsu'}); break; }
+  }
+
+  // Sanshoku Doujun
+  const sdj={};
+  wm.filter(m=>m.meldType==='shuntsu').forEach(m=>{ const k=Math.min(...m.types.map(num)); if(!sdj[k])sdj[k]=new Set(); sdj[k].add(suit(m.types[0])); });
+  for (const s of Object.values(sdj)) { if (s.has('m')&&s.has('p')&&s.has('s')) { res.push({l:'Sanshoku Doujun',h:isOpen?1:2,id:'sanshoku_j'}); break; } }
+
+  // Sanshoku Doukou
+  const sdk={};
+  wm.filter(m=>m.meldType==='kotsu'||m.meldType==='kantsu').forEach(m=>{ const n=num(m.types[0]),sv=suit(m.types[0]); if(sv==='z')return; if(!sdk[n])sdk[n]=new Set(); sdk[n].add(sv); });
+  for (const s of Object.values(sdk)) { if (s.has('m')&&s.has('p')&&s.has('s')) { res.push({l:'Sanshoku Doukou',h:2,id:'sanshoku_k'}); break; } }
+
+  // Chanta / Junchan
+  const hasSeq=wm.some(m=>m.meldType==='shuntsu');
+  const allTH=wm.every(m=>m.types.some(termOrHonor))&&termOrHonor(wp);
+  if (hasSeq && allTH && !hasZ) res.push({l:'Junchan',h:isOpen?2:3,id:'junchan'});
+  else if (hasSeq && allTH)     res.push({l:'Chanta',h:isOpen?1:2,id:'chanta'});
+
+  // Shousangen / Daisangen
+  const dt=wm.filter(m=>(m.meldType==='kotsu'||m.meldType==='kantsu')&&dragon(m.types[0]));
+  if      (dt.length===3)                       res.push({l:'Daisangen',h:13,id:'daisangen'});
+  else if (dt.length===2&&dragon(wp))           res.push({l:'Shousangen',h:2,id:'shousangen'});
+
+  // Shousuushii / Daisuushii
+  const wt2=wm.filter(m=>(m.meldType==='kotsu'||m.meldType==='kantsu')&&wind(m.types[0]));
+  if      (wt2.length===4)                      res.push({l:'Daisuushii',h:13,id:'daisuushii'});
+  else if (wt2.length===3&&wp&&wind(wp))        res.push({l:'Shousuushii',h:13,id:'shousuushii'});
+
+  // Local: Sanrenkou
+  if (ctx.localYakuEnabled) {
+    for (const s of ['m','p','s']) {
+      const ns=wm.filter(m=>(m.meldType==='kotsu'||m.meldType==='kantsu')&&suit(m.types[0])===s).map(m=>num(m.types[0])).sort((a,b)=>a-b);
+      for (let i=0;i<ns.length-2;i++) { if(ns[i+1]===ns[i]+1&&ns[i+2]===ns[i]+2){res.push({l:'Sanrenkou (local)',h:2,id:'sanrenkou'});break;} }
+    }
+  }
+  // Local: Daisharin/Daichikurin/Daisuurin (all pairs in 22-88 of one suit)
+  if (ctx.localYakuEnabled && ht==='chiitoitsu') {
+    for (const [sv,name] of [['p','Daisharin 大車輪'],['s','Daichikurin 大竹林'],['m','Daisuurin 大数隣']]) {
+      const nums=all.filter(t=>suit(t)===sv).map(num).sort((a,b)=>a-b);
+      if (nums.length===14 && nums.join(',')===([2,2,3,3,4,4,5,5,6,6,7,7,8,8]).join(','))
+        res.push({l:`${name} (local)`,h:13,id:`daisharin_${sv}`});
+    }
+  }
+
+  return res;
+}
+
+function autoYaku(isOpen, ht) {
+  const res=[];
+  if (ht==='kokushi'||ht==='chiitoitsu') return res;
+  const all = hand.map(t=>t.type);
+  if (!all.length) return res;
+  const hasZ = all.some(honor);
+  const numSuits = new Set(all.filter(t=>!honor(t)).map(suit));
+
+  // ── Tile-composition yaku (no structure needed) ──
+  if (all.every(simple)) res.push({l:'Tanyao',h:1,id:'tanyao'});
+
+  if (all.every(honor)) { res.push({l:'Tsuiisou',h:13,id:'tsuiisou'}); return res; }
+  if (all.every(t=>terminal(t))) res.push({l:'Chinroutou',h:13,id:'chinroutou'});
+
+  const GREEN = new Set(['2s','3s','4s','6s','8s','6z']);
+  if (all.every(t=>GREEN.has(t))) res.push({l:'Ryuuiisou',h:13,id:'ryuuiisou'});
+
+  if (numSuits.size===1 && !hasZ) res.push({l:'Chinitsu',h:isOpen?5:6,id:'chinitsu'});
+  else if (numSuits.size===1 && hasZ) res.push({l:'Honitsu',h:isOpen?2:3,id:'honitsu'});
+
+  if (!isOpen && hand.length===14 && numSuits.size===1 && !hasZ) {
+    const nums=all.map(num).sort((a,b)=>a-b), base=[1,1,1,2,3,4,5,6,7,8,9,9,9], rem=[...nums]; let ok=true;
+    for (const b of base){const i=rem.indexOf(b);if(i===-1){ok=false;break;}rem.splice(i,1);}
+    if (ok && rem.length===1) res.push({l:'Chuuren Poutou',h:13,id:'chuuren'});
+  }
+
+  // ── Determine working structure ──
+  const declaredPair = pairUids.length===2 ? hand.find(t=>t.uid===pairUids[0])?.type : null;
+  let workMelds = melds, workPair = declaredPair;
+
+  if (melds.length===0 && hand.length===14 && ht==='standard') {
+    // Auto-decompose to find melds + pair
+    const decomps = decomposeHand(all);
+    if (decomps.length > 0) {
+      // Pick decomposition with highest han score
+      let best = decomps[0], bestScore = -1;
+      for (const d of decomps) {
+        const s = scoreDecomp(d, isOpen, ht, all, hasZ);
+        if (s > bestScore) { bestScore=s; best=d; }
+      }
+      workMelds = best.melds.map(m=>({types:m.t, meldType:m.mt, open:false}));
+      workPair  = best.pair;
+    }
+  } else if (melds.length > 0 && melds.length < 4) {
+    // Partial declaration — detect yakuhai from what's declared
+    melds.forEach((m,i)=>{
+      if (m.meldType==='kotsu'||m.meldType==='kantsu') {
+        const b=m.types[0];
+        if (dragon(b)||b===ctx.seatWind||b===ctx.roundWind) {
+          const nm=dragon(b)?`${TN[b]} dragon`:(b===ctx.seatWind&&b===ctx.roundWind)?`${TN[b]} seat+round wind`:b===ctx.seatWind?`${TN[b]} seat wind`:`${TN[b]} round wind`;
+          res.push({l:`Yakuhai — ${nm}`,h:1,id:`yakuhai_${i}`});
+        }
+      }
+    });
+    return res;
+  }
+
+  // ── Structure-based yaku ──
+  const sy = structureYaku(workMelds, workPair, isOpen, ht, all, hasZ);
+  sy.forEach(y => res.push(y));
+
+  return res;
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  POINTS
+// ═══════════════════════════════════════════════════════════════
+function calcPoints(fu, han) {
+  const c100 = n => Math.ceil(n/100)*100;
+  let bp, thr=null;
+  if      (han>=13){ thr='Yakuman';   bp=8000; }
+  else if (han>=11){ thr='Sanbaiman'; bp=6000; }
+  else if (han>=8) { thr='Baiman';    bp=4000; }
+  else if (han>=6) { thr='Haneman';   bp=3000; }
+  else {
+    bp = fu * Math.pow(2, han+2);
+    if (bp>=2000||han>=5){ thr='Mangan'; bp=2000; }
+  }
+  const r={thr, bp};
+  if (ctx.isDealer) {
+    if (ctx.winType==='ron') {
+      r.pay=[`Ron: <strong>${(c100(bp*6)+ctx.honba*300).toLocaleString()}</strong> pts`];
+    } else {
+      const e=c100(bp*2)+ctx.honba*100;
+      r.pay=[`Tsumo: <strong>${e.toLocaleString()}</strong> from each`,`Total: <strong>${(e*3).toLocaleString()}</strong> pts`];
+    }
+  } else {
+    if (ctx.winType==='ron') {
+      r.pay=[`Ron: <strong>${(c100(bp*4)+ctx.honba*300).toLocaleString()}</strong> pts`];
+    } else {
+      const dl=c100(bp*2)+ctx.honba*100, nd=c100(bp)+ctx.honba*100;
+      r.pay=[
+        `Tsumo: <strong>${nd.toLocaleString()}</strong> non-dealers · <strong>${dl.toLocaleString()}</strong> dealer`,
+        `Total: <strong>${(dl+nd*2).toLocaleString()}</strong> pts`
+      ];
+    }
+  }
+  return r;
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  RESULTS RENDER
+// ═══════════════════════════════════════════════════════════════
+function recalculate() {
+  const panel = document.getElementById('results-panel');
+  if (!hand.length) { panel.innerHTML='<p class="text-muted small mb-0">Add tiles to start calculating.</p>'; return; }
+
+  const ht = handType();
+  const fr = calcFu();
+  const hr = calcHan();
+  let html = '';
+
+  if (ht==='kokushi') {
+    const pts = ctx.isDealer ? 32000 : 16000;
+    html=`<div class="alert alert-info py-2 mb-0"><strong>Kokushi Musou</strong> — Yakuman<br>
+      ${ctx.winType==='ron'?`Ron: <strong>${pts.toLocaleString()}</strong> pts`:`Tsumo: <strong>${(pts/3).toLocaleString()}</strong> from each`}
+    </div>`;
+    panel.innerHTML=html; return;
+  }
+
+  html += `<h6 class="mb-1">Fu</h6>`;
+  if (fr.breakdown.length) {
+    html += `<table class="table table-sm table-borderless fu-table mb-1">`;
+    fr.breakdown.forEach(b=>{ html+=`<tr><td>${b.l}</td><td class="text-right">+${b.v}</td></tr>`; });
+    if (fr.raw!==fr.fu) html+=`<tr class="text-muted"><td><em>Raw</em></td><td class="text-right">${fr.raw}</td></tr>`;
+    html+=`<tr class="font-weight-bold"><td>Total</td><td class="text-right">${fr.fu} fu</td></tr></table>`;
+  } else {
+    html+=`<p class="small text-muted mb-1">Declare hand structure to calculate fu.</p>`;
+  }
+
+  html += `<h6 class="mb-1 mt-2">Han</h6>`;
+  if (hr.src.length) {
+    html+=`<table class="table table-sm table-borderless han-table mb-1">`;
+    hr.src.forEach(s=>{ html+=`<tr><td>${s.l}</td><td class="text-right">+${s.h}</td></tr>`; });
+    html+=`<tr class="font-weight-bold"><td>Total</td><td class="text-right">${hr.han} han</td></tr></table>`;
+  } else {
+    html+=`<p class="small text-muted mb-1">No han sources yet.</p>`;
+  }
+
+  if (fr.fu && hr.han>0) {
+    const pts = calcPoints(fr.fu, hr.han);
+    html+=`<hr class="my-2">`;
+    if (pts.thr) html+=`<div class="text-center mb-1"><span class="badge badge-warning" style="font-size:1rem">${pts.thr}</span></div>`;
+    html+=`<div class="text-center small text-muted mb-1">${fr.fu} fu × 2<sup>${hr.han}+2</sup> = ${pts.bp>=2000?`≥2000 → ${pts.thr}`:pts.bp+' basic pts'}</div>`;
+    pts.pay.forEach(p=>{ html+=`<div class="points-big">${p}</div>`; });
+    if (ctx.honba>0) html+=`<div class="text-center small text-muted">(incl. ${ctx.honba} honba)</div>`;
+  } else if (hr.han===0 && hand.length>=13) {
+    html+=`<div class="alert alert-warning py-1 small mb-0">No yaku — this hand cannot win!</div>`;
+  }
+  panel.innerHTML = html;
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  MISC HELPERS
+// ═══════════════════════════════════════════════════════════════
+function toggleEl(id) {
+  const el=document.getElementById(id);
+  el.style.display = el.style.display==='none' ? 'block' : 'none';
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  THEME
+// ═══════════════════════════════════════════════════════════════
+function SwitchLight() {
+  localStorage.setItem('theme','light');
+  document.getElementById('theme-css').href = 'css/light.css';
+  document.querySelector("label[for='ThemeSwitch']").innerHTML = 'おやすみ';
+  document.body.classList.remove('dark-mode');
+}
+function SwitchDark() {
+  localStorage.setItem('theme','dark');
+  document.getElementById('theme-css').href = 'css/dark.css';
+  document.querySelector("label[for='ThemeSwitch']").innerHTML = 'おはよう';
+  document.body.classList.add('dark-mode');
+}
+function ChangeTheme() {
+  localStorage.getItem('theme')==='dark' ? SwitchLight() : SwitchDark();
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════════════════
+$(document).ready(function() {
+  initPicker();
+  initDoraIndicatorPicker();
+  initLocalYaku();
+  if (!localStorage.getItem('theme')) localStorage.setItem('theme','dark');
+  if (localStorage.getItem('theme')==='light') { SwitchLight(); $('#ThemeSwitch').prop('checked',true); }
+  else SwitchDark();
+});
+$('#ThemeSwitch').click(function() { ChangeTheme(); });
+</script>
+</body>
+</html>
