@@ -85,7 +85,7 @@
     </section>
 
     <script type="module">
-      import { App, wwyds } from "/wwyd/wwyd.js"
+      import { mount, wwyds } from "/wwyd/wwyd.js"
 
       function hasVariant(wwyd, kind) {
         return wwyd.variants.some(e => e[0] == kind)
@@ -116,9 +116,11 @@
 
         let current = null
         function load() {
-          if (current) current.destroy()
+          if (current) {
+            current()
+          }
           const idx = Number(selectEl.value)
-          current = new App(targetEl, items[idx].data)
+          current = mount(targetEl, items[idx].data)
         }
         selectEl.addEventListener("change", load)
         if (items.length > 0) load()
