@@ -63,6 +63,7 @@ function LoadSection(section) {
   library_sections["resources-strategy"] = "resources-strategy.html";
   library_sections["resources-toolz"] = "resources-toolz.html";
   library_sections["resources-gguides"] = "resources-gguides.html";
+  library_sections["resources-majsoul"] = "resources-majsoul.html";
   library_sections["resources-majplus"] = "resources-majplus.html";
   library_sections["resources-media"] = "resources-media.html";
   library_sections["resources-mleague"] = "resources-mleague.html";
@@ -71,8 +72,10 @@ function LoadSection(section) {
   $(section).load("resources/"+section.substring(1)+".html", function(response, status, xhr) {
     /* Stuff to do after the page is loaded */
     if(status == "success") {
-      $(section).tab("show");
-      $('a[href="'+section+'"]').addClass('active');
+      $("#side-menu .nav-link").removeClass("active").attr("aria-selected", "false");
+      $("#resourcesContent .tab-pane").removeClass("show active");
+      $('a[href="'+section+'"]').addClass("active").attr("aria-selected", "true");
+      $(section).addClass("show active");
       // Checks if the light theme is on and switches the pages to light
       if (localStorage.getItem("theme") == "light") {
           SwitchLight();
@@ -136,6 +139,14 @@ $(document).ready(function() {
       event.preventDefault();
       section = $(this).attr("href");
       LoadSection(section);
+    });
+    $(document).on("click", ".js-resource-link", function(event) {
+      if (window.location.pathname == "/library.html") {
+        event.preventDefault();
+        var section = $(this).data("section");
+        LoadSection(section);
+        history.pushState(null, null, section);
+      }
     });
     $("#search-term").on("keyup", function() {
       var value = $(this).val().toLowerCase();
