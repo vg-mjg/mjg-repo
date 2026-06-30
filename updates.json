@@ -7,6 +7,12 @@
   },
   "updates": [
     {
+      "title": "MJS Log Download Script",
+      "link": "https://files.riichi.moe/mjg/other/downloadlogs_script/",
+      "category": "Resource",
+      "description": "Updated script to download majsoul game logs in tenhou .json format for bot review. Works after unity update. Install in tampermonkey, navigate to game replay in browser, then press 's'."
+    },
+    {
       "title": "Mahjong Soul Unity Mods",
       "link": "/library.html#resources-majsoul",
       "category": "Mod",
