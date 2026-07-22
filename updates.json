@@ -7,6 +7,12 @@
   },
   "updates": [
     {
+      "title": "Majsoul emotes (Update 2026-07-22)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
+      "category": "Resource",
+      "description": "New package with all, upscaled majsoul emotes. Updated for the new mila moth and fairy reina skin emotes"
+    },
+    {
       "title": "Umineko Music Mod",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/unity%20mods/umineko_music_20260716.zip",
       "category": "Mod",
@@ -23,12 +29,6 @@
       "link": "/library.html#resources-majsoul",
       "category": "Mod",
       "description": "The new era of modding is here."
-    },
-    {
-      "title": "Majsoul emotes (Update 2026-06-17)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
-      "category": "Resource",
-      "description": "New package with all, upscaled majsoul emotes. Updated for the Akagi rerun"
     },
     {
       "title": "136 Ready-to-Use Mahjong Strategies & Tactics - Senba Kurono",
