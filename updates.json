@@ -7,6 +7,12 @@
   },
   "updates": [
     {
+      "title": "Anti-Feet Mod",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/unity%20mods/noredditfetish.zip",
+      "category": "Mod",
+      "description": "Also known as the No Reddit Fetish mod. Censors the feet in all of the feet skins in the game, excluding animated skins (for now)."
+    },
+    {
       "title": "Mahjong Techniques Youtube channel archive",
       "link": "https://files.riichi.moe/mjg/movies%20and%20other%20media/Mahjong%20Technique%20archive/",
       "category": "Resource",
@@ -20,7 +26,7 @@
     },
     {
       "title": "Umineko Music Mod",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/unity%20mods/umineko_music_20260716.zip",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/unity%20mods/umineko_music_20260725.zip",
       "category": "Mod",
       "description": "Replaces most lobby, riichi music and sound effects with Umineko tracks and effects. Requires mjslib."
     },
