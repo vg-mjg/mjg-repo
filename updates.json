@@ -7,6 +7,12 @@
   },
   "updates": [
     {
+      "title": "Majsoul emotes (Update 2026-08-19)",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
+      "category": "Resource",
+      "description": "New package with all, upscaled majsoul emotes. Updated for the 2026 summer update"
+    },
+    {
       "title": "The Modern Mahjong Push-Pull Textbook - Fukuchi Makoto",
       "link": "https://files.riichi.moe/mjg/books%20(en)/The%20Modern%20Mahjong%20Push-Pull%20Textbook%20-%20Fukuchi%20Makoto.pdf",
       "category": "Books",
@@ -29,12 +35,6 @@
       "link": "https://files.riichi.moe/mjg/movies%20and%20other%20media/Mahjong%20Technique%20archive/",
       "category": "Resource",
       "description": "A collection of videos on analogue mahjong techniques uploaded by a now deleted channel called Mahjong Techniques, ran by Roku. These videos feature tips, tricks and guides on handling physical mahjong tiles."
-    },
-    {
-      "title": "Majsoul emotes (Update 2026-07-22)",
-      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
-      "category": "Resource",
-      "description": "New package with all, upscaled majsoul emotes. Updated for the new mila moth and fairy reina skin emotes"
     },
     {
       "title": "Umineko Music Mod",
