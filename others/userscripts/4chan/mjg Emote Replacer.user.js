@@ -38,7 +38,7 @@
 
     // --- Check if this is the correct type of thread ---
     function isMjgThread() {
-        const opSubjectElement = document.querySelector('.opContainer .postInfo .subject, .opContainer .postInfoM .subject');
+        const opSubjectElement = document.querySelector('.opContainer .postInfo .subject');
         if (!opSubjectElement) return false;
         const subjectText = opSubjectElement.textContent.toLowerCase();
         return subjectText.includes('mjg') || subjectText.includes('mahjong');
