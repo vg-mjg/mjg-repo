@@ -2,7 +2,7 @@
 // @name         /mjg/ Emote Replacer
 // @namespace    http://repo.riichi.moe/
 // @namespace    http://repo.riichi.moe/
-// @version      1.3.12
+// @version      1.3.13
 // @description  Detects emote strings in imageless posts in /mjg/ threads, and displays them as fake image posts.
 // @icon         https://files.catbox.moe/3sh459.png
 // @author       Ling and Anon
