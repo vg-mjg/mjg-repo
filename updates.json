@@ -7,10 +7,16 @@
   },
   "updates": [
     {
-      "title": "Majsoul emotes (Update 2026-08-19)",
+      "title": "Majsoul emotes (Update 2026-09-23)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
       "category": "Resource",
-      "description": "New package with all, upscaled majsoul emotes. Updated for the 2026 summer update"
+      "description": "New package with all, upscaled majsoul emotes. Updated for Murphys and the new pyjama skins emotes"
+    },
+    {
+      "title": "M-League VODs",
+      "link": "https://www.youtube.com/playlist?list=PLHMMDj2XXq6A",
+      "category": "Resource",
+      "description": "A recently created playlist for M-League VODs. VODs start from 2026/09/14 onwards. amaekoromo-0.png"
     },
     {
       "title": "The Modern Mahjong Push-Pull Textbook - Fukuchi Makoto",
