@@ -7,6 +7,18 @@
   },
   "updates": [
     {
+      "title": "Anca's Finest Tileface Mod",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/unity%20mods/ancas_finest_tileset.zip",
+      "category": "Unity Mods",
+      "description": "An Eliisa themed tileset mod that changes the tileface of most tiles. Originally submitted for Arts and Crafts 7 as a submission. Works with training wheels too. <a href=\"https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/unity%20mods/preview/ancas%20finest%20tileset%20preview.png\">Preview</a>"
+    },
+    {
+      "title": "Homura, Madoka, Shinobu and Touka Character Mods",
+      "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/unity%20mods/character%20replacement%20mods/HomuraMadokaShinobuToukaChars.zip",
+      "category": "Unity Mods",
+      "description": "Character mods that allow you to change Ichihime to Homura, Madoka, Shinobu or Touka. They can be downloaded individually on the Majsoul Mods page. These 4 mods were originally submitted for Arts and Crafts 7. <a href=\"https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/unity%20mods/preview/character%20mods.jpg\">Preview</a>"
+    },
+    {
       "title": "Majsoul emotes (Update 2026-10-21)",
       "link": "https://files.riichi.moe/mjg/game%20resources%20and%20tools/Mahjong%20Soul/game%20files/emotes/?zip=utf8",
       "category": "Resource",
